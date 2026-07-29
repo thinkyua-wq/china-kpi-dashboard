@@ -12857,7 +12857,7 @@ const cmpTable = (opts) => {
   }
   const HT = (label, col, extra, rs, cs, bg) => {
     if (!opts.sortable) {
-      return /* @__PURE__ */ React.createElement("th", { rowSpan: rs, colSpan: cs || void 0, className: (cs ? g(bg) : "px-2 " + (rs ? "py-1.5" : "py-1") + " font-" + (rs ? "bold" : "semibold") + " " + (rs ? "text-slate-900" : "text-slate-600") + " align-middle ") + (extra || "text-right") }, label);
+      return /* @__PURE__ */ React.createElement("th", { rowSpan: rs || void 0, colSpan: cs || void 0, className: (cs ? g(bg) : "px-2 " + (rs ? "py-1.5" : "py-1") + " font-" + (rs ? "bold" : "semibold") + " " + (rs ? "text-slate-900" : "text-slate-600") + " align-middle ") + (extra || "text-right") }, label);
     }
     const act = hqSort && hqSort.tid === opts.tid && hqSort.col === col;
     if (cs) {
