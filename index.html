@@ -5615,12 +5615,14 @@ function App() {
   }, [selectedHQ]);
   const [hqTab, setHqTab] = useState("kpi");
   const [hqSort, setHqSort] = useState(null);
-  const [entryOverride, setEntryOverride] = useState({});
+  const [entryOverride, setEntryOverride] = useState(() => { try { const r = localStorage.getItem("dashboard_entryOverride_v1"); return r ? JSON.parse(r) : {}; } catch (e) { return {}; } });
   const [dsoOpen, setDsoOpen] = useState(null);
-  const [dsoFields, setDsoFields] = useState({});
+  const [dsoFields, setDsoFields] = useState(() => { try { const r = localStorage.getItem("dashboard_dsoFields_v1"); return r ? JSON.parse(r) : {}; } catch (e) { return {}; } });
   const [lang, setLang] = useState("ko");
   const [psiShow, setPsiShow] = useState(true);
   window.__setReactLang = setLang;
+  React.useEffect(() => { try { localStorage.setItem("dashboard_dsoFields_v1", JSON.stringify(dsoFields)); } catch (e) {} }, [dsoFields]);
+  React.useEffect(() => { try { localStorage.setItem("dashboard_entryOverride_v1", JSON.stringify(entryOverride)); } catch (e) {} }, [entryOverride]);
   React.useEffect(() => {
     try {
       localStorage.setItem("dashboard_selectedSubmenu_v1", String(selectedSubmenu));
@@ -7868,6 +7870,8 @@ Google Drive \uB610\uB294 \uC548\uC804\uD55C \uC704\uCE58\uC5D0 \uBCF4\uAD00\uD5
             hiddenFocusRows,
             changeLog,
             psiCols,
+            dsoFields,
+            entryOverride,
             psiVisMonthsByYear,
             bdVisMonthsByMonth,
             uiSettings: collectUiSettings()
@@ -8032,6 +8036,8 @@ Google Sheets \uD55C\uACC4\uB97C \uB118\uC5B4 \uC77C\uBD80\uAC00 \uC798\uB9B4 \u
               if (d.bd) localStorage.setItem("dashboard_bd_v1", JSON.stringify(d.bd));
               if (d.kpi) localStorage.setItem("dashboard_kpi_v1", JSON.stringify(d.kpi));
               if (d.issues) localStorage.setItem("dashboard_issues_v1", JSON.stringify(d.issues));
+              if (d.dsoFields) localStorage.setItem("dashboard_dsoFields_v1", JSON.stringify(d.dsoFields));
+              if (d.entryOverride) localStorage.setItem("dashboard_entryOverride_v1", JSON.stringify(d.entryOverride));
             } catch (e) {
             }
             setTimeout(() => {
