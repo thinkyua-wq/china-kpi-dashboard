@@ -335,6 +335,10 @@
     color: #4338ca;
   }
 </style>
+<style id="menu-font-10pct">
+  aside button, aside .text-sm { font-size: 12.6px !important; }
+  aside .text-xs { font-size: 10.8px !important; }
+</style>
 </head>
 <body class="bg-slate-100">
 <div id="loading">
@@ -13797,576 +13801,302 @@ const renderHQDashboard = (hqKey) => {
     }))), /* @__PURE__ */ React.createElement("div", { className: "text-[10px] text-slate-400 mt-4" }, "* \uC601\uC5C5\uC0AC\uC6D0 = \uAC01 \uBCF8\uBD80 \uB2F4\uB2F9\uC790(DSO \uAE30\uC900) \xB7 \uBAA9\uD45C/\uC2E4\uC801 = \uB2F4\uB2F9 DSO\uC758 26\uB144 1~", Mo, "\uC6D4 \uB204\uACC4 \xB7 \uBCF8\uBD80\uC7A5\xB7\uC9C1\uCC45 \uB4F1 \uC6D0\uBCF8\uC5D0 \uC5C6\uB294 \uC815\uBCF4\uB294 \uACF5\uB780(\uC9C1\uC811 \uC785\uB825)"));
   })()));
 };
-const PP_DEF_BANDS = [
-  { label: ">500", chips: [
-    { n: "MEGAGEN BD", r: "600~650", m: true },
-    { n: "ZimVie", r: "650~700" },
-    { n: "ASTRA", r: "680~720" },
-    { n: "Nobel PMC", r: "800~850" },
-    { n: "Straumann BLT", r: "900~1,000" }
-  ] },
-  { label: "300\u2013500", chips: [
-    { n: "DIO UV", r: "280~350" },
-    { n: "Adin", r: "300~330" },
-    { n: "Medentika", r: "300~350" },
-    { n: "Dentium Sup.", r: "300~360" },
-    { n: "Osstem TS3", r: "300~370 (DSO 278~350)" },
-    { n: "MEGAGEN AO", r: "330~370 (\uBAA9\uD45C 300)", m: true },
-    { n: "ET", r: "404~450 (DSO 338~415)" },
-    { n: "MEGAGEN AR", r: "420~450", m: true }
-  ] },
-  { label: "200\u2013300", chips: [
-    { n: "Osstem Toplant", r: "\uBBF8\uC815" },
-    { n: "Alpha IS2/IS3", r: "180~230" },
-    { n: "DIO UF", r: "180~240" },
-    { n: "Dentium Implantium", r: "200~240" },
-    { n: "MEGAGEN ST", r: "230~260 (\uBAA9\uD45C 200)", m: true }
-  ] },
-  { label: "<200", chips: [
-    { n: "BioConcept BC/BV", r: "120" },
-    { n: "Trausim BLE/BL", r: "120" },
-    { n: "Dentium Sup.(\u4E2D)", r: "160~200" },
-    { n: "SNUC", r: "160~200" }
-  ] }
+const PP_CSS = "\n.ppwrap{--ppink:#141826;--ppline:#e6e9ef;--pps1:#1e2f5e;--pps2:#3d4d84;--pps3:#7B93CC;--pps4:#9FBAED;--ppmgg:#1e2f5e;--ppcomp:#7B93CC;--ppna:#c3cbd2;--ppbad:#c0392f;--ppok:#16794a;color:var(--ppink);font-size:13px;line-height:1.55}\n.ppwrap *{box-sizing:border-box}\n.ppwrap .ppcard{background:#fff;border:1px solid var(--ppline);padding:9px 12px;margin-bottom:8px;border-radius:0}\n.ppwrap .ct{font-size:13px;font-weight:800;margin:0}\n.ppwrap .cd{font-size:11.5px;opacity:.7;margin:2px 0 0}\n.ppwrap .rule{height:2px;background:var(--ppink);margin:5px 0 8px}\n.ppwrap .ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}\n.ppwrap select.ppsel{font:inherit;font-size:12px;border:1px solid #cfd5df;background:#fff;color:var(--ppink);padding:5px 10px;border-radius:0;cursor:pointer}\n.ppwrap .hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:7px;margin-bottom:8px}\n.ppwrap .hero>div{background:#fff;border:1px solid var(--ppline);padding:7px 11px}\n.ppwrap .hero .l{font-size:10.5px;font-weight:700;opacity:.65}\n.ppwrap .hero .v{font-size:19px;font-weight:800;line-height:1.1;margin-top:1px;font-variant-numeric:tabular-nums}\n.ppwrap .hero .s{font-size:10px;font-weight:700;margin-top:1px;opacity:.8}\n.ppwrap .xbar{position:relative;height:7px;background:#eef1f6;margin:3px 0 2px}\n.ppwrap .xbar i{position:absolute;left:0;top:0;bottom:0;display:block}\n.ppwrap .xbar u{position:absolute;top:-3px;width:2px;height:14px;background:var(--ppink);text-decoration:none}\n.ppwrap .planrow{border:1px solid var(--ppline)}\n.ppwrap .planh{padding:6px 11px;background:#f8f9fb;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}\n.ppwrap .planh b{font-size:13.5px}\n.ppwrap .planh span{font-size:11px;opacity:.75}\n.ppwrap .plangrid{display:grid;grid-template-columns:1fr 1fr;gap:0}\n.ppwrap .plangrid>div{padding:7px 11px}\n.ppwrap .plangrid>div+div{border-left:1px solid var(--ppline)}\n.ppwrap .plk{font-size:10.5px;font-weight:800;opacity:.6;margin-bottom:6px}\n.ppwrap .plv{font-size:11.5px;line-height:1.5}\n.ppwrap .pb{padding:1px 0}\n.ppwrap .pb.star{font-weight:800;color:var(--pps1);border-bottom:1px solid var(--ppline);padding-bottom:5px;margin-bottom:4px}\n.ppwrap .pb.arrow{padding-left:10px;opacity:.9}\n@media(max-width:820px){.ppwrap .plangrid{grid-template-columns:1fr}.ppwrap .plangrid>div+div{border-left:0;border-top:1px solid var(--ppline)}}\n.ppwrap .bar-row{display:flex;align-items:center;gap:8px;height:25px}\n.ppwrap .bn{width:106px;flex:none;font-size:11.5px;font-weight:700;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}\n.ppwrap .bt{position:relative;flex:1;height:100%}\n.ppwrap .band{position:absolute;top:0;bottom:0;border-left:1px dashed #dfe3ea}\n.ppwrap .bar{position:absolute;top:6.5px;height:12px;cursor:default}\n.ppwrap .bar.m{background:var(--ppmgg)}\n.ppwrap .bar.c{background:var(--ppcomp)}\n.ppwrap .bar.n{background:repeating-linear-gradient(45deg,var(--ppna),var(--ppna) 3px,#fff 3px,#fff 6px);border:1px solid var(--ppna)}\n.ppwrap .bv{position:absolute;top:4.5px;font-size:10.5px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}\n.ppwrap .axis{display:flex;gap:8px;margin-top:5px;height:30px}\n.ppwrap .at{position:relative;flex:1}\n.ppwrap .tick{position:absolute;font-size:10px;opacity:.6;transform:translateX(-50%);top:0}\n.ppwrap .blab{position:absolute;font-size:9.5px;font-weight:800;top:14px;transform:translateX(-50%);opacity:.75}\n.ppwrap .lg{display:flex;gap:14px;font-size:11.5px;margin-bottom:10px;align-items:center;flex-wrap:wrap}\n.ppwrap .sw{width:11px;height:11px;display:inline-block;margin-right:5px;vertical-align:-1px}\n.ppwrap table.pptbl{width:100%;border-collapse:collapse;font-size:12px}\n.ppwrap table.pptbl th,.ppwrap table.pptbl td{border:1px solid var(--ppline);padding:4px 7px;text-align:right}\n.ppwrap table.pptbl th{background:#f1f3f7;font-weight:700;text-align:center;color:#334155}\n.ppwrap table.pptbl td:first-child,.ppwrap table.pptbl th:first-child{text-align:left}\n.ppwrap table.pptbl td.txt{text-align:left;font-size:11.5px;line-height:1.6;white-space:pre-wrap;max-width:420px}\n.ppwrap .ppnote{font-size:11.5px;line-height:1.65;background:#f7f8fb;border:1px solid var(--ppline);padding:9px 11px;margin-top:10px}\n.ppwrap .xtbl{table-layout:fixed}\n.ppwrap .xtbl th,.ppwrap .xtbl td{text-align:center;vertical-align:top;padding:4px 7px;line-height:1.35}\n.ppwrap .xtbl th:first-child,.ppwrap .xtbl td:first-child{text-align:right;width:104px;background:#f7f8fb;font-size:11px;font-weight:700;opacity:.8;vertical-align:middle;white-space:nowrap;color:var(--ppink)}\n.ppwrap .xtbl thead th{color:#fff;border-color:rgba(255,255,255,.25);cursor:pointer}\n.ppwrap .xtbl thead th:first-child{background:#f1f3f7;color:var(--ppink);cursor:default}\n.ppwrap .xtbl .sh b{font-size:13px}\n.ppwrap .xtbl .sh span{font-size:10.5px;opacity:.9;display:block;font-weight:600}\n.ppwrap .xtbl td.selcol{background:#eef2fa}\n.ppwrap .xtbl thead th.selcol{box-shadow:inset 0 -4px 0 var(--ppink)}\n.ppwrap .xtbl tbody td{cursor:pointer}\n.ppwrap .blist{display:flex;flex-direction:column;gap:2px;align-items:stretch}\n.ppwrap .bchip{display:flex;justify-content:space-between;gap:8px;font-size:11px;padding:1px 6px;background:#f4f6fa;border-left:3px solid var(--ppcomp)}\n.ppwrap .bchip.m{background:#e9edf6;border-left-color:var(--ppmgg);font-weight:800}\n.ppwrap .bchip i{font-style:normal;opacity:.75;font-size:11px;white-space:nowrap}\n.ppwrap .xv{font-size:14px;font-weight:800;font-variant-numeric:tabular-nums}\n.ppwrap .xs{font-size:10.5px;opacity:.7}\n@media(max-width:640px){.ppwrap .bn{width:76px;font-size:10.5px}}\n.ppwrap .ppbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fff;border:1px solid var(--ppline);padding:5px 10px;margin-bottom:8px}\n.ppwrap .ppbar-l{display:flex;align-items:baseline;gap:7px;padding-right:12px;border-right:1px solid var(--ppline)}\n.ppwrap .ppbar-r{display:flex;align-items:center;gap:5px;flex-wrap:wrap}\n.ppwrap .bk{font-size:10.5px;font-weight:800;opacity:.55;letter-spacing:.02em}\n.ppwrap .bm{font-size:16px;font-weight:800;color:var(--pps1)}\n.ppwrap button.wkbtn{font:inherit;font-size:11.5px;font-weight:700;border:1px solid #cfd5df;background:#fff;color:var(--ppink);padding:3px 10px;border-radius:0;cursor:pointer}\n.ppwrap button.wkbtn:hover{border-color:var(--pps2)}\n.ppwrap button.wkbtn.on{background:var(--ppmgg);color:#fff;border-color:var(--ppmgg)}\n@media(max-width:640px){.ppwrap .ppbar-l{border-right:0;padding-right:0;width:100%}}\n.ppwrap .sub2{font-size:9.5px;font-weight:600;opacity:.55;margin-top:1px}\n.ppwrap .xu{font-size:9.5px;opacity:.6;margin-left:1px}\n.ppwrap .tl{border:1px solid var(--ppline);margin-bottom:8px}\n.ppwrap .tl-none{opacity:.5}\n.ppwrap .tlh{display:flex;align-items:baseline;gap:7px;padding:7px 11px;background:#f8f9fb;flex-wrap:wrap}\n.ppwrap .tlh b{font-size:13px}\n.ppwrap .cnt{font-size:10.5px;font-weight:800;padding:1px 7px;background:#eef1f6;color:#6b7280}\n.ppwrap .cnt.on{background:var(--pps1);color:#fff}\n.ppwrap .tlb{padding:9px 11px}\n.ppwrap .gp{display:flex;gap:9px;align-items:flex-start;padding:5px 0;border-top:1px dashed var(--ppline)}\n.ppwrap .gp:first-child{border-top:0}\n.ppwrap .tag{font-size:9.5px;font-weight:800;padding:2px 6px;color:#fff;flex:none;width:58px;text-align:center;margin-top:1px}\n.ppwrap .tag.tg{background:#16794a}\n.ppwrap .tag.tp{background:#b45309}\n.ppwrap .tag.ts{background:var(--pps2)}\n.ppwrap .li{font-size:11.5px;line-height:1.6;padding:1px 0}\n.ppwrap .dl{font-size:11px;line-height:1.55;padding:1px 0 1px 10px;margin-left:2px}\n.ppwrap .dl.add{color:#16794a;border-left:2px solid #16794a}\n.ppwrap .dl.del{color:#c0392f;border-left:2px solid #c0392f}\n.ppwrap .dl.mod{color:#141826;border-left:2px solid #b45309}\n.ppwrap .dl .old{text-decoration:line-through;opacity:.55}\n.ppwrap .mtx th,.ppwrap .mtx td{text-align:center;font-size:11px;padding:4px 6px;white-space:nowrap}\n.ppwrap .mtx td:first-child,.ppwrap .mtx th:first-child{text-align:left}\n.ppwrap .mtx td.hit{background:#fff3e0;font-weight:800;color:#b45309}\n.ppwrap .wchg{display:flex;align-items:center;gap:10px;margin-top:7px;padding:5px 10px;background:#fff8ec;border:1px solid #f0dcbb;font-size:11px}\n.ppwrap .wchg.none{background:#f7f8fb;border-color:var(--ppline);opacity:.75}\n.ppwrap button.wgo{font:inherit;font-size:11px;font-weight:700;border:1px solid var(--pps1);background:#fff;color:var(--pps1);padding:2px 9px;cursor:pointer;border-radius:0}\n.ppwrap button.wgo:hover{background:var(--pps1);color:#fff}\n.ppwrap .ppcard+.ppcard{margin-top:0}\n.ppwrap h1{margin:0 0 1px}\n.ppwrap .raw1,.ppwrap .raw2{table-layout:fixed;width:100%}\n.ppwrap .raw1 th,.ppwrap .raw2 th{white-space:nowrap;font-size:11.5px;padding:5px 6px}\n.ppwrap .raw1 td,.ppwrap .raw2 td{font-size:11.5px;padding:5px 7px;vertical-align:top}\n.ppwrap .raw1 td.txt{white-space:normal;max-width:none;font-size:11px;line-height:1.55;word-break:keep-all}\n.ppwrap .raw1 td:first-child,.ppwrap .raw2 td:first-child{font-weight:700}\n.ppwrap .fbar{padding:7px 12px}\n.ppwrap .frow{display:flex;align-items:center;gap:5px;flex-wrap:wrap;padding:3px 0}\n.ppwrap .frow+.frow{border-top:1px dashed var(--ppline);margin-top:2px}\n.ppwrap button.cchip{font:inherit;font-size:11.5px;font-weight:700;border:1px solid #cfd5df;background:#fff;color:var(--ppink);padding:3px 9px;border-radius:0;cursor:pointer;display:inline-flex;align-items:baseline;gap:5px}\n.ppwrap button.cchip i{font-style:normal;font-size:10px;font-weight:600;opacity:.6}\n.ppwrap button.cchip:hover{border-color:var(--pps2)}\n.ppwrap button.cchip.on{color:#fff;background:var(--pps1);border-color:var(--pps1)}\n.ppwrap button.cchip.on i{opacity:.85}\n.ppwrap .cmp1{table-layout:fixed}\n.ppwrap .cmp1 th,.ppwrap .cmp1 td{text-align:center;font-size:11.5px;padding:4px 7px}\n.ppwrap .cmp1 td:first-child,.ppwrap .cmp1 th:first-child{text-align:left;font-weight:700;background:#f7f8fb;width:130px}\n.ppwrap .cmp1 td.hi{background:#eef2ff;font-weight:800;color:#4f46e5}\n.ppwrap .gwrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:7px;margin-bottom:8px}\n.ppwrap .gcard{background:#fff;border:1px solid var(--ppline);padding:8px 11px}\n.ppwrap .gt{font-size:12px;font-weight:800}\n.ppwrap .gs{font-size:10px;opacity:.6;margin-bottom:4px}\n.ppwrap .gv{font-size:20px;font-weight:800;line-height:1.1}\n.ppwrap .gbar{height:6px;background:#eef1f6;margin:4px 0 3px;position:relative}\n.ppwrap .gbar i{position:absolute;left:0;top:0;bottom:0;display:block}\n.ppwrap .gn{font-size:10px;opacity:.7;line-height:1.45}\n.ppwrap button.mbtn{font:inherit;font-size:11.5px;font-weight:700;border:1px solid #cfd5df;background:#fff;color:var(--ppink);padding:2px 8px;border-radius:0;cursor:pointer}\n.ppwrap button.mbtn:hover{border-color:var(--pps2)}\n.ppwrap button.mbtn.on{background:var(--pps1);color:#fff;border-color:var(--pps1)}\n.ppwrap .mv{table-layout:fixed;width:100%}\n.ppwrap .mv th{font-size:11.5px;padding:4px 7px;white-space:nowrap}\n.ppwrap .mv td{font-size:11.5px;padding:5px 8px;text-align:left;vertical-align:top}\n.ppwrap .mv td:first-child{font-weight:800;background:#f7f8fb;white-space:nowrap}\n.ppwrap .mv td.txt{line-height:1.55;word-break:keep-all}\n.ppwrap .ovw{margin-bottom:12px}\n.ppwrap .ovbands{position:relative;height:34px}\n.ppwrap .ovb{position:absolute;top:0;height:18px;display:flex;align-items:center;justify-content:center}\n.ppwrap .ovb span{font-size:9.5px;font-weight:800;white-space:nowrap}\n.ppwrap .ovb.on{opacity:.9}\n.ppwrap .ovd{position:absolute;top:21px;height:9px;background:#94a3b8}\n.ppwrap .ovd.mg{background:#1e2f5e;top:20px;height:11px}\n.ppwrap .ovd.sel{background:#c0392f;top:19px;height:13px}\n.ppwrap .ovax{position:relative;height:15px;border-top:1px solid #cbd5e1}\n.ppwrap .ovax span{position:absolute;top:2px;transform:translateX(-50%);font-size:10px;color:#64748b}\n.ppwrap .ct2{font-size:11.5px;font-weight:800;padding:6px 0 4px;border-top:1px solid var(--ppline)}\n.ppwrap .rows{margin-bottom:6px}\n.ppwrap .rrow{display:flex;align-items:center;gap:8px;height:22px;cursor:pointer}\n.ppwrap .rrow:hover{background:#f5f7fb}\n.ppwrap .rrow.sel{background:#fdf2f0}\n.ppwrap .rn{width:112px;flex:none;font-size:11.5px;font-weight:700;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#475569}\n.ppwrap .rn.mg{color:#1e2f5e;font-weight:800}\n.ppwrap .rn.sel{color:#c0392f;font-weight:800}\n.ppwrap .rt{position:relative;flex:1;height:100%;min-width:180px}\n.ppwrap .rb{position:absolute;top:6px;height:10px;background:#94a3b8}\n.ppwrap .rb.mg{background:#1e2f5e}\n.ppwrap .rb.sel{background:#c0392f}\n.ppwrap .rv{position:absolute;top:4px;font-size:10.5px;font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums;color:#334155}\n.ppwrap .rg{width:60px;flex:none;text-align:right;font-size:10.5px;font-weight:800;font-variant-numeric:tabular-nums;color:#64748b}\n.ppwrap .rk{width:48px;flex:none;text-align:right;font-size:10px;opacity:.6;white-space:nowrap}\n@media(max-width:640px){.ppwrap .rn{width:78px;font-size:10.5px}.ppwrap .rk{display:none}}\n.ppwrap .grow{display:flex;align-items:baseline;justify-content:space-between;margin-top:2px}\n.ppwrap .grow.r{justify-content:flex-end;margin-top:1px}\n.ppwrap .ge{font-size:10.5px;color:#94a3b8;font-weight:600}\n.ppwrap .gn{margin-top:5px}\n.ppwrap .sel3{table-layout:fixed}\n.ppwrap .sel3 th,.ppwrap .sel3 td{text-align:center;font-size:11.5px;padding:5px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}\n.ppwrap .sel3 td:first-child,.ppwrap .sel3 th:first-child{text-align:left;font-weight:700;background:#f7f8fb;width:120px}\n.ppwrap .sel3 td.hi{background:#eef2ff;font-weight:800;color:#4f46e5}\n.ppwrap .srow{display:flex;align-items:center;gap:9px;padding:4px 0;min-width:0}\n.ppwrap .srow+.srow{border-top:1px dashed var(--ppline)}\n.ppwrap .sic{width:24px;height:24px;flex:none;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800}\n.ppwrap .srow>div:last-child{min-width:0;flex:1;display:flex;align-items:baseline;gap:10px}\n.ppwrap .srow .sk{width:88px;flex:none}\n.ppwrap .sk{font-size:10.5px;color:#64748b;font-weight:600}\n.ppwrap .sv{font-size:12px;font-weight:800;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}\n.ppwrap .spg{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:12px;align-items:stretch}\n@media(max-width:1080px){.ppwrap .spg{grid-template-columns:1fr}}\n.ppwrap .anx{border:1px solid var(--ppline);border-left:4px solid #f59e0b;background:#fff;padding:9px 12px;display:flex;flex-direction:column}\n.ppwrap .ant{font-size:13.5px;font-weight:800;color:#b45309;letter-spacing:-.01em;line-height:1.2}\n.ppwrap .anl{font-size:12px;line-height:1.4;padding:8px 0;color:#141826;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;display:flex;align-items:center}\n.ppwrap .anl+.anl{border-top:1px dashed var(--ppline)}\n.ppwrap .ans{font-size:9.5px;font-weight:800;color:#94a3b8;letter-spacing:.04em;margin:1px 0 4px;padding-bottom:4px;border-bottom:1px solid var(--ppline)}\n\n";
+const PP_EMBED = {"2026년 3월 3주차": {"date": "2026-03-19", "segs": [{"seg": "Premium", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": ">500", "y25": 2.0, "y25p": 0.7, "y26": 8.0, "y26p": 3.0, "plan": "★ 신규 시장 포지셔닝 구축 (하이엔드 시장) 목표 경쟁사: 스트라우만(Straumann) → 하이엔드 시장 점유 확대 및 포지셔닝 구축: BD > ARi > BDC → 브랜드 격차 극복 (단계별 추진)", "comp": "1) 스트라우만(Straumann): 국산 제품 출시 (수입품과 동일 사양) → 공동구매(VBP) 이후 가격 인하 예상 2) 노벨(Nobel): 가격 인하 예상 3) 오스템(Osstem): ZimVie 제품 유통 개시"}, {"seg": "Value", "sizeRaw": "470만개 [35%]", "size": 470.0, "share": 35.0, "band": "300-500", "y25": 52.0, "y25p": 11.0, "y26": 57.0, "y26p": 12.0, "plan": "★ 판매량 지속 확대 및 시장 방어 목표 경쟁사: 오스템(Osstem), 덴티움(Dentium) + 유럽 브랜드 → 민영 시장 가격 경쟁력 강화 (오스템 대응): ST와 80~100위안 가격차 유지 → 2차 공동구매(VBP) 적극 대응 (반드시 진입)", "comp": "1) 오스템(Osstem): 3월 가격 인하, DSO 정책 변경으로 종전 대비 약 10% 인하 2) 덴티움(Dentium): 가격 인하 / 신제품(Bright) 출시 3) 유럽 브랜드: 가격 인하 / 공급사 증가 4) 스트라우만(Straumann): Medentika·Neodent 출시 준비"}, {"seg": "Volume1", "sizeRaw": "340만개 [25%]", "size": 340.0, "share": 25.0, "band": "200-300", "y25": 35.0, "y25p": 10.0, "y26": 54.0, "y26p": 16.0, "plan": "★ DSO 중심 집중 공략 및 M/S 확대 목표 경쟁사: 덴티움(Dentium), 오스템(Osstem) + DIO → S·A급 DSO 대상 전략적 가격 대응 → 2차 공동구매(VBP) 진입 검토", "comp": "1) 덴티움(Dentium): 국산 보급형 제품 출시 2) DIO 외 한국 저가 브랜드 증가 (약 25개사), DIO는 저가 중심 공세 마케팅 지속 및 대리상 3~5% 추가 인센티브 지급 3) 중국산 저가 브랜드 증가 (약 80개사)"}, {"seg": "Volume2", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": "<200", "y25": null, "y25p": null, "y26": null, "y26p": null, "plan": "★ 저가 시장 대응 잠정 보류 목표 경쟁사: 한국 저가 브랜드 + 중국 브랜드 → 에비던스(Evidence) 시리즈 출시 후 적극 공략: 2027년", "comp": ""}], "brands": [{"b": "BLT", "hi": 1000.0, "lo": 900.0, "raw": "1,000 ↕ 900"}, {"b": "PMC", "hi": 850.0, "lo": 800.0, "raw": "850 ↕ 800"}, {"b": "ASTRA", "hi": 720.0, "lo": 680.0, "raw": "720 ↕ 680"}, {"b": "Zimvie", "hi": 700.0, "lo": 650.0, "raw": "700 ↕ 650"}, {"b": "BD", "hi": 650.0, "lo": 600.0, "raw": "650 ↕ 600"}, {"b": "AR", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "ET", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "AO", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "TS3", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "Superline", "hi": 360.0, "lo": 300.0, "raw": "360 ↕ 300"}, {"b": "UV", "hi": 350.0, "lo": 280.0, "raw": "350 ↕ 280"}, {"b": "Adin", "hi": 330.0, "lo": 300.0, "raw": "330 ↕ 300"}, {"b": "ST", "hi": 260.0, "lo": 230.0, "raw": "260 ↕ 230"}, {"b": "Implantium", "hi": 240.0, "lo": 200.0, "raw": "240 ↕ 200"}, {"b": "UF", "hi": 240.0, "lo": 180.0, "raw": "240 ↕ 180"}, {"b": "IS2 / IS3", "hi": 230.0, "lo": 180.0, "raw": "230 ↕ 180"}, {"b": "SNUC", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "Superline (중국)", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "BC/BV", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "BLE/BL", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "GM", "hi": null, "lo": null, "raw": "미정"}, {"b": "Toplant", "hi": null, "lo": null, "raw": "미정"}]}, "2026년 3월 4주차": {"date": "2026-03-26", "segs": [{"seg": "Premium", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": ">500", "y25": 2.0, "y25p": 0.7, "y26": 8.0, "y26p": 3.0, "plan": "★ 신규 시장 포지셔닝 구축 (하이엔드 시장) 목표 경쟁사: 스트라우만(Straumann) → 하이엔드 시장 점유 확대 및 포지셔닝 구축: BD > ARi > BDC → 브랜드 격차 극복 (단계별 추진) → 시장 지원, 핵심 거래처 관리", "comp": "1) 스트라우만(Straumann): 국산 제품 출시 (수입품과 동일 사양) → 공동구매(VBP) 이후 가격 인하 예상 2) 노벨(Nobel): 가격 인하 예상 3) 오스템(Osstem): ZimVie 제품 유통 개시"}, {"seg": "Value", "sizeRaw": "470만개 [35%]", "size": 470.0, "share": 35.0, "band": "300-500", "y25": 52.0, "y25p": 11.0, "y26": 57.0, "y26p": 12.0, "plan": "★ 판매량 지속 확대 및 시장 방어 목표 경쟁사: 오스템(Osstem), 덴티움(Dentium) + 유럽 브랜드 → 민영 시장 가격 경쟁력 강화 (오스템 대응): ST와 80~100위안 가격차 유지 → 2차 공동구매(VBP) 적극 대응 (반드시 진입)", "comp": "1) 오스템(Osstem): 3월 가격 인하, DSO·민영 정책 변경으로 종전 대비 약 10%/5% 인하 2) 덴티움(Dentium): 가격 인하 / 신제품(Bright) 출시 3) 유럽 브랜드: 가격 인하 / 공급사 증가 4) 스트라우만(Straumann): 3월 Medentika 출시, 대리상 공급가 220위안 / 종단가 300~350위안"}, {"seg": "Volume1", "sizeRaw": "340만개 [25%]", "size": 340.0, "share": 25.0, "band": "200-300", "y25": 35.0, "y25p": 10.0, "y26": 54.0, "y26p": 16.0, "plan": "★ DSO 중심 집중 공략 및 M/S 확대 목표 경쟁사: 덴티움(Dentium), 오스템(Osstem) + DIO → S·A급 DSO 대상 전략적 가격 대응 → 2차 공동구매(VBP) 진입 검토 → TS 대체 시 기존 툴킷 사용 가능, 원가 절감", "comp": "1) 덴티움(Dentium): 국산 보급형 제품 출시 2) DIO 외 한국 저가 브랜드 증가 (약 25개사), DIO는 저가 중심 공세 마케팅 지속 및 대리상 3~5% 추가 인센티브 지급 3) 중국산 저가 브랜드 증가 (약 80개사)"}, {"seg": "Volume2", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": "<200", "y25": null, "y25p": null, "y26": null, "y26p": null, "plan": "★ 저가 시장 대응 잠정 보류 목표 경쟁사: 한국 저가 브랜드 + 중국 브랜드 → 에비던스(Evidence) 시리즈 출시 후 적극 공략: 2026년 연말", "comp": ""}], "brands": [{"b": "BLT", "hi": 1000.0, "lo": 900.0, "raw": "1,000 ↕ 900"}, {"b": "PMC", "hi": 850.0, "lo": 800.0, "raw": "850 ↕ 800"}, {"b": "ASTRA", "hi": 720.0, "lo": 680.0, "raw": "720 ↕ 680"}, {"b": "Zimvie", "hi": 700.0, "lo": 650.0, "raw": "700 ↕ 650"}, {"b": "BD", "hi": 650.0, "lo": 600.0, "raw": "650 ↕ 600"}, {"b": "AR", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "ET", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "AO", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "TS3", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "Superline", "hi": 360.0, "lo": 300.0, "raw": "360 ↕ 300"}, {"b": "Medentika", "hi": 350.0, "lo": 300.0, "raw": "350 ↕ 300"}, {"b": "UV", "hi": 350.0, "lo": 280.0, "raw": "350 ↕ 280"}, {"b": "Adin", "hi": 330.0, "lo": 300.0, "raw": "330 ↕ 300"}, {"b": "ST", "hi": 260.0, "lo": 230.0, "raw": "260 ↕ 230"}, {"b": "Implantium", "hi": 240.0, "lo": 200.0, "raw": "240 ↕ 200"}, {"b": "UF", "hi": 240.0, "lo": 180.0, "raw": "240 ↕ 180"}, {"b": "IS2 / IS3", "hi": 230.0, "lo": 180.0, "raw": "230 ↕ 180"}, {"b": "SNUC", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "Superline (중국)", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "BC/BV", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "BLE/BL", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "Toplant", "hi": null, "lo": null, "raw": "미정"}]}, "2026년 4월 2주차": {"date": "2026-04-11", "segs": [{"seg": "Premium", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": ">500", "y25": 2.0, "y25p": 0.7, "y26": 8.0, "y26p": 3.0, "plan": "★ 신규 시장 포지셔닝 구축 (하이엔드 시장) 목표 경쟁사: 스트라우만(Straumann) → 하이엔드 시장 점유 확대 및 포지셔닝 구축: BD > ARi > BDC → 브랜드 격차 극복 (단계별 추진) → 시장 지원, 핵심 거래처 관리", "comp": "1) 스트라우만(Straumann): 국산 제품 출시 (수입품과 동일 사양) → 공동구매(VBP) 이후 가격 인하 예상 2) 노벨(Nobel): 가격 인하 예상 3) 오스템(Osstem): ZimVie 제품 유통 개시"}, {"seg": "Value", "sizeRaw": "470만개 [35%]", "size": 470.0, "share": 35.0, "band": "300-500", "y25": 52.0, "y25p": 11.0, "y26": 57.0, "y26p": 12.0, "plan": "★ 판매량 지속 확대 및 시장 방어 목표 경쟁사: 오스템(Osstem), 덴티움(Dentium) + 유럽 브랜드 → 민영 시장 가격 경쟁력 강화 (오스템 대응): ST와 80~100위안 가격차 유지 → 2차 공동구매(VBP) 적극 대응 (반드시 진입)", "comp": "1) 오스템(Osstem): 3월 가격 인하, DSO·민영 정책 변경으로 종전 대비 약 10%/5% 인하 2) 덴티움(Dentium): 가격 인하 / 신제품(Bright) 출시 3) 유럽 브랜드: 가격 인하 / 공급사 증가 4) 스트라우만(Straumann): 3월 Medentika 출시, 대리상 공급가 220위안 / 종단가 300~350위안"}, {"seg": "Volume1", "sizeRaw": "340만개 [25%]", "size": 340.0, "share": 25.0, "band": "200-300", "y25": 35.0, "y25p": 10.0, "y26": 54.0, "y26p": 16.0, "plan": "★ DSO 중심 집중 공략 및 M/S 확대 목표 경쟁사: 덴티움(Dentium), 오스템(Osstem) + DIO → S·A급 DSO 대상 전략적 가격 대응 → 2차 공동구매(VBP) 진입 검토 → TS 대체 시 기존 툴킷 사용 가능, 원가 절감", "comp": "1) 덴티움(Dentium): 국산 보급형 제품 출시 2) DIO 외 한국 저가 브랜드 증가 (약 25개사), DIO는 저가 중심 공세 마케팅 지속 및 대리상 3~5% 추가 인센티브 지급 3) 중국산 저가 브랜드 증가 (약 80개사)"}, {"seg": "Volume2", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": "<200", "y25": null, "y25p": null, "y26": null, "y26p": null, "plan": "★ 저가 시장 대응 잠정 보류 목표 경쟁사: 한국 저가 브랜드 + 중국 브랜드 → 에비던스(Evidence) 시리즈 출시 후 적극 공략: 2026년 연말", "comp": ""}], "brands": [{"b": "BLT", "hi": 1000.0, "lo": 900.0, "raw": "1,000 ↕ 900"}, {"b": "PMC", "hi": 850.0, "lo": 800.0, "raw": "850 ↕ 800"}, {"b": "ASTRA", "hi": 720.0, "lo": 680.0, "raw": "720 ↕ 680"}, {"b": "Zimvie", "hi": 700.0, "lo": 650.0, "raw": "700 ↕ 650"}, {"b": "BD", "hi": 650.0, "lo": 600.0, "raw": "650 ↕ 600"}, {"b": "AR", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "ET", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "AO", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "TS3", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "Superline", "hi": 360.0, "lo": 300.0, "raw": "360 ↕ 300"}, {"b": "Medentika", "hi": 350.0, "lo": 300.0, "raw": "350 ↕ 300"}, {"b": "UV", "hi": 350.0, "lo": 280.0, "raw": "350 ↕ 280"}, {"b": "Adin", "hi": 330.0, "lo": 300.0, "raw": "330 ↕ 300"}, {"b": "ST", "hi": 260.0, "lo": 230.0, "raw": "260 ↕ 230"}, {"b": "Implantium", "hi": 240.0, "lo": 200.0, "raw": "240 ↕ 200"}, {"b": "UF", "hi": 240.0, "lo": 180.0, "raw": "240 ↕ 180"}, {"b": "IS2 / IS3", "hi": 230.0, "lo": 180.0, "raw": "230 ↕ 180"}, {"b": "SNUC", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "Superline (중국)", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "BC/BV", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "BLE/BL", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "Toplant", "hi": null, "lo": null, "raw": "미정"}]}, "2026년 4월 3주차": {"date": "2026-04-16", "segs": [{"seg": "Premium", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": ">500", "y25": 2.0, "y25p": 0.7, "y26": 8.0, "y26p": 3.0, "plan": "★ 신규 시장 포지셔닝 구축 (하이엔드 시장) 목표 경쟁사: 스트라우만(Straumann) → 하이엔드 시장 점유 확대 및 포지셔닝 구축: BD > ARi > BDC → 브랜드 격차 극복 (단계별 추진) → 시장 지원, 핵심 거래처 관리", "comp": "1) 스트라우만(Straumann): 국산 제품 출시 (수입품과 동일 사양) → 공동구매(VBP) 이후 가격 인하 예상 2) 노벨(Nobel): 가격 인하 예상 3) 오스템(Osstem): ZimVie 제품 유통 개시"}, {"seg": "Value", "sizeRaw": "470만개 [35%]", "size": 470.0, "share": 35.0, "band": "300-500", "y25": 52.0, "y25p": 11.0, "y26": 57.0, "y26p": 12.0, "plan": "★ 판매량 지속 확대 및 시장 방어 목표 경쟁사: 오스템(Osstem), 덴티움(Dentium) + 유럽 브랜드 → 민영 시장 가격 경쟁력 강화 (오스템 대응): ST와 80~100위안 가격차 유지 → 2차 공동구매(VBP) 적극 대응 (반드시 진입)", "comp": "1) 오스템(Osstem): 3월 가격 인하, DSO·민영 정책 변경으로 종전 대비 약 10%/5% 인하 2) 덴티움(Dentium): 가격 인하 / 신제품(Bright) 출시 3) 유럽 브랜드: 가격 인하 / 공급사 증가 4) 스트라우만(Straumann): 3월 Medentika 출시, 대리상 공급가 220위안 / 종단가 300~350위안"}, {"seg": "Volume1", "sizeRaw": "340만개 [25%]", "size": 340.0, "share": 25.0, "band": "200-300", "y25": 35.0, "y25p": 10.0, "y26": 54.0, "y26p": 16.0, "plan": "★ DSO 중심 집중 공략 및 M/S 확대 목표 경쟁사: 덴티움(Dentium), 오스템(Osstem) + DIO → S·A급 DSO 대상 전략적 가격 대응 → 2차 공동구매(VBP) 진입 검토 → TS 대체 시 기존 툴킷 사용 가능, 원가 절감", "comp": "1) 덴티움(Dentium): 국산 보급형 제품 출시 2) DIO 외 한국 저가 브랜드 증가 (약 25개사), DIO는 저가 중심 공세 마케팅 지속 및 대리상 3~5% 추가 인센티브 지급 3) 중국산 저가 브랜드 증가 (약 80개사)"}, {"seg": "Volume2", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": "<200", "y25": null, "y25p": null, "y26": null, "y26p": null, "plan": "★ 저가 시장 대응 잠정 보류 목표 경쟁사: 한국 저가 브랜드 + 중국 브랜드 → 에비던스(Evidence) 시리즈 출시 후 적극 공략: 2026년 연말", "comp": ""}], "brands": [{"b": "BLT", "hi": 1000.0, "lo": 900.0, "raw": "1,000 ↕ 900"}, {"b": "PMC", "hi": 850.0, "lo": 800.0, "raw": "850 ↕ 800"}, {"b": "ASTRA", "hi": 720.0, "lo": 680.0, "raw": "720 ↕ 680"}, {"b": "Zimvie", "hi": 700.0, "lo": 650.0, "raw": "700 ↕ 650"}, {"b": "BD", "hi": 650.0, "lo": 600.0, "raw": "650 ↕ 600"}, {"b": "AR", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "ET", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "AO", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "TS3", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "Superline", "hi": 360.0, "lo": 300.0, "raw": "360 ↕ 300"}, {"b": "Medentika", "hi": 350.0, "lo": 300.0, "raw": "350 ↕ 300"}, {"b": "UV", "hi": 350.0, "lo": 280.0, "raw": "350 ↕ 280"}, {"b": "Adin", "hi": 330.0, "lo": 300.0, "raw": "330 ↕ 300"}, {"b": "ST", "hi": 260.0, "lo": 230.0, "raw": "260 ↕ 230"}, {"b": "Implantium", "hi": 240.0, "lo": 200.0, "raw": "240 ↕ 200"}, {"b": "UF", "hi": 240.0, "lo": 180.0, "raw": "240 ↕ 180"}, {"b": "IS2 / IS3", "hi": 230.0, "lo": 180.0, "raw": "230 ↕ 180"}, {"b": "SNUC", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "Superline (중국)", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "BC/BV", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "BLE/BL", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "Toplant", "hi": null, "lo": null, "raw": "미정"}]}, "2026년 4월 4주차": {"date": "2026-04-23", "segs": [{"seg": "Premium", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": ">500", "y25": 2.0, "y25p": 0.7, "y26": 8.0, "y26p": 3.0, "plan": "★ 신규 시장 포지셔닝 구축 (하이엔드 시장) 목표 경쟁사: 스트라우만(Straumann) → 하이엔드 시장 점유 확대 및 포지셔닝 구축: BD > ARi > BDC → 브랜드 격차 극복 (단계별 추진) → 시장 지원, 핵심 거래처 관리", "comp": "1) 스트라우만(Straumann): 국산 제품 출시 (수입품과 동일 사양) → 공동구매(VBP) 이후 가격 인하 예상 2) 노벨(Nobel): 가격 인하 예상 3) 오스템(Osstem): ZimVie 제품 유통 개시"}, {"seg": "Value", "sizeRaw": "470만개 [35%]", "size": 470.0, "share": 35.0, "band": "300-500", "y25": 52.0, "y25p": 11.0, "y26": 57.0, "y26p": 12.0, "plan": "★ 판매량 지속 확대 및 시장 방어 목표 경쟁사: 오스템(Osstem), 덴티움(Dentium) + 유럽 브랜드 → 민영 시장 가격 경쟁력 강화 (오스템 대응): ST와 80~100위안 가격차 유지 → 2차 공동구매(VBP) 적극 대응 (반드시 진입)", "comp": "1) 오스템(Osstem): 3월 가격 인하, DSO·민영 정책 변경으로 종전 대비 약 10%/5% 인하 2) 덴티움(Dentium): 가격 인하 / 신제품(Bright) 출시 3) 유럽 브랜드: 가격 인하 / 공급사 증가 4) 스트라우만(Straumann): 3월 Medentika 출시, 대리상 공급가 220위안 / 종단가 300~350위안"}, {"seg": "Volume1", "sizeRaw": "340만개 [25%]", "size": 340.0, "share": 25.0, "band": "200-300", "y25": 35.0, "y25p": 10.0, "y26": 54.0, "y26p": 16.0, "plan": "★ DSO 중심 집중 공략 및 M/S 확대 목표 경쟁사: 덴티움(Dentium), 오스템(Osstem) + DIO → S·A급 DSO 대상 전략적 가격 대응 → 2차 공동구매(VBP) 진입 검토 → TS 대체 시 기존 툴킷 사용 가능, 원가 절감", "comp": "1) 덴티움(Dentium): 국산 보급형 제품 출시 2) DIO 외 한국 저가 브랜드 증가 (약 25개사), DIO는 저가 중심 공세 마케팅 지속 및 대리상 3~5% 추가 인센티브 지급 3) 중국산 저가 브랜드 증가 (약 80개사)"}, {"seg": "Volume2", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": "<200", "y25": null, "y25p": null, "y26": null, "y26p": null, "plan": "★ 저가 시장 대응 잠정 보류 목표 경쟁사: 한국 저가 브랜드 + 중국 브랜드 → 에비던스(Evidence) 시리즈 출시 후 적극 공략: 2026년 연말", "comp": ""}], "brands": [{"b": "BLT", "hi": 1000.0, "lo": 900.0, "raw": "1,000 ↕ 900"}, {"b": "PMC", "hi": 850.0, "lo": 800.0, "raw": "850 ↕ 800"}, {"b": "ASTRA", "hi": 720.0, "lo": 680.0, "raw": "720 ↕ 680"}, {"b": "Zimvie", "hi": 700.0, "lo": 650.0, "raw": "700 ↕ 650"}, {"b": "BD", "hi": 650.0, "lo": 600.0, "raw": "650 ↕ 600"}, {"b": "AR", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "ET", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "AO", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "TS3", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "Superline", "hi": 360.0, "lo": 300.0, "raw": "360 ↕ 300"}, {"b": "Medentika", "hi": 350.0, "lo": 300.0, "raw": "350 ↕ 300"}, {"b": "UV", "hi": 350.0, "lo": 280.0, "raw": "350 ↕ 280"}, {"b": "Adin", "hi": 330.0, "lo": 300.0, "raw": "330 ↕ 300"}, {"b": "ST", "hi": 260.0, "lo": 230.0, "raw": "260 ↕ 230"}, {"b": "Implantium", "hi": 240.0, "lo": 200.0, "raw": "240 ↕ 200"}, {"b": "UF", "hi": 240.0, "lo": 180.0, "raw": "240 ↕ 180"}, {"b": "IS2 / IS3", "hi": 230.0, "lo": 180.0, "raw": "230 ↕ 180"}, {"b": "SNUC", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "Superline (중국)", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "BC/BV", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "BLE/BL", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "Toplant", "hi": null, "lo": null, "raw": "미정"}]}, "2026년 5월 1주차": {"date": "2026-05-09", "segs": [{"seg": "Premium", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": ">500", "y25": 2.0, "y25p": 0.7, "y26": 8.0, "y26p": 3.0, "plan": "★ 신규 시장 포지셔닝 구축 (하이엔드 시장) 목표 경쟁사: 스트라우만(Straumann) → 하이엔드 시장 점유 확대 및 포지셔닝 구축: BD > ARi > BDC → 브랜드 격차 극복 (단계별 추진) → 시장 지원, 핵심 거래처 관리", "comp": "1) 스트라우만(Straumann): 국산 제품 출시 (수입품과 동일 사양) → 공동구매(VBP) 이후 가격 인하 예상 2) 노벨(Nobel): 가격 인하 예상 3) 오스템(Osstem): ZimVie 제품 유통 개시"}, {"seg": "Value", "sizeRaw": "470만개 [35%]", "size": 470.0, "share": 35.0, "band": "300-500", "y25": 52.0, "y25p": 11.0, "y26": 57.0, "y26p": 12.0, "plan": "★ 판매량 지속 확대 및 시장 방어 목표 경쟁사: 오스템(Osstem), 덴티움(Dentium) + 유럽 브랜드 → 민영 시장 가격 경쟁력 강화 (오스템 대응): ST와 80~100위안 가격차 유지 → 2차 공동구매(VBP) 적극 대응 (반드시 진입)", "comp": "1) 오스템(Osstem): 3월 가격 인하, DSO·민영 정책 변경으로 종전 대비 약 10%/5% 인하 2) 덴티움(Dentium): 가격 인하 / 신제품(Bright) 출시 3) 유럽 브랜드: 가격 인하 / 공급사 증가 4) 스트라우만(Straumann): 3월 Medentika 출시, 대리상 공급가 220위안 / 종단가 300~350위안"}, {"seg": "Volume1", "sizeRaw": "340만개 [25%]", "size": 340.0, "share": 25.0, "band": "200-300", "y25": 35.0, "y25p": 10.0, "y26": 54.0, "y26p": 16.0, "plan": "★ DSO 중심 집중 공략 및 M/S 확대 목표 경쟁사: 덴티움(Dentium), 오스템(Osstem) + DIO → S·A급 DSO 대상 전략적 가격 대응 → 2차 공동구매(VBP) 진입 검토 → TS 대체 시 기존 툴킷 사용 가능, 원가 절감", "comp": "1) 덴티움(Dentium): 국산 보급형 제품 출시 2) DIO 외 한국 저가 브랜드 증가 (약 25개사), DIO는 저가 중심 공세 마케팅 지속 및 대리상 3~5% 추가 인센티브 지급 3) 신싱(新兴): 종단가 125~200위안 4) 판타이(盘泰): 종단가 135~180위안 5) 중국산 저가 브랜드 증가 (약 80개사)"}, {"seg": "Volume2", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": "<200", "y25": null, "y25p": null, "y26": null, "y26p": null, "plan": "★ 저가 시장 대응 잠정 보류 목표 경쟁사: 한국 저가 브랜드 + 중국 브랜드 → 에비던스(Evidence) 시리즈 출시 후 적극 공략: 2026년 연말", "comp": ""}], "brands": [{"b": "BLT", "hi": 1000.0, "lo": 900.0, "raw": "1,000 ↕ 900"}, {"b": "PMC", "hi": 850.0, "lo": 800.0, "raw": "850 ↕ 800"}, {"b": "ASTRA", "hi": 720.0, "lo": 680.0, "raw": "720 ↕ 680"}, {"b": "Zimvie", "hi": 700.0, "lo": 650.0, "raw": "700 ↕ 650"}, {"b": "BD", "hi": 650.0, "lo": 600.0, "raw": "650 ↕ 600"}, {"b": "AR", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "ET", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "AO", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "TS3", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "Superline", "hi": 360.0, "lo": 300.0, "raw": "360 ↕ 300"}, {"b": "Medentika", "hi": 350.0, "lo": 300.0, "raw": "350 ↕ 300"}, {"b": "UV", "hi": 350.0, "lo": 280.0, "raw": "350 ↕ 280"}, {"b": "Adin", "hi": 330.0, "lo": 300.0, "raw": "330 ↕ 300"}, {"b": "ST", "hi": 260.0, "lo": 230.0, "raw": "260 ↕ 230"}, {"b": "Implantium", "hi": 240.0, "lo": 200.0, "raw": "240 ↕ 200"}, {"b": "UF", "hi": 240.0, "lo": 180.0, "raw": "240 ↕ 180"}, {"b": "IS2 / IS3", "hi": 230.0, "lo": 180.0, "raw": "230 ↕ 180"}, {"b": "SNUC", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "Superline (중국)", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "BC/BV", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "BLE/BL", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "Toplant", "hi": null, "lo": null, "raw": "미정"}]}, "2026년 5월 2주차": {"date": "2026-05-14", "segs": [{"seg": "Premium", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": ">500", "y25": 2.0, "y25p": 0.7, "y26": 8.0, "y26p": 3.0, "plan": "★ 신규 시장 포지셔닝 구축 (하이엔드 시장) 목표 경쟁사: 스트라우만(Straumann) → 하이엔드 시장 점유 확대 및 포지셔닝 구축: BD > ARi > BDC → 브랜드 격차 극복 (단계별 추진) → 시장 지원, 핵심 거래처 관리", "comp": "1) 스트라우만(Straumann): 국산 제품 출시 (수입품과 동일 사양) → 공동구매(VBP) 이후 가격 인하 예상 2) 노벨(Nobel): 가격 인하 예상 3) 오스템(Osstem): ZimVie 제품 유통 개시"}, {"seg": "Value", "sizeRaw": "470만개 [35%]", "size": 470.0, "share": 35.0, "band": "300-500", "y25": 52.0, "y25p": 11.0, "y26": 57.0, "y26p": 12.0, "plan": "★ 판매량 지속 확대 및 시장 방어 목표 경쟁사: 오스템(Osstem), 덴티움(Dentium) + 유럽 브랜드 → 민영 시장 가격 경쟁력 강화 (오스템 대응): ST와 80~100위안 가격차 유지 → 2차 공동구매(VBP) 적극 대응 (반드시 진입)", "comp": "1) 오스템(Osstem): 3월 가격 인하, DSO·민영 정책 변경으로 종전 대비 약 10%/5% 인하 2) 덴티움(Dentium): 가격 인하 / 신제품(Bright) 출시 3) 유럽 브랜드: 가격 인하 / 공급사 증가 4) 스트라우만(Straumann): 3월 Medentika 출시, 대리상 공급가 220위안 / 종단가 300~350위안"}, {"seg": "Volume1", "sizeRaw": "340만개 [25%]", "size": 340.0, "share": 25.0, "band": "200-300", "y25": 35.0, "y25p": 10.0, "y26": 54.0, "y26p": 16.0, "plan": "★ DSO 중심 집중 공략 및 M/S 확대 목표 경쟁사: 덴티움(Dentium), 오스템(Osstem) + DIO → S·A급 DSO 대상 전략적 가격 대응 → 2차 공동구매(VBP) 진입 검토 → TS 대체 시 기존 툴킷 사용 가능, 원가 절감", "comp": "1) 덴티움(Dentium): 국산 보급형 제품 출시 2) DIO 외 한국 저가 브랜드 증가 (약 25개사), DIO는 저가 중심 공세 마케팅 지속 및 대리상 3~5% 추가 인센티브 지급 3) 신싱(新兴): 종단가 125~200위안 4) 판타이(盘泰): 종단가 135~180위안 5) 중국산 저가 브랜드 증가 (약 80개사)"}, {"seg": "Volume2", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": "<200", "y25": null, "y25p": null, "y26": null, "y26p": null, "plan": "★ 저가 시장 대응 잠정 보류 목표 경쟁사: 한국 저가 브랜드 + 중국 브랜드 → 에비던스(Evidence) 시리즈 출시 후 적극 공략: 2026년 연말", "comp": ""}], "brands": [{"b": "BLT", "hi": 1000.0, "lo": 900.0, "raw": "1,000 ↕ 900"}, {"b": "PMC", "hi": 850.0, "lo": 800.0, "raw": "850 ↕ 800"}, {"b": "ASTRA", "hi": 720.0, "lo": 680.0, "raw": "720 ↕ 680"}, {"b": "Zimvie", "hi": 700.0, "lo": 650.0, "raw": "700 ↕ 650"}, {"b": "BD", "hi": 650.0, "lo": 600.0, "raw": "650 ↕ 600"}, {"b": "AR", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "ET", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "AO", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "TS3", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "Superline", "hi": 360.0, "lo": 300.0, "raw": "360 ↕ 300"}, {"b": "Medentika", "hi": 350.0, "lo": 300.0, "raw": "350 ↕ 300"}, {"b": "UV", "hi": 350.0, "lo": 280.0, "raw": "350 ↕ 280"}, {"b": "Adin", "hi": 330.0, "lo": 300.0, "raw": "330 ↕ 300"}, {"b": "ST", "hi": 260.0, "lo": 230.0, "raw": "260 ↕ 230"}, {"b": "Implantium", "hi": 240.0, "lo": 200.0, "raw": "240 ↕ 200"}, {"b": "UF", "hi": 240.0, "lo": 180.0, "raw": "240 ↕ 180"}, {"b": "IS2 / IS3", "hi": 230.0, "lo": 180.0, "raw": "230 ↕ 180"}, {"b": "SNUC", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "Superline (중국)", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "BC/BV", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "BLE/BL", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "Toplant", "hi": null, "lo": null, "raw": "미정"}]}, "2026년 5월 3주차": {"date": "2026-05-21", "segs": [{"seg": "Premium", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": ">500", "y25": 2.0, "y25p": 0.7, "y26": 8.0, "y26p": 3.0, "plan": "★ 신규 시장 포지셔닝 구축 (하이엔드 시장) 목표 경쟁사: 스트라우만(Straumann) → 하이엔드 시장 점유 확대 및 포지셔닝 구축: BD > ARi > BDC → 브랜드 격차 극복 (단계별 추진) → 시장 지원, 핵심 거래처 관리", "comp": "1) 스트라우만(Straumann): 국산 제품 출시 (수입품과 동일 사양) → 공동구매(VBP) 이후 가격 인하 예상 2) 노벨(Nobel): 가격 인하 예상 3) 오스템(Osstem): ZimVie 제품 유통 개시"}, {"seg": "Value", "sizeRaw": "470만개 [35%]", "size": 470.0, "share": 35.0, "band": "300-500", "y25": 52.0, "y25p": 11.0, "y26": 57.0, "y26p": 12.0, "plan": "★ 판매량 지속 확대 및 시장 방어 목표 경쟁사: 오스템(Osstem), 덴티움(Dentium) + 유럽 브랜드 → 민영 시장 가격 경쟁력 강화 (오스템 대응): ST와 80~100위안 가격차 유지 → 2차 공동구매(VBP) 적극 대응 (반드시 진입)", "comp": "1) 오스템(Osstem): 3월 가격 인하, DSO·민영 정책 변경으로 종전 대비 약 10%/5% 인하 2) 덴티움(Dentium): 가격 인하 / 신제품(Bright) 출시 3) 유럽 브랜드: 가격 인하 / 공급사 증가 4) 스트라우만(Straumann): 3월 Medentika 출시, 대리상 공급가 220위안 / 종단가 300~350위안"}, {"seg": "Volume1", "sizeRaw": "340만개 [25%]", "size": 340.0, "share": 25.0, "band": "200-300", "y25": 35.0, "y25p": 10.0, "y26": 54.0, "y26p": 16.0, "plan": "★ DSO 중심 집중 공략 및 M/S 확대 목표 경쟁사: 덴티움(Dentium), 오스템(Osstem) + DIO → S·A급 DSO 대상 전략적 가격 대응 → 2차 공동구매(VBP) 진입 검토 → TS 대체 시 기존 툴킷 사용 가능, 원가 절감", "comp": "1) 덴티움(Dentium): 국산 보급형 제품 출시 2) DIO 외 한국 저가 브랜드 증가 (약 25개사), DIO는 저가 중심 공세 마케팅 지속 및 대리상 3~5% 추가 인센티브 지급 3) 신싱(新兴): 종단가 125~200위안 4) 판타이(盘泰): 종단가 135~180위안 5) 중국산 저가 브랜드 증가 (약 80개사)"}, {"seg": "Volume2", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": "<200", "y25": null, "y25p": null, "y26": null, "y26p": null, "plan": "★ 저가 시장 대응 잠정 보류 목표 경쟁사: 한국 저가 브랜드 + 중국 브랜드 → 에비던스(Evidence) 시리즈 출시 후 적극 공략: 2026년 연말", "comp": ""}], "brands": [{"b": "BLT", "hi": 1000.0, "lo": 900.0, "raw": "1,000 ↕ 900"}, {"b": "PMC", "hi": 850.0, "lo": 800.0, "raw": "850 ↕ 800"}, {"b": "ASTRA", "hi": 720.0, "lo": 680.0, "raw": "720 ↕ 680"}, {"b": "Zimvie", "hi": 700.0, "lo": 650.0, "raw": "700 ↕ 650"}, {"b": "BD", "hi": 650.0, "lo": 600.0, "raw": "650 ↕ 600"}, {"b": "AR", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "ET", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "AO", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "TS3", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "Superline", "hi": 360.0, "lo": 300.0, "raw": "360 ↕ 300"}, {"b": "Medentika", "hi": 350.0, "lo": 300.0, "raw": "350 ↕ 300"}, {"b": "UV", "hi": 350.0, "lo": 280.0, "raw": "350 ↕ 280"}, {"b": "Adin", "hi": 330.0, "lo": 300.0, "raw": "330 ↕ 300"}, {"b": "ST", "hi": 260.0, "lo": 230.0, "raw": "260 ↕ 230"}, {"b": "Implantium", "hi": 240.0, "lo": 200.0, "raw": "240 ↕ 200"}, {"b": "UF", "hi": 240.0, "lo": 180.0, "raw": "240 ↕ 180"}, {"b": "IS2 / IS3", "hi": 230.0, "lo": 180.0, "raw": "230 ↕ 180"}, {"b": "SNUC", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "Superline (중국)", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "BC/BV", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "BLE/BL", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "Toplant", "hi": null, "lo": null, "raw": "미정"}]}, "2026년 7월 2주차": {"date": "2026-07-09", "segs": [{"seg": "Premium", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": ">500", "y25": 2.0, "y25p": 0.7, "y26": 8.0, "y26p": 3.0, "plan": "★ 신규 시장 포지셔닝 구축 (하이엔드 시장) 목표 경쟁사: 스트라우만(Straumann) → 하이엔드 시장 점유 확대 및 포지셔닝 구축: BD > ARi > BDC → 브랜드 격차 극복 (단계별 추진) → 시장 지원, 핵심 거래처 관리", "comp": "1) 스트라우만(Straumann): 국산 제품 출시 (수입품과 동일 사양) → 공동구매(VBP) 이후 가격 인하 예상 2) 노벨(Nobel): 가격 인하 예상 3) 오스템(Osstem): ZimVie 제품 유통 개시 → [메가젠 대응] BD 인센티브 정책 수립, ARi로 차별화"}, {"seg": "Value", "sizeRaw": "470만개 [35%]", "size": 470.0, "share": 35.0, "band": "300-500", "y25": 52.0, "y25p": 11.0, "y26": 57.0, "y26p": 12.0, "plan": "★ 판매량 지속 확대 및 시장 방어 목표 경쟁사: 오스템(Osstem), 덴티움(Dentium) + 유럽 브랜드 → 민영 시장 가격 경쟁력 강화 (오스템 대응): ST와 80~100위안 가격차 유지 → 2차 공동구매(VBP) 적극 대응 (반드시 진입)", "comp": "1) 오스템(Osstem): 3월 가격 인하, DSO·민영 정책 변경으로 종전 대비 약 10%/5% 인하 2) 덴티움(Dentium): 가격 인하 / 신제품(Bright) 출시 3) 유럽 브랜드: 가격 인하 / 공급사 증가 4) 스트라우만(Straumann): 3월 Medentika 출시, 대리상 공급가 220위안 / 종단가 300~350위안 → [메가젠 대응] AO 패키지 정책 수립, 대리상 인센티브 검토"}, {"seg": "Volume1", "sizeRaw": "340만개 [25%]", "size": 340.0, "share": 25.0, "band": "200-300", "y25": 35.0, "y25p": 10.0, "y26": 54.0, "y26p": 16.0, "plan": "★ DSO 중심 집중 공략 및 M/S 확대 목표 경쟁사: 덴티움(Dentium), 오스템(Osstem) + DIO → S·A급 DSO 대상 전략적 가격 대응 → 2차 공동구매(VBP) 진입 검토 → TS 대체 시 기존 툴킷 사용 가능, 원가 절감", "comp": "1) 덴티움(Dentium): 국산 보급형 제품 출시 2) DIO 외 한국 저가 브랜드 증가 (약 25개사), DIO는 저가 중심 공세 마케팅 지속 및 대리상 3~5% 추가 인센티브 지급 3) 신싱(新兴): 종단가 125~200위안 4) 판타이(盘泰): 종단가 135~180위안 5) 중국산 저가 브랜드 증가 (약 80개사) → [메가젠 대응] ST로 대응하되 200위안 이하는 대응 불가, 시장 활동·교육 지원 강화로 보완"}, {"seg": "Volume2", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": "<200", "y25": null, "y25p": null, "y26": null, "y26p": null, "plan": "★ 저가 시장 대응 잠정 보류 목표 경쟁사: 한국 저가 브랜드 + 중국 브랜드 → 에비던스(Evidence) 시리즈 출시 후 적극 공략: 2026년 연말", "comp": ""}], "brands": [{"b": "BLT", "hi": 1000.0, "lo": 900.0, "raw": "1,000 ↕ 900"}, {"b": "PMC", "hi": 850.0, "lo": 800.0, "raw": "850 ↕ 800"}, {"b": "ASTRA", "hi": 720.0, "lo": 680.0, "raw": "720 ↕ 680"}, {"b": "Zimvie", "hi": 700.0, "lo": 650.0, "raw": "700 ↕ 650"}, {"b": "BD", "hi": 650.0, "lo": 600.0, "raw": "650 ↕ 600"}, {"b": "AR", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "ET", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "AO", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "TS3", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "Superline", "hi": 360.0, "lo": 300.0, "raw": "360 ↕ 300"}, {"b": "Medentika", "hi": 350.0, "lo": 300.0, "raw": "350 ↕ 300"}, {"b": "UV", "hi": 350.0, "lo": 280.0, "raw": "350 ↕ 280"}, {"b": "Adin", "hi": 330.0, "lo": 300.0, "raw": "330 ↕ 300"}, {"b": "ST", "hi": 260.0, "lo": 230.0, "raw": "260 ↕ 230"}, {"b": "Implantium", "hi": 240.0, "lo": 200.0, "raw": "240 ↕ 200"}, {"b": "UF", "hi": 240.0, "lo": 180.0, "raw": "240 ↕ 180"}, {"b": "IS2 / IS3", "hi": 230.0, "lo": 180.0, "raw": "230 ↕ 180"}, {"b": "SNUC", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "Superline (중국)", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "BC/BV", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "BLE/BL", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "Toplant", "hi": null, "lo": null, "raw": "미정"}]}, "2026년 8월 5주차": {"date": "2026-08-29", "segs": [{"seg": "Premium", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": ">500", "y25": 2.0, "y25p": 0.7, "y26": 8.0, "y26p": 3.0, "plan": "★ 신규 시장 포지셔닝 구축 (하이엔드 시장) 목표 경쟁사: 스트라우만(Straumann) → 하이엔드 시장 점유 확대 및 포지셔닝 구축: BD > ARi > BDC → 브랜드 격차 극복 (단계별 추진) → 시장 지원, 핵심 거래처 관리", "comp": "1) 스트라우만(Straumann): 국산 제품 출시 (수입품과 동일 사양) → 공동구매(VBP) 이후 가격 인하 예상 2) 노벨(Nobel): 가격 인하 예상 3) 오스템(Osstem): ZimVie 제품 유통 개시 → [메가젠 대응] BD 인센티브 정책 수립, ARi로 차별화"}, {"seg": "Value", "sizeRaw": "470만개 [35%]", "size": 470.0, "share": 35.0, "band": "300-500", "y25": 52.0, "y25p": 11.0, "y26": 57.0, "y26p": 12.0, "plan": "★ 판매량 지속 확대 및 시장 방어 목표 경쟁사: 오스템(Osstem), 덴티움(Dentium) + 유럽 브랜드 → 민영 시장 가격 경쟁력 강화 (오스템 대응): ST와 80~100위안 가격차 유지 → 2차 공동구매(VBP) 적극 대응 (반드시 진입)", "comp": "1) 오스템(Osstem): 3월 가격 인하, DSO·민영 정책 변경으로 종전 대비 약 10%/5% 인하 2) 덴티움(Dentium): 가격 인하 / 신제품(Bright) 출시 3) 유럽 브랜드: 가격 인하 / 공급사 증가 4) 스트라우만(Straumann): 3월 Medentika 출시, 대리상 공급가 220위안 / 종단가 300~350위안 → [메가젠 대응] AO 패키지 정책 수립, 대리상 인센티브 검토"}, {"seg": "Volume1", "sizeRaw": "340만개 [25%]", "size": 340.0, "share": 25.0, "band": "200-300", "y25": 35.0, "y25p": 10.0, "y26": 54.0, "y26p": 16.0, "plan": "★ DSO 중심 집중 공략 및 M/S 확대 목표 경쟁사: 덴티움(Dentium), 오스템(Osstem) + DIO → S·A급 DSO 대상 전략적 가격 대응 → 2차 공동구매(VBP) 진입 검토 → TS 대체 시 기존 툴킷 사용 가능, 원가 절감", "comp": "1) 덴티움(Dentium): 국산 보급형 제품 출시 2) DIO 외 한국 저가 브랜드 증가 (약 25개사), DIO는 저가 중심 공세 마케팅 지속 및 대리상 3~5% 추가 인센티브 지급 3) 신싱(新兴): 종단가 125~200위안 4) 판타이(盘泰): 종단가 135~180위안 5) 중국산 저가 브랜드 증가 (약 80개사), 중한(中韩)은 종단가 99위안 (이하오/一好) → [메가젠 대응] ST로 대응하되 200위안 이하는 대응 불가, 시장 활동·교육 지원 강화로 보완"}, {"seg": "Volume2", "sizeRaw": "270만개 [20%]", "size": 270.0, "share": 20.0, "band": "<200", "y25": null, "y25p": null, "y26": null, "y26p": null, "plan": "★ 저가 시장 대응 잠정 보류 목표 경쟁사: 한국 저가 브랜드 + 중국 브랜드 → 에비던스(Evidence) 시리즈 출시 후 적극 공략: 2026년 연말", "comp": ""}], "brands": [{"b": "BLT", "hi": 1000.0, "lo": 900.0, "raw": "1,000 ↕ 900"}, {"b": "PMC", "hi": 850.0, "lo": 800.0, "raw": "850 ↕ 800"}, {"b": "ASTRA", "hi": 720.0, "lo": 680.0, "raw": "720 ↕ 680"}, {"b": "Zimvie", "hi": 700.0, "lo": 650.0, "raw": "700 ↕ 650"}, {"b": "BD", "hi": 650.0, "lo": 600.0, "raw": "650 ↕ 600"}, {"b": "AR", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "ET", "hi": 450.0, "lo": 420.0, "raw": "450 ↕ 420"}, {"b": "AO", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "TS3", "hi": 370.0, "lo": 330.0, "raw": "370 ↕ 330"}, {"b": "Superline", "hi": 360.0, "lo": 300.0, "raw": "360 ↕ 300"}, {"b": "Medentika", "hi": 350.0, "lo": 300.0, "raw": "350 ↕ 300"}, {"b": "UV", "hi": 350.0, "lo": 280.0, "raw": "350 ↕ 280"}, {"b": "Adin", "hi": 330.0, "lo": 300.0, "raw": "330 ↕ 300"}, {"b": "ST", "hi": 260.0, "lo": 230.0, "raw": "260 ↕ 230"}, {"b": "Implantium", "hi": 240.0, "lo": 200.0, "raw": "240 ↕ 200"}, {"b": "UF", "hi": 240.0, "lo": 180.0, "raw": "240 ↕ 180"}, {"b": "IS2 / IS3", "hi": 230.0, "lo": 180.0, "raw": "230 ↕ 180"}, {"b": "SNUC", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "Superline (중국)", "hi": 200.0, "lo": 160.0, "raw": "200 ↕ 160"}, {"b": "BC/BV", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "BLE/BL", "hi": 120.0, "lo": null, "raw": "120 ~"}, {"b": "Toplant", "hi": null, "lo": null, "raw": "미정"}], "moves": [{"c": "스트라우만 (Straumann)", "t": "공동구매(VBP) 국산품 — 700위안 전후로 예상. 최근 국산 임플란트 실패 사례 다수 발생 (식립 후 탈락)"}, {"c": "오스템 (Osstem)", "t": "하반기 200명 감원 계획 (판매 지속 하락). 구 본부장(랴오닝)은 현재 상하이로 이동. 최근 3만 위안 패키지(102개) 출시 — 개당 295위안"}, {"c": "덴티움 (Dentium)", "t": "내부 재정비 진행 중 (프로세스·가격정책·관리). 대리상에 대량 재고 밀어내기, 현재 각 지역 S급 DSO 접촉 중"}, {"c": "DIO", "t": "7월 쯔양(资阳) 공장 준공식 개최, CNC 6대 반입해 시운전 중. 국산 가격은 공동구매 전까지 비공개"}, {"c": "판타이 (盘泰)", "t": "위잉(育英)이 마케팅 담당 (주로 통번역·본사 대응), 화남 책임자(리 이사)는 쓰촨으로 이동. 상반기 누적 판매 10만개 미만"}, {"c": "뉴백트 (纽百特)", "t": "중국 리둬츠(利多齿)와 국산화 협의 중, 조직 개편 및 주재원 변동. 200위안 현금 결제 조건, 이후 증정 방식"}]}};
+const PP_SEGDEF = [
+  { n: "Premium", lo: 500, hi: 1100, cc: "#1e2f5e" },
+  { n: "Value",   lo: 300, hi: 500,  cc: "#3d4d84" },
+  { n: "Volume1", lo: 200, hi: 300,  cc: "#7B93CC" },
+  { n: "Volume2", lo: 0,   hi: 200,  cc: "#9FBAED" }
 ];
-const PP_DEF_INS = [
-  { name: "Premium (>500 RMB)", color: "text-indigo-700", bar: "border-l-indigo-500", items: ["\uC2DC\uC7A5 \uC120\uB3C4: BLT(900~1,000 RMB)", "MEGAGEN BD: 600~650 RMB", "\uBAA9\uD45C: \uD504\uB9AC\uBBF8\uC5C4 \uC2DC\uC7A5 \uC785\uC9C0 \uAC15\uD654", "\uC804\uB7B5: BD > ARI > BDC"] },
-  { name: "Value (300~500 RMB)", color: "text-amber-700", bar: "border-l-amber-500", items: ["\uC8FC\uC694 \uACBD\uC7C1: Osstem, Dentium, DIO", "MEGAGEN AO: 300~370 RMB (\uACBD\uC7C1\uB825 \uC6B0\uC704)", "ET: DSO \uCC44\uB110\uB85C \uAC00\uACA9 \uACBD\uC7C1\uB825 \uD655\uBCF4", "\uC804\uB7B5: VBP\uB85C \uAC00\uACA9 \uCC28\uBCC4\uD654, \uC2E0\uADDC\uC81C\uD488 \uD655\uB300"] },
-  { name: "Volume1 (200~300 RMB)", color: "text-green-700", bar: "border-l-green-500", items: ["\uACBD\uC7C1 \uC2EC\uD654 \uAD6C\uAC04", "Dentium Implantium: 200~240 RMB", "MEGAGEN ST: 200~260 RMB", "\uC804\uB7B5: DSO \uC911\uC2EC \uC804\uB7B5 + \uBE44\uC6A9 \uD6A8\uC728\uD654"] },
-  { name: "Volume2 (<200 RMB)", color: "text-slate-600", bar: "border-l-slate-400", items: ["\uC800\uAC00 \uC2DC\uC7A5, \uBE0C\uB79C\uB4DC \uD30C\uC6CC \uB0AE\uC74C", "Dentium Superline(\u4E2D): 160~200 RMB", "\uC804\uB7B5: \uC911\uAD6D/\uD55C\uAD6D \uC800\uAC00 \uBE0C\uB79C\uB4DC\uB85C \uB300\uC751"] }
-];
-const PP_DEF_SEG = [
-  { name: "Premium", qty: "270\uB9CC\uAC1C [20%]", price: ">500", ms25: "2\uB9CC\uAC1C [0.7%]", ms26: "8\uB9CC\uAC1C [3%]", txt: "text-black" },
-  { name: "Value", qty: "470\uB9CC\uAC1C [35%]", price: "300\u2013500", ms25: "52\uB9CC\uAC1C [11%]", ms26: "57\uB9CC\uAC1C [12%]", txt: "text-black" },
-  { name: "Volume1", qty: "340\uB9CC\uAC1C [25%]", price: "200\u2013300", ms25: "35\uB9CC\uAC1C [10%]", ms26: "54\uB9CC\uAC1C [16%]", txt: "text-black" },
-  { name: "Volume2", qty: "270\uB9CC\uAC1C [20%]", price: "<200", ms25: "\u2013", ms26: "\u2013", txt: "text-black" }
-];
-const PP_DEF_ROWS = [
-  {
-    seg: "Premium",
-    mg: "BD",
-    plan: "\uC2E0\uADDC \uC2DC\uC7A5 \uD3EC\uC9C0\uC154\uB2DD \uAD6C\uCD95(\uACE0\uAE09 \uC2DC\uC7A5) \xB7 \uBAA9\uD45C \uACBD\uC7C1\uC0AC: Straumann \xB7 \uACE0\uAE09 \uC2DC\uC7A5 \uC810\uC720\uC728 \uD655\uB300 \uBC0F \uD3EC\uC9C0\uC154\uB2DD \uAD6C\uCD95: BD > ARI > BDC \xB7 \uBE0C\uB79C\uB4DC \uACA9\uCC28 \uB2E8\uACC4\uC801 \uADF9\uBCF5 \xB7 \uC2DC\uC7A5 \uC9C0\uC6D0, \uD575\uC2EC \uAC70\uB798\uCC98 \uAD00\uB9AC",
-    chg: "Straumann: \uAD6D\uC0B0 \uCD9C\uC2DC(\uC218\uC785\uD488\uACFC \uB3D9\uC77C), VBP \uC774\uD6C4 \uAC00\uACA9 \uC778\uD558 \uC608\uC0C1 \xB7 Nobel: \uAC00\uACA9 \uC778\uD558 \uC608\uC0C1 \xB7 Osstem: Zimvie \uC81C\uD488 \uC720\uD1B5 \u2192 BD \uC778\uC13C\uD2F0\uBE0C \uC815\uCC45 \uC218\uB9BD, ARI\uB85C \uCC28\uBCC4\uD654"
-  },
-  {
-    seg: "Value",
-    mg: "AO, AR",
-    plan: "\uD310\uB9E4\uB7C9 \uC9C0\uC18D \uD655\uB300 \uBC0F \uC2DC\uC7A5 \uBC29\uC5B4 \xB7 \uBAA9\uD45C \uACBD\uC7C1\uC0AC: Osstem, Dentium + \uC720\uB7FD \uBE0C\uB79C\uB4DC \xB7 \uBBFC\uC601 \uC2DC\uC7A5 \uAC00\uACA9 \uACBD\uC7C1\uB825 \uAC15\uD654(Osstem): ST\uC640 80~100 RMB \uAC00\uACA9\uCC28 \uC720\uC9C0 \xB7 2\uCC28 VBP \uC801\uADF9 \uB300\uC751(\uD544\uC218 \uC9C4\uC785)",
-    chg: "Osstem: 3\uC6D4 \uAC00\uACA9 \uC778\uD558, DSO\xB7\uBBFC\uC601 \uC815\uCC45 \uBCC0\uACBD(\uC774\uC804 \uB300\uBE44 \uC57D 10/5% \uC778\uD558) \xB7 Dentium: \uAC00\uACA9 \uC778\uD558 / \uC2E0\uC81C\uD488 Bright \uCD9C\uC2DC \xB7 \uC720\uB7FD \uBE0C\uB79C\uB4DC: \uAC00\uACA9 \uC778\uD558 / \uACF5\uAE09\uC0AC \uC99D\uAC00 \xB7 Straumann: 3\uC6D4 Medentika \uCD9C\uC2DC(\uB300\uB9AC\uC0C1 \uACF5\uAE09\uAC00 220, \uCD5C\uC885\uAC00 300~350) \u2192 MEGAGEN: AO \uD328\uD0A4\uC9C0 \uC815\uCC45, \uB300\uB9AC\uC0C1 \uC218\uC218\uB8CC \uAC80\uD1A0"
-  },
-  {
-    seg: "Volume 1",
-    mg: "ST",
-    plan: "DSO \uC911\uC2EC \uC9D1\uC911 \uACF5\uB7B5 & M/S \uD655\uB300 \xB7 \uBAA9\uD45C \uACBD\uC7C1\uC0AC: Dentium, Osstem + DIO \xB7 S\xB7A\uAE09 DSO \uC804\uB7B5\uC801 \uAC00\uACA9 \uB300\uC751 \xB7 2\uCC28 VBP \uC9C4\uC785 \uAC80\uD1A0 \xB7 TS \uB300\uCCB4, \uC790\uC0AC \uD234\uD0B7 \uC0AC\uC6A9\uC73C\uB85C \uBE44\uC6A9 \uC808\uAC10",
-    chg: "Dentium: \uAD6D\uC0B0 \uC774\uCF54\uB178\uBBF8 \uC81C\uD488 \uCD9C\uC2DC \xB7 DIO \uC678 \uD55C\uAD6D \uC800\uAC00 \uBE0C\uB79C\uB4DC \uC99D\uAC00(\uC57D 25\uAC1C\uC0AC), DIO \uC800\uAC00 \uC911\uC2EC \uACF5\uC138 \uB9C8\uCF00\uD305 \uC9C0\uC18D, \uB300\uB9AC\uC0C1 3~5% \uCD94\uAC00 \uC778\uC13C\uD2F0\uBE0C \xB7 \uC2E0\uD765: \uCD5C\uC885\uAC00 125~200 RMB \xB7 \uD310\uD0C0\uC774: \uCD5C\uC885\uAC00 135~180 RMB \xB7 \uAD6D\uC0B0 \uC800\uAC00 \uBE0C\uB79C\uB4DC \uC99D\uAC00(\uC57D 80\uAC1C\uC0AC)"
-  },
-  {
-    seg: "Volume 2",
-    mg: "\u2013",
-    plan: "\uC800\uAC00 \uC2DC\uC7A5 \uB300\uC751 \uC7A0\uC815 \uBCF4\uB958 \xB7 \uBAA9\uD45C \uACBD\uC7C1\uC0AC: \uD55C\uAD6D \uC800\uAC00 \uBE0C\uB79C\uB4DC + \uC911\uAD6D \uBE0C\uB79C\uB4DC \xB7 Evidence \uC2DC\uB9AC\uC988 \uCD9C\uC2DC \uD6C4 \uC801\uADF9 \uACF5\uB7B5: 2026\uB144 \uC5F0\uB9D0",
-    chg: "MEGAGEN: ST\uB85C \uB300\uC751\uD558\uB098 200 RMB \uC774\uD558\uB294 \uB300\uC751 \uBD88\uAC00 \u2192 \uC2DC\uC7A5 \uD65C\uB3D9 \uBC0F \uAD50\uC721 \uC9C0\uC6D0 \uAC15\uD654\uB85C \uBCF4\uC644"
-  }
-];
-function PPDE({ v, on, cls, style, ta, center, fmt }) {
-  const [ed, setEd] = React.useState(false);
-  const [t, setT] = React.useState(v);
-  React.useEffect(() => {
-    setT(v);
-  }, [v]);
-  const done = () => {
-    setEd(false);
-    if (t !== v) on(t);
-  };
-  if (!ed) return /* @__PURE__ */ React.createElement("span", { className: (ta ? "whitespace-pre-wrap " : "") + (cls || ""), style, title: "\uB354\uBE14\uD074\uB9AD\uD558\uC5EC \uC218\uC815", onDoubleClick: () => {
-    setT(v);
-    setEd(true);
-  } }, fmt ? fmt(v) : v);
-  const grow = (el) => {
-    if (!el) return;
-    el.style.height = "auto";
-    el.style.height = el.scrollHeight + 2 + "px";
-  };
-  if (ta) return /* @__PURE__ */ React.createElement(
-    "textarea",
-    {
-      autoFocus: true,
-      value: t,
-      rows: 3,
-      ref: grow,
-      onChange: (e) => {
-        setT(e.target.value);
-        grow(e.target);
-      },
-      onFocus: (e) => grow(e.target),
-      onBlur: done,
-      onKeyDown: (e) => {
-        if (e.key === "Escape") setEd(false);
-      },
-      className: "w-full border border-indigo-400 px-1 py-0.5 " + (cls || ""),
-      style: { ...style || {}, overflow: "hidden", resize: "vertical" }
-    }
-  );
-  return /* @__PURE__ */ React.createElement(
-    "input",
-    {
-      autoFocus: true,
-      value: t,
-      onChange: (e) => setT(e.target.value),
-      onBlur: done,
-      onKeyDown: (e) => {
-        if (e.key === "Enter") done();
-        if (e.key === "Escape") setEd(false);
-      },
-      className: "w-full border border-indigo-400 px-1 " + (center ? "text-center " : "") + (cls || ""),
-      style
-    }
-  );
+const PP_MGG = ["BD", "AR", "AO", "ST", "ARi", "BDC"];
+const PP_MIN = 100, PP_MAX = 1050;
+const ppPos = (v) => (v - PP_MIN) / (PP_MAX - PP_MIN) * 100;
+const ppSegOf = (n) => PP_SEGDEF.find((s) => s.n === n) || PP_SEGDEF[3];
+const ppInSeg = (v, sd) => v > sd.lo && v <= sd.hi;
+const ppFmt = (n) => n == null ? "–" : (Math.round(n * 10) / 10).toLocaleString();
+const ppEsc = (s) => String(s == null ? "" : s).replace(/[<>]/g, "");
+const ppNum = (v) => { const x = parseFloat(String(v == null ? "" : v).replace(/[^0-9.\-]/g, "")); return isNaN(x) ? null : x; };
+
+function ppBullets(t) {
+  if (!t || !String(t).trim()) return '<span class="xs">내용 없음</span>';
+  let s = ppEsc(t);
+  s = s.replace(/★\s*/g, "\n★ ").replace(/→\s*/g, "\n→ ").replace(/(\d\))\s*/g, "\n$1 ");
+  return s.split("\n").map((x) => x.trim()).filter((x) => x).map((x) => {
+    const c = x.charAt(0) === "★" ? "pb star" : (x.charAt(0) === "→" ? "pb arrow" : "pb");
+    return '<div class="' + c + '">' + x + "</div>";
+  }).join("");
 }
-const ppSplit = (x) => {
-  const str = String(x == null ? "" : x);
-  const m = str.match(/^(.*?)\s*(\(.*\))\s*$/);
-  if (!m) return str;
-  return /* @__PURE__ */ React.createElement("span", { className: "block" }, m[1], /* @__PURE__ */ React.createElement("span", { className: "block" }, m[2]));
+
+/* ── 구글시트 연동 훅 ──────────────────────────────────────────
+   시트 A(Positioning전략) → 탭 'Pos_Seg'  : 주차 | Segment | 시장규모 | 시장비중 | 가격대 | 25년 | 25년점유 | 26년 | 26년점유 | 대응방안 | 경쟁사변화
+   시트 B(가격맵)          → 탭 'Pos_Price': 주차 | 브랜드 | 상한 | 하한 | 원문
+   두 탭이 모두 없으면 내장 스냅샷(PP_EMBED) 사용                */
+function ppFromSheets(sd) {
+  try {
+    if (!sd) return null;
+    const A = sd["Pos_Seg"], B = sd["Pos_Price"];
+    if (!A || !A.rows || !A.rows.length) return null;
+    const hi = (hdr, re) => { for (let i = 0; i < hdr.length; i++) if (re.test(String(hdr[i] || ""))) return i; return -1; };
+    const ah = A.headers || A.rows[0];
+    const cW = hi(ah, /주차|周/), cS = hi(ah, /segment|구간/i), cSz = hi(ah, /시장규모|市场规模/),
+      cSh = hi(ah, /비중|占比|share/i), cB = hi(ah, /가격대|价格/), c25 = hi(ah, /^25/), c25p = hi(ah, /25.*점유/),
+      c26 = hi(ah, /^26/), c26p = hi(ah, /26.*점유/), cP = hi(ah, /대응|方案/), cC = hi(ah, /경쟁|竞争/);
+    if (cW < 0 || cS < 0) return null;
+    const out = {};
+    (A.rows || []).forEach((r) => {
+      const w = String(r[cW] || "").trim(); if (!w) return;
+      if (!out[w]) out[w] = { date: "", segs: [], brands: [] };
+      out[w].segs.push({
+        seg: String(r[cS] || "").trim(), sizeRaw: String(r[cSz] || ""), size: ppNum(r[cSz]),
+        share: ppNum(r[cSh]), band: String(r[cB] || ""), y25: ppNum(r[c25]), y25p: ppNum(r[c25p]),
+        y26: ppNum(r[c26]), y26p: ppNum(r[c26p]), plan: String(r[cP] || ""), comp: String(r[cC] || "")
+      });
+    });
+    if (B && B.rows && B.rows.length) {
+      const bh = B.headers || B.rows[0];
+      const bW = hi(bh, /주차|周/), bB = hi(bh, /브랜드|品牌/), bH = hi(bh, /상한|上限|hi/i),
+        bL = hi(bh, /하한|下限|lo/i), bR = hi(bh, /원문|가격대|价格/);
+      if (bW >= 0 && bB >= 0) (B.rows || []).forEach((r) => {
+        const w = String(r[bW] || "").trim(); if (!w || !out[w]) return;
+        out[w].brands.push({ b: String(r[bB] || "").trim(), hi: ppNum(r[bH]), lo: ppNum(r[bL]), raw: String(r[bR] || "") });
+      });
+    }
+    return Object.keys(out).length ? out : null;
+  } catch (e) { return null; }
+}
+
+
+/* 구간별 시장 장악 전략 — {..} 자리는 주차 데이터로 치환 */
+const PP_WIN = {
+  "Premium": [
+    "BD 최저가 우위, 스트라우만 국산 700위안에 소멸",
+    "KOL 임상 + BD·ARi·BDC 패키지로 단가 방어"
+  ],
+  "Value": [
+    "메가젠 물량 {mgShare}% 방어 구간 — 맞대응 인하 금지",
+    "AR 가격 유지 · AO 패키지로 실효가만 방어"
+  ],
+  "Volume1": [
+    "전사 증분 {pOpp}% 최대 승부처, ST는 구간 최고가",
+    "DSO 볼륨 티어 + TS 툴킷 호환으로 전환비용 0"
+  ],
+  "Volume2": [
+    "시장 {share}% 공백 — 저가 채널이 Volume1까지 역류",
+    "에비던스 별도 브랜드로 27년 상반기까지 진입"
+  ]
 };
-function PPMap({ FONT, NUM, weeklyEntries, setWeeklyEntries, logChange, year, month, week, sheetsData: sheetsData2, ui, setUI }) {
-  const Y = year || 2026, M = month || 1;
+
+function PPCompare({ FONT, NUM, ui, setUI, segs, brands, wk }) {
   const U = ui || {};
-  const wk = U.wk || week || 1;
-  const setWk = (v) => setUI((u) => ({ ...u, wk: v }));
-  const edit = !!U.edit;
-  const setEdit = (v) => setUI((u) => ({ ...u, edit: !!v }));
-  const impOpen = !!U.impOpen;
-  const setImpOpen = (v) => setUI((u) => ({ ...u, impOpen: !!v }));
-  const impText = U.impText || "";
-  const setImpText = (v) => setUI((u) => ({ ...u, impText: v }));
-  const bKey = (w) => `pp|map|${Y}-${M}-W${w || wk}`;
-  const iKey = (w) => `pp|ins|${Y}-${M}-W${w || wk}`;
-  const sKey = (w) => `pp|seg|${Y}-${M}-W${w || wk}`;
-  const rKey = (w) => `pp|rows|${Y}-${M}-W${w || wk}`;
-  const readJSON = (k, dflt) => {
-    try {
-      const raw = weeklyEntries && weeklyEntries[k];
-      if (raw) {
-        const p = JSON.parse(raw);
-        if (p) return p;
-      }
-    } catch (e) {
-    }
-    return dflt;
+  const setU = (k, v) => setUI((u) => ({ ...(u || {}), [k]: v }));
+  const BR = (brands || []).filter((b) => b.hi != null);
+  const SEGS = PP_SEGDEF.filter((s) => BR.some((b) => ppInSeg(b.hi, s)));
+  const segName = (U.cSeg && SEGS.some((s) => s.n === U.cSeg)) ? U.cSeg : (SEGS[0] ? SEGS[0].n : "");
+  const sd = ppSegOf(segName);
+  const srow = (segs || []).find((x) => x.seg === segName) || {};
+  const inSegBr = BR.filter((b) => ppInSeg(b.hi, sd)).sort((a, b) => b.hi - a.hi);
+  const mgIn = inSegBr.filter((b) => PP_MGG.indexOf(b.b) >= 0);
+  const baseList = mgIn.length ? mgIn : inSegBr;
+  const baseName = (U.cBase && baseList.some((b) => b.b === U.cBase)) ? U.cBase : (baseList[0] ? baseList[0].b : "");
+  const base = inSegBr.find((b) => b.b === baseName) || null;
+  const rivals = inSegBr.filter((b) => b.b !== baseName).slice(0, 4);
+
+  const lo_ = (b) => (b.lo == null ? b.hi : b.lo);
+  const f = (b) => b ? (b.lo == null ? String(b.hi) : b.lo + "–" + b.hi) : "–";
+  const mid = (b) => b ? (lo_(b) + b.hi) / 2 : 0;
+  const dif = (b) => base ? Math.round(mid(b) - mid(base)) : 0;
+
+  const his = inSegBr.map((b) => b.hi), los = inSegBr.map(lo_);
+  const segHi = his.length ? Math.max.apply(null, his) : 0;
+  const segLo = los.length ? Math.min.apply(null, los) : 0;
+  const rank = base ? inSegBr.filter((b) => b.hi > base.hi).length + 1 : 0;
+  const pComp = (base && segHi > segLo) ? Math.round((segHi - base.hi) / (segHi - segLo) * 100) : (base ? 50 : 0);
+  const totGain = (segs || []).reduce((a, s) => a + ((s.y26 || 0) - (s.y25 || 0)), 0);
+  const segGain = (srow.y26 || 0) - (srow.y25 || 0);
+  const pOpp = totGain ? Math.round(segGain / totGain * 100) : 0;
+  const pShare = srow.y26p != null ? Math.round(srow.y26p) : 0;
+
+  // 전략 문구 파싱
+  const L = ppLines(srow.plan), LC = ppLines(srow.comp);
+  const head = L.find((x) => x.charAt(0) === "★") || "";
+  const tgt = (head.match(/목표\s*경쟁사\s*[:：]?\s*(.+)$/) || [0, ""])[1] || "–";
+  const arrows = L.filter((x) => x.charAt(0) === "→");
+  const risk = (LC[0] || "").replace(/^\d\)\s*/, "") || "–";
+  const STR = [
+    { ic: "①", k: "주요 경쟁제품", v: rivals.slice(0, 2).map((r) => r.b).join(" \xB7 ") || "–", c: "#4f46e5", bg: "#eef2ff" },
+    { ic: "②", k: "위험요인", v: risk, c: "#f59e0b", bg: "#fffbeb" },
+    { ic: "③", k: "권장전략", v: (arrows[0] || "–").replace(/^→\s*/, ""), c: "#16a34a", bg: "#f0fdf4" },
+    { ic: "④", k: "목표 경쟁사", v: tgt, c: "#64748b", bg: "#f1f5f9" }
+  ];
+
+  // 가격 스펙트럼 (선택 구간만 → 겹침 없음)
+  const XL = 46, XR = 962;
+  // 브랜드가 존재하는 가격만 축에 올려 균등 배분 → 빈 구간 삭제, 밀집 구간 확대
+  const grp = {};
+  inSegBr.forEach((b) => { const v = mid(b); (grp[v] = grp[v] || []).push(b); });
+  const VS = Object.keys(grp).map(Number).sort((a, b) => a - b);
+  const slot = (XR - XL) / (VS.length + 1);
+  const posOf = (v) => XL + (VS.indexOf(v) + 1) * slot;
+  const ticks = VS.map((v) => ({ v: Math.round(v), x: posOf(v) }));
+  const LEV = [16, 47, 78, 109, 140];
+  const mk = [];
+  VS.forEach((v) => { const g = grp[v].slice().sort((a, b) => b.hi - a.hi), bx = posOf(v);
+    g.forEach((b, j) => { const off = (j - (g.length - 1) / 2) * Math.min(slot * 0.57, 68);
+      mk.push({ b, cx: bx + off, mg: PP_MGG.indexOf(b.b) >= 0, sel: b.b === baseName }); }); });
+  mk.sort((a, b) => a.cx - b.cx);
+  mk.forEach((m, i) => { m.i = i; });
+  const NLV = Math.max(1, Math.min(LEV.length, mk.length));
+  mk.forEach((m, i) => { m.lv = i % NLV; });
+
+  /* ── 구간 시장 장악 전략 ── */
+  const topBr = inSegBr[0] || null, lowBr = inSegBr[inSegBr.length - 1] || null;
+  const gapTop = base && topBr ? Math.round(mid(topBr) - mid(base)) : 0;
+  const gapLow = base && lowBr ? Math.round(mid(base) - mid(lowBr)) : 0;
+  const spread = segHi - segLo;
+  const totY25 = (segs || []).reduce((a, x) => a + (x.y25 || 0), 0);
+  const VAR = {
+    "{gapTop}": ppFmt(gapTop), "{gapLow}": ppFmt(gapLow), "{spread}": String(spread),
+    "{n}": String(inSegBr.length), "{base}": baseName || "–", "{top}": topBr ? topBr.b : "–",
+    "{y25}": ppFmt(srow.y25), "{y26}": ppFmt(srow.y26), "{gain}": ppFmt(segGain), "{pOpp}": String(pOpp),
+    "{size}": ppFmt(srow.size), "{share}": String(srow.share == null ? "–" : srow.share),
+    "{mgShare}": totY25 ? String(Math.round((srow.y25 || 0) / totY25 * 100)) : "–",
+    "{mul}": (srow.y25 ? Math.round((srow.y26 || 0) / srow.y25) : "–") + ""
   };
-  const weekHas = (w) => !!(weeklyEntries && (weeklyEntries[bKey(w)] || weeklyEntries[iKey(w)] || weeklyEntries[sKey(w)] || weeklyEntries[rKey(w)]));
-  const lastFilled = [5, 4, 3, 2, 1].find(weekHas) || 0;
-  const bands = React.useMemo(() => readJSON(bKey(), PP_DEF_BANDS), [weeklyEntries, wk, Y, M]);
-  const ins = React.useMemo(() => readJSON(iKey(), PP_DEF_INS), [weeklyEntries, wk, Y, M]);
-  const seg = React.useMemo(() => readJSON(sKey(), PP_DEF_SEG), [weeklyEntries, wk, Y, M]);
-  const rows = React.useMemo(() => readJSON(rKey(), PP_DEF_ROWS), [weeklyEntries, wk, Y, M]);
-  const put = (k, val, msg) => {
-    if (!setWeeklyEntries) return;
-    setWeeklyEntries((prev) => ({ ...prev, [k]: JSON.stringify(val) }));
-    if (logChange) logChange("\uC81C\uD488 \uD3EC\uC9C0\uC154\uB2DD", `${Y}-${M} ${wk}\uC8FC\uCC28 \xB7 ${msg}`);
-  };
-  const saveB = (nx, msg) => put(bKey(), nx, msg || "\uD3EC\uC9C0\uC154\uB2DD \uB9F5 \uC218\uC815");
-  const saveI = (nx, msg) => put(iKey(), nx, msg || "\uCF54\uBA58\uD2B8 \uC218\uC815");
-  const saveS = (nx, msg) => put(sKey(), nx, msg || "\uC138\uADF8\uBA3C\uD2B8 \uCE74\uB4DC \uC218\uC815");
-  const saveR = (nx, msg) => put(rKey(), nx, msg || "\uB300\uC751\uBC29\uC548 \uD45C \uC218\uC815");
-  const cp = (o) => JSON.parse(JSON.stringify(o));
-  const setChip = (bi, ci, f, v) => {
-    const nx = cp(bands);
-    nx[bi].chips[ci][f] = v;
-    saveB(nx, `${nx[bi].label} \uD56D\uBAA9 \uC218\uC815`);
-  };
-  const setLabel = (bi, v) => {
-    const nx = cp(bands);
-    nx[bi].label = v;
-    saveB(nx, `\uAD6C\uAC04\uBA85 \u2192 ${v}`);
-  };
-  const delChip = (bi, ci) => {
-    const nx = cp(bands);
-    const nm = nx[bi].chips[ci].n;
-    nx[bi].chips.splice(ci, 1);
-    saveB(nx, `${nm} \uC0AD\uC81C`);
-  };
-  const addChip = (bi) => {
-    const nx = cp(bands);
-    nx[bi].chips.push({ n: "\uC2E0\uADDC", r: "0" });
-    saveB(nx, "\uD56D\uBAA9 \uCD94\uAC00");
-  };
-  const setIns = (i, j, v) => {
-    const nx = cp(ins);
-    nx[i].items[j] = v;
-    saveI(nx, `${nx[i].name} \uCF54\uBA58\uD2B8 \uC218\uC815`);
-  };
-  const setInsText = (i, v) => {
-    const nx = cp(ins);
-    nx[i].items = String(v).split("\n");
-    saveI(nx, `${nx[i].name} \uCF54\uBA58\uD2B8 \uC218\uC815`);
-  };
-  const setInsName = (i, v) => {
-    const nx = cp(ins);
-    nx[i].name = v;
-    saveI(nx, "\uCF54\uBA58\uD2B8 \uC81C\uBAA9 \uC218\uC815");
-  };
-  const delIns = (i, j) => {
-    const nx = cp(ins);
-    nx[i].items.splice(j, 1);
-    saveI(nx, "\uCF54\uBA58\uD2B8 \uC0AD\uC81C");
-  };
-  const addIns = (i) => {
-    const nx = cp(ins);
-    nx[i].items.push("\uB0B4\uC6A9 \uC785\uB825");
-    saveI(nx, "\uCF54\uBA58\uD2B8 \uCD94\uAC00");
-  };
-  const setSeg = (i, f, v) => {
-    const nx = cp(seg);
-    nx[i][f] = v;
-    saveS(nx, `${nx[i].name} \uC218\uC815`);
-  };
-  const setRow = (i, f, v) => {
-    const nx = cp(rows);
-    nx[i][f] = v;
-    saveR(nx, `${nx[i].seg} \uC218\uC815`);
-  };
-  const resetAll = () => {
-    if (!confirm(`${wk}\uC8FC\uCC28 \uB0B4\uC6A9\uC744 \uBAA8\uB450 \uAE30\uBCF8\uAC12\uC73C\uB85C \uB418\uB3CC\uB9BD\uB2C8\uB2E4. \uACC4\uC18D\uD560\uAE4C\uC694?`)) return;
-    saveB(PP_DEF_BANDS, "\uAE30\uBCF8\uAC12 \uBCF5\uC6D0");
-    saveI(PP_DEF_INS, "\uAE30\uBCF8\uAC12 \uBCF5\uC6D0");
-    saveS(PP_DEF_SEG, "\uAE30\uBCF8\uAC12 \uBCF5\uC6D0");
-    saveR(PP_DEF_ROWS, "\uAE30\uBCF8\uAC12 \uBCF5\uC6D0");
-  };
-  const copyPrev = () => {
-    const src = wk - 1;
-    if (src < 1) {
-      alert("1\uC8FC\uCC28\uB294 \uC774\uC804 \uC8FC\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4.");
-      return;
-    }
-    if (!weekHas(src)) {
-      alert(`${src}\uC8FC\uCC28\uC5D0 \uC800\uC7A5\uB41C \uB370\uC774\uD130\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4.`);
-      return;
-    }
-    if (!confirm(`${src}\uC8FC\uCC28 \uB370\uC774\uD130\uB97C ${wk}\uC8FC\uCC28\uB85C \uBCF5\uC0AC\uD569\uB2C8\uB2E4. \uACC4\uC18D\uD560\uAE4C\uC694?`)) return;
-    saveB(readJSON(bKey(src), PP_DEF_BANDS), `${src}\uC8FC\uCC28 \uBCF5\uC0AC`);
-    saveI(readJSON(iKey(src), PP_DEF_INS), `${src}\uC8FC\uCC28 \uBCF5\uC0AC`);
-    saveS(readJSON(sKey(src), PP_DEF_SEG), `${src}\uC8FC\uCC28 \uBCF5\uC0AC`);
-    saveR(readJSON(rKey(src), PP_DEF_ROWS), `${src}\uC8FC\uCC28 \uBCF5\uC0AC`);
-  };
-  const SH = { seg: "\uD3EC\uC9C0\uC154\uB2DD_\uC138\uADF8\uBA3C\uD2B8", map: "\uD3EC\uC9C0\uC154\uB2DD_\uB9F5", ins: "\uD3EC\uC9C0\uC154\uB2DD_\uCF54\uBA58\uD2B8", row: "\uD3EC\uC9C0\uC154\uB2DD_\uB300\uC751\uD45C" };
-  const shRows = (nm) => sheetsData2 && Array.isArray(sheetsData2[nm]) ? sheetsData2[nm] : null;
-  const nz = (v) => String(v === null || v === void 0 ? "" : v).trim();
-  const pick = (r, keys) => {
-    for (const k of keys) {
-      if (r[k] !== void 0 && nz(r[k]) !== "") return nz(r[k]);
-    }
-    return "";
-  };
-  const wkOf = (r) => {
-    const m = pick(r, ["\uC8FC\uCC28", "week", "Week"]).match(/(\d+)/);
-    return m ? parseInt(m[1]) : null;
-  };
-  const ymOk = (r) => {
-    const c = pick(r, ["\uC5F0\uC6D4", "\uB144\uC6D4", "\uC6D4", "ym"]);
-    if (!c) return true;
-    const p2 = String(M).padStart(2, "0");
-    return [`${Y}-${M}`, `${Y}-${p2}`, `${Y}.${M}`, `${Y}.${p2}`, String(M), `${M}\uC6D4`].indexOf(c) >= 0;
-  };
-  const flatRows = () => {
-    if (!sheetsData2) return null;
-    const cand = ["\uC81C\uD488\uD3EC\uC9C0\uC154\uB2DD", "\uD3EC\uC9C0\uC154\uB2DD", "PP"];
-    for (const k of cand) if (Array.isArray(sheetsData2[k])) return sheetsData2[k];
-    for (const k in sheetsData2) {
-      const v = sheetsData2[k];
-      if (k.indexOf("\uD3EC\uC9C0\uC154\uB2DD") >= 0 && Array.isArray(v) && v.length && v[0]["\uC885\uB958"] !== void 0) return v;
-    }
-    return null;
-  };
-  const sheetHas = !!(flatRows() || shRows(SH.seg) || shRows(SH.map) || shRows(SH.ins) || shRows(SH.row));
-  const TXT4 = ["text-slate-700", "text-amber-600", "text-green-600", "text-indigo-600"];
-  const COL4 = ["text-indigo-700", "text-amber-700", "text-green-700", "text-slate-600"];
-  const BAR4 = ["border-l-indigo-500", "border-l-amber-500", "border-l-green-500", "border-l-slate-400"];
-  const isHi = (v) => ["Y", "YES", "O", "1", "TRUE", "V"].indexOf(String(v || "").trim().toUpperCase()) >= 0;
-  const loadFlat = (rowsIn) => {
-    const wks = {};
-    rowsIn.forEach((r) => {
-      const w = wkOf(r);
-      if (w !== null) wks[w] = 1;
-    });
-    const keys = Object.keys(wks);
-    const mine = keys.length > 1 ? rowsIn.filter((r) => wkOf(r) === wk && ymOk(r)) : rowsIn;
-    if (!mine.length) return 0;
-    const kind = (r) => pick(r, ["\uC885\uB958", "type"]);
-    let n = 0;
-    const segs = mine.filter((r) => kind(r) === "\uC138\uADF8\uBA3C\uD2B8").map((r, i) => ({
-      name: pick(r, ["\uD56D\uBAA9", "\uAD6C\uBD84", "name"]),
-      qty: pick(r, ["\uAC121", "\uC218\uB7C9"]),
-      price: pick(r, ["\uAC122", "\uAC00\uACA9\uB300"]),
-      ms25: pick(r, ["\uAC123", "25\uB144"]),
-      ms26: pick(r, ["\uAC124", "26\uB144\uBAA9\uD45C"]),
-      txt: TXT4[i % 4]
-    })).filter((x) => x.name);
-    if (segs.length) {
-      saveS(segs, "\uAD6C\uAE00\uC2DC\uD2B8 \uBD88\uB7EC\uC624\uAE30");
-      n++;
-    }
-    const order = [], byBand = {};
-    mine.filter((r) => kind(r) === "\uB9F5").forEach((r) => {
-      const lb = pick(r, ["\uADF8\uB8F9", "\uAD6C\uAC04"]), nm = pick(r, ["\uD56D\uBAA9", "\uBE0C\uB79C\uB4DC"]);
-      if (!lb || !nm) return;
-      if (!byBand[lb]) {
-        byBand[lb] = [];
-        order.push(lb);
-      }
-      byBand[lb].push({ n: nm, r: pick(r, ["\uAC121", "\uAC00\uACA9"]), m: isHi(pick(r, ["\uAC15\uC870"])) });
-    });
-    if (order.length) {
-      saveB(order.map((l) => ({ label: l, chips: byBand[l] })), "\uAD6C\uAE00\uC2DC\uD2B8 \uBD88\uB7EC\uC624\uAE30");
-      n++;
-    }
-    const gOrder = [], byG = {};
-    mine.filter((r) => kind(r) === "\uCF54\uBA58\uD2B8").forEach((r) => {
-      const g = pick(r, ["\uADF8\uB8F9", "\uAD6C\uBD84"]), t = pick(r, ["\uAC121", "\uB0B4\uC6A9"]);
-      if (!g || !t) return;
-      if (!byG[g]) {
-        byG[g] = [];
-        gOrder.push(g);
-      }
-      byG[g].push({ seq: parseFloat(pick(r, ["\uD56D\uBAA9", "\uC21C\uBC88"])) || byG[g].length + 1, t });
-    });
-    if (gOrder.length) {
-      saveI(gOrder.map((g, i) => ({
-        name: g,
-        color: COL4[i % 4],
-        bar: BAR4[i % 4],
-        items: byG[g].sort((a, b) => a.seq - b.seq).map((x) => x.t)
-      })), "\uAD6C\uAE00\uC2DC\uD2B8 \uBD88\uB7EC\uC624\uAE30");
-      n++;
-    }
-    const tbl = mine.filter((r) => kind(r) === "\uB300\uC751\uD45C").map((r) => ({
-      seg: pick(r, ["\uADF8\uB8F9", "\uC2DC\uC7A5"]),
-      mg: pick(r, ["\uD56D\uBAA9", "MEGAGEN"]),
-      plan: pick(r, ["\uAC121", "26\uB144\uB300\uC751\uBC29\uC548"]),
-      chg: pick(r, ["\uAC122", "\uBCC0\uD654\uC608\uCE21"])
-    })).filter((x) => x.seg);
-    if (tbl.length) {
-      saveR(tbl, "\uAD6C\uAE00\uC2DC\uD2B8 \uBD88\uB7EC\uC624\uAE30");
-      n++;
-    }
-    return n;
-  };
-  const loadSheets = () => {
-    if (!sheetHas) {
-      alert("\uAD6C\uAE00\uC2DC\uD2B8\uC5D0\uC11C \uD3EC\uC9C0\uC154\uB2DD \uC2DC\uD2B8\uB97C \uCC3E\uC9C0 \uBABB\uD588\uC2B5\uB2C8\uB2E4.\n\n\uC2DC\uD2B8 \uD0ED \uC774\uB984\uC744 \uD655\uC778\uD574 \uC8FC\uC138\uC694:\n\xB7 \uD3EC\uC9C0\uC154\uB2DD_\uC138\uADF8\uBA3C\uD2B8\n\xB7 \uD3EC\uC9C0\uC154\uB2DD_\uB9F5\n\xB7 \uD3EC\uC9C0\uC154\uB2DD_\uCF54\uBA58\uD2B8\n\xB7 \uD3EC\uC9C0\uC154\uB2DD_\uB300\uC751\uD45C");
-      return;
-    }
-    if (!confirm(`\uAD6C\uAE00\uC2DC\uD2B8\uC758 ${Y}\uB144 ${M}\uC6D4 ${wk}\uC8FC\uCC28 \uB370\uC774\uD130\uB97C \uBD88\uB7EC\uC640 \uD604\uC7AC \uD654\uBA74\uC5D0 \uB36E\uC5B4\uC501\uB2C8\uB2E4.
-\uACC4\uC18D\uD560\uAE4C\uC694?`)) return;
-    const fr = flatRows();
-    if (fr) {
-      const cnt = loadFlat(fr);
-      alert(cnt ? `\u2705 \uAD6C\uAE00\uC2DC\uD2B8 ${wk}\uC8FC\uCC28 \uBD88\uB7EC\uC624\uAE30 \uC644\uB8CC` : `\uAD6C\uAE00\uC2DC\uD2B8\uC5D0 ${wk}\uC8FC\uCC28 \uD589\uC774 \uC5C6\uC2B5\uB2C8\uB2E4.`);
-      return;
-    }
-    let n = 0;
-    const TXT = ["text-slate-700", "text-amber-600", "text-green-600", "text-indigo-600"];
-    const COL = ["text-indigo-700", "text-amber-700", "text-green-700", "text-slate-600"];
-    const BAR = ["border-l-indigo-500", "border-l-amber-500", "border-l-green-500", "border-l-slate-400"];
-    const sr = shRows(SH.seg);
-    if (sr) {
-      const list = sr.filter((r) => wkOf(r) === wk && ymOk(r)).map((r, i) => ({ name: pick(r, ["\uAD6C\uBD84", "\uC138\uADF8\uBA3C\uD2B8", "name"]), qty: pick(r, ["\uC218\uB7C9", "\uBB3C\uB7C9", "qty"]), price: pick(r, ["\uAC00\uACA9\uB300", "\uAC00\uACA9", "price"]), txt: TXT[i % 4] })).filter((x) => x.name);
-      if (list.length) {
-        saveS(list, "\uAD6C\uAE00\uC2DC\uD2B8 \uBD88\uB7EC\uC624\uAE30");
-        n++;
-      }
-    }
-    const mr = shRows(SH.map);
-    if (mr) {
-      const order = [], byBand = {};
-      mr.filter((r) => wkOf(r) === wk && ymOk(r)).forEach((r) => {
-        const lb = pick(r, ["\uAD6C\uAC04", "\uAC00\uACA9\uAD6C\uAC04", "band", "label"]);
-        const nm = pick(r, ["\uBE0C\uB79C\uB4DC", "\uC81C\uD488", "brand", "name"]);
-        if (!lb || !nm) return;
-        if (!byBand[lb]) {
-          byBand[lb] = [];
-          order.push(lb);
-        }
-        const hi = pick(r, ["\uAC15\uC870", "MEGAGEN", "mega", "highlight"]).toUpperCase();
-        byBand[lb].push({ n: nm, r: pick(r, ["\uAC00\uACA9", "\uAC00\uACA9\uBC94\uC704", "price", "range"]), m: ["Y", "YES", "O", "1", "TRUE", "V", "\u25CF"].indexOf(hi) >= 0 });
-      });
-      if (order.length) {
-        saveB(order.map((l) => ({ label: l, chips: byBand[l] })), "\uAD6C\uAE00\uC2DC\uD2B8 \uBD88\uB7EC\uC624\uAE30");
-        n++;
-      }
-    }
-    const ir = shRows(SH.ins);
-    if (ir) {
-      const order = [], byGrp = {};
-      ir.filter((r) => wkOf(r) === wk && ymOk(r)).forEach((r) => {
-        const g = pick(r, ["\uAD6C\uBD84", "\uC138\uADF8\uBA3C\uD2B8", "\uADF8\uB8F9", "group"]);
-        const c = pick(r, ["\uB0B4\uC6A9", "\uCF54\uBA58\uD2B8", "comment", "text"]);
-        if (!g || !c) return;
-        if (!byGrp[g]) {
-          byGrp[g] = [];
-          order.push(g);
-        }
-        byGrp[g].push({ seq: parseFloat(pick(r, ["\uC21C\uBC88", "no", "seq"])) || byGrp[g].length + 1, t: c });
-      });
-      if (order.length) {
-        saveI(order.map((g, i) => ({
-          name: g,
-          color: COL[i % 4],
-          bar: BAR[i % 4],
-          items: byGrp[g].sort((a, b) => a.seq - b.seq).map((x) => x.t)
-        })), "\uAD6C\uAE00\uC2DC\uD2B8 \uBD88\uB7EC\uC624\uAE30");
-        n++;
-      }
-    }
-    const rr = shRows(SH.row);
-    if (rr) {
-      const list = rr.filter((r) => wkOf(r) === wk && ymOk(r)).map((r) => ({
-        seg: pick(r, ["\uC2DC\uC7A5", "\uAD6C\uBD84", "segment"]),
-        mg: pick(r, ["MEGAGEN", "\uBA54\uAC00\uC820", "\uC81C\uD488"]),
-        plan: pick(r, ["26\uB144\uB300\uC751\uBC29\uC548", "26\uB144 \uB300\uC751\uBC29\uC548", "\uB300\uC751\uBC29\uC548", "plan"]),
-        chg: pick(r, ["\uBCC0\uD654\uC608\uCE21", "\uC608\uC0C1\uBCC0\uD654", "change"])
-      })).filter((x) => x.seg);
-      if (list.length) {
-        saveR(list, "\uAD6C\uAE00\uC2DC\uD2B8 \uBD88\uB7EC\uC624\uAE30");
-        n++;
-      }
-    }
-    if (!n) alert(`\uAD6C\uAE00\uC2DC\uD2B8\uC5D0 ${Y}\uB144 ${M}\uC6D4 ${wk}\uC8FC\uCC28 \uD589\uC774 \uC5C6\uC2B5\uB2C8\uB2E4.
-\uC2DC\uD2B8\uC758 '\uC8FC\uCC28' \uC5F4 \uAC12\uC744 \uD655\uC778\uD574 \uC8FC\uC138\uC694.`);
-    else alert(`\u2705 \uAD6C\uAE00\uC2DC\uD2B8\uC5D0\uC11C ${wk}\uC8FC\uCC28 \uB370\uC774\uD130\uB97C \uBD88\uB7EC\uC654\uC2B5\uB2C8\uB2E4. (${n}\uAC1C \uC2DC\uD2B8)
-\uD074\uB77C\uC6B0\uB4DC \uC800\uC7A5\uC744 \uB20C\uB7EC \uD655\uC815\uD558\uC138\uC694.`);
-  };
-  const doImport = () => {
-    let p;
-    try {
-      p = JSON.parse(impText);
-    } catch (e) {
-      alert("JSON \uD615\uC2DD\uC774 \uC62C\uBC14\uB974\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.");
-      return;
-    }
-    let n = 0;
-    if (p && Array.isArray(p.bands)) {
-      saveB(p.bands, "\uB370\uC774\uD130 \uAC00\uC838\uC624\uAE30");
-      n++;
-    }
-    if (p && Array.isArray(p.ins)) {
-      saveI(p.ins, "\uB370\uC774\uD130 \uAC00\uC838\uC624\uAE30");
-      n++;
-    }
-    if (p && Array.isArray(p.seg)) {
-      saveS(p.seg, "\uB370\uC774\uD130 \uAC00\uC838\uC624\uAE30");
-      n++;
-    }
-    if (p && Array.isArray(p.rows)) {
-      saveR(p.rows, "\uB370\uC774\uD130 \uAC00\uC838\uC624\uAE30");
-      n++;
-    }
-    if (!n) {
-      alert("bands / ins / seg / rows \uC911 \uD558\uB098\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4.");
-      return;
-    }
-    setImpText("");
-    setImpOpen(false);
-    alert(`\u2705 ${wk}\uC8FC\uCC28 \uB370\uC774\uD130\uB97C \uBC18\uC601\uD588\uC2B5\uB2C8\uB2E4.
-\uD074\uB77C\uC6B0\uB4DC \uC800\uC7A5\uC744 \uB20C\uB7EC \uC11C\uBC84\uC5D0\uB3C4 \uBC18\uC601\uD558\uC138\uC694.`);
-  };
-  const doExport = () => {
-    const txt = JSON.stringify({ seg, bands, ins, rows }, null, 1);
-    try {
-      navigator.clipboard.writeText(txt);
-      alert("\uD604\uC7AC \uC8FC\uCC28 \uB370\uC774\uD130\uB97C \uD074\uB9BD\uBCF4\uB4DC\uC5D0 \uBCF5\uC0AC\uD588\uC2B5\uB2C8\uB2E4.");
-    } catch (e) {
-      setImpText(txt);
-      setImpOpen(true);
-    }
-  };
-  return /* @__PURE__ */ React.createElement("div", { className: "space-y-4" }, /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap items-center justify-between gap-2" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-1.5" }, /* @__PURE__ */ React.createElement("span", { className: "text-[12px] font-bold text-slate-600 mr-1" }, "\uC8FC\uCC28"), [1, 2, 3, 4, 5].map((w) => /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      key: w,
-      onClick: () => setWk(w),
-      className: "px-2.5 py-1 text-xs font-semibold border " + (wk === w ? "bg-indigo-600 border-indigo-600 text-white" : "bg-white border-slate-300 " + (weekHas(w) ? "text-slate-700" : "text-slate-400"))
-    },
-    w,
-    "\uC8FC\uCC28",
-    weekHas(w) && /* @__PURE__ */ React.createElement("span", { className: "ml-1 inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 align-middle" })
-  )), /* @__PURE__ */ React.createElement("span", { className: "text-[11px] text-slate-400 ml-1" }, Y, "\uB144 ", M, "\uC6D4 \xB7 \uC6D4 \uCD5C\uC885 = ", lastFilled ? lastFilled + "\uC8FC\uCC28" : "\uBBF8\uC785\uB825")), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-1.5" }, /* @__PURE__ */ React.createElement("span", { className: "text-[11px] text-slate-400 mr-1" }, "\uBAA8\uB4E0 \uD56D\uBAA9 \uB354\uBE14\uD074\uB9AD \u2192 \uC218\uC815\xB7\uC790\uB3D9\uC800\uC7A5"), /* @__PURE__ */ React.createElement("button", { onClick: copyPrev, className: "px-2 py-1 text-[11px] border border-slate-300 text-slate-600 hover:bg-slate-50" }, "\uC774\uC804 \uC8FC \uBCF5\uC0AC"), /* @__PURE__ */ React.createElement("button", { onClick: loadSheets, className: "px-2 py-1 text-[11px] border font-semibold " + (sheetHas ? "border-emerald-400 text-emerald-700 bg-emerald-50 hover:bg-emerald-100" : "border-slate-300 text-slate-400") }, "\uAD6C\uAE00\uC2DC\uD2B8\uC5D0\uC11C \uBD88\uB7EC\uC624\uAE30", sheetHas ? "" : " (\uC2DC\uD2B8 \uC5C6\uC74C)"), /* @__PURE__ */ React.createElement("button", { onClick: resetAll, className: "px-2 py-1 text-[11px] border border-slate-300 text-slate-600 hover:bg-slate-50" }, "\uAE30\uBCF8\uAC12"), /* @__PURE__ */ React.createElement("button", { onClick: () => setEdit(!edit), className: "px-2.5 py-1 text-xs font-semibold border " + (edit ? "bg-indigo-600 border-indigo-600 text-white" : "bg-white border-slate-300 text-slate-600 hover:bg-slate-50") }, edit ? "\u2713 \uCD94\uAC00\xB7\uC0AD\uC81C \uC885\uB8CC" : "\uFF0B \uD56D\uBAA9 \uCD94\uAC00\xB7\uC0AD\uC81C"))), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-2 lg:grid-cols-4 gap-3" }, seg.map((s, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: "bg-white border border-slate-200 p-4 text-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-[12.2px] font-bold text-black mb-1" }, /* @__PURE__ */ React.createElement(PPDE, { v: s.name, on: (v) => setSeg(i, "name", v), cls: "text-[12.2px] font-bold text-black", center: true }), " ", /* @__PURE__ */ React.createElement("span", { className: "font-normal opacity-80" }, "(", /* @__PURE__ */ React.createElement(PPDE, { v: s.qty, on: (v) => setSeg(i, "qty", v), cls: "text-[12.2px] font-normal text-black", center: true }), ")")), /* @__PURE__ */ React.createElement("div", { className: "flex items-baseline justify-center gap-1" }, /* @__PURE__ */ React.createElement(PPDE, { v: s.price, on: (v) => setSeg(i, "price", v), cls: "text-[18.5px] font-extrabold text-black", style: NUM, center: true }), /* @__PURE__ */ React.createElement("span", { className: "text-[11.5px] text-black" }, "RMB")), /* @__PURE__ */ React.createElement("div", { className: "mt-2 pt-2 border-t border-slate-100 flex items-center justify-center gap-1.5 text-[12px]", style: NUM }, /* @__PURE__ */ React.createElement("span", { className: "text-black" }, "\uBA54\uAC00\uC820"), /* @__PURE__ */ React.createElement(PPDE, { v: s.ms25 || "\u2013", on: (v) => setSeg(i, "ms25", v), cls: "text-[12px] text-black", center: true }), /* @__PURE__ */ React.createElement("span", { className: "text-black" }, "\u2192"), /* @__PURE__ */ React.createElement(PPDE, { v: s.ms26 || "\u2013", on: (v) => setSeg(i, "ms26", v), cls: "text-[12px] font-bold text-black", center: true }))))), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 xl:grid-cols-4 gap-3 items-start" }, /* @__PURE__ */ React.createElement("div", { className: "xl:col-span-3 bg-white border border-slate-200 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-[19.5px] font-bold text-slate-900 mb-3" }, "2026\uB144 \uC8FC\uC694 \uD3EC\uC9C0\uC154\uB2DD \uB9F5 ", /* @__PURE__ */ React.createElement("span", { className: "text-[16px] font-normal text-slate-500" }, "(\uAC00\uACA9\uB300\uBCC4 \uBE0C\uB79C\uB4DC \uBD84\uD3EC \xB7 ", wk, "\uC8FC\uCC28)")), /* @__PURE__ */ React.createElement("div", { className: "space-y-2" }, bands.map((b, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: "flex items-stretch border border-slate-200 overflow-hidden" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-center w-28 shrink-0 bg-slate-100 text-black font-bold text-[15px] leading-tight text-center px-1", style: NUM }, /* @__PURE__ */ React.createElement(PPDE, { v: b.label, on: (v) => setLabel(i, v), cls: "text-[15px] font-bold text-black", center: true })), /* @__PURE__ */ React.createElement("div", { className: "relative flex-1 px-3 py-4", style: { minHeight: "136px" } }, /* @__PURE__ */ React.createElement("div", { className: "absolute left-4 right-4 top-1/2 border-t border-dashed border-slate-300" }), /* @__PURE__ */ React.createElement("div", { className: "relative flex justify-between items-stretch gap-2", style: { minHeight: "100px" } }, b.chips.map((c, j) => /* @__PURE__ */ React.createElement("div", { key: j, className: "flex flex-col items-center flex-1 min-w-0" }, edit && /* @__PURE__ */ React.createElement("button", { onClick: () => delChip(i, j), className: "text-[10px] text-rose-400 hover:text-rose-600 leading-none" }, "\u2715"), /* @__PURE__ */ React.createElement("div", { className: "flex-1 flex items-end justify-center w-full pb-1" }, /* @__PURE__ */ React.createElement("div", { className: "px-1.5 py-0.5 text-[12.4px] text-center leading-tight w-full " + (c.m ? "border-2 border-indigo-500 bg-indigo-50 text-indigo-700" : "text-black") }, /* @__PURE__ */ React.createElement(PPDE, { v: c.n, on: (v) => setChip(i, j, "n", v), cls: "text-[12.4px] " + (c.m ? "text-indigo-700" : "text-black"), center: true }))), /* @__PURE__ */ React.createElement("div", { className: "flex-1 flex items-start justify-center w-full pt-1.5" }, /* @__PURE__ */ React.createElement("div", { className: "px-1.5 py-0.5 text-[12.7px] leading-tight text-center break-words max-w-full " + (c.m ? "bg-indigo-600 text-white font-bold" : "text-black"), style: NUM }, /* @__PURE__ */ React.createElement(PPDE, { v: c.r, on: (v) => setChip(i, j, "r", v), fmt: ppSplit, cls: "text-[12.7px] " + (c.m ? "text-white font-bold" : "text-black"), style: NUM, center: true }))))), edit && /* @__PURE__ */ React.createElement("button", { onClick: () => addChip(i), className: "shrink-0 self-center px-1.5 py-1 text-[11px] border border-dashed border-slate-300 text-slate-500 hover:bg-slate-50" }, "+ \uCD94\uAC00"))))))), /* @__PURE__ */ React.createElement("div", { className: "xl:col-span-1 space-y-3" }, ins.map((v, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: "bg-white border border-slate-200 border-l-4 p-3 " + (v.bar || "border-l-slate-400"), style: FONT }, /* @__PURE__ */ React.createElement("div", { className: "text-[15.3px] font-bold mb-2 " + (v.color || "text-slate-700") }, /* @__PURE__ */ React.createElement(PPDE, { v: v.name, on: (x) => setInsName(i, x), cls: "text-[15.3px] font-bold " + (v.color || "text-slate-700") })), /* @__PURE__ */ React.createElement(
-    PPDE,
-    {
-      v: (v.items || []).join("\n"),
-      on: (x) => setInsText(i, x),
-      ta: true,
-      cls: "block text-[14px] leading-relaxed text-slate-800 w-full",
-      style: FONT
-    }
-  ))))), /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ React.createElement("table", { className: "w-full text-[14px] border-collapse", style: { ...NUM, tableLayout: "fixed" } }, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("th", { className: "border border-slate-300 bg-slate-200 text-slate-600 px-3 py-2 text-left font-bold text-[14px]", style: { width: "12%" } }, "\uC2DC\uC7A5"), /* @__PURE__ */ React.createElement("th", { className: "border border-slate-300 bg-slate-200 text-slate-600 px-3 py-2 text-left font-bold text-[14px]", style: { width: "12%" } }, "MEGAGEN"), /* @__PURE__ */ React.createElement("th", { className: "border border-slate-300 bg-slate-200 text-slate-600 px-3 py-2 text-left font-bold text-[14px]", style: { width: "38%" } }, "26\uB144 \uB300\uC751\uBC29\uC548"), /* @__PURE__ */ React.createElement("th", { className: "border border-slate-300 bg-slate-200 text-slate-600 px-3 py-2 text-left font-bold text-[14px]", style: { width: "38%" } }, "\uBCC0\uD654\uC608\uCE21"))), /* @__PURE__ */ React.createElement("tbody", null, rows.map((r, i) => /* @__PURE__ */ React.createElement("tr", { key: i, className: "bg-white align-top" }, /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-2 font-semibold text-black" }, /* @__PURE__ */ React.createElement(PPDE, { v: r.seg, on: (v) => setRow(i, "seg", v), cls: "text-[14px] font-semibold text-black whitespace-pre-wrap" })), /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-2 font-bold text-indigo-700" }, /* @__PURE__ */ React.createElement(PPDE, { v: r.mg, on: (v) => setRow(i, "mg", v), cls: "text-[14px] font-bold text-indigo-700 whitespace-pre-wrap" })), /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-2 text-black" }, /* @__PURE__ */ React.createElement(PPDE, { v: r.plan, on: (v) => setRow(i, "plan", v), cls: "text-[14px] text-black whitespace-pre-wrap", ta: true })), /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-2 text-black" }, /* @__PURE__ */ React.createElement(PPDE, { v: r.chg, on: (v) => setRow(i, "chg", v), cls: "text-[14px] text-black whitespace-pre-wrap", ta: true }))))))), /* @__PURE__ */ React.createElement("div", { className: "mt-3 bg-amber-50 border border-amber-200 px-3 py-2 text-[13px] font-bold text-amber-800" }, "\u25B6 2\uCC28 VBP \uC815\uCC45 \uBC0F \uC2DC\uC7A5 / \uACBD\uC7C1\uD488 \uAC00\uACA9 \uC870\uC815 \uB300\uC751 \u2192 ", /* @__PURE__ */ React.createElement("span", { className: "text-rose-700" }, "Value & Volume \uC2DC\uC7A5 \uBC29\uC5B4 / \uC2DC\uC7A5 \uD655\uB300\uB97C \uC704\uD574 AO \xB7 ST \uACBD\uC7C1\uB825 \uAC15\uD654 \uD544\uC694")), /* @__PURE__ */ React.createElement("div", { className: "text-[11.5px] text-slate-500 mt-2" }, "\u203B \uC8FC\uCC28\uBCC4\uB85C \uC800\uC7A5\uB418\uBA70 \uC6D4 \uCD5C\uC885\uC740 \uB9C8\uC9C0\uB9C9 \uC785\uB825 \uC8FC\uCC28 \uAE30\uC900 \xB7 \uBAA8\uB4E0 \uD56D\uBAA9 \uB354\uBE14\uD074\uB9AD \uC2DC \uC218\uC815\xB7\uC790\uB3D9\uC800\uC7A5")));
+  const fill = (t) => { let o = String(t); Object.keys(VAR).forEach((k) => { o = o.split(k).join(VAR[k]); }); return o; };
+  const WIN = (PP_WIN[segName] || []).map(fill);
+  const AN = WIN.length ? WIN : [
+    "구간 브랜드 " + inSegBr.length + "개 \u00B7 " + segLo + "~" + segHi + "위안(편차 " + spread + ")",
+    mgIn.length ? "메가젠 " + mgIn.map((b) => b.b + " " + f(b)).join(" / ") : "메가젠 미진입 구간"
+  ];
+
+  const GA = (title, sub, pct, col, note) => React.createElement("div", { key: title, className: "gcard" },
+    React.createElement("div", { className: "gt" }, title),
+    React.createElement("div", { className: "gs" }, sub),
+    React.createElement("div", { className: "grow" },
+      React.createElement("span", { className: "ge" }, "낮음"),
+      React.createElement("span", { className: "gv", style: { color: col } }, pct, "%")),
+    React.createElement("div", { className: "gbar" }, React.createElement("i", { style: { width: Math.max(0, Math.min(100, pct)) + "%", background: col } })),
+    React.createElement("div", { className: "grow r" }, React.createElement("span", { className: "ge" }, "높음")),
+    React.createElement("div", { className: "gn" }, note));
+  const chip = (on, color) => ({ className: "cchip" + (on ? " on" : ""), style: on && color ? { background: color, borderColor: color } : null });
+
+  return React.createElement("div", { style: FONT },
+    /* 필터 */
+    React.createElement("div", { className: "ppcard fbar" },
+      React.createElement("div", { className: "frow" },
+        React.createElement("span", { className: "bk" }, "가격대"),
+        SEGS.map((s) => React.createElement("button", { key: s.n, onClick: () => setUI((u) => ({ ...(u || {}), cSeg: s.n, cBase: null })), ...chip(s.n === segName, s.cc) },
+          s.n, React.createElement("i", null, (segs.find((x) => x.seg === s.n) || {}).band || ""))),
+        React.createElement("span", { className: "xs", style: { marginLeft: "auto" } }, wk)),
+      React.createElement("div", { className: "frow" },
+        React.createElement("span", { className: "bk" }, "기준 제품"),
+        baseList.map((b) => React.createElement("button", { key: b.b, onClick: () => setU("cBase", b.b), ...chip(b.b === baseName, "#4f46e5") },
+          b.b, React.createElement("i", null, f(b)))),
+        mgIn.length ? null : React.createElement("span", { className: "xs" }, "이 구간에 메가젠 제품 없음"))),
+
+    /* ① KPI 카드 — 맨 위 */
+    React.createElement("div", { className: "gwrap" },
+      GA("가격 경쟁력", (baseName || "–") + " 가격 포지션", pComp, "#4f46e5",
+        base ? (segHi - base.hi > 0 ? "구간 최고가 대비 " + (segHi - base.hi) + "위안 낮음 \xB7 " + segName + " 내 " + rank + "위 / " + inSegBr.length + "개"
+          : "구간 내 최고가 \xB7 " + segName + " 내 1위 / " + inSegBr.length + "개") : "기준 제품 없음"),
+      GA("시장 기회", segName + " 시장 성장 기회", pOpp, "#16a34a",
+        "전사 26년 증분 " + ppFmt(totGain) + "만개 중 이 구간 " + ppFmt(segGain) + "만개"),
+      GA("26년 목표 점유", segName + " 구간 내 메가젠", pShare, "#f59e0b",
+        "25년 " + (srow.y25p == null ? "–" : srow.y25p) + "% → 26년 목표 " + (srow.y26p == null ? "–" : srow.y26p) + "%")),
+
+    /* ② 전략 방향 — 그 다음 */
+    srow.plan ? React.createElement("div", { className: "ppcard" },
+      React.createElement("div", { className: "ct" }, segName, " 전략 방향"),
+      React.createElement("div", { className: "rule" }),
+      React.createElement("div", { className: "plv", dangerouslySetInnerHTML: { __html: ppBullets(srow.plan) } })) : null,
+
+    /* ③ 가격 스펙트럼 */
+    React.createElement("div", { className: "ppcard" },
+      React.createElement("div", { className: "ct" }, "가격 스펙트럼 ",
+        React.createElement("span", { className: "xs" }, "(" + segName + " \xB7 " + segLo + "~" + segHi + " 위안 \xB7 대리상가격 \xB7 브랜드 없는 가격구간은 압축)")),
+      React.createElement("div", { className: "rule" }),
+      React.createElement("div", { className: "spg" },
+      React.createElement("div", { style: { overflowX: "auto", minWidth: 0 } },
+        React.createElement("svg", { viewBox: "0 0 1000 196", style: { width: "100%", minWidth: "560px", display: "block" } },
+          React.createElement("line", { x1: XL, y1: 164, x2: XR, y2: 164, stroke: "#cbd5e1", strokeWidth: 2 }),
+          ticks.map((t) => React.createElement("g", { key: t.v },
+            React.createElement("line", { x1: t.x, y1: 159, x2: t.x, y2: 169, stroke: "#94a3b8" }),
+            React.createElement("text", { x: t.x, y: 186, textAnchor: "middle", fontSize: 10.7, fill: "#141826" }, t.v.toLocaleString()))),
+          mk.map((m) => { const ly = LEV[m.lv];
+            const col = m.sel ? "#4f46e5" : m.mg ? "#1e2f5e" : "#141826";
+            return React.createElement("g", { key: m.i },
+              React.createElement("line", { x1: m.cx, y1: 162, x2: m.cx, y2: ly + 17, stroke: m.sel || m.mg ? col : "#cbd5e1", strokeWidth: m.sel ? 2.5 : m.mg ? 2 : 1 }),
+              React.createElement("circle", { cx: m.cx, cy: 164, r: m.sel ? 6.5 : m.mg ? 5.5 : 4.5, fill: col }),
+              React.createElement("text", { x: m.cx, y: ly, textAnchor: "middle", fontSize: 12.1, fontWeight: m.sel || m.mg ? 800 : 700, fill: col, stroke: "#fff", strokeWidth: 3.4, paintOrder: "stroke" }, m.b.b),
+              React.createElement("text", { x: m.cx, y: ly + 13, textAnchor: "middle", fontSize: 10.7, fill: col, opacity: .95, stroke: "#fff", strokeWidth: 3.2, paintOrder: "stroke" }, f(m.b) + " 위안")); }))),
+      React.createElement("div", { className: "anx" },
+        React.createElement("div", { className: "ant" }, segName, " (", (srow.band || (segLo + "~" + segHi)), " 위안)"),
+        React.createElement("div", { className: "ans" }, "시장 장악 전략"),
+        AN.map((x, i) => React.createElement("div", { key: i, className: "anl", title: x }, x))))),
+
+    /* ④ 선택 제품 비교 + 대응전략 */
+    React.createElement(React.Fragment, null,
+      React.createElement("div", { className: "ppcard" },
+        React.createElement("div", { className: "ct" }, "선택 제품 비교"),
+        React.createElement("div", { className: "rule" }),
+        React.createElement("table", { className: "pptbl sel3", "data-no-sort": "1", style: NUM },
+          React.createElement("thead", null, React.createElement("tr", null,
+            React.createElement("th", null, "비교 항목"),
+            React.createElement("th", { style: { color: "#4f46e5" } }, baseName || "–"),
+            rivals.slice(0, 2).map((r) => React.createElement("th", { key: r.b }, r.b)))),
+          React.createElement("tbody", null,
+            React.createElement("tr", null, React.createElement("td", null, "대리상가격"),
+              React.createElement("td", { className: "hi" }, f(base) + " 위안"),
+              rivals.slice(0, 2).map((r) => React.createElement("td", { key: r.b }, f(r) + " 위안"))),
+            React.createElement("tr", null, React.createElement("td", null, "시장"),
+              React.createElement("td", { className: "hi" }, segName), rivals.slice(0, 2).map((r) => React.createElement("td", { key: r.b }, segName))),
+            React.createElement("tr", null, React.createElement("td", null, "가격 차이"),
+              React.createElement("td", { className: "hi" }, "기준"),
+              rivals.slice(0, 2).map((r) => { const dv = dif(r);
+                return React.createElement("td", { key: r.b, style: { color: dv > 0 ? "#c0392f" : dv < 0 ? "#16a34a" : "#141826", fontWeight: 700 } }, (dv > 0 ? "+" : "") + dv + " 위안"); })),
+            React.createElement("tr", null, React.createElement("td", null, "구분"),
+              React.createElement("td", { className: "hi" }, PP_MGG.indexOf(baseName) >= 0 ? "메가젠" : "경쟁사"),
+              rivals.slice(0, 2).map((r) => React.createElement("td", { key: r.b }, PP_MGG.indexOf(r.b) >= 0 ? "메가젠" : "경쟁사")))))),
+      React.createElement("div", { className: "ppcard" },
+        React.createElement("div", { className: "ct", style: { color: "#4f46e5" } }, (baseName || segName) + " 대응전략"),
+        React.createElement("div", { className: "rule" }),
+        STR.map((x, i) => React.createElement("div", { key: i, className: "srow" },
+          React.createElement("div", { className: "sic", style: { background: x.bg, color: x.c } }, x.ic),
+          React.createElement("div", null,
+            React.createElement("div", { className: "sk" }, x.k),
+            React.createElement("div", { className: "sv" }, x.v)))))),
+
+    /* ⑤ 구간 비교표 */
+    React.createElement("div", { className: "ppcard" },
+      React.createElement("div", { className: "ct" }, segName + " 구간 비교 \xB7 기준 " + (baseName || "–")),
+      React.createElement("div", { className: "rule" }),
+      React.createElement("div", { style: { overflowX: "auto" } },
+        React.createElement("table", { className: "pptbl cmp1", "data-no-sort": "1", style: NUM },
+          React.createElement("thead", null, React.createElement("tr", null,
+            React.createElement("th", null, "비교 항목"),
+            React.createElement("th", { style: { color: "#4f46e5" } }, baseName || "–"),
+            rivals.map((r) => React.createElement("th", { key: r.b, style: { color: PP_MGG.indexOf(r.b) >= 0 ? "#1e2f5e" : "#334155" } }, r.b)))),
+          React.createElement("tbody", null,
+            React.createElement("tr", null, React.createElement("td", null, "대리상가격 (위안)"),
+              React.createElement("td", { className: "hi" }, f(base)), rivals.map((r) => React.createElement("td", { key: r.b }, f(r)))),
+            React.createElement("tr", null, React.createElement("td", null, "상한"),
+              React.createElement("td", { className: "hi" }, base ? base.hi : "–"), rivals.map((r) => React.createElement("td", { key: r.b }, r.hi))),
+            React.createElement("tr", null, React.createElement("td", null, "하한"),
+              React.createElement("td", { className: "hi" }, base && base.lo != null ? base.lo : "–"), rivals.map((r) => React.createElement("td", { key: r.b }, r.lo == null ? "–" : r.lo))),
+            React.createElement("tr", null, React.createElement("td", null, "기준 대비 차이"),
+              React.createElement("td", { className: "hi" }, "기준"),
+              rivals.map((r) => { const dv = dif(r);
+                return React.createElement("td", { key: r.b, style: { color: dv > 0 ? "#c0392f" : dv < 0 ? "#16a34a" : "#141826", fontWeight: 700 } }, (dv > 0 ? "+" : "") + dv + " 위안"); })),
+            React.createElement("tr", null, React.createElement("td", null, "구분"),
+              React.createElement("td", { className: "hi" }, PP_MGG.indexOf(baseName) >= 0 ? "메가젠" : "경쟁사"),
+              rivals.map((r) => React.createElement("td", { key: r.b }, PP_MGG.indexOf(r.b) >= 0 ? "메가젠" : "경쟁사")))))),
+      React.createElement("div", { className: "ppnote" },
+        React.createElement("b", null, segName), " 구간 브랜드 ", React.createElement("b", null, inSegBr.length), "개 \xB7 메가젠 ",
+        React.createElement("b", null, mgIn.length), "개 \xB7 가격대 ", segLo, "~", segHi, " 위안 \xB7 ",
+        base ? React.createElement("span", null, baseName + " 가격 순위 ", React.createElement("b", null, rank + "위"), " / " + inSegBr.length + "개 (비싼 순)") : "기준 제품 없음")));
 }
-function PPCompare({ FONT, NUM, ui, setUI }) {
-  const PRICE_SEGS = ["Premium", "Value", "Volume 1", "Volume 2"];
-  const BRANDS = ["MEGAGEN", "Straumann", "Nobel", "Astra", "ZimVie", "\uAE30\uD0C0"];
-  const BD_PRODS = ["MEGAGEN BD", "ARI", "AO", "ST", "Evidence"];
-  const U = ui || {};
-  const priceSeg = U.priceSeg || "Premium";
-  const setPriceSeg = (v) => setUI((u) => ({ ...u, priceSeg: v }));
-  const brand = U.brand || "MEGAGEN";
-  const setBrand = (v) => setUI((u) => ({ ...u, brand: v }));
-  const bdProd = U.bdProd || "MEGAGEN BD";
-  const setBdProd = (v) => setUI((u) => ({ ...u, bdProd: v }));
-  const reset = () => {
-    setPriceSeg("Premium");
-    setBrand("MEGAGEN");
-    setBdProd("MEGAGEN BD");
-  };
-  const MARK = [
-    { n: "MEGAGEN BD", r: "600~650 RMB", lo: 600, hi: 650, mg: true },
-    { n: "ZimVie", r: "650~700 RMB", lo: 650, hi: 700 },
-    { n: "Astra", r: "680~720 RMB", lo: 680, hi: 720 },
-    { n: "Nobel PMC", r: "800~850 RMB", lo: 800, hi: 850 },
-    { n: "Straumann BLT", r: "900~1,000 RMB", lo: 900, hi: 1e3 }
-  ];
-  const AXIS = [120, 200, 300, 400, 500, 600, 700, 800, 900, 1e3];
-  const xp = (p) => 40 + (p - 120) / (1e3 - 120) * 920;
-  const CMP = [
-    { k: "\uAC00\uACA9", v: ["600~650 RMB", "900~1,000 RMB", "800~850 RMB"] },
-    { k: "\uC2DC\uC7A5", v: ["Premium", "Premium", "Premium"] },
-    { k: "\uAC00\uACA9 \uCC28\uC774", v: ["\uAE30\uC900", "+300~350 RMB", "+150~250 RMB"] },
-    { k: "\uD575\uC2EC \uAC15\uC810", v: ["\uAC00\uACA9 \uB300\uBE44 \uC131\uB2A5", "\uBE0C\uB79C\uB4DC \uC120\uD638\uB3C4", "\uD504\uB9AC\uBBF8\uC5C4 \uC778\uC9C0\uB3C4"] }
-  ];
-  const STRAT = [
-    { ic: "\u2460", bg: "bg-indigo-50 text-indigo-600", k: "\uC8FC\uC694 \uACBD\uC7C1\uC81C\uD488", v: "BLT \xB7 Nobel PMC" },
-    { ic: "\u2461", bg: "bg-amber-50 text-amber-600", k: "\uC704\uD5D8\uC694\uC778", v: "\uD504\uB9AC\uBBF8\uC5C4 \uBE0C\uB79C\uB4DC \uACA9\uCC28" },
-    { ic: "\u2462", bg: "bg-green-50 text-green-600", k: "\uAD8C\uC7A5\uC804\uB7B5", v: "ARI \xB7 BDC \uC5F0\uACC4 \uD3EC\uD2B8\uD3F4\uB9AC\uC624" },
-    { ic: "\u2463", bg: "bg-slate-100 text-slate-600", k: "\uBAA9\uD45C\uC2DC\uC7A5", v: "\uD575\uC2EC \uB300\uB9AC\uC0C1 \xB7 \uACE0\uAE09 \uBBFC\uC601\uCE58\uACFC" }
-  ];
-  const GAUGE = [
-    { title: "\uAC00\uACA9 \uACBD\uC7C1\uB825", sub: "MEGAGEN BD \uAC00\uACA9 \uD3EC\uC9C0\uC158", pct: 72, bar: "bg-indigo-600", val: "text-indigo-600", note: "\uC8FC\uC694 \uACBD\uC7C1\uC81C\uD488 \uB300\uBE44 \uAC00\uACA9 \uACBD\uC7C1\uB825\uC774 \uC6B0\uC218\uD569\uB2C8\uB2E4." },
-    { title: "\uBE0C\uB79C\uB4DC \uACA9\uCC28", sub: "\uD504\uB9AC\uBBF8\uC5C4 \uBE0C\uB79C\uB4DC \uB300\uBE44 \uC778\uC9C0\uB3C4 \uACA9\uCC28", pct: 45, bar: "bg-amber-500", val: "text-amber-500", note: "\uD504\uB9AC\uBBF8\uC5C4 \uBE0C\uB79C\uB4DC \uB300\uBE44 \uC778\uC9C0\uB3C4 \uACA9\uCC28\uAC00 \uC874\uC7AC\uD569\uB2C8\uB2E4." },
-    { title: "\uC2DC\uC7A5 \uAE30\uD68C", sub: "Premium \uC2DC\uC7A5 \uC131\uC7A5 \uAE30\uD68C", pct: 68, bar: "bg-green-600", val: "text-green-600", note: "Premium \uC2DC\uC7A5 \uB0B4 \uC131\uC7A5 \uAE30\uD68C\uAC00 \uB192\uC2B5\uB2C8\uB2E4." }
-  ];
-  const chip = (active) => "w-full text-left px-3 py-1.5 text-[12.5px] font-semibold border transition " + (active ? "bg-indigo-600 border-indigo-600 text-white" : "bg-white border-slate-300 text-slate-500 hover:bg-slate-50");
-  return /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-[1fr_190px] gap-4", style: FONT }, /* @__PURE__ */ React.createElement("div", { className: "space-y-4" }, /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-bold text-slate-900 mb-2" }, "\uAC00\uACA9 \uC2A4\uD399\uD2B8\uB7FC ", /* @__PURE__ */ React.createElement("span", { className: "text-xs font-normal text-slate-500" }, "(120~1,000 RMB)")), /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ React.createElement("svg", { viewBox: "0 0 1000 205", className: "w-full", style: { minWidth: "660px" } }, /* @__PURE__ */ React.createElement("line", { x1: "40", y1: "152", x2: "960", y2: "152", stroke: "#cbd5e1", strokeWidth: "2" }), AXIS.map((a) => /* @__PURE__ */ React.createElement("g", { key: a }, /* @__PURE__ */ React.createElement("line", { x1: xp(a), y1: "147", x2: xp(a), y2: "157", stroke: "#94a3b8", strokeWidth: "1" }), /* @__PURE__ */ React.createElement("text", { x: xp(a), y: "178", textAnchor: "middle", fontSize: "12", fill: "#64748b" }, a === 120 ? "120" : a === 1e3 ? "1,000 RMB" : a))), (() => {
-    const LEVELS = [40, 76, 112];
-    const marks = MARK.map((m, i) => ({ ...m, i, cx: xp((m.lo + m.hi) / 2), w: Math.max(String(m.n).length, String(m.r).length) * 7 })).sort((a, b) => a.cx - b.cx);
-    const lastRight = [-1e9, -1e9, -1e9];
-    marks.forEach((m) => {
-      let lv = 0;
-      for (let k = 0; k < LEVELS.length; k++) {
-        if (m.cx - m.w / 2 > lastRight[k] + 8) {
-          lv = k;
-          break;
-        }
-        lv = k;
-      }
-      m.lv = lv;
-      lastRight[lv] = m.cx + m.w / 2;
-    });
-    return marks.map((m) => {
-      const ly = LEVELS[m.lv];
-      const col = m.mg ? "#4f46e5" : "#94a3b8";
-      return /* @__PURE__ */ React.createElement("g", { key: m.i }, /* @__PURE__ */ React.createElement("line", { x1: m.cx, y1: "150", x2: m.cx, y2: ly + 22, stroke: m.mg ? "#4f46e5" : "#cbd5e1", strokeWidth: m.mg ? 2 : 1 }), /* @__PURE__ */ React.createElement("circle", { cx: m.cx, cy: "152", r: m.mg ? 7 : 6, fill: col }), /* @__PURE__ */ React.createElement("text", { x: m.cx, y: ly, textAnchor: "middle", fontSize: "13", fontWeight: "700", fill: m.mg ? "#4f46e5" : "#475569" }, m.n), /* @__PURE__ */ React.createElement("text", { x: m.cx, y: ly + 16, textAnchor: "middle", fontSize: "12", fill: m.mg ? "#4f46e5" : "#64748b" }, m.r));
-    });
-  })()))), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 xl:grid-cols-[1fr_320px] gap-4" }, /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-bold text-slate-900 mb-3" }, "\uC120\uD0DD \uC81C\uD488 \uBE44\uAD50"), /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ React.createElement("table", { className: "w-full text-[13px] border-collapse", style: NUM }, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("th", { className: "border border-slate-300 bg-slate-200 px-3 py-2 text-left font-bold text-slate-600" }, "\uBE44\uAD50 \uD56D\uBAA9"), /* @__PURE__ */ React.createElement("th", { className: "border border-slate-300 bg-slate-200 px-3 py-2 text-center font-bold text-indigo-700" }, "MEGAGEN BD"), /* @__PURE__ */ React.createElement("th", { className: "border border-slate-300 bg-slate-200 px-3 py-2 text-center font-bold text-slate-600" }, "Straumann BLT"), /* @__PURE__ */ React.createElement("th", { className: "border border-slate-300 bg-slate-200 px-3 py-2 text-center font-bold text-slate-600" }, "Nobel PMC"))), /* @__PURE__ */ React.createElement("tbody", null, CMP.map((r, i) => /* @__PURE__ */ React.createElement("tr", { key: i }, /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-2 font-semibold text-slate-600 text-center" }, r.k), /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-2 text-center font-bold text-indigo-700" }, r.v[0]), /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-2 text-center text-slate-900" }, r.v[1]), /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-2 text-center text-slate-900" }, r.v[2]))))))), /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-bold text-indigo-700 mb-3" }, "BD \uB300\uC751\uC804\uB7B5"), /* @__PURE__ */ React.createElement("div", { className: "space-y-3" }, STRAT.map((s, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: "flex items-center gap-3" }, /* @__PURE__ */ React.createElement("div", { className: "w-8 h-8 flex items-center justify-center text-[14px] font-bold shrink-0 " + s.bg }, s.ic), /* @__PURE__ */ React.createElement("div", { className: "min-w-0" }, /* @__PURE__ */ React.createElement("div", { className: "text-[11px] text-slate-500" }, s.k), /* @__PURE__ */ React.createElement("div", { className: "text-[13px] font-bold text-slate-900" }, s.v))))), /* @__PURE__ */ React.createElement("button", { className: "mt-4 w-full flex items-center justify-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-[13px] font-semibold py-2.5" }, "\uBE44\uAD50 \uB9AC\uD3EC\uD2B8 \uB2E4\uC6B4\uB85C\uB4DC"))), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4" }, GAUGE.map((g, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: "bg-white border border-slate-200 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-bold text-slate-900" }, g.title), /* @__PURE__ */ React.createElement("div", { className: "text-[11px] text-slate-500 mb-3" }, g.sub), /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between text-[11px] text-slate-400 mb-1" }, /* @__PURE__ */ React.createElement("span", null, "\uB0AE\uC74C"), /* @__PURE__ */ React.createElement("span", { className: "text-base font-extrabold " + g.val, style: NUM }, g.pct, "%")), /* @__PURE__ */ React.createElement("div", { className: "h-2 bg-slate-100 overflow-hidden" }, /* @__PURE__ */ React.createElement("div", { className: "h-full " + g.bar, style: { width: g.pct + "%" } })), /* @__PURE__ */ React.createElement("div", { className: "flex justify-between text-[11px] text-slate-400 mt-1" }, /* @__PURE__ */ React.createElement("span", null, "\xA0"), /* @__PURE__ */ React.createElement("span", null, "\uB192\uC74C")), /* @__PURE__ */ React.createElement("div", { className: "text-[11.5px] text-slate-500 mt-2" }, g.note))))), /* @__PURE__ */ React.createElement("aside", { className: "bg-white border border-slate-200 p-3 h-fit space-y-4 order-first lg:order-none" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-bold text-slate-900" }, "\uD544\uD130"), /* @__PURE__ */ React.createElement("button", { onClick: reset, className: "text-[11px] text-slate-400 hover:text-indigo-600" }, "\u21BB \uCD08\uAE30\uD654")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-[11px] font-bold text-slate-500 mb-1.5" }, "\uAC00\uACA9\uB300"), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, PRICE_SEGS.map((s) => /* @__PURE__ */ React.createElement("button", { key: s, onClick: () => setPriceSeg(s), className: chip(priceSeg === s) }, s, priceSeg === s ? " \u2713" : "")))), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-[11px] font-bold text-slate-500 mb-1.5" }, "\uBE0C\uB79C\uB4DC"), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, BRANDS.map((s) => /* @__PURE__ */ React.createElement("button", { key: s, onClick: () => setBrand(s), className: chip(brand === s) }, s, brand === s ? " \u2713" : "")))), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-[11px] font-bold text-slate-500 mb-1.5" }, "BD \uC81C\uD488 \uC804\uB7B5 \uBD84\uC11D"), /* @__PURE__ */ React.createElement("div", { className: "space-y-1" }, BD_PRODS.map((s) => /* @__PURE__ */ React.createElement("button", { key: s, onClick: () => setBdProd(s), className: chip(bdProd === s) }, s, bdProd === s ? " \u2713" : ""))))));
-}
+
 function PPBrand({ FONT, NUM, ui, setUI }) {
   const P = {
     "BD": {
@@ -14482,15 +14212,338 @@ function PPBrand({ FONT, NUM, ui, setUI }) {
   const UL = ({ items }) => /* @__PURE__ */ React.createElement("ul", { className: "space-y-1" }, items.map((it, i) => /* @__PURE__ */ React.createElement("li", { key: i, className: "text-[12.5px] text-slate-800 flex gap-1.5" }, /* @__PURE__ */ React.createElement("span", { className: "text-indigo-400" }, "\xB7"), /* @__PURE__ */ React.createElement("span", null, it))));
   return /* @__PURE__ */ React.createElement("div", { className: "space-y-4", style: FONT }, /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-1.5" }, KEYS.map((k) => /* @__PURE__ */ React.createElement("button", { key: k, onClick: () => setSel(k), className: chip(sel === k) }, k))), /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap items-baseline gap-3" }, /* @__PURE__ */ React.createElement("div", { className: "text-lg font-extrabold text-indigo-700" }, d.full), /* @__PURE__ */ React.createElement("div", { className: "text-[12px] font-bold text-slate-500", style: NUM }, d.seg), /* @__PURE__ */ React.createElement("div", { className: "text-[11px] font-bold text-white bg-indigo-600 px-2 py-0.5" }, d.pos)), /* @__PURE__ */ React.createElement("div", { className: "text-[13px] text-slate-800 mt-2 leading-relaxed" }, d.intro)), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-4" }, /* @__PURE__ */ React.createElement(SEC, { title: "\uC8FC\uC694 \uC2A4\uD399" }, /* @__PURE__ */ React.createElement("table", { className: "w-full text-[12.5px] border-collapse", style: NUM }, /* @__PURE__ */ React.createElement("tbody", null, d.spec.map((r, i) => /* @__PURE__ */ React.createElement("tr", { key: i }, /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 bg-slate-200 text-slate-600 px-3 py-1.5 font-bold w-[110px]" }, r[0]), /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-1.5 text-slate-900" }, r[1])))))), /* @__PURE__ */ React.createElement(SEC, { title: "\uC784\uC0C1 \uC6B0\uC218\uC131" }, /* @__PURE__ */ React.createElement(UL, { items: d.clinical })), /* @__PURE__ */ React.createElement(SEC, { title: "USP (\uD575\uC2EC \uCC28\uBCC4\uC810)" }, /* @__PURE__ */ React.createElement(UL, { items: d.usp })), /* @__PURE__ */ React.createElement(SEC, { title: "\uACBD\uC7C1\uB300\uBE44 \uC6B0\uC704\uC810" }, /* @__PURE__ */ React.createElement(UL, { items: d.edge }))), /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-bold text-slate-900 mb-3" }, "\uAD00\uC810\uBCC4 \uC138\uC77C\uC988 \uD3EC\uC778\uD2B8"), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3" }, ["\uD658\uC790", "\uCE58\uACFC\uC758\uC0AC", "DSO", "\uB300\uB9AC\uC0C1"].map((k) => /* @__PURE__ */ React.createElement("div", { key: k, className: "border border-slate-200 border-t-2 border-t-indigo-500 p-3" }, /* @__PURE__ */ React.createElement("div", { className: "text-[12px] font-extrabold text-indigo-700 mb-1.5" }, k), /* @__PURE__ */ React.createElement("div", { className: "text-[12.5px] text-slate-800 leading-relaxed" }, d.sales[k]))))), /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-bold text-slate-900 mb-2" }, "\uBC18\uB860 \uB300\uC751 (Objection Handling)"), /* @__PURE__ */ React.createElement("table", { className: "w-full text-[12.5px] border-collapse" }, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("th", { className: "border border-slate-300 bg-slate-200 text-slate-600 px-3 py-1.5 text-left font-bold w-[240px]" }, "\uC608\uC0C1 \uBC18\uB860"), /* @__PURE__ */ React.createElement("th", { className: "border border-slate-300 bg-slate-200 text-slate-600 px-3 py-1.5 text-left font-bold" }, "\uB300\uC751 \uD3EC\uC778\uD2B8"))), /* @__PURE__ */ React.createElement("tbody", null, d.objection.map((r, i) => /* @__PURE__ */ React.createElement("tr", { key: i }, /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-1.5 font-semibold text-slate-700" }, r[0]), /* @__PURE__ */ React.createElement("td", { className: "border border-slate-300 px-3 py-1.5 text-slate-900" }, r[1]))))), /* @__PURE__ */ React.createElement("div", { className: "text-[11.5px] text-slate-500 mt-2" }, "\u203B \uB0B4\uC6A9\uC740 \uCD08\uC548\uC785\uB2C8\uB2E4 \u2014 \uC218\uC815\uD560 \uBD80\uBD84\uC744 \uB9D0\uC500\uD574 \uC8FC\uC2DC\uBA74 \uBC18\uC601\uD569\uB2C8\uB2E4.")));
 }
-function PricePosView({ weeklyEntries, setWeeklyEntries, logChange, year, month, week, sheetsData: sheetsData2, ui, setUI }) {
-  const U = ui || {};
-  const tab = U.tab || "map";
-  const setTab = (v) => setUI((u) => ({ ...u, tab: v }));
-  const FONT = { fontFamily: '"Malgun Gothic","\uB9D1\uC740 \uACE0\uB515",Arial,sans-serif' };
-  const NUM = { fontVariantNumeric: "tabular-nums" };
-  const TABS = [["map", "\uD3EC\uC9C0\uC154\uB2DD \uB9F5"], ["cmp", "\uAC00\uACA9\uB300\uBCC4 \uBE44\uAD50"], ["brand", "\uBE0C\uB79C\uB4DC\uBCC4 \uBD84\uC11D"]];
-  return /* @__PURE__ */ React.createElement("div", { className: "space-y-4", style: FONT }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { className: "text-lg font-bold text-slate-900" }, "\uC81C\uD488 \uD3EC\uC9C0\uC154\uB2DD"), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-slate-500" }, "2026\uB144 \uAC00\uACA9\uB300\uBCC4 \uBE0C\uB79C\uB4DC \uD3EC\uC9C0\uC154\uB2DD \xB7 \uAC00\uACA9\uB300\uBCC4 \uBE44\uAD50 \xB7 \uBE0C\uB79C\uB4DC\uBCC4 \uBD84\uC11D")), /* @__PURE__ */ React.createElement("div", { className: "flex gap-1 border-b border-slate-200" }, TABS.map(([k, label]) => /* @__PURE__ */ React.createElement("button", { key: k, onClick: () => setTab(k), className: "px-4 py-2 text-sm font-semibold -mb-px border-b-2 " + (tab === k ? "border-indigo-600 text-indigo-700" : "border-transparent text-slate-500 hover:text-slate-700") }, label))), tab === "map" ? /* @__PURE__ */ React.createElement(PPMap, { FONT, NUM, weeklyEntries, setWeeklyEntries, logChange, year, month, week, sheetsData: sheetsData2, ui, setUI }) : tab === "cmp" ? /* @__PURE__ */ React.createElement(PPCompare, { FONT, NUM, ui, setUI }) : /* @__PURE__ */ React.createElement(PPBrand, { FONT, NUM, ui, setUI }));
+
+/* ── 주차간 변화 감지 ─────────────────────────────────────── */
+const ppLines = (t) => {
+  if (!t) return [];
+  return String(t).replace(/★\s*/g, "\n★ ").replace(/→\s*/g, "\n→ ").replace(/(\d\))\s*/g, "\n$1 ")
+    .split("\n").map((x) => x.trim()).filter((x) => x);
+};
+const ppKeyOf = (l) => String(l).replace(/^[★→]\s*/, "").replace(/^\d\)\s*/, "").replace(/\s+/g, "").slice(0, 8);
+function ppDiffWeeks(D, keys) {
+  const out = [];
+  for (let i = 1; i < keys.length; i++) {
+    const pw = D[keys[i - 1]] || {}, cw = D[keys[i]] || {};
+    const ev = { week: keys[i], prev: keys[i - 1], date: cw.date || "", strat: [], price: [], goal: [] };
+    // 전략 문구
+    (cw.segs || []).forEach((cs) => {
+      const ps = (pw.segs || []).find((x) => x.seg === cs.seg) || {};
+      [["plan", "전략"], ["comp", "경쟁사"]].forEach(([f, lab]) => {
+        const A = ppLines(ps[f]), B = ppLines(cs[f]);
+        const ak = A.map(ppKeyOf), bk = B.map(ppKeyOf);
+        const add = B.filter((l, j) => ak.indexOf(bk[j]) < 0);
+        const del = A.filter((l, j) => bk.indexOf(ak[j]) < 0);
+        // 같은 키인데 문장이 바뀐 경우 = 수정
+        const mod = [];
+        B.forEach((l, j) => { const k = ak.indexOf(bk[j]); if (k >= 0 && A[k] !== l) mod.push([A[k], l]); });
+        if (add.length || del.length || mod.length) ev.strat.push({ seg: cs.seg, lab, add, del, mod });
+      });
+      // 목표/시장규모
+      if (ps.seg !== void 0) {
+        if ((ps.y26 || 0) !== (cs.y26 || 0)) ev.goal.push(cs.seg + " 26년 목표 " + ppFmt(ps.y26) + " → " + ppFmt(cs.y26) + "만개");
+        if ((ps.size || 0) !== (cs.size || 0)) ev.goal.push(cs.seg + " 시장규모 " + ppFmt(ps.size) + " → " + ppFmt(cs.size) + "만개");
+        if ((ps.y25 || 0) !== (cs.y25 || 0)) ev.goal.push(cs.seg + " 25년 실적 " + ppFmt(ps.y25) + " → " + ppFmt(cs.y25) + "만개");
+      }
+    });
+    // 브랜드 가격
+    const pm = {}, cm = {};
+    (pw.brands || []).forEach((b) => { pm[b.b] = b; });
+    (cw.brands || []).forEach((b) => { cm[b.b] = b; });
+    Object.keys(cm).forEach((k) => {
+      const a = pm[k], b = cm[k];
+      if (!a) { ev.price.push({ t: "new", b: k, txt: "신규 등장 " + (b.hi == null ? "가격 미정" : (b.lo == null ? b.hi : b.lo + "–" + b.hi) + "위안") }); return; }
+      if ((a.hi || 0) !== (b.hi || 0) || (a.lo || 0) !== (b.lo || 0)) {
+        const f = (x) => x.hi == null ? "미정" : (x.lo == null ? x.hi : x.lo + "–" + x.hi);
+        ev.price.push({ t: "chg", b: k, txt: f(a) + " → " + f(b) + "위안", up: (b.hi || 0) - (a.hi || 0) });
+      }
+    });
+    Object.keys(pm).forEach((k) => { if (!cm[k]) ev.price.push({ t: "del", b: k, txt: "목록에서 제외" }); });
+    ev.n = ev.strat.length + ev.price.length + ev.goal.length;
+    out.push(ev);
+  }
+  return out;
 }
+
+function PricePosView({ sheetsData, ui, setUI, year, month }) {
+  const U = ui || {};
+  const setU = (k, v) => setUI((u) => ({ ...(u || {}), [k]: v }));
+  const FONT = { fontFamily: '"Malgun Gothic","맑은 고딕","Microsoft YaHei",Arial,sans-serif' };
+
+  const D = React.useMemo(() => ppFromSheets(sheetsData) || PP_EMBED, [sheetsData]);
+  const allWeeks = Object.keys(D);
+  // 주차키("2026년 3월 3주차")에서 월 추출 → 월별 그룹
+  const byMonth = {};
+  allWeeks.forEach((k) => { const m = String(k).match(/(\d+)\s*월/); const mm = m ? parseInt(m[1], 10) : 0; (byMonth[mm] = byMonth[mm] || []).push(k); });
+  const months = Object.keys(byMonth).map(Number).sort((a, b) => a - b);
+  const gMon = month || 0;                       // 상단 전역 월 필터
+  const hasG = months.indexOf(gMon) >= 0;
+  const autoMon = hasG ? gMon : (months.length ? months[months.length - 1] : 0);
+  const curMon = (U.mon && months.indexOf(U.mon) >= 0) ? U.mon : autoMon;
+  const weeks = byMonth[curMon] || [];
+  const wk = (U.wk && weeks.indexOf(U.wk) >= 0) ? U.wk : (weeks.length ? weeks[weeks.length - 1] : "");
+  const d = D[wk] || { segs: [], brands: [] };
+  const segs = d.segs || [], brands = d.brands || [];
+  const TABKEYS = ["map", "cmp", "brand", "chg", "raw"];
+  const tab = TABKEYS.indexOf(U.tab) >= 0 ? U.tab : "map";
+
+  const mkt = segs.reduce((a, s) => a + (s.size || 0), 0);
+  const y25 = segs.reduce((a, s) => a + (s.y25 || 0), 0);
+  const y26 = segs.reduce((a, s) => a + (s.y26 || 0), 0);
+  const gain = y26 - y25;
+  let topSeg = null, topG = -1;
+  segs.forEach((s) => { const g = (s.y26 || 0) - (s.y25 || 0); if (g > topG) { topG = g; topSeg = s; } });
+  const selSeg = (U.selSeg && segs.some((x) => x.seg === U.selSeg)) ? U.selSeg : (topSeg ? topSeg.seg : (segs[0] ? segs[0].seg : ""));
+
+  const HERO = (l, v, u, s, tone) => React.createElement("div", { key: l },
+    React.createElement("div", { className: "l" }, l),
+    React.createElement("div", { className: "v", style: { color: tone === "ok" ? "#16794a" : tone === "bad" ? "#c0392f" : "#141826" } },
+      v, u ? React.createElement("span", { style: { fontSize: "12px", fontWeight: 700, opacity: .7 } }, " " + u) : null),
+    React.createElement("div", { className: "s", style: { color: tone === "ok" ? "#16794a" : tone === "bad" ? "#c0392f" : "#141826", opacity: .85 } }, s));
+
+  /* ── Segment 구간별 브랜드 배치 (상단, 클릭 선택) ── */
+  const cols = PP_SEGDEF.map((sd) => ({
+    sd, s: segs.find((x) => x.seg === sd.n) || {},
+    list: brands.filter((b) => b.hi != null && ppInSeg(b.hi, sd)).sort((a, b) => b.hi - a.hi)
+  }));
+  const undec = brands.filter((b) => b.hi == null);
+  const cN = cols.length + (undec.length ? 1 : 0);
+  const CW = Math.floor(100 / cN);
+  const maxP = Math.max.apply(null, cols.map((c) => Math.max(c.s.y25p || 0, c.s.y26p || 0)).concat([1])) * 1.25;
+  const chips = (l) => React.createElement("div", { className: "blist" }, l.length ? l.map((b, i) =>
+    React.createElement("span", { key: b.b + i, className: "bchip" + (PP_MGG.indexOf(b.b) >= 0 ? " m" : "") },
+      React.createElement("span", null, b.b),
+      React.createElement("i", null, b.hi == null ? "미정" : (b.lo == null ? b.hi + " ~" : b.lo + "–" + b.hi))))
+    : React.createElement("span", { className: "xs" }, "해당 없음"));
+  const pick = (n) => setU("selSeg", n);
+  const selCls = (n) => n === selSeg ? " selcol" : "";
+
+  const segTable = React.createElement("div", { style: { overflowX: "auto" } },
+    React.createElement("table", { className: "pptbl xtbl", "data-no-sort": "1" },
+      React.createElement("thead", null, React.createElement("tr", null,
+        React.createElement("th", null, ""),
+        cols.map((c) => React.createElement("th", {
+          key: c.sd.n, className: "sh" + selCls(c.sd.n), style: { background: c.sd.cc, width: CW + "%" },
+          onClick: () => pick(c.sd.n), title: "클릭하면 아래에 전략 대응이 표시됩니다"
+        }, React.createElement("b", null, c.sd.n), React.createElement("span", null, (c.s.band || "") + " 위안"))),
+        undec.length ? React.createElement("th", { className: "sh", style: { background: "#c3cbd2", color: "#141826", width: CW + "%" } },
+          React.createElement("b", null, "미정"), React.createElement("span", null, "가격 미공개")) : null)),
+      React.createElement("tbody", null,
+        React.createElement("tr", null, React.createElement("td", null, "시장규모"),
+          cols.map((c) => React.createElement("td", { key: c.sd.n, className: selCls(c.sd.n).trim(), onClick: () => pick(c.sd.n) },
+            React.createElement("span", { className: "xv" }, ppFmt(c.s.size)), React.createElement("span", { className: "xs" }, " 만개"),
+            React.createElement("div", { className: "xs", style: { marginTop: "3px" } }, "시장의 " + (c.s.share == null ? "–" : c.s.share) + "%"))),
+          undec.length ? React.createElement("td", null, "–") : null),
+        React.createElement("tr", null, React.createElement("td", null,
+          React.createElement("div", null, "메가젠 판매수량"),
+          React.createElement("div", { className: "sub2" }, "\u201825년도 \u2192 \u201826년도")),
+          cols.map((c) => {
+            const none = c.s.y25 == null && c.s.y26 == null;
+            const g = (c.s.y26 || 0) - (c.s.y25 || 0);
+            return React.createElement("td", { key: c.sd.n, className: selCls(c.sd.n).trim(), onClick: () => pick(c.sd.n) },
+              none ? React.createElement(React.Fragment, null,
+                React.createElement("span", { style: { color: "#c0392f", fontWeight: 800, fontSize: "11.5px" } }, "미진입"),
+                React.createElement("div", { className: "xs", style: { marginTop: "8px" } }, "점유율 –"))
+                : React.createElement(React.Fragment, null,
+                  React.createElement("span", { className: "xs" }, ppFmt(c.s.y25)), React.createElement("span", { className: "xu" }, "만개"), " ",
+                  React.createElement("b", null, "→"), " ",
+                  React.createElement("span", { className: "xv" }, ppFmt(c.s.y26)), React.createElement("span", { className: "xu" }, "만개"),
+                  React.createElement("div", { className: "xbar" },
+                    React.createElement("i", { style: { width: ((c.s.y25p || 0) / maxP * 100).toFixed(1) + "%", background: c.sd.cc } }),
+                    React.createElement("u", { style: { left: ((c.s.y26p || 0) / maxP * 100).toFixed(1) + "%" } })),
+                  React.createElement("div", { className: "xs" }, "점유 " + (c.s.y25p == null ? "–" : c.s.y25p) + "% → ",
+                    React.createElement("b", null, (c.s.y26p == null ? "–" : c.s.y26p) + "%"), " \xB7 ",
+                    React.createElement("span", { style: { color: "#16794a", fontWeight: 800 } }, "+" + ppFmt(g) + "만개"))));
+          }),
+          undec.length ? React.createElement("td", null, "–") : null),
+        React.createElement("tr", null, React.createElement("td", null, "브랜드 수"),
+          cols.map((c) => { const m = c.list.filter((b) => PP_MGG.indexOf(b.b) >= 0).length;
+            return React.createElement("td", { key: c.sd.n, className: selCls(c.sd.n).trim(), onClick: () => pick(c.sd.n) },
+              React.createElement("span", { className: "xv" }, c.list.length), React.createElement("span", { className: "xs" }, " 개"),
+              React.createElement("div", { className: "xs" }, m ? "메가젠 " + m + " \xB7 경쟁 " + (c.list.length - m) : "경쟁 " + c.list.length)); }),
+          undec.length ? React.createElement("td", null, React.createElement("span", { className: "xv" }, undec.length), React.createElement("span", { className: "xs" }, " 개")) : null),
+        React.createElement("tr", null, React.createElement("td", null,
+          React.createElement("div", null, "브랜드 \xB7 대리상가격"),
+          React.createElement("div", { className: "sub2" }, "(위안)")),
+          cols.map((c) => React.createElement("td", { key: c.sd.n, className: selCls(c.sd.n).trim(), onClick: () => pick(c.sd.n) }, chips(c.list))),
+          undec.length ? React.createElement("td", null, chips(undec)) : null))));
+
+  /* ── 선택 Segment 전략 대응 ── */
+  const sSel = segs.find((x) => x.seg === selSeg) || segs[0] || {};
+  const sdSel = ppSegOf(selSeg);
+  const planCard = React.createElement("div", { className: "ppcard" },
+    React.createElement("div", { className: "ct" }, "시스템별 전략 및 대응방안"),
+    React.createElement("div", { className: "rule" }),
+    React.createElement("div", { className: "planrow" },
+      React.createElement("div", { className: "planh", style: { borderLeft: "4px solid " + sdSel.cc } },
+        React.createElement("b", null, sSel.seg || "–"),
+        React.createElement("span", null, (sSel.band || "") + " 위안 \xB7 " + String(sSel.sizeRaw || "").replace(/\s+/g, " ")),
+        React.createElement("span", { style: { marginLeft: "auto" } }, (sSel.y25 == null && sSel.y26 == null)
+          ? React.createElement("b", { style: { color: "#c0392f" } }, "미진입")
+          : "\u201825년도 " + ppFmt(sSel.y25) + "만개 → \u201826년도 " + ppFmt(sSel.y26) + "만개 목표")),
+      React.createElement("div", { className: "plangrid" },
+        React.createElement("div", null,
+          React.createElement("div", { className: "plv", dangerouslySetInnerHTML: { __html: ppBullets(sSel.plan) } })),
+        React.createElement("div", null, React.createElement("div", { className: "plk" }, "경쟁사 예상변화"),
+          React.createElement("div", { className: "plv", dangerouslySetInnerHTML: { __html: ppBullets(sSel.comp) } })))));
+
+  /* ── 변화 추적 ── */
+  const evs = React.useMemo(() => ppDiffWeeks(D, allWeeks), [D]);
+  const chgWeeks = evs.filter((e) => e.n > 0).length;
+  const nStrat = evs.reduce((a, e) => a + e.strat.reduce((x, g) => x + g.add.length + g.del.length + g.mod.length, 0), 0);
+  const nPrice = evs.reduce((a, e) => a + e.price.length, 0);
+  const nGoal = evs.reduce((a, e) => a + e.goal.length, 0);
+  const allB = [];
+  allWeeks.forEach((w) => (D[w].brands || []).forEach((b) => { if (allB.indexOf(b.b) < 0) allB.push(b.b); }));
+  const mtx = allB.map((bn) => {
+    const cells = allWeeks.map((w) => { const b = (D[w].brands || []).find((x) => x.b === bn); return b ? (b.hi == null ? "미정" : (b.lo == null ? String(b.hi) : b.lo + "–" + b.hi)) : ""; });
+    let chg = 0; for (let i = 1; i < cells.length; i++) if (cells[i] !== cells[i - 1]) chg++;
+    return { b: bn, cells, chg };
+  }).filter((r) => r.chg > 0);
+  const wLab = (w) => { const m = String(w).match(/(\d+)\s*월\s*(\d+)\s*주/); return m ? m[1] + "-" + m[2] : String(w).slice(-6); };
+
+  const chgCard = React.createElement(React.Fragment, null,
+    React.createElement("div", { className: "hero" },
+      HERO("분석 주차", String(allWeeks.length), "주", (allWeeks[0] || "") + " ~ " + (allWeeks[allWeeks.length - 1] || "")),
+      HERO("변경 발생 주차", String(chgWeeks), "주", "전체 " + Math.max(0, evs.length) + "개 비교 구간 중", chgWeeks ? "bad" : void 0),
+      HERO("전략 문구 변경", String(nStrat), "건", "추가 \xB7 삭제 \xB7 수정 합계"),
+      HERO("가격 \xB7 목표 변경", String(nPrice + nGoal), "건", "가격 " + nPrice + " \xB7 목표 " + nGoal)),
+    React.createElement("div", { className: "ppcard" },
+      React.createElement("div", { className: "ct" }, "주차별 변경 이력"),
+      React.createElement("div", { className: "rule" }),
+      evs.slice().reverse().map((e) => React.createElement("div", { key: e.week, className: "tl" + (e.n ? "" : " tl-none") },
+        React.createElement("div", { className: "tlh" },
+          React.createElement("b", null, e.week), React.createElement("span", { className: "xs" }, e.date ? " " + e.date : ""),
+          React.createElement("span", { className: "xs", style: { marginLeft: "auto" } }, "직전 " + e.prev + " 대비"),
+          React.createElement("span", { className: "cnt" + (e.n ? " on" : "") }, e.n ? e.n + "건 변경" : "변경 없음")),
+        e.n ? React.createElement("div", { className: "tlb" },
+          e.goal.length ? React.createElement("div", { className: "gp" },
+            React.createElement("span", { className: "tag tg" }, "목표\xB7규모"),
+            React.createElement("div", null, e.goal.map((g, i) => React.createElement("div", { key: i, className: "li" }, g)))) : null,
+          e.price.length ? React.createElement("div", { className: "gp" },
+            React.createElement("span", { className: "tag tp" }, "가격"),
+            React.createElement("div", null, e.price.map((x, i) => React.createElement("div", { key: i, className: "li" },
+              React.createElement("b", null, x.b), " ",
+              React.createElement("span", { style: { color: x.t === "new" ? "#16794a" : x.t === "del" ? "#c0392f" : (x.up < 0 ? "#c0392f" : "#141826") } }, x.txt))))) : null,
+          e.strat.length ? React.createElement("div", { className: "gp" },
+            React.createElement("span", { className: "tag ts" }, "전략"),
+            React.createElement("div", null, e.strat.map((g, i) => React.createElement("div", { key: i, className: "li" },
+              React.createElement("b", { style: { color: ppSegOf(g.seg).cc } }, g.seg), " ",
+              React.createElement("span", { className: "xs" }, g.lab),
+              g.add.map((l, j) => React.createElement("div", { key: "a" + j, className: "dl add" }, "+ " + l)),
+              g.mod.map((m, j) => React.createElement("div", { key: "m" + j, className: "dl mod" },
+                React.createElement("span", { className: "old" }, m[0]), React.createElement("span", null, " → "), React.createElement("b", null, m[1]))),
+              g.del.map((l, j) => React.createElement("div", { key: "d" + j, className: "dl del" }, "− " + l)))))) : null) : null))),
+    mtx.length ? React.createElement("div", { className: "ppcard" },
+      React.createElement("div", { className: "ct" }, "브랜드 대리상가격 변동 (위안)"),
+      React.createElement("div", { className: "cd" }, "한 번이라도 값이 바뀐 브랜드만 표시 \xB7 바뀐 칸을 색으로 표시"),
+      React.createElement("div", { className: "rule" }),
+      React.createElement("div", { style: { overflowX: "auto" } },
+        React.createElement("table", { className: "pptbl mtx", "data-no-sort": "1" },
+          React.createElement("thead", null, React.createElement("tr", null,
+            React.createElement("th", null, "브랜드"),
+            allWeeks.map((w) => React.createElement("th", { key: w, title: w }, wLab(w))),
+            React.createElement("th", null, "변동"))),
+          React.createElement("tbody", null, mtx.map((r) => React.createElement("tr", { key: r.b },
+            React.createElement("td", null, React.createElement("b", { style: { color: PP_MGG.indexOf(r.b) >= 0 ? "#1e2f5e" : "#141826" } }, r.b)),
+            r.cells.map((c, i) => React.createElement("td", { key: i, className: (i > 0 && c !== r.cells[i - 1]) ? "hit" : "" }, c || "–")),
+            React.createElement("td", null, r.chg + "회")))))))
+      : null);
+
+  /* ── 원본 데이터 (직전 주차 대비 변경 = 빨간색) ── */
+  const pIdx = allWeeks.indexOf(wk) - 1;
+  const pD = pIdx >= 0 ? (D[allWeeks[pIdx]] || {}) : null;
+  const pSeg = (n) => pD ? ((pD.segs || []).find((x) => x.seg === n) || null) : null;
+  const pBr = (n) => pD ? ((pD.brands || []).find((x) => x.b === n) || null) : null;
+  const CH = { color: "#c0392f", fontWeight: 800 };
+  const cel = (val, changed, cls) => React.createElement("td", { className: cls || "", style: changed ? CH : null }, val);
+  const eq = (a, b) => String(a == null ? "" : a) === String(b == null ? "" : b);
+
+  const rawCard = React.createElement("div", { className: "ppcard" },
+    React.createElement("div", { className: "ct" }, "원본 데이터"),
+    React.createElement("div", { className: "cd" }, wk + (pD ? " \xB7 직전 " + allWeeks[pIdx] + " 대비 바뀐 값은 " : " \xB7 ") ,
+      pD ? React.createElement("b", { style: { color: "#c0392f" } }, "빨간색") : "최초 주차 (비교 대상 없음)", pD ? "으로 표시" : ""),
+    React.createElement("div", { className: "rule" }),
+    React.createElement("table", { className: "pptbl raw1", "data-no-sort": "1" },
+      React.createElement("colgroup", null, ["8%", "9%", "8%", "6%", "6%", "6%", "29%", "28%"].map((w, i) => React.createElement("col", { key: i, style: { width: w } }))),
+      React.createElement("thead", null, React.createElement("tr", null,
+        ["Segment", "시장규모", "가격대", "‘25년도", "‘26목표", "증가", "대응방안", "경쟁사 변화"].map((h) => React.createElement("th", { key: h }, h)))),
+      React.createElement("tbody", null, segs.map((x, i) => { const q = pSeg(x.seg);
+        return React.createElement("tr", { key: i },
+          React.createElement("td", null, x.seg),
+          cel(x.sizeRaw, q && !eq(q.sizeRaw, x.sizeRaw)),
+          cel(x.band, q && !eq(q.band, x.band)),
+          cel(x.y25 == null ? "–" : x.y25, q && !eq(q.y25, x.y25)),
+          cel(x.y26 == null ? "–" : x.y26, q && !eq(q.y26, x.y26)),
+          cel(x.y25 == null ? "–" : "+" + ((x.y26 || 0) - (x.y25 || 0)), q && ((q.y26 || 0) - (q.y25 || 0)) !== ((x.y26 || 0) - (x.y25 || 0))),
+          cel(ppEsc(x.plan), q && !eq(q.plan, x.plan), "txt"),
+          cel(ppEsc(x.comp), q && !eq(q.comp, x.comp), "txt")); }))),
+    React.createElement("div", { style: { height: "14px" } }),
+    React.createElement("table", { className: "pptbl raw2", "data-no-sort": "1" },
+      React.createElement("colgroup", null, ["24%", "22%", "13%", "13%", "13%", "15%"].map((w, i) => React.createElement("col", { key: i, style: { width: w } }))),
+      React.createElement("thead", null, React.createElement("tr", null,
+        ["브랜드\xB7제품", "대리상가격(위안)", "상한", "하한", "구분", "Segment"].map((h) => React.createElement("th", { key: h }, h)))),
+      React.createElement("tbody", null, brands.map((b, i) => { const sd = b.hi == null ? null : PP_SEGDEF.find((x) => ppInSeg(b.hi, x));
+        const q = pBr(b.b); const isNew = pD && !q;
+        return React.createElement("tr", { key: i },
+          React.createElement("td", { style: isNew ? CH : null }, b.b + (isNew ? " (신규)" : "")),
+          cel(b.raw || "–", isNew || (q && !eq(q.raw, b.raw))),
+          cel(b.hi == null ? "–" : b.hi, isNew || (q && !eq(q.hi, b.hi))),
+          cel(b.lo == null ? "–" : b.lo, isNew || (q && !eq(q.lo, b.lo))),
+          React.createElement("td", null, PP_MGG.indexOf(b.b) >= 0 ? "메가젠" : "경쟁사"),
+          React.createElement("td", null, sd ? sd.n : "–")); }))));
+
+  return React.createElement("div", { className: "ppwrap", style: FONT },
+    React.createElement("style", { dangerouslySetInnerHTML: { __html: PP_CSS } }),
+    React.createElement("div", null,
+      React.createElement("h1", { className: "text-lg font-bold text-slate-900" }, "제품 포지셔닝"),
+      React.createElement("div", { className: "text-xs text-slate-500" }, "Segment 구간별 브랜드 배치 \xB7 구간별 전략 대응")),
+    React.createElement("div", { className: "flex gap-1 border-b border-slate-200 mt-2 mb-3" },
+      [["map", "포지셔닝맵"], ["cmp", "시스템별 전략"], ["brand", "브랜드별 분석"], ["chg", "변화 추적"], ["raw", "원본 데이터"]].map(([k, label]) =>
+        React.createElement("button", { key: k, onClick: () => setU("tab", k),
+          className: "px-3 py-1.5 text-[12.6px] font-semibold -mb-px border-b-2 " + (tab === k ? "border-indigo-600 text-indigo-700" : "border-transparent text-slate-500 hover:text-slate-700") }, label))),
+    (tab === "map" || tab === "chg" || tab === "raw") ? React.createElement("div", { className: "ppbar" },
+      React.createElement("div", { className: "ppbar-l" },
+        React.createElement("span", { className: "bk" }, "기준 월"),
+        months.map((m) => React.createElement("button", { key: m, onClick: () => setUI((u) => ({ ...(u || {}), mon: m, wk: null })),
+          className: "mbtn" + (m === curMon ? " on" : "") }, m + "월")),
+        React.createElement("span", { className: "xs" }, curMon === autoMon ? (hasG ? "상단 월 필터 연동" : "최신 자료") : "직접 선택")),
+      React.createElement("div", { className: "ppbar-r" },
+        React.createElement("span", { className: "bk" }, "주차"),
+        weeks.map((w) => {
+          const wn = (String(w).match(/(\d+)\s*주/) || [0, "?"])[1];
+          return React.createElement("button", { key: w, onClick: () => setU("wk", w),
+            className: "wkbtn" + (w === wk ? " on" : ""), title: w + (D[w] && D[w].date ? " (" + D[w].date + ")" : "") }, wn + "주");
+        }),
+        React.createElement("span", { className: "xs", style: { marginLeft: "6px" } }, (D[wk] && D[wk].date ? D[wk].date + " \xB7 " : "") + (ppFromSheets(sheetsData) ? "구글시트 연동" : "내장 스냅샷")))) : null,
+    tab === "map" ? React.createElement("div", { className: "hero" },
+      HERO("중국 임플란트 시장", ppFmt(mkt), "만개", "Segment 4개 합계"),
+      HERO("메가젠 25년 실적", ppFmt(y25), "만개", "시장점유 " + (mkt ? (y25 / mkt * 100).toFixed(1) : "0") + "%"),
+      HERO("26년 목표", ppFmt(y26), "만개", "시장점유 " + (mkt ? (y26 / mkt * 100).toFixed(1) : "0") + "% \xB7 +" + ppFmt(gain) + "만개", "ok"),
+      HERO("증분 최대 구간", topSeg ? topSeg.seg : "–", "", gain ? "전체 증분의 " + Math.round(topG / gain * 100) + "%" : "–", "bad")) : null,
+    tab === "map" ? React.createElement(React.Fragment, null,
+      React.createElement("div", { className: "ppcard" },
+        React.createElement("div", { className: "ct" }, "Segment 구간별 브랜드 배치"),
+        React.createElement("div", { className: "rule" }), segTable,
+        (function () { const e = evs.find((x) => x.week === wk);
+          if (!e) return React.createElement("div", { className: "wchg none" }, "직전 주차 비교 대상 없음 (최초 주차)");
+          return React.createElement("div", { className: "wchg" + (e.n ? "" : " none") },
+            React.createElement("b", null, e.n ? "직전 " + e.prev + " 대비 " + e.n + "건 변경" : "직전 " + e.prev + " 대비 변경 없음"),
+            e.n ? React.createElement("button", { className: "wgo", onClick: () => setU("tab", "chg") }, "변화 추적에서 보기") : null); })()),
+      planCard,
+      (d.moves && d.moves.length) ? React.createElement("div", { className: "ppcard" },
+        React.createElement("div", { className: "ct" }, "경쟁사 동향 \xB7 " + wk),
+        React.createElement("div", { className: "rule" }),
+        React.createElement("table", { className: "pptbl mv", "data-no-sort": "1" },
+          React.createElement("colgroup", null, React.createElement("col", { style: { width: "16%" } }), React.createElement("col", { style: { width: "84%" } })),
+          React.createElement("thead", null, React.createElement("tr", null,
+            React.createElement("th", null, "회사"), React.createElement("th", null, "동향"))),
+          React.createElement("tbody", null, d.moves.map((m, i) => React.createElement("tr", { key: i },
+            React.createElement("td", null, m.c), React.createElement("td", { className: "txt" }, m.t)))))) : null)
+      : tab === "cmp" ? React.createElement(PPCompare, { FONT, NUM: { fontVariantNumeric: "tabular-nums" }, ui, setUI, segs, brands, wk })
+      : tab === "brand" ? React.createElement(PPBrand, { FONT, NUM: { fontVariantNumeric: "tabular-nums" }, ui, setUI })
+      : tab === "chg" ? chgCard : rawCard);
+}
+
 const renderPricePos = (p) => /* @__PURE__ */ React.createElement(PricePosView, { ...p || {} });
 
   const renderContent = () => {
