@@ -349,11 +349,11 @@
   table.kplan{width:100%;table-layout:fixed}
   table.kplan th,table.kplan td{padding:4px 6px!important;vertical-align:top;white-space:nowrap;overflow:hidden}
   table.kplan th{white-space:pre!important}
-  table.kplan td.kname{white-space:normal;word-break:break-word;line-height:1.35}
+  table.kplan td.kname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.35}
   table.kplan td.kmemo{white-space:normal;word-break:break-word;line-height:1.35;font-size:11.5px;color:#000}
   .kmt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .kcnt{margin-left:4px;font-size:10px;font-weight:800;color:#4f46e5;background:#eef2ff;padding:0 4px;border-radius:2px}
-  input.kfc{width:100%;text-align:right;border:0;padding:1px 2px;font-size:13px;font-weight:600;background:transparent;color:#000}
+  input.kfc{width:100%;text-align:right;border:0;padding:1px 2px;font-size:12px;font-weight:600;background:transparent;color:#000}
   input.kfc:focus{outline:none;background:#eef2ff}
   .kgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   @media(max-width:900px){.kgrid{grid-template-columns:1fr}}
@@ -13417,12 +13417,20 @@ const __dlrSeg = (t) => {
   }
   return out;
 };
+const __DLR_SUF = /(医疗器械科技有限公司|医疗器械有限公司|医疗科技有限公司|医疗设备有限公司|生物科技有限公司|贸易有限公司|实业有限公司|商贸有限公司|科技有限公司|技术有限公司|器械有限公司|设备有限公司|股份有限公司|有限責任公司|有限责任公司|有限公司|股份公司|公司)/g;
 const __dlrName = (n) => {
   const t = String(n == null ? "" : n);
-  const segs = __dlrSeg(t);
+  // 숨길 구간 = 괄호 구간 + 법인 접미어(유한공사/과학유한공사/의료기기유한공사 등)
+  let segs = __dlrSeg(t).slice();
+  __DLR_SUF.lastIndex = 0;
+  let m;
+  while ((m = __DLR_SUF.exec(t)) !== null) { segs.push([m.index, m.index + m[0].length]); if (m.index === __DLR_SUF.lastIndex) __DLR_SUF.lastIndex++; }
   if (!segs.length) return t;
+  segs.sort(function (a, b) { return a[0] - b[0]; });
+  // 겹치는 구간 병합
+  const mg = []; segs.forEach(function (p) { const l = mg[mg.length - 1]; if (l && p[0] <= l[1]) { if (p[1] > l[1]) l[1] = p[1]; } else mg.push([p[0], p[1]]); });
   const out = []; let last = 0, k = 0;
-  segs.forEach(function (p) {
+  mg.forEach(function (p) {
     if (p[0] > last) out.push(t.slice(last, p[0]));
     out.push(React.createElement("span", { key: "h" + (k++), className: "dlr-h" }, t.slice(p[0], p[1])));
     last = p[1];
@@ -13587,7 +13595,7 @@ const renderHQDashboard = (hqKey) => {
     rowsP.forEach((d) => { const kv = d[2][M2 - 1] || 0; T.kpi += kv; T.act += d[3][M2 - 1] || 0; T.cash += d[5][M2 - 1] || 0;
       const r = rec(d); T.fc += (r.fc === void 0 || r.fc === "" ? (d[3][M2 - 1] || 0) : Number(r.fc) || 0);
       T.ct += (r.ct === void 0 || r.ct === "" ? kv : Number(r.ct) || 0); });
-    const KTB = "w-full text-[13px] kplan [&_td]:border-r [&_th]:border-r [&_td]:border-slate-200 [&_th]:border-slate-200 [&_tr>*:last-child]:border-r-0";
+    const KTB = "w-full text-[12px] kplan [&_td]:border-r [&_th]:border-r [&_td]:border-slate-200 [&_th]:border-slate-200 [&_tr>*:last-child]:border-r-0";
     const gh = "px-1 py-1.5 font-bold text-slate-900 text-center";
     const memoCell = (d, f) => { const t = memoOf(d, f); const ls = t.split("\n").filter((x) => x.trim());
       return React.createElement("td", { className: "px-1 py-1 text-left kmemo" },
@@ -13614,17 +13622,17 @@ const renderHQDashboard = (hqKey) => {
       React.createElement("div", { className: "kplanwrap border border-slate-200 rounded-lg" },
         React.createElement("table", { className: KTB, "data-no-sort": "1" },
           React.createElement("colgroup", null,
-            React.createElement("col", { style: { width: "46px" } }), React.createElement("col", { style: { width: "54px" } }),
+            React.createElement("col", { style: { width: "44px" } }), React.createElement("col", { style: { width: "52px" } }),
             React.createElement("col", { style: { width: "auto" } }),
-            React.createElement("col", { style: { width: "96px" } }), React.createElement("col", { style: { width: "96px" } }),
-            React.createElement("col", { style: { width: "62px" } }), React.createElement("col", { style: { width: "96px" } }),
-            React.createElement("col", { style: { width: "62px" } }), React.createElement("col", { style: { width: "96px" } }),
-            React.createElement("col", { style: { width: "96px" } }), React.createElement("col", { style: { width: "96px" } }),
-            React.createElement("col", { style: { width: "62px" } })),
+            React.createElement("col", { style: { width: "88px" } }), React.createElement("col", { style: { width: "88px" } }),
+            React.createElement("col", { style: { width: "56px" } }), React.createElement("col", { style: { width: "88px" } }),
+            React.createElement("col", { style: { width: "56px" } }), React.createElement("col", { style: { width: "84px" } }),
+            React.createElement("col", { style: { width: "88px" } }), React.createElement("col", { style: { width: "88px" } }),
+            React.createElement("col", { style: { width: "54px" } })),
           React.createElement("thead", { className: "bg-slate-100 border-b border-slate-200" },
             React.createElement("tr", null,
-              ["본부", "지역", "대리상명", "당월 KPI", "판매실적", "KPI\n달성율", "판매예측", "예측\n달성율", "차이", "수금목표", "수금금액", "비중"]
-                .map((h) => React.createElement("th", { key: h, className: gh, style: { whiteSpace: "pre" } }, h)))),
+              ["본부", "지역", "대리상명", "당월 KPI", "판매실적", "달성율", "판매예측", "달성율", "차이", "수금목표", "수금금액", "비중"]
+                .map((h, hi) => React.createElement("th", { key: hi, className: gh, style: { whiteSpace: "pre" } }, h)))),
           React.createElement("tbody", null, rowsP.map((d, i) => {
             const kpiv = d[2][M2 - 1] || 0, act = d[3][M2 - 1] || 0, cash = d[5][M2 - 1] || 0;
             const r = rec(d);
