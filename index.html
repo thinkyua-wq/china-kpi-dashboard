@@ -347,7 +347,8 @@
   table.psiqtbl{table-layout:fixed}
   .kplanwrap{overflow-x:auto}
   table.kplan{width:100%;table-layout:fixed}
-  table.kplan th,table.kplan td{padding:4px 6px!important;vertical-align:top}
+  table.kplan th,table.kplan td{padding:4px 6px!important;vertical-align:top;white-space:nowrap;overflow:hidden}
+  table.kplan th{white-space:pre!important}
   table.kplan td.kname{white-space:normal;word-break:break-word;line-height:1.35}
   table.kplan td.kmemo{white-space:normal;word-break:break-word;line-height:1.35;font-size:11.5px;color:#000}
   .kmt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -13614,16 +13615,16 @@ const renderHQDashboard = (hqKey) => {
         React.createElement("table", { className: KTB, "data-no-sort": "1" },
           React.createElement("colgroup", null,
             React.createElement("col", { style: { width: "46px" } }), React.createElement("col", { style: { width: "54px" } }),
-            React.createElement("col", { style: { width: "290px" } }),
-            React.createElement("col", { style: { width: "88px" } }), React.createElement("col", { style: { width: "88px" } }),
-            React.createElement("col", { style: { width: "62px" } }), React.createElement("col", { style: { width: "92px" } }),
+            React.createElement("col", { style: { width: "auto" } }),
+            React.createElement("col", { style: { width: "96px" } }), React.createElement("col", { style: { width: "96px" } }),
             React.createElement("col", { style: { width: "62px" } }), React.createElement("col", { style: { width: "96px" } }),
-            React.createElement("col", null), React.createElement("col", null),
+            React.createElement("col", { style: { width: "62px" } }), React.createElement("col", { style: { width: "96px" } }),
+            React.createElement("col", { style: { width: "96px" } }), React.createElement("col", { style: { width: "96px" } }),
             React.createElement("col", { style: { width: "62px" } })),
           React.createElement("thead", { className: "bg-slate-100 border-b border-slate-200" },
             React.createElement("tr", null,
               ["본부", "지역", "대리상명", "당월 KPI", "판매실적", "KPI\n달성율", "판매예측", "예측\n달성율", "차이", "수금목표", "수금금액", "비중"]
-                .map((h) => React.createElement("th", { key: h, className: gh, style: { whiteSpace: "pre-line" } }, h)))),
+                .map((h) => React.createElement("th", { key: h, className: gh, style: { whiteSpace: "pre" } }, h)))),
           React.createElement("tbody", null, rowsP.map((d, i) => {
             const kpiv = d[2][M2 - 1] || 0, act = d[3][M2 - 1] || 0, cash = d[5][M2 - 1] || 0;
             const r = rec(d);
