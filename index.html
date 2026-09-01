@@ -350,6 +350,8 @@
   table.kplan th,table.kplan td{padding:4px 6px!important;vertical-align:top;white-space:nowrap;overflow:hidden}
   table.kplan th{white-space:pre!important}
   table.kplan td.kname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.35}
+  table.kplan th:nth-child(13),table.kplan td:nth-child(13){border-left:2px solid #94a3b8!important}
+  table.kplan .kqc{background:#f8fafc}
   table.kplan td.kmemo{white-space:normal;word-break:break-word;line-height:1.35;font-size:11.5px;color:#000}
   .kmt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .kcnt{margin-left:4px;font-size:10px;font-weight:800;color:#4f46e5;background:#eef2ff;padding:0 4px;border-radius:2px}
@@ -5883,6 +5885,7 @@ function App() {
   React.useEffect(() => { try { localStorage.setItem("dashboard_kpiplan_v1", JSON.stringify(kpiPlan)); } catch (e) {} }, [kpiPlan]);
   const [planDraft, setPlanDraft] = useState({});
   const [planOpen, setPlanOpen] = useState(null);
+  const [kqOn, setKqOn] = useState(true);
   const [cloudDirty, setCloudDirty] = useState(false);
   const [saveWarn, setSaveWarn] = useState("");
   const _weFirst = React.useRef(true);
@@ -13591,10 +13594,14 @@ const renderHQDashboard = (hqKey) => {
     const memoOf = (d, f) => { const v = rec(d)[f]; if (Array.isArray(v)) return v.map((x) => (x.at ? x.at + " " + x.t : x.t)).join("\n"); return v === void 0 ? "" : String(v); };
     const stampNow = () => { const n = new Date(); return n.getFullYear() + "-" + ("0" + (n.getMonth() + 1)).slice(-2) + "-" + ("0" + n.getDate()).slice(-2); };
     const rowsP = psiRows;
-    const T = { kpi: 0, act: 0, fc: 0, cash: 0, ct: 0 };
+    const qMon = (d) => ((d[7] || [])[M2 - 1]) || 0;
+    const qCum = (d) => { const a = d[7] || []; let x = 0; for (let i = 0; i < M2; i++) x += a[i] || 0; return x; };
+    const T = { kpi: 0, act: 0, fc: 0, cash: 0, ct: 0, qt: 0, qm: 0, qc: 0 };
     rowsP.forEach((d) => { const kv = d[2][M2 - 1] || 0; T.kpi += kv; T.act += d[3][M2 - 1] || 0; T.cash += d[5][M2 - 1] || 0;
       const r = rec(d); T.fc += (r.fc === void 0 || r.fc === "" ? (d[3][M2 - 1] || 0) : Number(r.fc) || 0);
-      T.ct += (r.ct === void 0 || r.ct === "" ? kv : Number(r.ct) || 0); });
+      T.ct += (r.ct === void 0 || r.ct === "" ? kv : Number(r.ct) || 0);
+      T.qm += qMon(d); T.qc += qCum(d);
+      T.qt += (r.qt === void 0 || r.qt === "" ? 0 : Number(r.qt) || 0); });
     const KTB = "w-full text-[12px] kplan [&_td]:border-r [&_th]:border-r [&_td]:border-slate-200 [&_th]:border-slate-200 [&_tr>*:last-child]:border-r-0";
     const gh = "px-1 py-1.5 font-bold text-slate-900 text-center";
     const memoCell = (d, f) => { const t = memoOf(d, f); const ls = t.split("\n").filter((x) => x.trim());
@@ -13618,26 +13625,24 @@ const renderHQDashboard = (hqKey) => {
     return React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-3 mt-3" },
       React.createElement("div", { className: "flex items-center gap-2 mb-1" },
         React.createElement("div", { className: "text-sm font-bold text-slate-900" }, "대리상 KPI 달성 \xB7 회수 관리 \xB7 ", M2, "월"),
-        React.createElement("span", { className: "text-[11px] text-slate-500" }, "대리상명을 누르면 달성방안 \xB7 회수방안을 입력할 수 있고, 입력할 때마다 누적됩니다")),
+        React.createElement("span", { className: "text-[11px] text-slate-500" }, "대리상명을 누르면 달성방안 \xB7 회수방안을 입력할 수 있고, 입력할 때마다 누적됩니다"),
+        React.createElement("button", { onClick: () => setKqOn(!kqOn), className: "ml-auto text-[11px] font-bold px-2 py-0.5 rounded border " + (kqOn ? "text-blue-700 border-blue-300 bg-blue-50" : "text-slate-500 border-slate-300 bg-slate-50") }, kqOn ? "\uC218\uB7C9 \uC228\uAE40" : "\uC218\uB7C9 \uBCF4\uAE30")),
       React.createElement("div", { className: "kplanwrap border border-slate-200 rounded-lg" },
         React.createElement("table", { className: KTB, "data-no-sort": "1" },
           React.createElement("colgroup", null,
-            React.createElement("col", { style: { width: "44px" } }), React.createElement("col", { style: { width: "52px" } }),
-            React.createElement("col", { style: { width: "auto" } }),
-            React.createElement("col", { style: { width: "88px" } }), React.createElement("col", { style: { width: "88px" } }),
-            React.createElement("col", { style: { width: "56px" } }), React.createElement("col", { style: { width: "88px" } }),
-            React.createElement("col", { style: { width: "56px" } }), React.createElement("col", { style: { width: "84px" } }),
-            React.createElement("col", { style: { width: "88px" } }), React.createElement("col", { style: { width: "88px" } }),
-            React.createElement("col", { style: { width: "54px" } })),
+            [40, 46, 0, 80, 80, 50, 80, 50, 76, 80, 80, 48].concat(kqOn ? [64, 58, 64, 52] : [])
+              .map((w, ci) => React.createElement("col", { key: ci, style: w ? { width: w + "px" } : { width: "auto" } }))),
           React.createElement("thead", { className: "bg-slate-100 border-b border-slate-200" },
             React.createElement("tr", null,
               ["본부", "지역", "대리상명", "당월 KPI", "판매실적", "달성율", "판매예측", "달성율", "차이", "수금목표", "수금금액", "비중"]
-                .map((h, hi) => React.createElement("th", { key: hi, className: gh, style: { whiteSpace: "pre" } }, h)))),
+                .concat(kqOn ? ["수량목표", "당월", "누계", "달성율"] : [])
+                .map((h, hi) => React.createElement("th", { key: hi, className: gh + (hi >= 12 ? " kqh" : ""), style: { whiteSpace: "pre" } }, h)))),
           React.createElement("tbody", null, rowsP.map((d, i) => {
             const kpiv = d[2][M2 - 1] || 0, act = d[3][M2 - 1] || 0, cash = d[5][M2 - 1] || 0;
             const r = rec(d);
             const fcv = (r.fc === void 0 || r.fc === "") ? act : Number(r.fc) || 0;
             const ctv = (r.ct === void 0 || r.ct === "") ? kpiv : Number(r.ct) || 0;
+            const qtgt = (r.qt === void 0 || r.qt === "") ? 0 : Number(r.qt) || 0;
             const diff = act - fcv;
             const open = planOpen === key(d);
             return React.createElement(React.Fragment, { key: i },
@@ -13662,9 +13667,16 @@ const renderHQDashboard = (hqKey) => {
                   React.createElement("input", { className: "kfc", type: "text", value: r.ct === void 0 ? "" : r.ct, placeholder: formatNumber(Math.round(kpiv)),
                     onChange: (e) => setRec(d, { ct: e.target.value.replace(/[^0-9.\-]/g, "") }) })),
                 React.createElement("td", { className: "px-1 py-1 text-right font-semibold text-slate-900" }, formatNumber(Math.round(cash))),
-                React.createElement("td", { className: "px-1 py-1 text-right font-bold " + (rt(cash, ctv) >= 70 ? "text-blue-600" : "text-red-600") }, rt(cash, ctv), "%")),
+                React.createElement("td", { className: "px-1 py-1 text-right font-bold " + (rt(cash, ctv) >= 70 ? "text-blue-600" : "text-red-600") }, rt(cash, ctv), "%"),
+                kqOn ? React.createElement(React.Fragment, null,
+                  React.createElement("td", { className: "px-1 py-1 text-right kqc" },
+                    React.createElement("input", { className: "kfc", type: "text", value: r.qt === void 0 ? "" : r.qt, placeholder: "0",
+                      onChange: (e) => setRec(d, { qt: e.target.value.replace(/[^0-9.\-]/g, "") }) })),
+                  React.createElement("td", { className: "px-1 py-1 text-right text-slate-900 kqc" }, formatNumber(Math.round(qMon(d)))),
+                  React.createElement("td", { className: "px-1 py-1 text-right font-semibold text-slate-900 kqc" }, formatNumber(Math.round(qCum(d)))),
+                  React.createElement("td", { className: "px-1 py-1 text-right font-bold kqc " + (rt(qCum(d), qtgt) >= 70 ? "text-blue-600" : "text-red-600") }, qtgt > 0 ? rt(qCum(d), qtgt) + "%" : "\u2014")) : null),
               open ? React.createElement("tr", { className: "border-b border-slate-200 bg-slate-50/60" },
-                React.createElement("td", { colSpan: 12, className: "px-2 py-2" },
+                React.createElement("td", { colSpan: kqOn ? 16 : 12, className: "px-2 py-2" },
                   React.createElement("div", { className: "kgrid" }, logBox(d, "plan", "달성방안"), logBox(d, "col", "회수방안")))) : null);
           }),
           React.createElement("tr", { className: "bg-slate-50 border-t-2 border-slate-300 font-bold text-slate-800" },
@@ -13677,8 +13689,13 @@ const renderHQDashboard = (hqKey) => {
             React.createElement("td", { className: "px-1 py-1 text-right " + (T.act - T.fc < 0 ? "text-red-600" : "") }, formatNumber(Math.round(T.act - T.fc))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.ct))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.cash))),
-            React.createElement("td", { className: "px-1 py-1 text-right" }, rt(T.cash, T.ct), "%"))))),
-      React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-1.5" }, "* 금액 단위 위안 \xB7 판매예측 미입력 시 실적을 그대로 사용 \xB7 차이 = 실적 − 예측 (음수 = 남은 필요액) \xB7 입력 내용은 자동 저장되며 월별로 관리됩니다"));
+            React.createElement("td", { className: "px-1 py-1 text-right" }, rt(T.cash, T.ct), "%"),
+            kqOn ? React.createElement(React.Fragment, null,
+              React.createElement("td", { className: "px-1 py-1 text-right kqc" }, formatNumber(Math.round(T.qt))),
+              React.createElement("td", { className: "px-1 py-1 text-right kqc" }, formatNumber(Math.round(T.qm))),
+              React.createElement("td", { className: "px-1 py-1 text-right kqc" }, formatNumber(Math.round(T.qc))),
+              React.createElement("td", { className: "px-1 py-1 text-right kqc" }, T.qt > 0 ? rt(T.qc, T.qt) + "%" : "\u2014")) : null)))),
+      React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-1.5" }, "* 금액 단위 위안 \xB7 수량 단위 개 \xB7 판매예측 미입력 시 실적을 그대로 사용 \xB7 차이 = 실적 − 예측 (음수 = 남은 필요액) \xB7 수량 달성율 = 누계 \u00F7 수량목표 \xB7 입력 내용은 자동 저장되며 월별로 관리됩니다"));
   })()
 , tab === "dso" && (() => {
     const rr = DSO_RICH[hqKey] || [];
