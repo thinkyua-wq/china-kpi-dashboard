@@ -375,12 +375,12 @@
   table.corppsi th:first-child,table.corppsi td:first-child{width:8%}
   table.corpsys th:first-child,table.corpsys td:first-child{width:14%}
   .corpview .corptabs{row-gap:0}
-  .corpview .corpbar{row-gap:2px}
-  .corpview .corpdiv{display:inline-block;width:1px;height:16px;background:#cbd5e1;margin:0 4px}
-  .corpview .corpchip{font-size:12.7px!important;padding:4px 10px!important}
-  .corpview .corptab{font-size:12.7px!important;padding:5px 9px!important}
+  .corpview .corpbar{row-gap:2px;gap:2px!important;flex-wrap:nowrap!important}
+  .corpview .corpdiv{display:inline-block;width:1px;height:14px;background:#cbd5e1;margin:0 3px;flex:0 0 auto}
+  .corpview .corpchip{font-size:12.1px!important;padding:3px 7px!important;margin-right:0!important}
+  .corpview .corptab{font-size:12.1px!important;padding:5px 5px!important}
   .corpview .corpsq{display:inline-block;width:8px;height:8px;background:#1e3a8a;border-radius:1px;margin-right:5px;vertical-align:middle}
-  .corpview .corpmon{font-size:11px!important;padding:3px 6px!important}
+  .corpview .corpmon{font-size:10.5px!important;padding:2px 3px!important}
   .syncbadge{font-size:8.4px!important;line-height:1.3}
   .corpview .corpeditable{cursor:text;display:inline-block;min-width:24px;border-bottom:1px dashed transparent}
   .corpview .corpeditable:hover{border-bottom-color:#94a3b8;background:#f8fafc}
@@ -389,14 +389,14 @@
   .corpview table.corptbl td.corpopen{background:#fffbeb!important;box-shadow:inset 0 0 0 1px #fcd34d}
   .corpview .corplegend{display:inline-block;width:9px;height:9px;border-radius:1px}
   /* 법인영업관리 글자 20% 축소 */
-  .corpview h1{font-size:15.1px!important}
-  .corpview .text-sm{font-size:11.8px!important}
-  .corpview .text-xs{font-size:10.1px!important}
-  .corpview button{font-size:10.1px!important}
-  .corpview .corpc-l,.corpview .corpc-u,.corpview .corpc-s{font-size:8px!important}
-  .corpview .corpc-v{font-size:15.1px!important}
+  .corpview h1{font-size:14.34px!important}
+  .corpview .text-sm{font-size:11.21px!important}
+  .corpview .text-xs{font-size:9.59px!important}
+  .corpview button{font-size:9.59px!important}
+  .corpview .corpc-l,.corpview .corpc-u,.corpview .corpc-s{font-size:7.6px!important}
+  .corpview .corpc-v{font-size:14.34px!important}
   .corpview .corpc{padding:6px 6px!important}
-  .corpview table.corptbl{font-size:10.3px!important}
+  .corpview table.corptbl{font-size:9.79px!important}
   .corpview table.corptbl th,.corpview table.corptbl td{padding:3px 4px!important}
   /* DSO 상세 표: 머리글 행 + 첫 열 고정 */
   .dsobox{max-height:calc(100vh - 250px);overflow:auto}
@@ -6076,6 +6076,24 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
     }
     return false;
   };
+  // 경보용 : 항상 수량 기준
+  const sChainQ = (c, sc, sy) => {
+    const box = (((PSRC[c] || {}).sysQ || {})[sc]) || {};
+    const b = box[sy];
+    const rv = (k, m) => { const v = b ? (b[k] || [])[m - 1] : null; return (typeof v === "number") ? v : 0; };
+    const rr = (k, m) => {
+      if (k === "in") return rv("in", m) + rv("fx", m);
+      if (k === "adj") return rv("fail", m);
+      if (k === "open") { const v = rv("open", m); return v || (m > 1 ? rv("cls", m - 1) : 0); }
+      return rv(k, m);
+    };
+    const op = [], cl = [];
+    let prev = rr("open", 1);
+    for (let m = 1; m <= 12; m++) { op.push(prev); const v = rv("cls", m) || (prev + rr("in", m) - rr("out", m) - rr("adj", m)); cl.push(v); prev = v; }
+    let sum = 0; for (let m = 1; m <= 12; m++) sum += rr("out", m) + rr("adj", m);
+    const avg = sum / 12;
+    return { op: op, cl: cl, avg: avg, mos: cl.map(function (v) { return avg ? v / avg : 0; }) };
+  };
   const sChain = (c, sc, sy) => {
     const op = [], cl = [];
     let prev = (EDT[skey(sc, c, sy, "open", 1)] !== undefined) ? (Number(EDT[skey(sc, c, sy, "open", 1)]) || 0) : sRaw(c, sc, sy, "open", 1);
@@ -6096,7 +6114,7 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
   const isLocked = (m) => m <= CLM;             // 마감월 = 잠금
   const eClass = (key, m, v) => {
     if (isEd(key)) return "text-slate-900 font-bold";
-    if (m >= NOW_M && typeof v === "number" && v !== 0) return "text-blue-600 font-bold";
+    if (m >= NOW_M && typeof v === "number" && v !== 0) return "text-blue-600";
     return "";
   };
   const pmode = ui.pmode === "w" ? "w" : "m";
@@ -6118,26 +6136,40 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
   const TH = (arr) => React.createElement("thead", null, React.createElement("tr", null,
     arr.map((h, i) => React.createElement("th", { key: i, className: "px-1.5 py-1.5" }, h))));
 
-  // \uACFC\uC789\uC7AC\uACE0 \uACBD\uBCF4
-  const warns = [];
-  CORP_LIST.forEach(function (c) {
-    CORP_SCAT.forEach(function (sc) {
-      ((psi.sys[c] || {})[sc[0]] || []).forEach(function (x) {
-        if (x.sys === "\uD569\uACC4" || !x.q || !x.qm) return;
-        if (x.qm >= CORP_MOS_WARN) warns.push({ c: c, cat: sc[1], sys: x.sys, q: x.q, m: x.qm });
+  // \uACFC\uC789\uC7AC\uACE0 \uACBD\uBCF4 (\uC218\uB7C9 \uAE30\uC900 \xB7 \uC120\uD0DD\uC6D4)
+  const warns = (function () {
+    const W = [];
+    const SCL = { fix: "Fixture", ab: "Abutment", kit: "KIT" };
+    CORP_LIST.forEach(function (c) {
+      ["fix", "ab", "kit"].forEach(function (sc) {
+        const box = (((PSRC[c] || {}).sysQ || {})[sc]) || {};
+        Object.keys(box).forEach(function (sy) {
+          const K = sChainQ(c, sc, sy);
+          const q = K.cl[M - 1], mo = K.mos[M - 1];
+          if (!q || !mo) return;
+          if (mo >= CORP_MOS_WARN) W.push({ c: c, cat: SCL[sc], sys: sy, q: q, m: mo });
+        });
       });
     });
-  });
-  warns.sort(function (a, b) { return b.m - a.m; });
+    W.sort(function (a, b) { return b.m - a.m; });
+    return W;
+  })();
 
   const psiTab = React.createElement(React.Fragment, null,
     React.createElement("div", { className: "corprow" },
-      card(M + "\uC6D4 \uD604\uC7AC\uACE0", nfmt(g("cls", M)), "RMB", "\uC804\uC6D4 " + nfmt(g("open", M))),
-      card("\uC7AC\uACE0\uC6D4\uB839", mfmt(g("mos", M)), "\uAC1C\uC6D4", "\uAE30\uC900 " + CORP_MOS_WARN + "\uAC1C\uC6D4", g("mos", M) >= CORP_MOS_WARN),
-      card(M + "\uC6D4 \uC785\uACE0", nfmt(g("in", M)), "RMB", ""),
-      card(M + "\uC6D4 \uCD9C\uACE0", nfmt(g("out", M)), "RMB", ""),
-      card("\uC785\u2212\uCD9C\uACE0", nfmt(g("in", M) - g("out", M)), "RMB", g("in", M) >= g("out", M) ? "\uC7AC\uACE0 \uC99D\uAC00" : "\uC7AC\uACE0 \uAC10\uC18C"),
-      card("\uACBD\uBCF4 \uD56D\uBAA9", String(warns.length), "\uAC74", CORP_MOS_WARN + "\uAC1C\uC6D4 \uC774\uC0C1", warns.length > 0)),
+      (function () {
+        const K = pChain(corp, cat);
+        const UL = (punit === "a") ? "RMB" : "EA";
+        const gin = pGet(corp, cat, "in", M), gout = pGet(corp, cat, "out", M), gadj = pGet(corp, cat, "adj", M);
+        return [
+          card(M + "\uC6D4 \uAE30\uB9D0\uC7AC\uACE0", nfmt(K.cl[M - 1]), UL, "\uAE30\uCD08 " + nfmt(K.op[M - 1])),
+          card("\uC7AC\uACE0\uC6D4\uB839", mfmt(K.mos[M - 1]), "\uAC1C\uC6D4", "\uAE30\uC900 " + CORP_MOS_WARN + "\uAC1C\uC6D4", K.mos[M - 1] >= CORP_MOS_WARN),
+          card(M + "\uC6D4 \uC785\uACE0", nfmt(gin), UL, ""),
+          card(M + "\uC6D4 \uCD9C\uACE0(\uD310\uB9E4)", nfmt(gout), UL, "Failed " + nfmt(gadj)),
+          card("\uC785\u2212\uCD9C\uACE0", nfmt(gin - gout - gadj), UL, (gin - gout - gadj) >= 0 ? "\uC7AC\uACE0 \uC99D\uAC00" : "\uC7AC\uACE0 \uAC10\uC18C"),
+          card("\uACBD\uBCF4 \uD56D\uBAA9", String(warns.length), "\uAC74", CORP_MOS_WARN + "\uAC1C\uC6D4 \uC774\uC0C1", warns.length > 0)
+        ];
+      })()),
 
     (function () {
       const CH = pChain(corp, cat);
@@ -6149,7 +6181,7 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
       const icls = (k, m) => {
         const key = pkey(cat, corp, k, m);
         if (isEd(key)) return "text-slate-900 font-bold";
-        if (m >= NOW_M && pGet(corp, cat, k, m)) return "text-blue-600 font-bold";
+        if (m >= NOW_M && pGet(corp, cat, k, m)) return "text-blue-600";
         return "text-slate-900";
       };
       return React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-3 mt-3" },
@@ -6200,18 +6232,22 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
     })(),
 
     (function () {
-      const SYS = sList(corp, scat);
-      const sy = (SYS.indexOf(ui.sys) >= 0) ? ui.sys : (SYS[0] || "");
+      const SYSL = sList(corp, scat);
+      const SYS = ["\uC804\uCCB4"].concat(SYSL);
+      const sy = (SYS.indexOf(ui.sys) >= 0) ? ui.sys : "\uC804\uCCB4";
+      const isAll = (sy === "\uC804\uCCB4");
       const isSum = (corp === "\uC911\uAD6D");
-      const CH = sChain(corp, scat, sy);
-      const OM = CLM + 1;
+      const CH = isAll ? pChain(corp, scat) : sChain(corp, scat, sy);
+      const gv = (k, m) => isAll ? pGet(corp, scat, k, m) : sGet(corp, scat, sy, k, m);
+      const gkey = (k, m) => isAll ? pkey(scat, corp, k, m) : skey(scat, corp, sy, k, m);
+      const OM = M;
       const fq = (v) => (v || v === 0) ? formatNumber(Math.round(v) + 0) : "\u2014";
-      let OS = 0; for (let mm = 1; mm <= 12; mm++) OS += sGet(corp, scat, sy, "out", mm);
-      const sc2 = (k, m) => eCell(skey(scat, corp, sy, k, m), sGet(corp, scat, sy, k, m), fq(sGet(corp, scat, sy, k, m)), m);
+      let OS = 0; for (let mm = 1; mm <= 12; mm++) OS += gv("out", mm);
+      const sc2 = (k, m) => eCell(gkey(k, m), gv(k, m), fq(gv(k, m)), m);
       const scls = (k, m) => {
-        const key = skey(scat, corp, sy, k, m);
+        const key = gkey(k, m);
         if (isEd(key)) return "text-slate-900 font-bold";
-        if (m >= NOW_M && sGet(corp, scat, sy, k, m)) return "text-blue-600 font-bold";
+        if (m >= NOW_M && gv(k, m)) return "text-blue-600";
         return "text-slate-900";
       };
       const judge = (qm, q) => !q ? "\u2014" : qm >= 12 ? "\uACFC\uC789 \uC2EC\uAC01" : qm >= CORP_MOS_WARN ? "\uACFC\uC789" : (qm > 0 && qm < 1) ? "\uACB0\uD488 \uC704\uD5D8" : "\uC815\uC0C1";
@@ -6219,7 +6255,7 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
       return React.createElement(React.Fragment, null,
         React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-3 mt-3" },
           React.createElement("div", { className: "flex items-center gap-2 mb-2 flex-wrap" },
-            React.createElement("div", { className: "text-sm font-bold text-slate-900" }, corp, " \xB7 \uC2DC\uC2A4\uD15C\uBCC4 \uC7AC\uACE0(\uC218\uB7C9) \xB7 ", scatLbl, " \xB7 ", sy,
+            React.createElement("div", { className: "text-sm font-bold text-slate-900" }, corp, " \xB7 \uC2DC\uC2A4\uD15C\uBCC4 \uC7AC\uACE0(", (punit === "a" ? "\uAE08\uC561 RMB" : "\uC218\uB7C9 EA"), ") \xB7 ", scatLbl, " \xB7 ", sy,
               isSum ? React.createElement("span", { className: "ml-2 text-[10px] font-normal text-amber-700" }, "\uC6D0\uBCF8 Total + \uB2DD\uBCF4/\uBD81\uACBD \uC218\uC815\uBD84") : null),
             React.createElement("div", { className: "ml-auto flex gap-1 items-center" },
               React.createElement("select", { value: sy, onChange: (e) => set("sys", e.target.value),
@@ -6236,16 +6272,16 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
                 return React.createElement("tr", { key: m, className: (m === M ? "corpnow" : "") },
                   React.createElement("td", { className: "px-1.5 py-1 text-center" }, m + "\uC6D4"),
                   React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-500" },
-                    m === 1 ? eCell(skey(scat, corp, sy, "open", 1), CH.op[0], fq(CH.op[0]), 0) : fq(CH.op[m - 1])),
+                    m === 1 ? eCell(gkey("open", 1), CH.op[0], fq(CH.op[0]), 0) : fq(CH.op[m - 1])),
                   React.createElement("td", { className: "px-1.5 py-1 text-right " + scls("in", m) + (m === M ? " corpopen" : "") }, sc2("in", m)),
                   React.createElement("td", { className: "px-1.5 py-1 text-right " + scls("out", m) + (m === M ? " corpopen" : "") }, sc2("out", m)),
-                  React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-500" }, OS ? (Math.round(sGet(corp, scat, sy, "out", m) / OS * 1000) / 10).toFixed(1) + "%" : "\u2014"),
+                  React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-500" }, OS ? (Math.round(gv("out", m) / OS * 1000) / 10).toFixed(1) + "%" : "\u2014"),
                   React.createElement("td", { className: "px-1.5 py-1 text-right " + scls("adj", m) }, sc2("adj", m)),
                   React.createElement("td", { className: "px-1.5 py-1 text-right font-bold" }, fq(CH.cl[m - 1])),
                   React.createElement("td", { className: "px-1.5 py-1 text-right font-bold " + (CH.mos[m - 1] >= CORP_MOS_WARN ? "text-red-600" : "text-slate-700") }, CH.avg ? mfmt(CH.mos[m - 1]) : "\u2014"));
               }).concat([(function () {
                 let si = 0, so = 0, sa = 0;
-                for (let m = 1; m <= 12; m++) { si += sGet(corp, scat, sy, "in", m); so += sGet(corp, scat, sy, "out", m); sa += sGet(corp, scat, sy, "adj", m); }
+                for (let m = 1; m <= 12; m++) { si += gv("in", m); so += gv("out", m); sa += gv("adj", m); }
                 return React.createElement("tr", { key: "__s", className: "corptot" },
                   React.createElement("td", { className: "px-1.5 py-1 text-center" }, "\uD569\uACC4"),
                   React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-400" }, "\u2014"),
@@ -6265,11 +6301,11 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
             "* 1\uC6D4 \uAE30\uCD08\uC7AC\uACE0\uB294 \uC6D0\uBCF8 \uD604\uC7AC \uC7AC\uACE0\uC218\uB7C9\uC774 \uAE30\uBCF8\uAC12 \xB7 ", OM, "\uC6D4 \uC774\uD6C4 \uAC12\uC740 \uD30C\uB791 \xB7 \uC140 \uD074\uB9AD \u2192 \uC218\uC815")),
 
         React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-3 mt-3" },
-          React.createElement("div", { className: "text-sm font-bold text-slate-900 mb-2" }, corp, " \xB7 \uC2DC\uC2A4\uD15C\uBCC4 \uC694\uC57D \xB7 ", scatLbl, " \xB7 ", OM, "\uC6D4"),
+          React.createElement("div", { className: "text-sm font-bold text-slate-900 mb-2" }, corp, " \xB7 \uC2DC\uC2A4\uD15C\uBCC4 \uC694\uC57D(", (punit === "a" ? "\uAE08\uC561" : "\uC218\uB7C9"), ") \xB7 ", scatLbl, " \xB7 ", M, "\uC6D4"),
           React.createElement("div", { className: "corpwrap" },
             React.createElement("table", { className: "corptbl corpsys", "data-no-sort": "1" },
               TH(["\uC2DC\uC2A4\uD15C", "\uAE30\uCD08\uC7AC\uACE0", "\uC785\uACE0", "\uCD9C\uACE0(\uD310\uB9E4)", "Failed Implant", "\uAE30\uB9D0\uC7AC\uACE0", "\uC7AC\uACE0\uC6D4\uB839", "\uD310\uC815"]),
-              React.createElement("tbody", null, SYS.map(function (n) {
+              React.createElement("tbody", null, SYSL.map(function (n) {
                 const K = sChain(corp, scat, n);
                 const qm = K.mos[OM - 1], q = K.cl[OM - 1];
                 return React.createElement("tr", { key: n, className: n === sy ? "corpnow" : "" },
@@ -6284,7 +6320,7 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
                   React.createElement("td", { className: "px-1.5 py-1 text-center " + (qm >= 12 ? "text-red-600 font-bold" : qm >= CORP_MOS_WARN ? "text-amber-700" : "text-slate-500") }, judge(qm, q)));
               }).concat([(function () {
                 let o = 0, i2 = 0, o2 = 0, a2 = 0, c2 = 0, av = 0;
-                SYS.forEach(function (n) { const K = sChain(corp, scat, n); o += K.op[OM - 1]; c2 += K.cl[OM - 1]; av += K.avg;
+                SYSL.forEach(function (n) { const K = sChain(corp, scat, n); o += K.op[OM - 1]; c2 += K.cl[OM - 1]; av += K.avg;
                   i2 += sGet(corp, scat, n, "in", OM); o2 += sGet(corp, scat, n, "out", OM); a2 += sGet(corp, scat, n, "adj", OM); });
                 const qm = av ? c2 / av : 0;
                 return React.createElement("tr", { key: "__t", className: "corptot" },
@@ -6744,6 +6780,7 @@ function App() {
   const [statOpen, setStatOpen] = useState(true);
   const [kpiPlan, setKpiPlan] = useState(() => { try { return JSON.parse(localStorage.getItem("dashboard_kpiplan_v1") || "{}"); } catch (e) { return {}; } });
   React.useEffect(() => { try { localStorage.setItem("dashboard_kpiplan_v1", JSON.stringify(kpiPlan)); } catch (e) {} }, [kpiPlan]);
+  const [kplanSaved, setKplanSaved] = useState("");
   const [planDraft, setPlanDraft] = useState({});
   const [planOpen, setPlanOpen] = useState(null);
   const [kqOn, setKqOn] = useState(false);
@@ -10281,7 +10318,7 @@ Google Sheets \uD55C\uACC4\uB97C \uB118\uC5B4 \uC77C\uBD80\uAC00 \uC798\uB9B4 \u
         }
         const rateColorClass = (r) => {
           if (r === null) return "text-slate-400";
-          if (r >= 100) return "text-blue-600 font-bold";
+          if (r >= 100) return "text-blue-600";
           if (r >= 70) return "text-emerald-600 font-bold";
           if (r >= 50) return "text-amber-600 font-bold";
           return "text-rose-600 font-bold";
@@ -14705,7 +14742,7 @@ const renderHQDashboard = (hqKey) => {
   const TABS = (hqKey === "\uC804\uAD6D" ? [["region", "\uC9C0\uC5ED\uBCC4 \uC885\uD569 \uBE44\uAD50\uD45C"]] : []).concat([["kpi", "KPI"], ["dso", "DSO \uC0C1\uC138 (" + dsoRows0.length + ")"], ["deal", "\uB300\uB9AC\uC0C1 PSI (" + psiRows.length + ")"], ["psiq", "PSI\uC218\uB7C9 (" + psiRows.length + ")"], ["col", "\uAD8C\uC5ED\uBCC4 (\uC218\uAE08)"], ["bd", "BD \uACE0\uAC1D (" + bdRows.filter(__isEnt).length + "/" + bdRows.length + ")"], ["ari", "ARi \uACE0\uAC1D (" + ariRows.filter(__isEnt).length + "/" + ariRows.length + ")"], ["end", "\uD558\uBD80\uACE0\uAC1D (" + endRows.length + ")"], ["org", "\uC601\uC5C5\uC0AC\uC6D0\uC2E4\uC801 (" + orgReps.length + ")"]]);
   const dsoS = applySort(dsoRows0, "dso", [(d) => d[2], (d) => d[1], (d) => d[4], (d) => d[5], (d) => d[3] ? 1 : 0, (d) => d[6], (d) => d[7], (d) => d[6] ? d[7] / d[6] : 0], dsoRows0);
   const entrySel = (k, on) => /* @__PURE__ */ React.createElement("select", { value: on ? "\uC9C4\uC785" : "\uBBF8\uC9C4\uC785", onChange: (e) => setEntryOverride((o) => ({ ...o, [k]: e.target.value === "\uC9C4\uC785" })), className: "text-[11px] font-bold rounded px-1.5 py-0.5 border cursor-pointer focus:outline-none focus:ring-1 " + (on ? "text-blue-700 border-blue-300 bg-blue-50 focus:ring-blue-400" : "text-rose-700 border-rose-300 bg-rose-50 focus:ring-rose-400") }, /* @__PURE__ */ React.createElement("option", { value: "\uC9C4\uC785" }, "\uC9C4\uC785"), /* @__PURE__ */ React.createElement("option", { value: "\uBBF8\uC9C4\uC785" }, "\uBBF8\uC9C4\uC785"));
-  return /* @__PURE__ */ React.createElement("div", { className: "space-y-4" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { className: "text-lg font-bold text-slate-900" }, hqKey === "\uC804\uAD6D" ? "\uC911\uAD6D\uBC95\uC778\uD604\uD669" : hqKey + "\uBCF8\uBD80", " \xB7 \uB300\uC2DC\uBCF4\uB4DC"), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-slate-500" }, hqKey === "\uC804\uAD6D" ? "\uC804\uAD6D 6\uBCF8\uBD80 \uD569\uC0B0" : "\uC120\uD0DD \uBCF8\uBD80\uB9CC \uCD94\uCD9C\xB7\uC790\uB3D9\uACC4\uC0B0", " \xB7 ", filterMonth || 7, "\uC6D4 \uAE30\uC900 (\uD310\uB9E4\xB7DSO \uC6D4\uBCC4)", dsoLiveOn ? " \xB7 \uC2DC\uD2B8 \uC5F0\uB3D9" : "")), /* @__PURE__ */ React.createElement("div", { className: "kpirow kpirow-sm" }, kpiCard("26\uB144 KPI\uBAA9\uD45C(\uAE08\uC561)", formatNumber(Math.round(annual)), "RMB", true, "\uB204\uC801\uB2EC\uC131 " + rate(base.amtA, annual) + "%"), kpiCard((filterMonth || 7) + "\uC6D4 \uBAA9\uD45C(\uAE08\uC561)", formatNumber(Math.round(s1.aT || 0)), "RMB", false, "\uB204\uACC4 " + formatNumber(Math.round(base.amtT || 0))), kpiCard((filterMonth || 7) + "\uC6D4 \uD310\uB9E4\uC608\uCE21", formatNumber(Math.round(__fcHQ(hqKey))), "RMB", false, "\uBAA9\uD45C \uB300\uBE44 " + rate(__fcHQ(hqKey), s1.aT) + "%"), kpiCard((filterMonth || 7) + "\uC6D4 \uD310\uB9E4(\uAE08\uC561)", formatNumber(Math.round(s1.aA || 0)), "RMB", false, "\uB2EC\uC131 " + rate(s1.aA, s1.aT) + "% \xB7 \uB204\uACC4 " + formatNumber(Math.round(base.amtA || 0))), kpiCard((filterMonth || 7) + "\uC6D4 \uD310\uB9E4(\uC218\uB7C9)", formatNumber(Math.round(s1.qA || 0)), "\uAC1C", false, "\uB2EC\uC131 " + rate(s1.qA, s1.qT) + "% \xB7 \uB204\uACC4 " + formatNumber(Math.round(base.qtyA || 0))), kpiCard("\uB300\uB9AC\uC0C1", formatNumber(dealerCountHQ(hqKey)), "\uAC1C\uC18C", false, directCountHQ(hqKey) ? "\uC9C1\uC601 " + directCountHQ(hqKey) + "\uAC1C\uC18C" : ""), kpiCard("DSO", formatNumber(base.dso || 0), "\uAC1C\uC18C", false, "\uC9C4\uC785 " + (base.enter || 0) + "\uAC1C\uC18C"), kpiCard("\uD558\uBD80\uACE0\uAC1D", formatNumber(base.sub || 0), "\uAC1C\uC18C")), hqKey === "\uC804\uAD6D" && /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900 mb-3" }, "\uBCF8\uBD80\uBCC4 \uC885\uD569 \uBE44\uAD50\uD45C"), cmpTable({ rows: NAT.filter((r) => r.hq !== "\uC804\uAD6D").map((r) => ({ label: r.hq, aT: kpiSingle(r.hq).aT, aA: kpiSingle(r.hq).aA, qT: kpiSingle(r.hq).qT, qA: kpiSingle(r.hq).qA, dsoN: r.dso, dsoE: r.enter, dsoT: r.tgt, dsoA: r.act, bd: r.bd, ari: r.ari, sub: r.sub, dealer: dealerCountHQ(r.hq) })), firstLabel: "\uBCF8\uBD80", sortable: false, tid: "nathq", monthSum: mon, cumSum: cum })), hqKey === "\uC804\uAD6D" && /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-4" }, renderPgTabs(hqKey, null)), hqKey !== "\uC804\uAD6D" && /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-4 space-y-5" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900 mb-3" }, "\uC9C0\uC5ED\uBCC4 \uC885\uD569 \uBE44\uAD50\uD45C (\uC804\uAD6D \uD1B5\uD569 \uC9C0\uD45C\uC758 \uC9C0\uC5ED \uC0C1\uC138) \xB7 \uD5E4\uB354 \uD074\uB9AD \uC815\uB82C"), cmpTable({ rows: regsRaw, firstLabel: "\uC9C0\uC5ED", sortable: true, tid: "reg", monthSum: mon, cumSum: cum, showHQ: true })), renderPgTabs(hqKey, regsRaw.map(function(r) { return r.label; }))), /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-4" }, /* @__PURE__ */ React.createElement("div", { className: "flex gap-1 items-end border-b-2 border-blue-600 mb-3 flex-wrap pt-1" }, TABS.map((t) => /* @__PURE__ */ React.createElement("button", { key: t[0], onClick: () => setHqTab(t[0]), className: "px-2.5 py-1.5 text-[10.8px] font-bold rounded-t-lg border-2 border-b-0 whitespace-nowrap " + (tab === t[0] ? "bg-blue-600 text-white border-blue-600 -mb-0.5" : "bg-slate-100 text-slate-500 border-slate-200 hover:bg-slate-200") }, t[1]))), tab === "region" && /* @__PURE__ */ React.createElement("div", { className: "pt-1" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900 mb-3" }, "\uC9C0\uC5ED\uBCC4 \uC885\uD569 \uBE44\uAD50\uD45C (\uC804\uAD6D \uD1B5\uD569 \uC9C0\uD45C\uC758 \uC9C0\uC5ED \uC0C1\uC138) \xB7 \uD5E4\uB354 \uD074\uB9AD \uC815\uB82C"), cmpTable({ rows: regsRaw, firstLabel: "\uC9C0\uC5ED", sortable: true, tid: "reg", monthSum: mon, cumSum: cum, showHQ: true })), tab === "kpi" && (() => {
+  return /* @__PURE__ */ React.createElement("div", { className: "space-y-4" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { className: "text-lg font-bold text-slate-900" }, hqKey === "\uC804\uAD6D" ? "\uC911\uAD6D\uBC95\uC778\uD604\uD669" : hqKey + "\uBCF8\uBD80", " \xB7 \uB300\uC2DC\uBCF4\uB4DC"), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-slate-500" }, hqKey === "\uC804\uAD6D" ? "\uC804\uAD6D 6\uBCF8\uBD80 \uD569\uC0B0" : "\uC120\uD0DD \uBCF8\uBD80\uB9CC \uCD94\uCD9C\xB7\uC790\uB3D9\uACC4\uC0B0", " \xB7 ", filterMonth || 7, "\uC6D4 \uAE30\uC900 (\uD310\uB9E4\xB7DSO \uC6D4\uBCC4)", dsoLiveOn ? " \xB7 \uC2DC\uD2B8 \uC5F0\uB3D9" : "")), /* @__PURE__ */ React.createElement("div", { className: "kpirow kpirow-sm" }, kpiCard("26\uB144 KPI\uBAA9\uD45C(\uAE08\uC561)", formatNumber(Math.round(annual)), "RMB", true, "\uB204\uC801\uB2EC\uC131 " + rate(base.amtA, annual) + "%"), kpiCard((filterMonth || 7) + "\uC6D4 \uBAA9\uD45C(\uAE08\uC561)", formatNumber(Math.round(s1.aT || 0)), "RMB", false, "\uB204\uACC4 " + formatNumber(Math.round(base.amtT || 0))), kpiCard((filterMonth || 7) + "\uC6D4 \uD310\uB9E4\uC608\uCE21", formatNumber(Math.round((hqKey === "\uC804\uAD6D" ? __fcAll() : __fcHQ(hqKey)))), "RMB", false, "\uBAA9\uD45C \uB300\uBE44 " + rate((hqKey === "\uC804\uAD6D" ? __fcAll() : __fcHQ(hqKey)), s1.aT) + "%"), kpiCard((filterMonth || 7) + "\uC6D4 \uD310\uB9E4(\uAE08\uC561)", formatNumber(Math.round(s1.aA || 0)), "RMB", false, "\uB2EC\uC131 " + rate(s1.aA, s1.aT) + "% \xB7 \uB204\uACC4 " + formatNumber(Math.round(base.amtA || 0))), kpiCard((filterMonth || 7) + "\uC6D4 \uD310\uB9E4(\uC218\uB7C9)", formatNumber(Math.round(s1.qA || 0)), "\uAC1C", false, "\uB2EC\uC131 " + rate(s1.qA, s1.qT) + "% \xB7 \uB204\uACC4 " + formatNumber(Math.round(base.qtyA || 0))), kpiCard("\uB300\uB9AC\uC0C1", formatNumber(dealerCountHQ(hqKey)), "\uAC1C\uC18C", false, directCountHQ(hqKey) ? "\uC9C1\uC601 " + directCountHQ(hqKey) + "\uAC1C\uC18C" : ""), kpiCard("DSO", formatNumber(base.dso || 0), "\uAC1C\uC18C", false, "\uC9C4\uC785 " + (base.enter || 0) + "\uAC1C\uC18C"), kpiCard("\uD558\uBD80\uACE0\uAC1D", formatNumber(base.sub || 0), "\uAC1C\uC18C")), hqKey === "\uC804\uAD6D" && /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-4" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900 mb-3" }, "\uBCF8\uBD80\uBCC4 \uC885\uD569 \uBE44\uAD50\uD45C"), cmpTable({ rows: NAT.filter((r) => r.hq !== "\uC804\uAD6D").map((r) => ({ label: r.hq, aT: kpiSingle(r.hq).aT, aA: kpiSingle(r.hq).aA, qT: kpiSingle(r.hq).qT, qA: kpiSingle(r.hq).qA, dsoN: r.dso, dsoE: r.enter, dsoT: r.tgt, dsoA: r.act, bd: r.bd, ari: r.ari, sub: r.sub, dealer: dealerCountHQ(r.hq) })), firstLabel: "\uBCF8\uBD80", sortable: false, tid: "nathq", monthSum: mon, cumSum: cum })), hqKey === "\uC804\uAD6D" && /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-4" }, renderPgTabs(hqKey, null)), hqKey !== "\uC804\uAD6D" && /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-4 space-y-5" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900 mb-3" }, "\uC9C0\uC5ED\uBCC4 \uC885\uD569 \uBE44\uAD50\uD45C (\uC804\uAD6D \uD1B5\uD569 \uC9C0\uD45C\uC758 \uC9C0\uC5ED \uC0C1\uC138) \xB7 \uD5E4\uB354 \uD074\uB9AD \uC815\uB82C"), cmpTable({ rows: regsRaw, firstLabel: "\uC9C0\uC5ED", sortable: true, tid: "reg", monthSum: mon, cumSum: cum, showHQ: true })), renderPgTabs(hqKey, regsRaw.map(function(r) { return r.label; }))), /* @__PURE__ */ React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-4" }, /* @__PURE__ */ React.createElement("div", { className: "flex gap-1 items-end border-b-2 border-blue-600 mb-3 flex-wrap pt-1" }, TABS.map((t) => /* @__PURE__ */ React.createElement("button", { key: t[0], onClick: () => setHqTab(t[0]), className: "px-2.5 py-1.5 text-[10.8px] font-bold rounded-t-lg border-2 border-b-0 whitespace-nowrap " + (tab === t[0] ? "bg-blue-600 text-white border-blue-600 -mb-0.5" : "bg-slate-100 text-slate-500 border-slate-200 hover:bg-slate-200") }, t[1]))), tab === "region" && /* @__PURE__ */ React.createElement("div", { className: "pt-1" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900 mb-3" }, "\uC9C0\uC5ED\uBCC4 \uC885\uD569 \uBE44\uAD50\uD45C (\uC804\uAD6D \uD1B5\uD569 \uC9C0\uD45C\uC758 \uC9C0\uC5ED \uC0C1\uC138) \xB7 \uD5E4\uB354 \uD074\uB9AD \uC815\uB82C"), cmpTable({ rows: regsRaw, firstLabel: "\uC9C0\uC5ED", sortable: true, tid: "reg", monthSum: mon, cumSum: cum, showHQ: true })), tab === "kpi" && (() => {
     const M2 = filterMonth || 7;
     const rt = (a, b) => b > 0 ? Math.round(a / b * 100) : 0;
     const o = KPI_SRC[hqKey] || {};
@@ -14728,9 +14765,10 @@ const renderHQDashboard = (hqKey) => {
     const M2 = filterMonth || 7;
     const YM = (parseWeekValue(filterWeek).year || 2026) + "-" + ("0" + M2).slice(-2);
     const rt = (a, b) => b > 0 ? Math.round(a / b * 100) : 0;
-    const key = (d) => hqKey + "|" + d[1] + "|" + YM;
-    const rec = (d) => kpiPlan[key(d)] || {};
-    const setRec = (d, patch) => setKpiPlan((o) => { const k = key(d); return { ...o, [k]: { ...(o[k] || {}), ...patch } }; });
+    const key = (d) => (hqOf(d[0]) || hqKey) + "|" + d[1] + "|" + YM;      // 본부 화면 · 전국 화면 공용 키
+    const oldKey = (d) => hqKey + "|" + d[1] + "|" + YM;                     // 예전 저장분 호환
+    const rec = (d) => kpiPlan[key(d)] || kpiPlan[oldKey(d)] || {};
+    const setRec = (d, patch) => setKpiPlan((o) => { const k = key(d); const base = o[k] || o[oldKey(d)] || {}; return { ...o, [k]: { ...base, ...patch } }; });
     const memoOf = (d, f) => { const v = rec(d)[f]; if (Array.isArray(v)) return v.map((x) => (x.at ? x.at + " " + x.t : x.t)).join("\n"); return v === void 0 ? "" : String(v); };
     const stampNow = () => { const n = new Date(); return n.getFullYear() + "-" + ("0" + (n.getMonth() + 1)).slice(-2) + "-" + ("0" + n.getDate()).slice(-2); };
     const rowsP = psiRows;
@@ -14767,7 +14805,20 @@ const renderHQDashboard = (hqKey) => {
       React.createElement("div", { className: "flex items-center gap-2 mb-1" },
         React.createElement("div", { className: "text-sm font-bold text-slate-900" }, "대리상 KPI 달성 \xB7 회수 관리 \xB7 ", M2, "월"),
         React.createElement("span", { className: "text-[11px] text-slate-500" }, "대리상명을 누르면 달성방안 \xB7 회수방안을 입력할 수 있고, 입력할 때마다 누적됩니다"),
-        React.createElement("button", { onClick: () => setKqOn(!kqOn), className: "ml-auto text-[11px] font-bold px-2 py-0.5 rounded border " + (kqOn ? "text-blue-700 border-blue-300 bg-blue-50" : "text-slate-500 border-slate-300 bg-slate-50") }, kqOn ? "\uC218\uB7C9 \uC228\uAE40" : "\uC218\uB7C9 \uBCF4\uAE30")),
+        React.createElement("button", {
+          onClick: () => {
+            try {
+              localStorage.setItem("dashboard_kpiplan_v1", JSON.stringify(kpiPlan));
+              setCloudDirty(true);
+              const n = new Date();
+              setKplanSaved(("0" + n.getHours()).slice(-2) + ":" + ("0" + n.getMinutes()).slice(-2) + ":" + ("0" + n.getSeconds()).slice(-2));
+              setTimeout(function () { setKplanSaved(""); }, 4000);
+            } catch (e) { alert("\uC800\uC7A5 \uC2E4\uD328: " + e.message); }
+          },
+          className: "ml-auto text-[11px] font-bold px-2.5 py-0.5 rounded border bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
+        }, "\uC800\uC7A5"),
+        kplanSaved ? React.createElement("span", { className: "text-[11px] font-bold text-green-700" }, "\u2713 " + kplanSaved + " \uC800\uC7A5\uB428") : null,
+        React.createElement("button", { onClick: () => setKqOn(!kqOn), className: "text-[11px] font-bold px-2 py-0.5 rounded border " + (kqOn ? "text-blue-700 border-blue-300 bg-blue-50" : "text-slate-500 border-slate-300 bg-slate-50") }, kqOn ? "\uC218\uB7C9 \uC228\uAE40" : "\uC218\uB7C9 \uBCF4\uAE30")),
       React.createElement("div", { className: "kplanwrap border border-slate-200 rounded-lg" },
         React.createElement("table", { className: KTB, "data-no-sort": "1" },
           React.createElement("colgroup", null,
@@ -14784,7 +14835,7 @@ const renderHQDashboard = (hqKey) => {
             const fcv = (r.fc === void 0 || r.fc === "") ? act : Number(r.fc) || 0;
             const ctv = (r.ct === void 0 || r.ct === "") ? kpiv : Number(r.ct) || 0;
             const qtgt = (r.qt === void 0 || r.qt === "") ? 0 : Number(r.qt) || 0;
-            const diff = act - fcv;
+            const diff = kpiv - fcv;
             const open = planOpen === key(d);
             return React.createElement(React.Fragment, { key: i },
               React.createElement("tr", { className: "border-b border-slate-100 hover:bg-slate-50 " + (open ? "bg-blue-50/40" : "") },
@@ -14827,7 +14878,7 @@ const renderHQDashboard = (hqKey) => {
             React.createElement("td", { className: "px-1 py-1 text-right" }, rt(T.act, T.kpi), "%"),
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.fc))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, rt(T.fc, T.kpi), "%"),
-            React.createElement("td", { className: "px-1 py-1 text-right " + (T.act - T.fc < 0 ? "text-red-600" : "") }, formatNumber(Math.round(T.act - T.fc))),
+            React.createElement("td", { className: "px-1 py-1 text-right " + (T.kpi - T.fc < 0 ? "text-red-600" : "") }, formatNumber(Math.round(T.kpi - T.fc))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.ct))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.cash))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, rt(T.cash, T.ct), "%"),
@@ -16257,11 +16308,28 @@ const renderPricePos = (p) => /* @__PURE__ */ React.createElement(PricePosView, 
       React.createElement("div", null,
         React.createElement("h1", { className: "text-lg font-bold text-slate-900" }, "\uB300\uB9CC\uBC95\uC778_\uC601\uC5C5\uAD00\uB9AC"),
         React.createElement("div", { className: "text-xs text-slate-500" }, "\uB300\uB9CC \xB7 \uD64D\uCF69 \xB7 \uC911\uAD6D\uBC95\uC778\uACFC \uB3D9\uC77C\uD55C \uAD6C\uC870 (\uC885\uD569 KPI \xB7 \uC9C0\uD45C \uC0C1\uC138 \xB7 \uBC95\uC778 PSI \xB7 \uC218\uCD9C/\uC218\uAE08)")),
-      React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-10 text-center" },
-        React.createElement("div", { className: "text-sm font-bold text-slate-700 mb-2" }, "\uC900\uBE44 \uC911"),
-        React.createElement("div", { className: "text-xs text-slate-400 leading-relaxed" },
-          "\uB300\uB9CC PSI \u62A5\u8868 \xB7 \uC8FC\uC694\uC9C0\uD45C\uAD00\uB9AC \uC6D0\uBCF8\uC744 \uAD6C\uAE00\uB4DC\uB77C\uC774\uBE0C \uD3F4\uB354\uC5D0 \uB123\uC73C\uBA74", React.createElement("br"),
-          "\uC911\uAD6D\uBC95\uC778\uACFC \uAC19\uC740 \uD654\uBA74\uC744 \uADF8\uB300\uB85C \uB9CC\uB4E4\uC5B4 \uB4DC\uB9BD\uB2C8\uB2E4.")));
+      React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-8" },
+        React.createElement("div", { className: "text-sm font-bold text-slate-700 mb-3" }, "\uC900\uBE44 \uC911 \u2014 \uD655\uC815\uB41C \uAD6C\uC870"),
+        React.createElement("div", { className: "corpwrap" },
+          React.createElement("table", { className: "corptbl", "data-no-sort": "1" },
+            React.createElement("thead", null, React.createElement("tr", null,
+              ["\uAD6C\uBD84", "\uB300\uC0C1", "\uC9D1\uACC4 \uBC29\uC2DD"].map(function (h, i) {
+                return React.createElement("th", { key: i, className: "px-1.5 py-1.5" }, h); }))),
+            React.createElement("tbody", null, [
+              ["\uBC95\uC778", "\uB300\uB9CC\uBC95\uC778", "\uC0C1\uC704 \uC9D1\uACC4 \xB7 Sunriser \uD3EC\uD568"],
+              ["\uC0B0\uD558 \uAC70\uB798\uCC98", "\uB300\uB9CC Sunriser", "\uB300\uB9CC\uBC95\uC778\uC5D0 \uD569\uC0B0 (\uC911\uBCF5 \uC81C\uC678)"],
+              ["\uC218\uCD9C \uAC70\uB798\uCC98", "\uB300\uB9CC TBMS", "\uBCC4\uB3C4 \uC218\uCD9C \xB7 \uBC95\uC778 \uD569\uC0B0 \uC544\uB2D8"],
+              ["\uC218\uCD9C \uAC70\uB798\uCC98", "\uD64D\uCF69 \uD0B7\uC6D4\uB4DC", "\uBCC4\uB3C4 \uC218\uCD9C \xB7 \uBC95\uC778 \uD569\uC0B0 \uC544\uB2D8"]
+            ].map(function (r, i) {
+              return React.createElement("tr", { key: i },
+                React.createElement("td", { className: "px-1.5 py-1 text-center text-slate-600" }, r[0]),
+                React.createElement("td", { className: "px-1.5 py-1 corpk-n font-semibold" }, r[1]),
+                React.createElement("td", { className: "px-1.5 py-1 text-slate-500" }, r[2]));
+            })))),
+        React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-3 leading-relaxed" },
+          "* \uB300\uB9CC PSI \u62A5\u8868 \xB7 \uC8FC\uC694\uC9C0\uD45C\uAD00\uB9AC \uC6D0\uBCF8\uC744 \uAD6C\uAE00\uB4DC\uB77C\uC774\uBE0C \uD3F4\uB354\uC5D0 ", React.createElement("b", null, "_2026-09"), " \uD615\uC2DD\uC73C\uB85C \uB123\uC5B4 \uC8FC\uC138\uC694.", React.createElement("br"),
+          "* \uC911\uAD6D\uBC95\uC778\uACFC \uB3D9\uC77C\uD55C \uD654\uBA74(\uC885\uD569 KPI \xB7 \u2460~\u2468 \uC9C0\uD45C \xB7 \uBC95\uC778 PSI \xB7 \uC218\uCD9C/\uC218\uAE08)\uC744 \uADF8\uB300\uB85C \uB9CC\uB4ED\uB2C8\uB2E4.", React.createElement("br"),
+          "* TBMS \xB7 \uD0B7\uC6D4\uB4DC\uB294 \uC9C0\uAE08\uB3C4 \u300C\uC911\uAD6D\uBC95\uC778_\uC601\uC5C5\uAD00\uB9AC \u2192 \u2605 \uC218\uCD9C/\uC218\uAE08\u300D \uC5D0\uC11C \uBCFC \uC218 \uC788\uC2B5\uB2C8\uB2E4.")));
     if (selectedHQ === 'corp') return React.createElement(CorpView, { month: filterMonth || 8, ui: corpUI, setUI: setCorpUI, psi: CORP_PSI, kpi: CORP_KPI, wkd: CORP_WK, psrc: CORP_PSI_SRC_LIVE, edits: CORP_EDITS, onEdit: setCorpEdit, localEdits: corpEdits, closedM: corpClosedM, setClosedM: setCorpClosedM, apiUrl: corpEditUrl, setApiUrl: function (u) { setCorpEditUrl(u); try { localStorage.setItem("dashboard_corp_edit_url_v1", u || ""); } catch (e) {} } });
     if (selectedHQ === 'pricepos') { const _pw = parseWeekValue(filterWeek); return renderPricePos({ weeklyEntries, setWeeklyEntries, logChange, sheetsData, ui: ppUI, setUI: setPpUI, year: _pw.year, month: filterMonth || Math.min(12, Math.ceil(_pw.week / 4.333)), week: Math.min(5, Math.max(1, _pw.week - (Math.min(12, Math.ceil(_pw.week / 4.333)) - 1) * 4)) }); }
     if (selectedHQ === "marketshare") {
