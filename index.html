@@ -1194,48 +1194,94 @@ const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-dIheW5POI-
 const LS_SHEETS_DATA = "dashboard_sheets_data_v1";
 const LS_SHEETS_FETCHED_AT = "dashboard_sheets_fetched_at_v1";
 const LS_SHEETS_ERROR = "dashboard_sheets_last_error_v1";
-function fetchSheetsData() {
+const LS_SHEETS_DATA_Z = "dashboard_sheets_data_z_v1";
+
+// 캐시 저장 : LZString 압축(용량 1/9) → 실패 시 평문 → 용량 초과 시 구 캐시 정리 후 재시도
+function saveSheetsCache(data) {
+  const json = JSON.stringify(data);
+  const put = (key, val) => { localStorage.setItem(key, val); };
+  const stamp = () => {
+    localStorage.setItem(LS_SHEETS_FETCHED_AT, (new Date()).toISOString());
+    localStorage.removeItem(LS_SHEETS_ERROR);
+  };
+  let packed = null;
+  try { if (typeof LZString !== "undefined" && LZString.compressToUTF16) packed = LZString.compressToUTF16(json); } catch (e) {}
+  const tries = packed ? [[LS_SHEETS_DATA_Z, packed], [LS_SHEETS_DATA, json]] : [[LS_SHEETS_DATA, json]];
+  for (let pass = 0; pass < 2; pass++) {
+    for (let t = 0; t < tries.length; t++) {
+      try {
+        put(tries[t][0], tries[t][1]);
+        if (tries[t][0] === LS_SHEETS_DATA_Z) { try { localStorage.removeItem(LS_SHEETS_DATA); } catch (e) {} }
+        stamp();
+        return true;
+      } catch (e) {}
+    }
+    // 1차 실패 = 용량 초과로 간주 → 재생성 가능한 캐시부터 비우고 한 번 더
+    try {
+      localStorage.removeItem(LS_SHEETS_DATA);
+      localStorage.removeItem(LS_SHEETS_DATA_Z);
+      localStorage.removeItem("dashboard_sheets_cache_v1");
+      localStorage.removeItem("dashboard_cloud_cache_v1");
+    } catch (e) {}
+  }
+  try { localStorage.setItem(LS_SHEETS_ERROR, "캐시 저장 실패(저장공간 부족) \xB7 화면은 정상 표시"); } catch (e) {}
+  return false;
+}
+
+function fetchSheetsData(attempt) {
+  const TRY = attempt || 1, MAXTRY = 3;
   return new Promise((resolve, reject) => {
     if (!GOOGLE_SCRIPT_URL) {
-      reject(new Error("Google Apps Script URL\uC774 \uC124\uC815\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4. dashboard.html \uC0C1\uB2E8\uC758 GOOGLE_SCRIPT_URL\uC744 \uC218\uC815\uD558\uC138\uC694."));
+      reject(new Error("Google Apps Script URL이 설정되지 않았습니다."));
       return;
     }
-    const cbName = "__sheetsCallback_" + Date.now();
+    const cbName = "__sheetsCallback_" + Date.now() + "_" + TRY;
     const script = document.createElement("script");
-    let timer;
-    window[cbName] = (data) => {
+    let timer, done = false;
+    const cleanup = () => {
       clearTimeout(timer);
-      delete window[cbName];
+      try { delete window[cbName]; } catch (e) { window[cbName] = undefined; }
       if (script.parentNode) script.parentNode.removeChild(script);
-      if (data && data.error) {
-        reject(new Error(data.error));
+    };
+    const retryOr = (msg) => {
+      if (TRY < MAXTRY) {
+        setTimeout(() => { fetchSheetsData(TRY + 1).then(resolve, reject); }, 1500 * TRY);
       } else {
-        try {
-          localStorage.setItem(LS_SHEETS_DATA, JSON.stringify(data));
-          localStorage.setItem(LS_SHEETS_FETCHED_AT, (/* @__PURE__ */ new Date()).toISOString());
-          localStorage.removeItem(LS_SHEETS_ERROR);
-        } catch (e) {
-        }
-        resolve(data);
+        try { localStorage.setItem(LS_SHEETS_ERROR, msg); } catch (e) {}
+        reject(new Error(msg));
       }
     };
+    window[cbName] = (data) => {
+      if (done) return;
+      done = true; cleanup();
+      if (data && data.error) { reject(new Error(data.error)); return; }
+      saveSheetsCache(data);
+      resolve(data);
+    };
+    // 응답이 2MB 내외라 회선에 따라 40~60초까지 걸립니다 → 180초
     timer = setTimeout(() => {
-      delete window[cbName];
-      if (script.parentNode) script.parentNode.removeChild(script);
-      reject(new Error("Google Sheets API \uC694\uCCAD \uD0C0\uC784\uC544\uC6C3 (60\uCD08)"));
-    }, 6e4);
+      if (done) return;
+      done = true; cleanup();
+      retryOr("Google Sheets 응답 지연 (180초 초과 \xB7 " + TRY + "/" + MAXTRY + "회 시도) — 회선이 느리거나 데이터가 너무 큽니다");
+    }, 18e4);
     const sep = GOOGLE_SCRIPT_URL.includes("?") ? "&" : "?";
-    script.src = `${GOOGLE_SCRIPT_URL}${sep}callback=${cbName}`;
+    script.src = `${GOOGLE_SCRIPT_URL}${sep}callback=${cbName}&t=${Date.now()}`;
     script.onerror = () => {
-      clearTimeout(timer);
-      delete window[cbName];
-      if (script.parentNode) script.parentNode.removeChild(script);
-      reject(new Error("Google Sheets API \uC5F0\uACB0 \uC2E4\uD328 (\uB124\uD2B8\uC6CC\uD06C \uC624\uB958 \uB610\uB294 URL \uC798\uBABB\uB428)"));
+      if (done) return;
+      done = true; cleanup();
+      retryOr("Google Sheets 연결 끝김 (" + TRY + "/" + MAXTRY + "회 시도) — 네트워크가 큰 응답을 차단했을 수 있습니다");
     };
     document.head.appendChild(script);
   });
 }
 function loadCachedSheetsData() {
+  try {
+    const z = localStorage.getItem(LS_SHEETS_DATA_Z);
+    if (z && typeof LZString !== "undefined" && LZString.decompressFromUTF16) {
+      const j = LZString.decompressFromUTF16(z);
+      if (j) return JSON.parse(j);
+    }
+  } catch (e) {}
   try {
     const raw = localStorage.getItem(LS_SHEETS_DATA);
     return raw ? JSON.parse(raw) : null;
