@@ -6753,6 +6753,104 @@ function CorpTWView({ ui, setUI, data, month }) {
     tab === "kpi" ? kpiTab : tab === "exp" ? expTab : tab === "cash" ? cashTab : tab === "bl" ? blTab : locTab);
 }
 
+// ─────────── 본사 수출 · 수금 (독립 화면) ───────────
+function ExpView({ ui, setUI, kpi, live, fetchedAt }) {
+  const set = (k, v) => setUI(Object.assign({}, ui, { [k]: v }));
+  const nfmt = (v) => formatNumber(Math.round(v || 0));
+  const tmode = ui.tmode || "w";
+  const TR = kpi.trd[tmode] || [];
+  const periods = [];
+  TR.forEach(function (x) { if (periods.indexOf(x.p) < 0) periods.push(x.p); });
+  // 실적이 들어온 마지막 기간을 기본 선택 (목표만 있고 실적이 빈 주차는 건너뜀)
+  const hasAct = {};
+  TR.forEach(function (x) { if ((x.x || 0) > 0 || (x.ct || 0) > 0) hasAct[x.p] = 1; });
+  const lastFilled = (function () {
+    for (let i = periods.length - 1; i >= 0; i--) if (hasAct[periods[i]]) return periods[i];
+    return periods[periods.length - 1];
+  })();
+  const per = (ui.per && periods.indexOf(ui.per) >= 0) ? ui.per : lastFilled;
+  const perEmpty = !hasAct[per];
+  const cur = TR.filter(function (x) { return x.p === per; });
+  const names = cur.map(function (x) { return x.c; });
+  const hidden = {};
+  Object.keys(CORP_ROLLUP).forEach(function (parent) {
+    if (names.indexOf(parent) >= 0) CORP_ROLLUP[parent].forEach(function (ch) { hidden[ch] = parent; });
+  });
+  const T = { xa: 0, xm: 0, x: 0, ca: 0, cm: 0, ct: 0 };
+  cur.forEach(function (r) { if (hidden[r.c]) return; ["xa", "xm", "x", "ca", "cm", "ct"].forEach(function (k) { T[k] += r[k] || 0; }); });
+  const rt2 = (a, b) => b > 0 ? Math.round(a / b * 100) : 0;
+  const pcell = (v, ok) => React.createElement("td", { className: "px-1.5 py-1 text-right font-bold " + (v >= 90 ? "text-blue-600" : v >= 70 ? "text-amber-700" : v > 0 ? "text-red-600" : "text-slate-400") }, v ? v + "%" : "—");
+  const expTab = React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-3" },
+    React.createElement("div", { className: "flex items-center gap-2 mb-2 flex-wrap" },
+      React.createElement("div", { className: "text-sm font-bold text-slate-900" }, "수출 \xB7 수금 \xB7 ", per),
+      React.createElement("div", { className: "ml-auto flex gap-1 items-center" },
+        React.createElement("select", { value: per, onChange: (e) => set("per", e.target.value),
+          className: "text-[11px] font-bold border border-slate-300 rounded px-1.5 py-1 bg-white" },
+          periods.map(function (p) { return React.createElement("option", { key: p, value: p }, p); })),
+        [["w", "주간"], ["m", "월간"]].map(function (t) {
+          return React.createElement("button", { key: t[0], onClick: () => { setUI(Object.assign({}, ui, { tmode: t[0], per: null })); },
+            className: "px-2.5 py-1 text-[11px] font-bold border rounded " + (tmode === t[0] ? "bg-slate-800 text-white border-slate-800" : "bg-white text-slate-600 border-slate-300 hover:bg-slate-50") }, t[1]); }))),
+    perEmpty ? React.createElement("div", { className: "px-3 py-2 mb-2 bg-amber-50 border border-amber-300 rounded text-[11px] text-amber-800" },
+      React.createElement("b", null, per + " \uC2E4\uC801 \uBBF8\uC785\uB825 "),
+      "\u2014 \uBAA9\uD45C\uB9CC \uB4E4\uC5B4\uC788\uC2B5\uB2C8\uB2E4. \uC6D0\uBCF8 \uC2DC\uD2B8\uC5D0 \uC2E4\uC801\uC774 \uCC44\uC6CC\uC9C0\uBA74 \uC790\uB3D9\uC73C\uB85C \uBC18\uC601\uB429\uB2C8\uB2E4.") : null,
+    React.createElement("div", { className: "corpwrap" },
+      React.createElement("table", { className: "corptbl corpexp", "data-no-sort": "1" },
+        React.createElement("thead", null,
+          React.createElement("tr", null,
+            React.createElement("th", { rowSpan: 2, className: "px-1.5 py-1.5" }, "거래처"),
+            React.createElement("th", { colSpan: 4, className: "px-1.5 py-1.5" }, "수출 (USD)"),
+            React.createElement("th", { colSpan: 4, className: "px-1.5 py-1.5" }, "수금 (USD)")),
+          React.createElement("tr", null,
+            ["연간목표", "당월목표", "실적", "달성율", "연간목표", "당월목표", "실적", "달성율"]
+              .map(function (h, i) { return React.createElement("th", { key: i, className: "px-1.5 py-1.5" }, h); }))),
+        React.createElement("tbody", null,
+          cur.map(function (r, i) {
+            const sub = !!hidden[r.c];
+            return React.createElement("tr", { key: i, className: sub ? "corpsub" : "" },
+              React.createElement("td", { className: "px-1.5 py-1 corpk-n" }, sub ? "└ " + r.c : r.c),
+              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-500" }, nfmt(r.xa)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-600" }, nfmt(r.xm)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right font-bold" }, nfmt(r.x)),
+              pcell(rt2(r.x, r.xm)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-500" }, nfmt(r.ca)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-600" }, nfmt(r.cm)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right font-bold" }, nfmt(r.ct)),
+              pcell(rt2(r.ct, r.cm)));
+          }),
+          React.createElement("tr", { className: "corptot" },
+            React.createElement("td", { className: "px-1.5 py-1 corpk-n" }, "합계"),
+            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.xa)),
+            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.xm)),
+            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.x)),
+            pcell(rt2(T.x, T.xm)),
+            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.ca)),
+            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.cm)),
+            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.ct)),
+            pcell(rt2(T.ct, T.cm)))))),
+    React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-1.5" },
+      "* └ 표시는 상위 거래처에 포함되므로 합계에서 제외 \xB7 주간은 잠정 \xB7 월간이 확정 \xB7 원본 구글시트 거래처실적"));
+
+
+  const stamp = (function () {
+    try { return fetchedAt ? new Date(fetchedAt).toLocaleString("ko-KR") : null; } catch (e) { return null; }
+  })();
+
+  return React.createElement("div", { className: "space-y-3 corpview" },
+    React.createElement("div", null,
+      React.createElement("h1", { className: "text-lg font-bold text-slate-900" }, "\uBCF8\uC0AC \uC218\uCD9C \xB7 \uC218\uAE08"),
+      React.createElement("div", { className: "text-xs text-slate-500" },
+        "\uB2DD\uBCF4 \xB7 \uBD81\uACBD \xB7 \uD64D\uCF69 \xB7 \uB300\uB9CC \u2014 \uC8FC\uAC04/\uC6D4\uAC04 \uC218\uCD9C\xB7\uC218\uAE08 \uC2E4\uC801")),
+    React.createElement("div", { className: "flex items-center gap-2 flex-wrap" },
+      live
+        ? React.createElement("span", { className: "px-2 py-1 text-[11px] font-bold rounded border bg-blue-50 text-blue-700 border-blue-300" },
+            "\uC2DC\uD2B8 \uC790\uB3D9 \uC5F0\uB3D9 \xB7 \uAC31\uC2E0 " + (stamp || "-"))
+        : React.createElement("span", { className: "px-2 py-1 text-[11px] font-bold rounded border bg-amber-50 text-amber-800 border-amber-300" },
+            "\uB0B4\uC7A5 \uB370\uC774\uD130 \u2014 \uC0C1\uB2E8 [\uC2DC\uD2B8 \uC5F0\uB3D9] \uC744 \uB204\uB974\uBA74 \uCD5C\uC2E0\uC73C\uB85C \uBC14\uB01D\uB2C8\uB2E4"),
+      React.createElement("span", { className: "text-[11px] text-slate-500" },
+        "\uC6D0\uBCF8 : \uAD6C\uAE00\uC2DC\uD2B8 \u300C\uAC70\uB798\uCC98\uC2E4\uC801_\uC8FC\uAC04 / \uC6D4\uAC04\u300D")),
+    expTab);
+}
+
 function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localEdits, closedM, setClosedM, apiUrl, setApiUrl }) {
   const __NOWM = (function () { try { return (new Date()).getMonth() + 1; } catch (e) { return 9; } })();
   const M = Math.min(12, Math.max(1, month || __NOWM));
@@ -7311,69 +7409,6 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
     React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-1.5" },
       "* 달성율 90% 이상 파랑 \xB7 70% 미만 빨강 \xB7 성장율은 25년 동기 대비 \xB7 영업이익률은 원본 공란"));
 
-  // ─────────── 수출 · 수금 ───────────
-  const tmode = ui.tmode || "w";
-  const TR = kpi.trd[tmode] || [];
-  const periods = [];
-  TR.forEach(function (x) { if (periods.indexOf(x.p) < 0) periods.push(x.p); });
-  const per = (ui.per && periods.indexOf(ui.per) >= 0) ? ui.per : periods[periods.length - 1];
-  const cur = TR.filter(function (x) { return x.p === per; });
-  const names = cur.map(function (x) { return x.c; });
-  const hidden = {};
-  Object.keys(CORP_ROLLUP).forEach(function (parent) {
-    if (names.indexOf(parent) >= 0) CORP_ROLLUP[parent].forEach(function (ch) { hidden[ch] = parent; });
-  });
-  const T = { xa: 0, xm: 0, x: 0, ca: 0, cm: 0, ct: 0 };
-  cur.forEach(function (r) { if (hidden[r.c]) return; ["xa", "xm", "x", "ca", "cm", "ct"].forEach(function (k) { T[k] += r[k] || 0; }); });
-  const rt2 = (a, b) => b > 0 ? Math.round(a / b * 100) : 0;
-  const pcell = (v, ok) => React.createElement("td", { className: "px-1.5 py-1 text-right font-bold " + (v >= 90 ? "text-blue-600" : v >= 70 ? "text-amber-700" : v > 0 ? "text-red-600" : "text-slate-400") }, v ? v + "%" : "—");
-  const expTab = React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-3" },
-    React.createElement("div", { className: "flex items-center gap-2 mb-2 flex-wrap" },
-      React.createElement("div", { className: "text-sm font-bold text-slate-900" }, "수출 \xB7 수금 \xB7 ", per),
-      React.createElement("div", { className: "ml-auto flex gap-1 items-center" },
-        React.createElement("select", { value: per, onChange: (e) => set("per", e.target.value),
-          className: "text-[11px] font-bold border border-slate-300 rounded px-1.5 py-1 bg-white" },
-          periods.map(function (p) { return React.createElement("option", { key: p, value: p }, p); })),
-        [["w", "주간"], ["m", "월간"]].map(function (t) {
-          return React.createElement("button", { key: t[0], onClick: () => { setUI(Object.assign({}, ui, { tmode: t[0], per: null })); },
-            className: "px-2.5 py-1 text-[11px] font-bold border rounded " + (tmode === t[0] ? "bg-slate-800 text-white border-slate-800" : "bg-white text-slate-600 border-slate-300 hover:bg-slate-50") }, t[1]); }))),
-    React.createElement("div", { className: "corpwrap" },
-      React.createElement("table", { className: "corptbl corpexp", "data-no-sort": "1" },
-        React.createElement("thead", null,
-          React.createElement("tr", null,
-            React.createElement("th", { rowSpan: 2, className: "px-1.5 py-1.5" }, "거래처"),
-            React.createElement("th", { colSpan: 4, className: "px-1.5 py-1.5" }, "수출 (USD)"),
-            React.createElement("th", { colSpan: 4, className: "px-1.5 py-1.5" }, "수금 (USD)")),
-          React.createElement("tr", null,
-            ["연간목표", "당월목표", "실적", "달성율", "연간목표", "당월목표", "실적", "달성율"]
-              .map(function (h, i) { return React.createElement("th", { key: i, className: "px-1.5 py-1.5" }, h); }))),
-        React.createElement("tbody", null,
-          cur.map(function (r, i) {
-            const sub = !!hidden[r.c];
-            return React.createElement("tr", { key: i, className: sub ? "corpsub" : "" },
-              React.createElement("td", { className: "px-1.5 py-1 corpk-n" }, sub ? "└ " + r.c : r.c),
-              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-500" }, nfmt(r.xa)),
-              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-600" }, nfmt(r.xm)),
-              React.createElement("td", { className: "px-1.5 py-1 text-right font-bold" }, nfmt(r.x)),
-              pcell(rt2(r.x, r.xm)),
-              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-500" }, nfmt(r.ca)),
-              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-600" }, nfmt(r.cm)),
-              React.createElement("td", { className: "px-1.5 py-1 text-right font-bold" }, nfmt(r.ct)),
-              pcell(rt2(r.ct, r.cm)));
-          }),
-          React.createElement("tr", { className: "corptot" },
-            React.createElement("td", { className: "px-1.5 py-1 corpk-n" }, "합계"),
-            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.xa)),
-            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.xm)),
-            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.x)),
-            pcell(rt2(T.x, T.xm)),
-            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.ca)),
-            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.cm)),
-            React.createElement("td", { className: "px-1.5 py-1 text-right" }, nfmt(T.ct)),
-            pcell(rt2(T.ct, T.cm)))))),
-    React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-1.5" },
-      "* └ 표시는 상위 거래처에 포함되므로 합계에서 제외 \xB7 주간은 잠정 \xB7 월간이 확정 \xB7 원본 구글시트 거래처실적"));
-
   const soon = (t) => React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-8 text-center" },
     React.createElement("div", { className: "text-sm font-bold text-slate-700 mb-1" }, t),
     React.createElement("div", { className: "text-xs text-slate-400" }, "\uC6D0\uBCF8 \uC5F0\uACB0 \uD6C4 \uACF5\uAC1C\uB429\uB2C8\uB2E4"));
@@ -7646,12 +7681,12 @@ function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localE
           c === "\uC911\uAD6D" ? React.createElement("span", { className: "corpsq", title: "\uC0C1\uC704 \uC9D1\uACC4 (\uB2DD\uBCF4 + \uBD81\uACBD)" }) : null, c); }),
       React.createElement("span", { className: "corpdiv" }),
       React.createElement("span", { className: "text-[11px] font-bold text-slate-500 px-1" }, M + "\uC6D4 \xB7 KPI"),
-      [["kpi", "\uC885\uD569"]].concat(DET_TABS).concat([["psi", "\u2605 \uBC95\uC778 PSI"], ["exp", "\u2605 \uC218\uCD9C/\uC218\uAE08"]]).map(function (t) {
+      [["kpi", "\uC885\uD569"]].concat(DET_TABS).concat([["psi", "\u2605 \uBC95\uC778 PSI"]]).map(function (t) {
         return React.createElement("button", { key: t[0], onClick: () => set("tab", t[0]),
           className: "corptab whitespace-nowrap " + (tab === t[0] ? "corptab-on" : "corptab-off") }, t[1]); })),
     (tab === "kpi" || tab === "psi") ? pmBar : React.createElement("div", { className: "text-[10px] text-slate-400 -mt-1" }, "\uC911\uAD6D = \uB2DD\uBCF4 + \uBD81\uACBD \xB7 \uC6D0\uBCF8 \u300C\uC8FC\uC694\uC9C0\uD45C\uAD00\uB9AC\u300D \uC6D4\uBCC4"),
     (tab.charAt(0) === "d" || (tab === "kpi" && pmode === "m")) ? editBar : null,
-    tab === "psi" ? (pmode === "w" ? psiTabW : psiTab) : tab === "kpi" ? (pmode === "w" ? kpiTabW : kpiTab) : tab === "exp" ? expTab : (tab.charAt(0) === "d" ? detTab(tab.slice(1)) : kpiTab));
+    tab === "psi" ? (pmode === "w" ? psiTabW : psiTab) : tab === "kpi" ? (pmode === "w" ? kpiTabW : kpiTab) : (tab.charAt(0) === "d" ? detTab(tab.slice(1)) : kpiTab));
 }
 
 function App() {
@@ -9819,7 +9854,15 @@ Google Drive \uB610\uB294 \uC548\uC804\uD55C \uC704\uCE58\uC5D0 \uBCF4\uAD00\uD5
     },
     /* @__PURE__ */ React.createElement(Icon, { name: "building", className: "w-4 h-4" }),
     /* @__PURE__ */ React.createElement("span", null, h, "\uBCF8\uBD80")
-  )))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-2 border-t border-slate-700/50" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setCorpSecOpen(!corpSecOpen), className: "w-full flex items-center justify-between px-2 py-1.5 text-xs text-slate-400 hover:text-slate-200" }, /* @__PURE__ */ React.createElement("span", null, "\uC911\uAD6D\uBC95\uC778\uAD00\uB9AC"), /* @__PURE__ */ React.createElement("div", { className: `transition-transform ${corpSecOpen ? "" : "-rotate-90"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "chevronDown", className: "w-3 h-3" }))), corpSecOpen && /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement(
+  )))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-2 border-t border-slate-700/50" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setCorpSecOpen(!corpSecOpen), className: "w-full flex items-center justify-between px-2 py-1.5 text-xs text-slate-400 hover:text-slate-200" }, /* @__PURE__ */ React.createElement("span", null, "G2\uC9C0\uC5ED\uAD00\uB9AC"), /* @__PURE__ */ React.createElement("div", { className: `transition-transform ${corpSecOpen ? "" : "-rotate-90"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "chevronDown", className: "w-3 h-3" }))), corpSecOpen && /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      onClick: () => { setSelectedHQ("exp"); },
+      className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "exp" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}`
+    },
+    /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\uD83D\uDEA2"),
+    /* @__PURE__ */ React.createElement("span", null, "\uBCF8\uC0AC \uC218\uCD9C\xB7\uC218\uAE08")
+  ), /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: () => { setSelectedHQ("corp"); },
@@ -15471,9 +15514,24 @@ const corpKpiFromSheet = () => {
     });
   }
   const conv = (rows, pk) => (rows || []).map(function (r) {
-    return { p: String(r[pk] || "").trim(), c: String(r["\uAC70\uB798\uCC98"] || "").trim(), u: String(r["\uB2E8\uC704"] || "").trim(),
-      xa: __corpNum(r["\uC218\uCD9C \uBAA9\uD45C(\uC804\uCCB4)"]), xm: __corpNum(r["\uC218\uCD9C \uBAA9\uD45C(\uB2F9\uC6D4)"]), x: __corpNum(r["\uC218\uCD9C \uC2E4\uC801"]),
-      ca: __corpNum(r["\uC218\uAE08 \uBAA9\uD45C(\uC804\uCCB4)"]), cm: __corpNum(r["\uC218\uAE08 \uBAA9\uD45C(\uB2F9\uC6D4)"]), ct: __corpNum(r["\uC218\uAE08 \uC2E4\uC801"]) };
+    // 열 이름이 바뀌어도 읽히도록 후보를 순서대로 시도
+    const pick = function (cands) {
+      for (let i = 0; i < cands.length; i++) if (r[cands[i]] !== undefined) return __corpNum(r[cands[i]]);
+      const ks = Object.keys(r);
+      for (let j = 0; j < cands.length; j++) {
+        const base = String(cands[j]).replace(/\s+/g, "");
+        for (let k = 0; k < ks.length; k++) {
+          if (String(ks[k]).replace(/\s+/g, "").indexOf(base) === 0) return __corpNum(r[ks[k]]);
+        }
+      }
+      return 0;
+    };
+    const NM = String(r["\uAC70\uB798\uCC98"] || "").trim();
+    return { p: String(r[pk] || "").trim(), c: (NM === "\uB300\uB9CC \uBC95\uC778" ? "\uB300\uB9CC\uBC95\uC778" : NM), u: String(r["\uB2E8\uC704"] || "").trim() || "USD",
+      xa: pick(["\uC218\uCD9C \uBAA9\uD45C(\uC804\uCCB4)"]), xm: pick(["\uC218\uCD9C \uBAA9\uD45C(\uB2F9\uC6D4)"]),
+      x:  pick(["\uC218\uCD9C \uC2E4\uC801(\uB2F9\uC6D4\uB204\uC801)", "\uC218\uCD9C \uC2E4\uC801"]),
+      ca: pick(["\uC218\uAE08 \uBAA9\uD45C(\uC804\uCCB4)"]), cm: pick(["\uC218\uAE08 \uBAA9\uD45C(\uB2F9\uC6D4)"]),
+      ct: pick(["\uC218\uAE08 \uC2E4\uC801(\uB2F9\uC6D4\uB204\uC801)", "\uC218\uAE08 \uC2E4\uC801"]) };
   }).filter(function (x) { return x.p && x.c; });
   const w = conv(W, "\uC8FC\uCC28"), m = conv(Mo, "\uBCF4\uACE0\uC6D4");
   return { kpi: kpi || CORP_KPI_EMB.kpi, trd: { w: w.length ? w : CORP_KPI_EMB.trd.w, m: m.length ? m : CORP_KPI_EMB.trd.m } };
@@ -15592,7 +15650,9 @@ const CORP_EDITS = (function () {
   return o;
 })();
 const CORP_PSI = corpPsiFromSheet() || CORP_PSI_EMB;
-const CORP_KPI = corpKpiFromSheet() || CORP_KPI_EMB;
+const CORP_KPI_SHEET = corpKpiFromSheet();
+const CORP_KPI = CORP_KPI_SHEET || CORP_KPI_EMB;
+const CORP_TRD_LIVE = !!(sheetsData && (Array.isArray(sheetsData["\uAC70\uB798\uCC98\uC2E4\uC801_\uC8FC\uAC04"]) || Array.isArray(sheetsData["\uAC70\uB798\uCC98\uC2E4\uC801_\uC6D4\uAC04"])));
 const cmpTable = (opts) => {
   const rate = (a, b) => b > 0 ? Math.round(a / b * 100) : 0;
   const nd = (v, bold) => /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right text-slate-900" + (bold !== false ? " font-semibold" : "") }, formatNumber(v));
@@ -17272,9 +17332,10 @@ const renderPricePos = (p) => /* @__PURE__ */ React.createElement(PricePosView, 
 
   const renderContent = () => {
     if (selectedHQ && selectedHQ.indexOf("hq:") === 0) return renderHQDashboard(selectedHQ.slice(3));
-    if (!SHOW_LEGACY && selectedHQ && selectedHQ !== "overview" && selectedHQ !== "marketshare" && selectedHQ !== "national" && selectedHQ !== "pricepos" && selectedHQ !== "policy" && selectedHQ !== "corp" && selectedHQ !== "corptw" && selectedHQ !== "corpfin") return renderHQDashboard(String(selectedHQ).replace("본부", ""));
+    if (!SHOW_LEGACY && selectedHQ && selectedHQ !== "overview" && selectedHQ !== "marketshare" && selectedHQ !== "national" && selectedHQ !== "pricepos" && selectedHQ !== "policy" && selectedHQ !== "corp" && selectedHQ !== "corptw" && selectedHQ !== "corpfin" && selectedHQ !== "exp") return renderHQDashboard(String(selectedHQ).replace("본부", ""));
     if (selectedHQ === 'national') return renderHQDashboard('전국');
     if (selectedHQ === 'policy') return React.createElement(PolicyView, { ui: plUI, setUI: setPlUI, sheetsData });
+    if (selectedHQ === 'exp') return React.createElement(ExpView, { ui: corpUI, setUI: setCorpUI, kpi: CORP_KPI, live: CORP_TRD_LIVE, fetchedAt: sheetsFetchedAt });
     if (selectedHQ === 'corpfin') return React.createElement(CorpFinView, { ui: corpUI, setUI: setCorpUI, month: filterMonth || 0, data: CORP_FIN });
     if (selectedHQ === 'corptw') return React.createElement(CorpTWView, { ui: corpUI, setUI: setCorpUI, data: CORP_TW_LIVE, month: filterMonth || 0 });
     if (selectedHQ === 'corp') return React.createElement(CorpView, { month: filterMonth || 0, ui: corpUI, setUI: setCorpUI, psi: CORP_PSI, kpi: CORP_KPI, wkd: CORP_WK, psrc: CORP_PSI_SRC_LIVE, edits: CORP_EDITS, onEdit: setCorpEdit, localEdits: corpEdits, closedM: corpClosedM, setClosedM: setCorpClosedM, apiUrl: corpEditUrl, setApiUrl: function (u) { setCorpEditUrl(u); try { localStorage.setItem("dashboard_corp_edit_url_v1", u || ""); } catch (e) {} } });
