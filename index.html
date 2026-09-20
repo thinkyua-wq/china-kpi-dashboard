@@ -389,6 +389,7 @@
   table.corpdq th:nth-child(2),table.corpdq td:nth-child(2){width:22%;text-align:left}
   table.corpcamp th:first-child,table.corpcamp td:first-child{width:26%;text-align:left}
   table.corppv th:first-child,table.corppv td:first-child{width:13%;text-align:left}
+  table.corploc th:first-child,table.corploc td:first-child{width:10%;text-align:left}
   table.corpvz1 th:first-child,table.corpvz1 td:first-child{width:4%;text-align:center}
   table.corpvz2 th:first-child,table.corpvz2 td:first-child{width:10%}
   table.corpvz3 th:first-child,table.corpvz3 td:first-child{width:10%}
@@ -437,9 +438,9 @@
   table.endtbl tbody td,table.endsub tbody td{color:#000}
   table.endtbl tr.endtot td{background:#f1f5f9}
   table.kplan{width:100%;table-layout:fixed}
-  table.kplan th,table.kplan td{padding:4px 6px!important;vertical-align:top;white-space:nowrap;overflow:hidden}
+  table.kplan th,table.kplan td{padding:4px 3px!important;vertical-align:top;white-space:nowrap;overflow:hidden}
   table.kplan th{white-space:pre!important}
-  table.kplan td.kname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.35}
+  table.kplan td.kname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.35;padding-left:6px!important}
   table.kplan th:nth-child(13),table.kplan td:nth-child(13){border-left:1px solid #cbd5e1!important}
   table.kplan .kqc{background:#f8fafc}
   table.kplan td.kmemo{white-space:normal;word-break:break-word;line-height:1.35;font-size:11.5px;color:#000}
@@ -489,6 +490,112 @@
   .kpirow>.kpic:nth-child(3){flex-grow:4}
   .kpic-l,.kpic-v,.kpic-s{white-space:nowrap}
   @media(max-width:760px){.kpirow>.kpic{flex:1 1 44%}}
+  .an-root{--aink:#0f172a;--aink2:#334155;--amute:#64748b;--aline:#cbd5e1;--aline2:#e2e8f0;
+    color:#0f172a;font-family:"Malgun Gothic","맑은 고딕",Arial,sans-serif;font-size:13px;line-height:1.45}
+  .an-root *{box-sizing:border-box}
+  .an-h1{font-size:19px;font-weight:800;margin:0 0 2px}
+  .an-sub{font-size:12px;color:#64748b;margin-bottom:12px}
+  .an-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin-bottom:12px}
+  .an-ttl{font-size:14px;font-weight:800;margin:0 0 3px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .an-tag{font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:9px;border:1px solid}
+  .an-b-crit{color:#b91c1c;background:#fef2f2;border-color:#fecaca}
+  .an-b-warn{color:#b45309;background:#fffbeb;border-color:#fde68a}
+  .an-b-ok{color:#15803d;background:#f0fdf4;border-color:#bbf7d0}
+  .an-b-na{color:#64748b;background:#f8fafc;border-color:#cbd5e1}
+  .an-na{color:#94a3b8}
+  .an-bg-na{background:#cbd5e1}
+  .an-hint{font-size:11.5px;color:#64748b;margin-bottom:11px}
+  .an-crit{color:#b91c1c} .an-warn{color:#b45309} .an-ok{color:#15803d}
+  .an-bg-crit{background:#b91c1c} .an-bg-warn{background:#b45309} .an-bg-ok{background:#15803d}
+  .an-b{font-weight:800}
+  .an-verdict{background:#fff;border:1px solid #cbd5e1;border-left:5px solid #b91c1c;border-radius:10px;padding:15px 18px;margin-bottom:12px}
+  .an-vhead{font-size:11px;font-weight:800;color:#b91c1c;letter-spacing:.4px;margin-bottom:5px}
+  .an-vmain{font-size:16.5px;font-weight:800;line-height:1.5}
+  .an-vmain b{color:#b91c1c}
+  .an-vsub{font-size:12.5px;color:#334155;margin-top:7px}
+  .an-sig{display:grid;grid-template-columns:repeat(7,1fr);gap:9px}
+  .an-sg{border:1px solid #e2e8f0;border-radius:9px;padding:11px 12px;background:#fff}
+  .an-lb{font-size:11px;color:#64748b;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:4px}
+  .an-dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:0 0 auto}
+  .an-vl{font-size:19.5px;font-weight:800;margin:5px 0 1px;font-variant-numeric:tabular-nums}
+  .an-mini{height:5px;background:#f1f5f9;border-radius:3px;overflow:hidden;margin:6px 0 5px}
+  .an-mini>i{display:block;height:100%}
+  .an-ds{font-size:11px;color:#334155;line-height:1.35}
+  .an-dec{border:1px solid #e2e8f0;border-radius:9px;margin-bottom:10px;overflow:hidden}
+  .an-dh{display:flex;align-items:center;gap:9px;padding:9px 13px;background:#f8fafc;border-bottom:1px solid #e2e8f0}
+  .an-rank{width:21px;height:21px;border-radius:50%;background:#b91c1c;color:#fff;font-size:11.5px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .an-w .an-rank{background:#b45309}
+  .an-dt{font-size:13.5px;font-weight:800}
+  .an-imp{margin-left:auto;font-size:11px;color:#64748b;font-weight:700;white-space:nowrap}
+  .an-dbody{display:grid;grid-template-columns:422px 1fr 300px;gap:0}
+  .an-dbody>div{padding:11px 13px}
+  .an-dbody>div+div{border-left:1px solid #e2e8f0}
+  .an-k{font-size:10.5px;font-weight:800;color:#64748b;letter-spacing:.3px;margin-bottom:5px}
+  .an-ev{font-size:12px;color:#334155;line-height:1.6}
+  .an-ev b{color:#0f172a}
+  .an-big{font-size:23px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+  .an-bigs{font-size:11px;color:#64748b;margin-top:3px}
+  .an-opt{font-size:12px;line-height:1.55;margin:0;padding-left:15px}
+  .an-opt li{margin-bottom:3px}
+  .an-rec{background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:8px 10px;font-size:12px;color:#1e3a8a;line-height:1.5}
+  .an-evrow{display:flex;align-items:center;gap:7px;font-size:11.5px;margin-top:4px}
+  .an-evh{font-weight:700;color:#64748b;font-size:10.5px}
+  .an-nm{width:50px;flex:0 0 auto;font-weight:700;color:#334155;white-space:nowrap;font-size:11px;overflow:hidden}
+  .an-bw{flex:1 1 auto;height:9px;background:#f1f5f9;border-radius:2px;overflow:hidden}
+  .an-bw>i{display:block;height:100%}
+  .an-vv{width:66px;flex:0 0 auto;text-align:right;font-variant-numeric:tabular-nums;color:#334155;white-space:nowrap}
+  .an-tw{width:100%}
+  table.an-tbl{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;font-size:12px}
+  table.an-tbl th,table.an-tbl td{border:1px solid #cbd5e1;padding:5px 7px;white-space:nowrap;overflow:hidden;text-align:right;color:#000}
+  table.an-tbl thead th{background:#e2e8f0;color:#334155;font-weight:700;font-size:11.5px;text-align:center}
+  table.an-tbl td.an-l{text-align:left} table.an-tbl td.an-c{text-align:center} table.an-tbl td.an-r{text-align:right}
+  table.an-tbl td.an-j{font-size:11.5px}
+  table.an-tbl tr.an-tot td{background:#f8fafc;font-weight:800}
+  .an-bar{height:9px;background:#f1f5f9;border-radius:2px;overflow:hidden;display:block;margin-top:2px}
+  .an-bar>i{display:block;height:100%}
+  .an-bar2{height:10px;background:#f1f5f9;border-radius:2px;overflow:hidden;display:flex}
+  .an-bar2>i{display:block;height:100%}
+  .an-gapw{width:2px;background:#fff;flex:0 0 auto}
+  .an-lgd{display:flex;gap:13px;align-items:center;font-size:11px;color:#334155;margin-bottom:7px;flex-wrap:wrap}
+  .an-lgd i{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:middle}
+  .an-lgd .an-dsh{width:14px;height:0;border-top:2px dashed #dc2626;display:inline-block;margin-right:4px;vertical-align:middle;border-radius:0}
+  .an-mx{position:relative;height:330px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;margin-top:4px}
+  .an-mxq{position:absolute;font-size:10.5px;font-weight:800;color:#94a3b8;letter-spacing:.3px}
+  .an-mxl{position:absolute;background:#e2e8f0}
+  .an-pt{position:absolute;transform:translate(-50%,-50%);text-align:center}
+  .an-pc{border-radius:50%;margin:0 auto;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+  .an-pn{font-size:11.5px;font-weight:800;margin-top:3px;white-space:nowrap}
+  .an-pv{font-size:10px;color:#64748b;white-space:nowrap}
+  .an-axrow{display:flex;justify-content:space-between;margin-top:5px}
+  .an-ax{font-size:10.5px;color:#64748b;font-weight:700}
+  .an-sc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:3px}
+  .an-scb{border:1px solid #e2e8f0;border-radius:8px;padding:11px 12px}
+  .an-sct{font-size:11.5px;font-weight:800;color:#64748b}
+  .an-scv{font-size:22px;font-weight:800;margin:4px 0 1px;font-variant-numeric:tabular-nums}
+  .an-scd{font-size:11px;color:#334155;line-height:1.4}
+  .an-scb .an-bar{margin-top:7px}
+  .an-foot{font-size:11px;color:#64748b;margin-top:8px;line-height:1.5}
+  .an-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .an-three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .an-panel{border:1px solid #e2e8f0;border-radius:9px;padding:11px 12px;background:#fff;min-width:0}
+  .an-pt2{font-size:12.5px;font-weight:800;margin-bottom:2px}
+  .an-ph{font-size:11px;color:#64748b;margin-bottom:8px;line-height:1.4}
+  .an-fn{display:flex;flex-direction:column;gap:5px}
+  .an-fnr{display:flex;align-items:center;gap:8px}
+  .an-fl{width:66px;flex:0 0 auto;font-size:11.5px;font-weight:700;color:#334155;white-space:nowrap}
+  .an-fb{flex:1 1 auto;height:21px;background:#f8fafc;border-radius:3px;overflow:hidden}
+  .an-fb>i{display:block;height:100%;border-radius:3px}
+  .an-fv{width:70px;flex:0 0 auto;text-align:right;font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums}
+  .an-ht{display:grid;gap:3px;font-size:11px}
+  .an-hc{padding:5px 3px;text-align:center;border-radius:3px;font-weight:700;font-variant-numeric:tabular-nums}
+  .an-hh{color:#64748b;font-weight:700;text-align:center;padding:3px 0}
+  .an-hl{color:#334155;font-weight:700;display:flex;align-items:center;padding-left:2px;white-space:nowrap}
+  .an-arh{display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:3px;gap:6px}
+  .an-arh span:last-child{color:#64748b;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .an-arb{height:15px;background:#f8fafc;border-radius:3px;overflow:hidden;display:flex}
+  .an-arb>i{display:block;height:100%}
+  .an-rule{font-size:11px;color:#64748b;text-align:center;padding:4px 0 2px}
+  @media(max-width:1400px){.an-sig{grid-template-columns:repeat(4,1fr)}.an-dbody{grid-template-columns:1fr}.an-dbody>div+div{border-left:none;border-top:1px solid #e2e8f0}.an-three{grid-template-columns:1fr}.an-two{grid-template-columns:1fr!important}}
 </style>
 </head>
 <body class="bg-slate-100">
@@ -5991,7 +6098,8 @@ const renderMsMock = (which) => {
     }), !isExpanded && !row.type && /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-200" }, /* @__PURE__ */ React.createElement("td", { colSpan: 3 + visIdxs.length, className: "px-2 py-0.5 text-[10px] text-slate-400 text-center cursor-pointer hover:bg-slate-50", onClick: () => toggleProv(row) }, "\u25B6 \uACBD\uC7C1\uC0AC 5\uAC1C \uD3BC\uCE58\uAE30 (\u5965\u9F7F\u6CF0\xB7\u767B\u817E\xB7\u7EBD\u767D\u7279\xB7DIO\xB7\u58EB\u5353\u66FC)")));
   })))), /* @__PURE__ */ React.createElement("div", { className: "text-[11px] text-slate-500" }, "* M/S = \uBE0C\uB79C\uB4DC \uC2DD\uB9BD\uC218\uB7C9 \xF7 \uC9C0\uC5ED \uC2DC\uC7A5\uADDC\uBAA8 (\uC790\uB3D9) \xB7 \uAE30\uBCF8\uC740 ", /* @__PURE__ */ React.createElement("strong", null, "\uBA54\uAC00\uC820\uB9CC \uD45C\uC2DC"), ", \u7701\u4EFD(\uC131) \uD074\uB9AD \uC2DC \uACBD\uC7C1\uC0AC \uD3BC\uCE68 \xB7 ", /* @__PURE__ */ React.createElement("strong", null, "\uC218\uB7C9\xB7\uC2DC\uC7A5\uADDC\uBAA8 \uC140 \uD074\uB9AD \u2192 \uC785\uB825(\uC790\uB3D9\uC800\uC7A5)"), ' \xB7 \uC6D4\uBCC4 \uB370\uC774\uD130 \uB3C5\uB9BD \xB7 \u5C0F\u8BA1\xB7\u5408\u8BA1\xB7\u603B\u8BA1\uB294 \uC790\uB3D9 \uD569\uC0B0 \xB7 "\uD45C \uBCF5\uC0AC"\uB85C \uC6D0\uD558\uB294 \uC6D4\uC5D0 \uBCF5\uC0AC')), msTab === "region" && renderRegionMS(), msTab === "company" && renderNewMarket(), msTab === "macro" && renderMacro()));
 }
-const CORP_KPI_EMB = {"kpi":{"중국":[{"no":"1.0","u":"M RMB","y25":272411.628,"y26":331258.505,"mg":0.216,"m":[19859.208,24843.675,21271.435,0.8562,0.0711],"c":[186130.368,203726.055,171424.095,0.8414,-0.079],"l":"현지 매출"},{"no":"2.0","u":"M RMB","y25":261847.631,"y26":331258.505,"mg":0.2651,"m":[20288.095,24843.675,19734.193,0.7943,-0.0273],"c":[179086.678,203726.055,154729.409,0.7595,-0.136],"l":"현지 수금"},{"no":"3.0","u":"M USD","y25":15.946,"y26":22.725,"mg":0.4251,"m":[0.372,1.704,0.704,0.4131,0.8942],"c":[12.384,13.976,11.48,0.8215,-0.073],"l":"본사 수출"},{"no":"4.0","u":"M USD","y25":19.909,"y26":23.669,"mg":0.1888,"m":[1.7,1.8,0.932,0.518,-0.4515],"c":[15.554,14.531,11.318,0.7789,-0.2723],"l":"본사 수금"},{"no":"5-1","u":"EA","y25":831891,"y26":1150000,"mg":0.3824,"m":[65179,86250,72017,0.835,0.1049],"c":[554572,707250,598848,0.8467,0.0798],"l":"임플수량 (현지)"},{"no":"5-2","u":"EA","y25":765642,"y26":1149999.973,"mg":0.502,"m":[13902,86249.973,38684,0.4485,1.7826],"c":[571215,707249.379,644337,0.911,0.128],"l":"임플수량 (수출)"},{"no":"6.0","u":"곳","y25":7256,"y26":8500,"mg":0.1714,"m":[6266,8057,7960,0.988,0.2703],"c":[6266,8057,7960,0.988,0.2703],"l":"하부고객"},{"no":"","u":"곳","y25":397,"y26":1500,"mg":2.7783,"m":[200,1105,787,0.7122,2.935],"c":[200,1105,787,0.7122,2.935],"l":"BD 진입점"},{"no":"7.0","u":"개","y25":84,"y26":73,"mg":-0.131,"m":[83,73,65,0.8904,-0.2169],"c":[83,73,65,0.8904,-0.2169],"l":"대리상"},{"no":"","u":"개","y25":50,"y26":41,"mg":-0.18,"m":[51,41,0,0,-1],"c":[51,41,0,0,-1],"l":"3M RMB ↑"},{"no":"","u":"개","y25":194,"y26":250,"mg":0.2887,"m":[172,238,240,1.0084,0.3953],"c":[172,238,240,1.0084,0.3953],"l":"DSO"},{"no":"8.0","u":"회","y25":323,"y26":298,"mg":-0.0774,"m":[20,26,20,0.7692,0],"c":[63,178,173,0.9719,1.746],"l":"세미나 · 교육"},{"no":"","u":"명","y25":53,"y26":77,"mg":0.4528,"m":[50,65,11,0.1692,-0.78],"c":[50,65,11,0.1692,-0.78],"l":"KOL"},{"no":"9.0","u":"명","y25":177,"y26":209,"mg":0.1808,"m":[172,209,34,0.1627,-0.8023],"c":[172,209,34,0.1627,-0.8023],"l":"총인원"},{"no":"","u":"명","y25":96,"y26":130,"mg":0.3542,"m":[89,130,21,0.1615,-0.764],"c":[89,130,21,0.1615,-0.764],"l":"영업사원"},{"no":"10.0","u":"%","y25":0,"y26":0,"mg":0,"m":[0,0,0,0,0],"c":[0,0,0,0,0],"l":"영업이익률"},{"no":"","u":"%","y25":0,"y26":0,"mg":0,"m":[0,0,0,0,0],"c":[0,0,0,0,0],"l":"영업이익률"}],"닝보":[{"no":"1.0","u":"M RMB","y25":229271.687,"y26":272323.16,"mg":0.1878,"m":[16603.282,20424.27,18480,0.9048,0.113],"c":[156184.04,167479.08,143366.249,0.856,-0.0821],"l":"현지 매출"},{"no":"2.0","u":"M RMB","y25":219125.595,"y26":272323.16,"mg":0.2428,"m":[16776.771,20424.27,17250,0.8446,0.0282],"c":[149651.714,167479.08,127560.493,0.7617,-0.1476],"l":"현지 수금"},{"no":"3.0","u":"M USD","y25":12.704,"y26":18.636,"mg":0.4669,"m":[0.191,1.398,0.433,0.3096,1.2612],"c":[9.946,11.461,9.428,0.8226,-0.0522],"l":"본사 수출"},{"no":"4.0","u":"M USD","y25":16.437,"y26":18.636,"mg":0.1338,"m":[1.5,1.398,0.782,0.5598,-0.4783],"c":[13.334,11.461,9.278,0.8095,-0.3042],"l":"본사 수금"},{"no":"5-1","u":"EA","y25":677518,"y26":938000,"mg":0.3845,"m":[51805,70350,61323,0.8717,0.1837],"c":[448499,576870,485175,0.841,0.0818],"l":"임플수량 (현지)"},{"no":"5-2","u":"EA","y25":600644,"y26":937027,"mg":0.56,"m":[3572,70277,22484,0.3199,5.2945],"c":[452633,576271,522576,0.9068,0.1545],"l":"임플수량 (수출)"},{"no":"6.0","u":"곳","y25":5991,"y26":7000,"mg":0.1684,"m":[5222,6643,6552,0.9863,0.2547],"c":[5222,6643,6552,0.9863,0.2547],"l":"하부고객"},{"no":"","u":"곳","y25":245,"y26":1210,"mg":3.9388,"m":[121,864,501,0.5799,3.1405],"c":[121,864,501,0.5799,3.1405],"l":"BD 진입점"},{"no":"7.0","u":"개","y25":66,"y26":56,"mg":-0.1515,"m":[65,56,52,0.9286,-0.2],"c":[65,56,52,0.9286,-0.2],"l":"대리상"},{"no":"","u":"개","y25":37,"y26":33,"mg":-0.1081,"m":[38,33,0,0,-1],"c":[38,33,0,0,-1],"l":"3M RMB ↑"},{"no":"","u":"개","y25":147,"y26":193,"mg":0.3129,"m":[133,181,181,1,0.3609],"c":[133,181,181,1,0.3609],"l":"DSO"},{"no":"8.0","u":"회","y25":256,"y26":228,"mg":-0.1094,"m":[16,19,17,0.8947,0.0625],"c":[16,134,142,1.0597,7.875],"l":"세미나 · 교육"},{"no":"","u":"명","y25":43,"y26":64,"mg":0.4884,"m":[40,54,1,0.0185,-0.975],"c":[40,54,1,0.0185,-0.975],"l":"KOL"},{"no":"9.0","u":"명","y25":146,"y26":175,"mg":0.1986,"m":[141,175,0,0,-1],"c":[141,175,0,0,-1],"l":"총인원"},{"no":"","u":"명","y25":78,"y26":109,"mg":0.3974,"m":[72,109,0,0,-1],"c":[72,109,0,0,-1],"l":"영업사원"},{"no":"10.0","u":"%","y25":0,"y26":0,"mg":0,"m":[0,0,0,0,0],"c":[0,0,0,0,0],"l":"영업이익률"}],"북경":[{"no":"1.0","u":"M RMB","y25":43139.941,"y26":58935.345,"mg":0.3661,"m":[3255.926,4419.405,2791.435,0.6316,-0.1427],"c":[29946.328,36246.975,28057.845,0.7741,-0.0631],"l":"현지 매출"},{"no":"2.0","u":"M RMB","y25":42722.035,"y26":58935.345,"mg":0.3795,"m":[3511.324,4419.405,2484.193,0.5621,-0.2925],"c":[29434.964,36246.975,27168.916,0.7495,-0.077],"l":"현지 수금"},{"no":"3.0","u":"M USD","y25":3.242,"y26":4.088,"mg":0.2609,"m":[0.18,0.307,0.271,0.8846,0.5047],"c":[2.438,2.514,2.053,0.8164,-0.158],"l":"본사 수출"},{"no":"4.0","u":"M USD","y25":3.472,"y26":5.033,"mg":0.4495,"m":[0.2,0.403,0.15,0.3726,-0.25],"c":[2.22,3.07,2.04,0.6646,-0.081],"l":"본사 수금"},{"no":"5-1","u":"EA","y25":154373,"y26":212000,"mg":0.3733,"m":[13374,15900,10694,0.6726,-0.2004],"c":[106073,130380,113673,0.8719,0.0716],"l":"임플수량 (현지)"},{"no":"5-2","u":"EA","y25":164998,"y26":212972.973,"mg":0.2908,"m":[10330,15972.973,16200,1.0142,0.5682],"c":[118582,130978.379,121761,0.9296,0.0268],"l":"임플수량 (수출)"},{"no":"6.0","u":"곳","y25":1265,"y26":1500,"mg":0.1858,"m":[1044,1414,1408,0.9958,0.3487],"c":[1044,1414,1408,0.9958,0.3487],"l":"하부고객"},{"no":"","u":"곳","y25":152,"y26":290,"mg":0.9079,"m":[79,241,286,1.1867,2.6203],"c":[79,241,286,1.1867,2.6203],"l":"BD 진입점"},{"no":"7.0","u":"개","y25":18,"y26":17,"mg":-0.0556,"m":[18,17,13,0.7647,-0.2778],"c":[18,17,13,0.7647,-0.2778],"l":"대리상"},{"no":"","u":"개","y25":13,"y26":8,"mg":-0.3846,"m":[13,8,0,0,-1],"c":[13,8,0,0,-1],"l":"3M RMB ↑"},{"no":"","u":"개","y25":47,"y26":57,"mg":0.2128,"m":[39,57,59,1.0351,0.5128],"c":[39,57,59,1.0351,0.5128],"l":"DSO"},{"no":"8.0","u":"회","y25":67,"y26":70,"mg":0.0448,"m":[4,7,3,0.4286,-0.25],"c":[47,44,31,0.7045,-0.3404],"l":"세미나 · 교육"},{"no":"","u":"명","y25":10,"y26":13,"mg":0.3,"m":[10,11,10,0.9091,0],"c":[10,11,10,0.9091,0],"l":"KOL"},{"no":"9.0","u":"명","y25":31,"y26":34,"mg":0.0968,"m":[31,34,34,1,0.0968],"c":[31,34,34,1,0.0968],"l":"총인원"},{"no":"","u":"명","y25":18,"y26":21,"mg":0.1667,"m":[17,21,21,1,0.2353],"c":[17,21,21,1,0.2353],"l":"영업사원"},{"no":"10.0","u":"%","y25":0,"y26":0,"mg":0,"m":[0,0,0,0,0],"c":[0,0,0,0,0],"l":"영업이익률"}]},"trd":{"w":[{"p":"W29","c":"닝보","u":"USD","xa":18636055,"xm":1304525,"x":650269,"xr":0.4985,"xc":0,"ca":18636056,"cm":1304525,"ct":1100867,"cr":0.8439,"cc":0},{"p":"W29","c":"북경","u":"USD","xa":4088480,"xm":286195,"x":267946,"xr":0.9362,"xc":0,"ca":5032559,"cm":402605,"ct":200000,"cr":0.4968,"cc":0},{"p":"W29","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":17000,"x":4003,"xr":0.2355,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W29","c":"대만 TBMS","u":"USD","xa":2500000,"xm":220000,"x":68346,"xr":0.3107,"xc":0,"ca":1370000,"cm":150000,"ct":0,"cr":0,"cc":0},{"p":"W29","c":"대만 Sunriser","u":"USD","xa":230000,"xm":25000,"x":22480,"xr":0.8992,"xc":0,"ca":260000,"cm":28000,"ct":33415,"cr":1.1934,"cc":0},{"p":"W30","c":"닝보","u":"USD","xa":18636055,"xm":1304525,"x":650269,"xr":0.4985,"xc":0,"ca":18636056,"cm":1304525,"ct":1100867,"cr":0.8439,"cc":0},{"p":"W30","c":"북경","u":"USD","xa":4088480,"xm":286195,"x":267946,"xr":0.9362,"xc":0,"ca":5032559,"cm":402605,"ct":200000,"cr":0.4968,"cc":0},{"p":"W30","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":17000,"x":4003,"xr":0.2355,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W30","c":"대만 TBMS","u":"USD","xa":2500000,"xm":220000,"x":68346,"xr":0.3107,"xc":0,"ca":1370000,"cm":150000,"ct":0,"cr":0,"cc":0},{"p":"W30","c":"대만 Sunriser","u":"USD","xa":230000,"xm":25000,"x":22480,"xr":0.8992,"xc":0,"ca":260000,"cm":28000,"ct":33415,"cr":1.1934,"cc":0},{"p":"W31","c":"닝보","u":"USD","xa":18636055,"xm":1304525,"x":1149596,"xr":0.8812,"xc":0,"ca":18636056,"cm":1304525,"ct":1751135,"cr":1.3424,"cc":0},{"p":"W31","c":"북경","u":"USD","xa":4088480,"xm":286195,"x":267946,"xr":0.9362,"xc":0,"ca":5032559,"cm":402605,"ct":300085,"cr":0.7454,"cc":0},{"p":"W31","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":17000,"x":11309,"xr":0.6652,"xc":0,"ca":175000,"cm":0,"ct":40944,"cr":0,"cc":0},{"p":"W31","c":"대만 TBMS","u":"USD","xa":2500000,"xm":220000,"x":362797,"xr":1.6491,"xc":0,"ca":1370000,"cm":150000,"ct":187017,"cr":1.2468,"cc":0},{"p":"W31","c":"대만 Sunriser","u":"USD","xa":230000,"xm":25000,"x":47323,"xr":1.8929,"xc":0,"ca":260000,"cm":28000,"ct":42690,"cr":1.5246,"cc":0},{"p":"W32","c":"닝보","u":"USD","xa":18636055,"xm":1397705,"x":57313,"xr":0.041,"xc":0,"ca":18636056,"cm":1397705,"ct":0,"cr":0,"cc":0},{"p":"W32","c":"북경","u":"USD","xa":4088480,"xm":306636,"x":179229,"xr":0.5845,"xc":0,"ca":5032559,"cm":402605,"ct":0,"cr":0,"cc":0},{"p":"W32","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":0,"xr":0,"xc":0,"ca":175000,"cm":42000,"ct":0,"cr":0,"cc":0},{"p":"W32","c":"대만 TBMS","u":"USD","xa":2500000,"xm":250000,"x":0,"xr":0,"xc":0,"ca":1370000,"cm":150000,"ct":0,"cr":0,"cc":0},{"p":"W32","c":"대만 Sunriser","u":"USD","xa":230000,"xm":5000,"x":0,"xr":0,"xc":0,"ca":260000,"cm":25000,"ct":0,"cr":0,"cc":0},{"p":"W33","c":"닝보","u":"USD","xa":18636055,"xm":1397705,"x":283150,"xr":0.2026,"xc":0,"ca":18636056,"cm":1397705,"ct":556641,"cr":0.3983,"cc":0},{"p":"W33","c":"북경","u":"USD","xa":4088480,"xm":306636,"x":220323,"xr":0.7185,"xc":0,"ca":5032559,"cm":402605,"ct":0,"cr":0,"cc":0},{"p":"W33","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":0,"xr":0,"xc":0,"ca":175000,"cm":42000,"ct":0,"cr":0,"cc":0},{"p":"W33","c":"대만 TBMS","u":"USD","xa":2500000,"xm":250000,"x":0,"xr":0,"xc":0,"ca":1370000,"cm":150000,"ct":0,"cr":0,"cc":0},{"p":"W33","c":"대만 Sunriser","u":"USD","xa":230000,"xm":5000,"x":0,"xr":0,"xc":0,"ca":260000,"cm":25000,"ct":0,"cr":0,"cc":0},{"p":"W34","c":"닝보","u":"USD","xa":18636055,"xm":1397705,"x":287432,"xr":0.2056,"xc":0,"ca":18636056,"cm":1397705,"ct":556641,"cr":0.3983,"cc":0},{"p":"W34","c":"북경","u":"USD","xa":4088480,"xm":306636,"x":220323,"xr":0.7185,"xc":0,"ca":5032559,"cm":402605,"ct":0,"cr":0,"cc":0},{"p":"W34","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":4123,"xr":0.2291,"xc":0,"ca":175000,"cm":42000,"ct":11309,"cr":0.2693,"cc":0},{"p":"W34","c":"대만 TBMS","u":"USD","xa":2500000,"xm":250000,"x":52803,"xr":0.2112,"xc":0,"ca":1370000,"cm":150000,"ct":17133,"cr":0.1142,"cc":0},{"p":"W34","c":"대만 Sunriser","u":"USD","xa":230000,"xm":5000,"x":41278,"xr":8.2556,"xc":0,"ca":260000,"cm":25000,"ct":42690,"cr":1.7076,"cc":0},{"p":"W34","c":"대만법인","u":"USD","xa":770000,"xm":20000,"x":18035,"xr":0.9018,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W35","c":"닝보","u":"USD","xa":18636055,"xm":1397705,"x":345576,"xr":0.2472,"xc":0,"ca":18636056,"cm":1397705,"ct":782479,"cr":0.5598,"cc":0},{"p":"W35","c":"북경","u":"USD","xa":4088480,"xm":306636,"x":221491,"xr":0.7223,"xc":0,"ca":5032559,"cm":402605,"ct":150000,"cr":0.3726,"cc":0},{"p":"W35","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":5644,"xr":0.3136,"xc":0,"ca":175000,"cm":42000,"ct":11309,"cr":0.2693,"cc":0},{"p":"W35","c":"대만 TBMS","u":"USD","xa":2500000,"xm":250000,"x":52803,"xr":0.2112,"xc":0,"ca":1370000,"cm":150000,"ct":17133,"cr":0.1142,"cc":0},{"p":"W35","c":"대만 Sunriser","u":"USD","xa":230000,"xm":5000,"x":41278,"xr":8.2556,"xc":0,"ca":260000,"cm":25000,"ct":0,"cr":0,"cc":0},{"p":"W35","c":"대만법인","u":"USD","xa":770000,"xm":20000,"x":18035,"xr":0.9018,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"닝보","u":"USD","xa":18636055,"xm":1863605,"x":58162,"xr":0.0312,"xc":0,"ca":18636056,"cm":1863605,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"북경","u":"USD","xa":4088480,"xm":408850,"x":2346,"xr":0.0057,"xc":0,"ca":5032559,"cm":503256,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":48000,"x":2006,"xr":0.0418,"xc":0,"ca":205000,"cm":18000,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"대만 TBMS","u":"USD","xa":2500000,"xm":300000,"x":49379,"xr":0.1646,"xc":0,"ca":1370000,"cm":220000,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"대만 Sunriser","u":"USD","xa":230000,"xm":0,"x":0,"xr":0,"xc":0,"ca":260000,"cm":5000,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"대만법인","u":"USD","xa":770000,"xm":200000,"x":150745,"xr":0.7537,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"닝보","u":"USD","xa":18636055,"xm":1863605,"x":149508,"xr":0.0802,"xc":0,"ca":18636056,"cm":1863605,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"북경","u":"USD","xa":4088480,"xm":408850,"x":149508,"xr":0.3657,"xc":0,"ca":5032559,"cm":503256,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":3787,"xr":0.2104,"xc":0,"ca":205000,"cm":18000,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"대만 TBMS","u":"USD","xa":2500000,"xm":300000,"x":49379,"xr":0.1646,"xc":0,"ca":1370000,"cm":220000,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"대만 Sunriser","u":"USD","xa":230000,"xm":0,"x":0,"xr":0,"xc":0,"ca":260000,"cm":5000,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"대만법인","u":"USD","xa":770000,"xm":200000,"x":150745,"xr":0.7537,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0}],"m":[{"p":"1월","c":"중국","u":"USD","xa":18636055,"xm":1211345,"x":705710,"xr":0.5826,"xc":0.583,"ca":18636056,"cm":1211345,"ct":705710,"cr":0.5826,"cc":0.583},{"p":"1월","c":"대만","u":"USD","xa":0,"xm":0,"x":0,"xr":0,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"1월","c":"홍콩","u":"USD","xa":0,"xm":0,"x":0,"xr":0,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"1월","c":"닝보","u":"USD","xa":18636055,"xm":1211345,"x":705710,"xr":0.5826,"xc":0,"ca":18636056,"cm":1211345,"ct":705710,"cr":0.5826,"cc":0},{"p":"1월","c":"북경","u":"USD","xa":4088480,"xm":265750,"x":285472,"xr":1.0742,"xc":0,"ca":5032559,"cm":301953,"ct":230000,"cr":0.7617,"cc":0},{"p":"1월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":0,"x":0,"xr":0,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"1월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":10000,"x":12100,"xr":1.21,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"1월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":35000,"x":47357,"xr":1.3531,"xc":0,"ca":260000,"cm":30000,"ct":34987,"cr":1.1662,"cc":0},{"p":"2월","c":"닝보","u":"USD","xa":18636055,"xm":745440,"x":778492,"xr":1.0443,"xc":0,"ca":18636056,"cm":745440,"ct":778492,"cr":1.0443,"cc":0},{"p":"2월","c":"북경","u":"USD","xa":4088480,"xm":163540,"x":125190,"xr":0.7655,"xc":0,"ca":5032559,"cm":251628,"ct":100000,"cr":0.3974,"cc":0},{"p":"2월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":0,"x":0,"xr":0,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"2월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":90000,"x":133180,"xr":1.4798,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"2월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":20000,"x":14520,"xr":0.726,"xc":0,"ca":260000,"cm":35000,"ct":26537,"cr":0.7582,"cc":0},{"p":"3월","c":"닝보","u":"USD","xa":18636055,"xm":1770425,"x":1613055,"xr":0.9111,"xc":0,"ca":18636056,"cm":1770425,"ct":1602530,"cr":0.9052,"cc":0},{"p":"3월","c":"북경","u":"USD","xa":4088480,"xm":388405,"x":305419,"xr":0.7863,"xc":0,"ca":5032559,"cm":402605,"ct":400000,"cr":0.9935,"cc":0},{"p":"3월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":0,"x":0,"xr":0,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"3월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":330000,"x":414420,"xr":1.2558,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"3월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":36000,"x":22296,"xr":0.6193,"xc":0,"ca":260000,"cm":20000,"ct":14520,"cr":0.726,"cc":0},{"p":"4월","c":"닝보","u":"USD","xa":18636055,"xm":1677245,"x":1599190,"xr":0.9535,"xc":0,"ca":18636056,"cm":1677245,"ct":1374511,"cr":0.8195,"cc":0},{"p":"4월","c":"북경","u":"USD","xa":4088480,"xm":367963,"x":257459,"xr":0.6997,"xc":0,"ca":5032559,"cm":402605,"ct":310000,"cr":0.77,"cc":0},{"p":"4월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":5000,"x":5378,"xr":1.0756,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"4월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":150000,"x":59853,"xr":0.399,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"4월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":43000,"x":54321,"xr":1.2633,"xc":0,"ca":260000,"cm":36000,"ct":22926,"cr":0.6368,"cc":0},{"p":"5월","c":"닝보","u":"USD","xa":18636055,"xm":1677245,"x":1445076,"xr":0.8616,"xc":0,"ca":18636056,"cm":1677245,"ct":1107568,"cr":0.6603,"cc":0},{"p":"5월","c":"북경","u":"USD","xa":4088480,"xm":367963,"x":289086,"xr":0.7856,"xc":0,"ca":5032559,"cm":452930,"ct":150000,"cr":0.3312,"cc":0},{"p":"5월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":0,"x":0,"xr":0,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"5월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":150000,"x":220859,"xr":1.4724,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"5월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":38000,"x":33415,"xr":0.8793,"xc":0,"ca":260000,"cm":43000,"ct":54321,"cr":1.2633,"cc":0},{"p":"6월","c":"닝보","u":"USD","xa":18636055,"xm":1677245,"x":1703635,"xr":1.0157,"xc":0,"ca":18636056,"cm":1677245,"ct":1175482,"cr":0.7008,"cc":0},{"p":"6월","c":"북경","u":"USD","xa":4088480,"xm":367963,"x":251058,"xr":0.6823,"xc":0,"ca":5032559,"cm":452930,"ct":400000,"cr":0.8831,"cc":0},{"p":"6월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":35000,"x":40944,"xr":1.1698,"xc":0,"ca":175000,"cm":5000,"ct":5378,"cr":1.0756,"cc":0},{"p":"6월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":150000,"x":321133,"xr":2.1409,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"6월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":28000,"x":42690,"xr":1.5246,"xc":0,"ca":260000,"cm":38000,"ct":33415,"cr":0.8793,"cc":0},{"p":"7월","c":"닝보","u":"USD","xa":18636055,"xm":1304525,"x":1149596,"xr":0.8812,"xc":0.894,"ca":18636056,"cm":1304525,"ct":1751135,"cr":1.3424,"cc":0.844},{"p":"7월","c":"북경","u":"USD","xa":4088480,"xm":286195,"x":267946,"xr":0.9362,"xc":0.807,"ca":5032559,"cm":402605,"ct":300085,"cr":0.7454,"cc":0.709},{"p":"7월","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":17000,"x":11309,"xr":0.6652,"xc":0.748,"ca":110000,"cm":0,"ct":40944,"cr":0,"cc":0},{"p":"7월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":220000,"x":362797,"xr":1.6491,"xc":1.386,"ca":1370000,"cm":150000,"ct":0,"cr":0,"cc":0},{"p":"7월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":25000,"x":47323,"xr":1.8929,"xc":1.164,"ca":280000,"cm":28000,"ct":42690,"cr":1.5246,"cc":0.997},{"p":"8월","c":"대만 법인","u":"USD","xa":770000,"xm":5000,"x":18035,"xr":3.607,"xc":0.0721,"ca":280000,"cm":25000,"ct":0,"cr":0,"cc":0},{"p":"8월","c":"닝보","u":"USD","xa":18636055,"xm":1397705,"x":345576,"xr":0.2472,"xc":0.815,"ca":18636056,"cm":1397705,"ct":782479,"cr":0.5598,"cc":0.81},{"p":"8월","c":"북경","u":"USD","xa":4088480,"xm":306636,"x":221491,"xr":0.7223,"xc":0.8,"ca":5032559,"cm":402605,"ct":150000,"cr":0.3726,"cc":0.66},{"p":"8월","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":5644,"xr":0.3136,"xc":0.84,"ca":110000,"cm":42000,"ct":11309,"cr":0.2693,"cc":1.02},{"p":"8월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":250000,"x":52803,"xr":0.2112,"xc":1.17,"ca":1370000,"cm":150000,"ct":17133,"cr":0.1142,"cc":0.68},{"p":"8월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":20000,"x":41278,"xr":2.0639,"xc":1.2153,"ca":280000,"cm":25000,"ct":0,"cr":0,"cc":0.9}]}};
+const CORP_LOCAL = {"wk":"W39","rows":[{"g":"9월","c":"닝보","i":"현지 매출","u":"M RMB","y25":21787.0,"tgt":27233.0,"act":2897.0,"fc":24400.0},{"g":"9월","c":"닝보","i":"현지 수금","u":"K USD","y25":13167.0,"tgt":27233.0,"act":2160.0,"fc":null},{"g":"9월","c":"북경","i":"현지 매출","u":"M RMB","y25":5069.0,"tgt":5890.0,"act":692.0,"fc":4500.0},{"g":"9월","c":"북경","i":"현지 수금","u":"K USD","y25":5357.0,"tgt":5890.0,"act":945.0,"fc":null},{"g":"9월","c":"대만","i":"현지 매출","u":"K TWD","y25":null,"tgt":3700.0,"act":0.0,"fc":3300.0},{"g":"9월","c":"대만","i":"현지 수금","u":"K USD","y25":null,"tgt":null,"act":null,"fc":null},{"g":"누적","c":"닝보","i":"현지 매출","u":"M RMB","y25":177971.0,"tgt":194712.0,"act":146264.0,"fc":167766.0},{"g":"누적","c":"닝보","i":"현지 수금","u":"K USD","y25":162819.0,"tgt":194712.0,"act":129720.0,"fc":null},{"g":"누적","c":"북경","i":"현지 매출","u":"M RMB","y25":35015.0,"tgt":42137.0,"act":28750.0,"fc":32558.0},{"g":"누적","c":"북경","i":"현지 수금","u":"K USD","y25":34792.0,"tgt":42137.0,"act":28114.0,"fc":null},{"g":"누적","c":"대만","i":"현지 매출","u":"K TWD","y25":null,"tgt":4700.0,"act":1082.0,"fc":4382.0},{"g":"누적","c":"대만","i":"현지 수금","u":"K USD","y25":null,"tgt":null,"act":null,"fc":null},{"g":"연간","c":"닝보","i":"현지 매출","u":"M RMB","y25":229272.0,"tgt":272323.0,"act":146264.0,"fc":167766.0},{"g":"연간","c":"닝보","i":"현지 수금","u":"K USD","y25":219126.0,"tgt":272323.0,"act":129720.0,"fc":null},{"g":"연간","c":"북경","i":"현지 매출","u":"M RMB","y25":43140.0,"tgt":58935.0,"act":28750.0,"fc":32558.0},{"g":"연간","c":"북경","i":"현지 수금","u":"K USD","y25":42722.0,"tgt":58935.0,"act":28114.0,"fc":null},{"g":"연간","c":"대만","i":"현지 매출","u":"K TWD","y25":null,"tgt":25400.0,"act":1082.0,"fc":null},{"g":"연간","c":"대만","i":"현지 수금","u":"K USD","y25":null,"tgt":null,"act":null,"fc":null}]};
+const CORP_KPI_EMB = {"kpi":{"중국":[{"no":"1.0","u":"M RMB","y25":272411.628,"y26":331258.505,"mg":0.216,"m":[19859.208,24843.675,21271.435,0.8562,0.0711],"c":[186130.368,203726.055,171424.095,0.8414,-0.079],"l":"현지 매출"},{"no":"2.0","u":"M RMB","y25":261847.631,"y26":331258.505,"mg":0.2651,"m":[20288.095,24843.675,19734.193,0.7943,-0.0273],"c":[179086.678,203726.055,154729.409,0.7595,-0.136],"l":"현지 수금"},{"no":"3.0","u":"M USD","y25":15.946,"y26":22.725,"mg":0.4251,"m":[0.372,1.704,0.704,0.4131,0.8942],"c":[12.384,13.976,11.48,0.8215,-0.073],"l":"본사 수출"},{"no":"4.0","u":"M USD","y25":19.909,"y26":23.669,"mg":0.1888,"m":[1.7,1.8,0.932,0.518,-0.4515],"c":[15.554,14.531,11.318,0.7789,-0.2723],"l":"본사 수금"},{"no":"5-1","u":"EA","y25":831891,"y26":1150000,"mg":0.3824,"m":[65179,86250,72017,0.835,0.1049],"c":[554572,707250,598848,0.8467,0.0798],"l":"임플수량 (현지)"},{"no":"5-2","u":"EA","y25":765642,"y26":1149999.973,"mg":0.502,"m":[13902,86249.973,38684,0.4485,1.7826],"c":[571215,707249.379,644337,0.911,0.128],"l":"임플수량 (수출)"},{"no":"6.0","u":"곳","y25":7256,"y26":8500,"mg":0.1714,"m":[6266,8057,7960,0.988,0.2703],"c":[6266,8057,7960,0.988,0.2703],"l":"하부고객"},{"no":"","u":"곳","y25":397,"y26":1500,"mg":2.7783,"m":[200,1105,787,0.7122,2.935],"c":[200,1105,787,0.7122,2.935],"l":"BD 진입점"},{"no":"7.0","u":"개","y25":84,"y26":73,"mg":-0.131,"m":[83,73,65,0.8904,-0.2169],"c":[83,73,65,0.8904,-0.2169],"l":"대리상"},{"no":"","u":"개","y25":50,"y26":41,"mg":-0.18,"m":[51,41,0,0,-1],"c":[51,41,0,0,-1],"l":"3M RMB ↑"},{"no":"","u":"개","y25":194,"y26":250,"mg":0.2887,"m":[172,238,240,1.0084,0.3953],"c":[172,238,240,1.0084,0.3953],"l":"DSO"},{"no":"8.0","u":"회","y25":323,"y26":298,"mg":-0.0774,"m":[20,26,20,0.7692,0],"c":[63,178,173,0.9719,1.746],"l":"세미나 · 교육"},{"no":"","u":"명","y25":53,"y26":77,"mg":0.4528,"m":[50,65,11,0.1692,-0.78],"c":[50,65,11,0.1692,-0.78],"l":"KOL"},{"no":"9.0","u":"명","y25":177,"y26":209,"mg":0.1808,"m":[172,209,34,0.1627,-0.8023],"c":[172,209,34,0.1627,-0.8023],"l":"총인원"},{"no":"","u":"명","y25":96,"y26":130,"mg":0.3542,"m":[89,130,21,0.1615,-0.764],"c":[89,130,21,0.1615,-0.764],"l":"영업사원"},{"no":"10.0","u":"%","y25":0,"y26":0,"mg":0,"m":[0,0,0,0,0],"c":[0,0,0,0,0],"l":"영업이익률"},{"no":"","u":"%","y25":0,"y26":0,"mg":0,"m":[0,0,0,0,0],"c":[0,0,0,0,0],"l":"영업이익률"}],"닝보":[{"no":"1.0","u":"M RMB","y25":229271.687,"y26":272323.16,"mg":0.1878,"m":[16603.282,20424.27,18480,0.9048,0.113],"c":[156184.04,167479.08,143366.249,0.856,-0.0821],"l":"현지 매출"},{"no":"2.0","u":"M RMB","y25":219125.595,"y26":272323.16,"mg":0.2428,"m":[16776.771,20424.27,17250,0.8446,0.0282],"c":[149651.714,167479.08,127560.493,0.7617,-0.1476],"l":"현지 수금"},{"no":"3.0","u":"M USD","y25":12.704,"y26":18.636,"mg":0.4669,"m":[0.191,1.398,0.433,0.3096,1.2612],"c":[9.946,11.461,9.428,0.8226,-0.0522],"l":"본사 수출"},{"no":"4.0","u":"M USD","y25":16.437,"y26":18.636,"mg":0.1338,"m":[1.5,1.398,0.782,0.5598,-0.4783],"c":[13.334,11.461,9.278,0.8095,-0.3042],"l":"본사 수금"},{"no":"5-1","u":"EA","y25":677518,"y26":938000,"mg":0.3845,"m":[51805,70350,61323,0.8717,0.1837],"c":[448499,576870,485175,0.841,0.0818],"l":"임플수량 (현지)"},{"no":"5-2","u":"EA","y25":600644,"y26":937027,"mg":0.56,"m":[3572,70277,22484,0.3199,5.2945],"c":[452633,576271,522576,0.9068,0.1545],"l":"임플수량 (수출)"},{"no":"6.0","u":"곳","y25":5991,"y26":7000,"mg":0.1684,"m":[5222,6643,6552,0.9863,0.2547],"c":[5222,6643,6552,0.9863,0.2547],"l":"하부고객"},{"no":"","u":"곳","y25":245,"y26":1210,"mg":3.9388,"m":[121,864,501,0.5799,3.1405],"c":[121,864,501,0.5799,3.1405],"l":"BD 진입점"},{"no":"7.0","u":"개","y25":66,"y26":56,"mg":-0.1515,"m":[65,56,52,0.9286,-0.2],"c":[65,56,52,0.9286,-0.2],"l":"대리상"},{"no":"","u":"개","y25":37,"y26":33,"mg":-0.1081,"m":[38,33,0,0,-1],"c":[38,33,0,0,-1],"l":"3M RMB ↑"},{"no":"","u":"개","y25":147,"y26":193,"mg":0.3129,"m":[133,181,181,1,0.3609],"c":[133,181,181,1,0.3609],"l":"DSO"},{"no":"8.0","u":"회","y25":256,"y26":228,"mg":-0.1094,"m":[16,19,17,0.8947,0.0625],"c":[16,134,142,1.0597,7.875],"l":"세미나 · 교육"},{"no":"","u":"명","y25":43,"y26":64,"mg":0.4884,"m":[40,54,1,0.0185,-0.975],"c":[40,54,1,0.0185,-0.975],"l":"KOL"},{"no":"9.0","u":"명","y25":146,"y26":175,"mg":0.1986,"m":[141,175,0,0,-1],"c":[141,175,0,0,-1],"l":"총인원"},{"no":"","u":"명","y25":78,"y26":109,"mg":0.3974,"m":[72,109,0,0,-1],"c":[72,109,0,0,-1],"l":"영업사원"},{"no":"10.0","u":"%","y25":0,"y26":0,"mg":0,"m":[0,0,0,0,0],"c":[0,0,0,0,0],"l":"영업이익률"}],"북경":[{"no":"1.0","u":"M RMB","y25":43139.941,"y26":58935.345,"mg":0.3661,"m":[3255.926,4419.405,2791.435,0.6316,-0.1427],"c":[29946.328,36246.975,28057.845,0.7741,-0.0631],"l":"현지 매출"},{"no":"2.0","u":"M RMB","y25":42722.035,"y26":58935.345,"mg":0.3795,"m":[3511.324,4419.405,2484.193,0.5621,-0.2925],"c":[29434.964,36246.975,27168.916,0.7495,-0.077],"l":"현지 수금"},{"no":"3.0","u":"M USD","y25":3.242,"y26":4.088,"mg":0.2609,"m":[0.18,0.307,0.271,0.8846,0.5047],"c":[2.438,2.514,2.053,0.8164,-0.158],"l":"본사 수출"},{"no":"4.0","u":"M USD","y25":3.472,"y26":5.033,"mg":0.4495,"m":[0.2,0.403,0.15,0.3726,-0.25],"c":[2.22,3.07,2.04,0.6646,-0.081],"l":"본사 수금"},{"no":"5-1","u":"EA","y25":154373,"y26":212000,"mg":0.3733,"m":[13374,15900,10694,0.6726,-0.2004],"c":[106073,130380,113673,0.8719,0.0716],"l":"임플수량 (현지)"},{"no":"5-2","u":"EA","y25":164998,"y26":212972.973,"mg":0.2908,"m":[10330,15972.973,16200,1.0142,0.5682],"c":[118582,130978.379,121761,0.9296,0.0268],"l":"임플수량 (수출)"},{"no":"6.0","u":"곳","y25":1265,"y26":1500,"mg":0.1858,"m":[1044,1414,1408,0.9958,0.3487],"c":[1044,1414,1408,0.9958,0.3487],"l":"하부고객"},{"no":"","u":"곳","y25":152,"y26":290,"mg":0.9079,"m":[79,241,286,1.1867,2.6203],"c":[79,241,286,1.1867,2.6203],"l":"BD 진입점"},{"no":"7.0","u":"개","y25":18,"y26":17,"mg":-0.0556,"m":[18,17,13,0.7647,-0.2778],"c":[18,17,13,0.7647,-0.2778],"l":"대리상"},{"no":"","u":"개","y25":13,"y26":8,"mg":-0.3846,"m":[13,8,0,0,-1],"c":[13,8,0,0,-1],"l":"3M RMB ↑"},{"no":"","u":"개","y25":47,"y26":57,"mg":0.2128,"m":[39,57,59,1.0351,0.5128],"c":[39,57,59,1.0351,0.5128],"l":"DSO"},{"no":"8.0","u":"회","y25":67,"y26":70,"mg":0.0448,"m":[4,7,3,0.4286,-0.25],"c":[47,44,31,0.7045,-0.3404],"l":"세미나 · 교육"},{"no":"","u":"명","y25":10,"y26":13,"mg":0.3,"m":[10,11,10,0.9091,0],"c":[10,11,10,0.9091,0],"l":"KOL"},{"no":"9.0","u":"명","y25":31,"y26":34,"mg":0.0968,"m":[31,34,34,1,0.0968],"c":[31,34,34,1,0.0968],"l":"총인원"},{"no":"","u":"명","y25":18,"y26":21,"mg":0.1667,"m":[17,21,21,1,0.2353],"c":[17,21,21,1,0.2353],"l":"영업사원"},{"no":"10.0","u":"%","y25":0,"y26":0,"mg":0,"m":[0,0,0,0,0],"c":[0,0,0,0,0],"l":"영업이익률"}]},"trd":{"w":[{"p":"W29","c":"닝보","u":"USD","xa":18636055,"xm":1304525,"x":650269,"xr":0.4985,"xc":0,"ca":18636056,"cm":1304525,"ct":1100867,"cr":0.8439,"cc":0},{"p":"W29","c":"북경","u":"USD","xa":4088480,"xm":286195,"x":267946,"xr":0.9362,"xc":0,"ca":5032559,"cm":402605,"ct":200000,"cr":0.4968,"cc":0},{"p":"W29","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":17000,"x":4003,"xr":0.2355,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W29","c":"대만 TBMS","u":"USD","xa":2500000,"xm":220000,"x":68346,"xr":0.3107,"xc":0,"ca":1370000,"cm":150000,"ct":0,"cr":0,"cc":0},{"p":"W29","c":"대만 Sunriser","u":"USD","xa":230000,"xm":25000,"x":22480,"xr":0.8992,"xc":0,"ca":260000,"cm":28000,"ct":33415,"cr":1.1934,"cc":0},{"p":"W30","c":"닝보","u":"USD","xa":18636055,"xm":1304525,"x":650269,"xr":0.4985,"xc":0,"ca":18636056,"cm":1304525,"ct":1100867,"cr":0.8439,"cc":0},{"p":"W30","c":"북경","u":"USD","xa":4088480,"xm":286195,"x":267946,"xr":0.9362,"xc":0,"ca":5032559,"cm":402605,"ct":200000,"cr":0.4968,"cc":0},{"p":"W30","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":17000,"x":4003,"xr":0.2355,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W30","c":"대만 TBMS","u":"USD","xa":2500000,"xm":220000,"x":68346,"xr":0.3107,"xc":0,"ca":1370000,"cm":150000,"ct":0,"cr":0,"cc":0},{"p":"W30","c":"대만 Sunriser","u":"USD","xa":230000,"xm":25000,"x":22480,"xr":0.8992,"xc":0,"ca":260000,"cm":28000,"ct":33415,"cr":1.1934,"cc":0},{"p":"W31","c":"닝보","u":"USD","xa":18636055,"xm":1304525,"x":1149596,"xr":0.8812,"xc":0,"ca":18636056,"cm":1304525,"ct":1751135,"cr":1.3424,"cc":0},{"p":"W31","c":"북경","u":"USD","xa":4088480,"xm":286195,"x":267946,"xr":0.9362,"xc":0,"ca":5032559,"cm":402605,"ct":300085,"cr":0.7454,"cc":0},{"p":"W31","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":17000,"x":11309,"xr":0.6652,"xc":0,"ca":175000,"cm":0,"ct":40944,"cr":0,"cc":0},{"p":"W31","c":"대만 TBMS","u":"USD","xa":2500000,"xm":220000,"x":362797,"xr":1.6491,"xc":0,"ca":1370000,"cm":150000,"ct":187017,"cr":1.2468,"cc":0},{"p":"W31","c":"대만 Sunriser","u":"USD","xa":230000,"xm":25000,"x":47323,"xr":1.8929,"xc":0,"ca":260000,"cm":28000,"ct":42690,"cr":1.5246,"cc":0},{"p":"W32","c":"닝보","u":"USD","xa":18636055,"xm":1397705,"x":57313,"xr":0.041,"xc":0,"ca":18636056,"cm":1397705,"ct":0,"cr":0,"cc":0},{"p":"W32","c":"북경","u":"USD","xa":4088480,"xm":306636,"x":179229,"xr":0.5845,"xc":0,"ca":5032559,"cm":402605,"ct":0,"cr":0,"cc":0},{"p":"W32","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":0,"xr":0,"xc":0,"ca":175000,"cm":42000,"ct":0,"cr":0,"cc":0},{"p":"W32","c":"대만 TBMS","u":"USD","xa":2500000,"xm":250000,"x":0,"xr":0,"xc":0,"ca":1370000,"cm":150000,"ct":0,"cr":0,"cc":0},{"p":"W32","c":"대만 Sunriser","u":"USD","xa":230000,"xm":5000,"x":0,"xr":0,"xc":0,"ca":260000,"cm":25000,"ct":0,"cr":0,"cc":0},{"p":"W33","c":"닝보","u":"USD","xa":18636055,"xm":1397705,"x":283150,"xr":0.2026,"xc":0,"ca":18636056,"cm":1397705,"ct":556641,"cr":0.3983,"cc":0},{"p":"W33","c":"북경","u":"USD","xa":4088480,"xm":306636,"x":220323,"xr":0.7185,"xc":0,"ca":5032559,"cm":402605,"ct":0,"cr":0,"cc":0},{"p":"W33","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":0,"xr":0,"xc":0,"ca":175000,"cm":42000,"ct":0,"cr":0,"cc":0},{"p":"W33","c":"대만 TBMS","u":"USD","xa":2500000,"xm":250000,"x":0,"xr":0,"xc":0,"ca":1370000,"cm":150000,"ct":0,"cr":0,"cc":0},{"p":"W33","c":"대만 Sunriser","u":"USD","xa":230000,"xm":5000,"x":0,"xr":0,"xc":0,"ca":260000,"cm":25000,"ct":0,"cr":0,"cc":0},{"p":"W34","c":"닝보","u":"USD","xa":18636055,"xm":1397705,"x":287432,"xr":0.2056,"xc":0,"ca":18636056,"cm":1397705,"ct":556641,"cr":0.3983,"cc":0},{"p":"W34","c":"북경","u":"USD","xa":4088480,"xm":306636,"x":220323,"xr":0.7185,"xc":0,"ca":5032559,"cm":402605,"ct":0,"cr":0,"cc":0},{"p":"W34","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":4123,"xr":0.2291,"xc":0,"ca":175000,"cm":42000,"ct":11309,"cr":0.2693,"cc":0},{"p":"W34","c":"대만 TBMS","u":"USD","xa":2500000,"xm":250000,"x":52803,"xr":0.2112,"xc":0,"ca":1370000,"cm":150000,"ct":17133,"cr":0.1142,"cc":0},{"p":"W34","c":"대만 Sunriser","u":"USD","xa":230000,"xm":5000,"x":41278,"xr":8.2556,"xc":0,"ca":260000,"cm":25000,"ct":42690,"cr":1.7076,"cc":0},{"p":"W34","c":"대만법인","u":"USD","xa":770000,"xm":20000,"x":18035,"xr":0.9018,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W35","c":"닝보","u":"USD","xa":18636055,"xm":1397705,"x":345576,"xr":0.2472,"xc":0,"ca":18636056,"cm":1397705,"ct":782479,"cr":0.5598,"cc":0},{"p":"W35","c":"북경","u":"USD","xa":4088480,"xm":306636,"x":221491,"xr":0.7223,"xc":0,"ca":5032559,"cm":402605,"ct":150000,"cr":0.3726,"cc":0},{"p":"W35","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":5644,"xr":0.3136,"xc":0,"ca":175000,"cm":42000,"ct":11309,"cr":0.2693,"cc":0},{"p":"W35","c":"대만 TBMS","u":"USD","xa":2500000,"xm":250000,"x":52803,"xr":0.2112,"xc":0,"ca":1370000,"cm":150000,"ct":17133,"cr":0.1142,"cc":0},{"p":"W35","c":"대만 Sunriser","u":"USD","xa":230000,"xm":5000,"x":41278,"xr":8.2556,"xc":0,"ca":260000,"cm":25000,"ct":0,"cr":0,"cc":0},{"p":"W35","c":"대만법인","u":"USD","xa":770000,"xm":20000,"x":18035,"xr":0.9018,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"닝보","u":"USD","xa":18636055,"xm":1863605,"x":58162,"xr":0.0312,"xc":0,"ca":18636056,"cm":1863605,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"북경","u":"USD","xa":4088480,"xm":408850,"x":2346,"xr":0.0057,"xc":0,"ca":5032559,"cm":503256,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":48000,"x":2006,"xr":0.0418,"xc":0,"ca":205000,"cm":18000,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"대만 TBMS","u":"USD","xa":2500000,"xm":300000,"x":49379,"xr":0.1646,"xc":0,"ca":1370000,"cm":220000,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"대만 Sunriser","u":"USD","xa":230000,"xm":0,"x":0,"xr":0,"xc":0,"ca":260000,"cm":5000,"ct":0,"cr":0,"cc":0},{"p":"W36","c":"대만법인","u":"USD","xa":770000,"xm":200000,"x":150745,"xr":0.7537,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"닝보","u":"USD","xa":18636055,"xm":1863605,"x":149508,"xr":0.0802,"xc":0,"ca":18636056,"cm":1863605,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"북경","u":"USD","xa":4088480,"xm":408850,"x":149508,"xr":0.3657,"xc":0,"ca":5032559,"cm":503256,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":3787,"xr":0.2104,"xc":0,"ca":205000,"cm":18000,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"대만 TBMS","u":"USD","xa":2500000,"xm":300000,"x":49379,"xr":0.1646,"xc":0,"ca":1370000,"cm":220000,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"대만 Sunriser","u":"USD","xa":230000,"xm":0,"x":0,"xr":0,"xc":0,"ca":260000,"cm":5000,"ct":0,"cr":0,"cc":0},{"p":"W37","c":"대만법인","u":"USD","xa":770000,"xm":200000,"x":150745,"xr":0.7537,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"W38","c":"닝보","u":"USD","xa":18636055,"xm":1863605,"x":171113,"xr":0.0918,"xc":0,"ca":18636056,"cm":1863605,"ct":273032,"cr":0.1465,"cc":0},{"p":"W38","c":"북경","u":"USD","xa":4088480,"xm":408850,"x":10341,"xr":0.0253,"xc":0,"ca":5032559,"cm":503256,"ct":100000,"cr":0.1987,"cc":0},{"p":"W38","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":48000,"x":41317,"xr":0.8608,"xc":0,"ca":205000,"cm":18000,"ct":0,"cr":0,"cc":0},{"p":"W38","c":"대만 TBMS","u":"USD","xa":2500000,"xm":300000,"x":49379,"xr":0.1646,"xc":0,"ca":1370000,"cm":220000,"ct":0,"cr":0,"cc":0},{"p":"W38","c":"대만 Sunriser","u":"USD","xa":230000,"xm":0,"x":0,"xr":0,"xc":0,"ca":260000,"cm":5000,"ct":68346,"cr":0,"cc":0},{"p":"W38","c":"대만법인","u":"USD","xa":770000,"xm":200000,"x":152545,"xr":0.7627,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0}],"m":[{"p":"1월","c":"중국","u":"USD","xa":18636055,"xm":1211345,"x":705710,"xr":0.5826,"xc":0.583,"ca":18636056,"cm":1211345,"ct":705710,"cr":0.5826,"cc":0.583},{"p":"1월","c":"대만","u":"USD","xa":0,"xm":0,"x":0,"xr":0,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"1월","c":"홍콩","u":"USD","xa":0,"xm":0,"x":0,"xr":0,"xc":0,"ca":0,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"1월","c":"닝보","u":"USD","xa":18636055,"xm":1211345,"x":705710,"xr":0.5826,"xc":0,"ca":18636056,"cm":1211345,"ct":705710,"cr":0.5826,"cc":0},{"p":"1월","c":"북경","u":"USD","xa":4088480,"xm":265750,"x":285472,"xr":1.0742,"xc":0,"ca":5032559,"cm":301953,"ct":230000,"cr":0.7617,"cc":0},{"p":"1월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":0,"x":0,"xr":0,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"1월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":10000,"x":12100,"xr":1.21,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"1월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":35000,"x":47357,"xr":1.3531,"xc":0,"ca":260000,"cm":30000,"ct":34987,"cr":1.1662,"cc":0},{"p":"2월","c":"닝보","u":"USD","xa":18636055,"xm":745440,"x":778492,"xr":1.0443,"xc":0,"ca":18636056,"cm":745440,"ct":778492,"cr":1.0443,"cc":0},{"p":"2월","c":"북경","u":"USD","xa":4088480,"xm":163540,"x":125190,"xr":0.7655,"xc":0,"ca":5032559,"cm":251628,"ct":100000,"cr":0.3974,"cc":0},{"p":"2월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":0,"x":0,"xr":0,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"2월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":90000,"x":133180,"xr":1.4798,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"2월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":20000,"x":14520,"xr":0.726,"xc":0,"ca":260000,"cm":35000,"ct":26537,"cr":0.7582,"cc":0},{"p":"3월","c":"닝보","u":"USD","xa":18636055,"xm":1770425,"x":1613055,"xr":0.9111,"xc":0,"ca":18636056,"cm":1770425,"ct":1602530,"cr":0.9052,"cc":0},{"p":"3월","c":"북경","u":"USD","xa":4088480,"xm":388405,"x":305419,"xr":0.7863,"xc":0,"ca":5032559,"cm":402605,"ct":400000,"cr":0.9935,"cc":0},{"p":"3월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":0,"x":0,"xr":0,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"3월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":330000,"x":414420,"xr":1.2558,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"3월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":36000,"x":22296,"xr":0.6193,"xc":0,"ca":260000,"cm":20000,"ct":14520,"cr":0.726,"cc":0},{"p":"4월","c":"닝보","u":"USD","xa":18636055,"xm":1677245,"x":1599190,"xr":0.9535,"xc":0,"ca":18636056,"cm":1677245,"ct":1374511,"cr":0.8195,"cc":0},{"p":"4월","c":"북경","u":"USD","xa":4088480,"xm":367963,"x":257459,"xr":0.6997,"xc":0,"ca":5032559,"cm":402605,"ct":310000,"cr":0.77,"cc":0},{"p":"4월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":5000,"x":5378,"xr":1.0756,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"4월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":150000,"x":59853,"xr":0.399,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"4월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":43000,"x":54321,"xr":1.2633,"xc":0,"ca":260000,"cm":36000,"ct":22926,"cr":0.6368,"cc":0},{"p":"5월","c":"닝보","u":"USD","xa":18636055,"xm":1677245,"x":1445076,"xr":0.8616,"xc":0,"ca":18636056,"cm":1677245,"ct":1107568,"cr":0.6603,"cc":0},{"p":"5월","c":"북경","u":"USD","xa":4088480,"xm":367963,"x":289086,"xr":0.7856,"xc":0,"ca":5032559,"cm":452930,"ct":150000,"cr":0.3312,"cc":0},{"p":"5월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":0,"x":0,"xr":0,"xc":0,"ca":175000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"5월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":150000,"x":220859,"xr":1.4724,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"5월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":38000,"x":33415,"xr":0.8793,"xc":0,"ca":260000,"cm":43000,"ct":54321,"cr":1.2633,"cc":0},{"p":"6월","c":"닝보","u":"USD","xa":18636055,"xm":1677245,"x":1703635,"xr":1.0157,"xc":0,"ca":18636056,"cm":1677245,"ct":1175482,"cr":0.7008,"cc":0},{"p":"6월","c":"북경","u":"USD","xa":4088480,"xm":367963,"x":251058,"xr":0.6823,"xc":0,"ca":5032559,"cm":452930,"ct":400000,"cr":0.8831,"cc":0},{"p":"6월","c":"홍콩 킨월드","u":"USD","xa":180000,"xm":35000,"x":40944,"xr":1.1698,"xc":0,"ca":175000,"cm":5000,"ct":5378,"cr":1.0756,"cc":0},{"p":"6월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":150000,"x":321133,"xr":2.1409,"xc":0,"ca":1370000,"cm":0,"ct":0,"cr":0,"cc":0},{"p":"6월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":28000,"x":42690,"xr":1.5246,"xc":0,"ca":260000,"cm":38000,"ct":33415,"cr":0.8793,"cc":0},{"p":"7월","c":"닝보","u":"USD","xa":18636055,"xm":1304525,"x":1149596,"xr":0.8812,"xc":0.894,"ca":18636056,"cm":1304525,"ct":1751135,"cr":1.3424,"cc":0.844},{"p":"7월","c":"북경","u":"USD","xa":4088480,"xm":286195,"x":267946,"xr":0.9362,"xc":0.807,"ca":5032559,"cm":402605,"ct":300085,"cr":0.7454,"cc":0.709},{"p":"7월","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":17000,"x":11309,"xr":0.6652,"xc":0.748,"ca":110000,"cm":0,"ct":40944,"cr":0,"cc":0},{"p":"7월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":220000,"x":362797,"xr":1.6491,"xc":1.386,"ca":1370000,"cm":150000,"ct":0,"cr":0,"cc":0},{"p":"7월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":25000,"x":47323,"xr":1.8929,"xc":1.164,"ca":280000,"cm":28000,"ct":42690,"cr":1.5246,"cc":0.997},{"p":"8월","c":"대만 법인","u":"USD","xa":770000,"xm":5000,"x":18035,"xr":3.607,"xc":0.0721,"ca":280000,"cm":25000,"ct":0,"cr":0,"cc":0},{"p":"8월","c":"닝보","u":"USD","xa":18636055,"xm":1397705,"x":345576,"xr":0.2472,"xc":0.815,"ca":18636056,"cm":1397705,"ct":782479,"cr":0.5598,"cc":0.81},{"p":"8월","c":"북경","u":"USD","xa":4088480,"xm":306636,"x":221491,"xr":0.7223,"xc":0.8,"ca":5032559,"cm":402605,"ct":150000,"cr":0.3726,"cc":0.66},{"p":"8월","c":"홍콩 킨월드","u":"USD","xa":235000,"xm":18000,"x":5644,"xr":0.3136,"xc":0.84,"ca":110000,"cm":42000,"ct":11309,"cr":0.2693,"cc":1.02},{"p":"8월","c":"대만 TBMS","u":"USD","xa":2500000,"xm":250000,"x":52803,"xr":0.2112,"xc":1.17,"ca":1370000,"cm":150000,"ct":17133,"cr":0.1142,"cc":0.68},{"p":"8월","c":"대만 Sunriser","u":"USD","xa":230000,"xm":20000,"x":41278,"xr":2.0639,"xc":1.2153,"ca":280000,"cm":25000,"ct":0,"cr":0,"cc":0.9}]}};
 const CORP_PCT = (v) => (v || v === 0) ? Math.round(v * 100) + "%" : "\u2014";
 const CORP_NUM = (v, u) => {
   if (v === null || v === undefined) return "\u2014";
@@ -6754,7 +6862,665 @@ function CorpTWView({ ui, setUI, data, month }) {
 }
 
 // ─────────── 본사 수출 · 수금 (독립 화면) ───────────
-function ExpView({ ui, setUI, kpi, live, fetchedAt }) {
+
+// ═══════════════ 분석 · 의사결정 보드 ═══════════════
+function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode }) {
+  const h = React.createElement;
+  const S = sheetsData || {};
+  const AN = (v) => { if (v === null || v === undefined || v === "") return 0; const n = Number(String(v).replace(/[^0-9.\-]/g, "")); return isNaN(n) ? 0 : n; };
+  const KOHQ = { "浙江": "절강", "华东": "화동", "华中": "화중", "华西": "화서", "华南": "화남", "华北": "화북" };
+  const FINHQ = { "浙江本部": "절강", "华东本部": "화동", "华中本部": "화중", "华西本部": "화서", "华南本部": "화남", "华北本部": "화북" };
+  const f0 = (v) => Math.round(v || 0).toLocaleString();
+  const fW = (v) => Math.round((v || 0) / 1e4).toLocaleString() + "만";          // 만위안
+  const fE = (v) => ((v || 0) / 1e8).toFixed(2) + "억";                          // 억위안
+  const pc = (a, b) => b > 0 ? a / b * 100 : null;
+  const ps = (v, d) => (v === null || v === void 0 || typeof v !== "number" || !isFinite(v)) ? "—" : v.toFixed(d === void 0 ? 1 : d) + "%";
+  const cls3 = (v, good, warn) => v === null ? "" : (v >= good ? "an-ok" : v >= warn ? "an-warn" : "an-crit");
+
+  // ───────── 1. 본부별 금액 KPI ─────────
+  const HQS = ["화동", "화중", "화북", "절강", "화서", "화남"];
+  const MT = Array(12).fill(0), MA = Array(12).fill(0);
+  const hqm = {};
+  Object.keys(kpiSrc || {}).forEach(function (hk) {
+    const o = kpiSrc[hk] || {};
+    if (!hqm[hk]) hqm[hk] = { hq: hk, t: Array(12).fill(0), a: Array(12).fill(0) };
+    Object.keys(o).forEach(function (rg) {
+      const x = o[rg]; if (!x || !x.aT) return;
+      for (let m = 0; m < 12; m++) {
+        hqm[hk].t[m] += x.aT[m] || 0; hqm[hk].a[m] += x.aA[m] || 0;
+        MT[m] += x.aT[m] || 0; MA[m] += x.aA[m] || 0;
+      }
+    });
+  });
+  // 중국 6본부만 분석 대상 (대만·홍콩 제외)
+  Object.keys(hqm).forEach(function (k) { if (HQS.indexOf(k) < 0) delete hqm[k]; });
+  MT.fill(0); MA.fill(0);
+  Object.keys(hqm).forEach(function (k) { for (let m = 0; m < 12; m++) { MT[m] += hqm[k].t[m]; MA[m] += hqm[k].a[m]; } });
+  // 현재월 = 실적이 들어온 마지막 달
+  let M = 1; for (let m = 0; m < 12; m++) if (MA[m] > 0) M = m + 1;
+  const ANN = MT.reduce(function (s, x) { return s + x; }, 0);
+  let CT = 0, CA = 0; for (let m = 0; m < M; m++) { CT += MT[m]; CA += MA[m]; }
+  const REM = Math.max(0, 12 - M);
+  const GAP = ANN - CA;
+  const RUN = M ? CA / M : 0;
+  const NEED = REM ? GAP / REM : 0;
+  const MULT = RUN ? NEED / RUN : null;
+  const EOY = CA + RUN * REM;
+  const bestM = Math.max.apply(null, MA.slice(0, M).concat([0]));
+
+  const HQ = Object.keys(hqm).map(function (k) {
+    const x = hqm[k];
+    const ann = x.t.reduce(function (s, v) { return s + v; }, 0);
+    let ct = 0, ca = 0; for (let m = 0; m < M; m++) { ct += x.t[m]; ca += x.a[m]; }
+    const gap = ann - ca, run = M ? ca / M : 0, need = REM ? gap / REM : 0;
+    return { hq: k, ann: ann, ct: ct, ca: ca, gap: gap, run: run, need: need,
+      mult: run ? need / run : null, rate: pc(ca, ct), eoy: ann ? (ca + run * REM) / ann * 100 : null };
+  }).sort(function (a, b) { return b.gap - a.gap; });
+
+  // ───────── 2. 채권 ─────────
+  const ARR = ((fin && fin.ar) || []).filter(function (x) { return x.d !== "合计" && x.d !== "其他" && String(x.hq || "").trim() !== ""; });
+  const ARTOT = ((fin && fin.ar) || []).filter(function (x) { return x.d === "合计"; })[0] || {};
+  const arHQ = {}, arMgr = {};
+  ARR.forEach(function (x) {
+    const k = FINHQ[String(x.hq || "").trim()] || String(x.hq || "").trim() || "기타";
+    if (!arHQ[k]) arHQ[k] = { hq: k, e: 0, e2: 0, s: 0, c: 0 };
+    arHQ[k].e += x.e || 0; arHQ[k].e2 += x.e2 || 0; arHQ[k].s += x.s || 0; arHQ[k].c += x.c || 0;
+    const mk = String(x.mgr || "").trim();
+    if (!mk) return;
+    if (!arMgr[mk]) arMgr[mk] = { m: mk, hq: k, e: 0, e2: 0 };
+    arMgr[mk].e += x.e || 0; arMgr[mk].e2 += x.e2 || 0;
+  });
+  const AR = Object.keys(arHQ).map(function (k) { const x = arHQ[k]; x.r2 = pc(x.e2, x.e); x.cs = pc(x.c, x.s); return x; })
+    .sort(function (a, b) { return b.e2 - a.e2; });
+  const MGR = Object.keys(arMgr).map(function (k) { const x = arMgr[k]; x.r2 = pc(x.e2, x.e); return x; })
+    .sort(function (a, b) { return b.e2 - a.e2; }).slice(0, 5);
+  const arTotE = ARTOT.e || AR.reduce(function (s, x) { return s + x.e; }, 0);
+  const arTotE2 = ARTOT.e2 || AR.reduce(function (s, x) { return s + x.e2; }, 0);
+  const arRate = pc(arTotE2, arTotE);
+  const mgrShare = arTotE2 ? MGR.reduce(function (s, x) { return s + x.e2; }, 0) / arTotE2 * 100 : null;
+
+  // ───────── 3. DSO ─────────
+  const dHQ = {}; let dN = 0, dE = 0, dT = 0, dA = 0;
+  (Array.isArray(S["DSO_Master"]) ? S["DSO_Master"] : []).forEach(function (r) {
+    const k = KOHQ[String(r["본부"] || "").trim()] || String(r["본부"] || "").trim();
+    if (!k) return;
+    if (!dHQ[k]) dHQ[k] = { hq: k, n: 0, ent: 0, t: 0, a: 0 };
+    dHQ[k].n++; dN++;
+    if (/已进入|진입/.test(String(r["진입여부"] || ""))) { dHQ[k].ent++; dE++; }
+    for (let m = 1; m <= 12; m++) { const v = AN(r["26목표_" + m + "月"]); dHQ[k].t += v; dT += v; }
+    for (let m = 1; m <= M; m++) { const v = AN(r["26실적_" + m + "月"]); dHQ[k].a += v; dA += v; }
+  });
+  const dsoEnt = pc(dE, dN), dsoAch = pc(dA, dT);
+
+  // ───────── 4. 재고 ─────────
+  const PA = (psiSrc && psiSrc["중국"] && psiSrc["중국"].a && psiSrc["중국"].a.all) || {};
+  const gi = (k, i) => { const a = PA[k] || []; const v = a[i]; return typeof v === "number" ? v : 0; };
+  const invCls = gi("cls", M - 1) || gi("cls", M - 2);
+  let outS = 0; for (let m = 0; m < 12; m++) outS += gi("out", m) + gi("fail", m);
+  const invAvg = outS / 12;
+  const invMos = (PA.mos && typeof PA.mos[M - 1] === "number" && PA.mos[M - 1]) || (invAvg ? invCls / invAvg : null);
+
+  // ───────── 5. 대리상 ─────────
+  let dlN = 0, dlC = 0, dlA = 0, dlLow = 0;
+  const dlHQ = {};
+  Object.keys(dealer || {}).filter(function (k) { return HQS.indexOf(k) >= 0; }).forEach(function (k) {
+    (dealer[k] || []).forEach(function (row) {
+      const con = (row[2] || []).slice(0, M).reduce(function (s, v) { return s + (v || 0); }, 0);
+      const act = (row[3] || []).slice(0, M).reduce(function (s, v) { return s + (v || 0); }, 0);
+      dlN++; dlC += con; dlA += act;
+      if (con > 0 && act / con < 0.5) dlLow++;
+      if (!dlHQ[k]) dlHQ[k] = { c: 0, a: 0 };
+      dlHQ[k].c += con; dlHQ[k].a += act;
+    });
+  });
+  const dlRate = pc(dlA, dlC);
+
+  // ───────── 6. BD / ARi ─────────
+  const regAgg = (key) => {
+    const rows = Array.isArray(S[key]) ? S[key] : [];
+    const by = {}; const T = { t: 0, a: 0, mt: 0, ma: 0 };
+    rows.forEach(function (r) {
+      const rc = String(r["地区"] || "").trim();
+      if (!rc || /合计|小计|总计/.test(rc)) return;
+      const k = KOHQ[String(r["本部"] || "").trim()] || String(r["本部"] || "").trim();
+      if (!k) return;
+      if (!by[k]) by[k] = { hq: k, t: 0, a: 0, mt: 0, ma: 0 };
+      for (let m = 1; m <= M; m++) { by[k].t += AN(r[m + "月_客户_目标"]); by[k].a += AN(r[m + "月_客户_进入"]); }
+      by[k].mt += AN(r[M + "月_客户_目标"]); by[k].ma += AN(r[M + "月_客户_进入"]);
+    });
+    Object.keys(by).forEach(function (k) { const x = by[k]; x.rate = pc(x.a, x.t); T.t += x.t; T.a += x.a; T.mt += x.mt; T.ma += x.ma; });
+    T.rate = pc(T.a, T.t);
+    return { T: T, by: by };
+  };
+  const BD = regAgg("BD_Region"), ARI = regAgg("ARi_Region");
+  const detStat = (key) => {
+    const rows = Array.isArray(S[key]) ? S[key] : [];
+    const st = {}; let n = 0;
+    rows.forEach(function (r) { const v = String(r["现况"] || "").trim(); if (!v) return; st[v] = (st[v] || 0) + 1; n++; });
+    const ORD = ["有意向", "跟进中", "已确认", "品牌店", "已进入"];
+    const li = ORD.filter(function (k) { return st[k]; }).map(function (k) { return [k, st[k]]; });
+    Object.keys(st).forEach(function (k) { if (ORD.indexOf(k) < 0) li.push([k, st[k]]); });
+    return { n: n, li: li, st: st };
+  };
+  const BDD = detStat("BD_Detail"), ARID = detStat("ARi_Detail");
+  const newT = BD.T.t + ARI.T.t, newA = BD.T.a + ARI.T.a, newRate = pc(newA, newT);
+
+  // ───────── 7. 하부고객 (终端) ─────────
+  const tmHQ = {}; const TM = { t: 0, a: 0, mt: 0, ma: 0, crm: 0 };
+  (Array.isArray(S["终端_Region"]) ? S["终端_Region"] : []).forEach(function (r) {
+    if (r["1月_业绩__2"] === void 0 && r["7月_业绩__2"] === void 0) return;
+    const rc = String(r["地区"] || "").trim();
+    if (!rc || /合计|小计|总计/.test(rc)) return;
+    const k = KOHQ[String(r["本部"] || "").trim()] || String(r["本部"] || "").trim();
+    if (!k) return;
+    if (!tmHQ[k]) tmHQ[k] = { hq: k, t: 0, a: 0, mt: 0, ma: 0, crm: 0 };
+    tmHQ[k].crm += AN(r["CRM 客户数"]);
+    for (let m = 1; m <= M; m++) { tmHQ[k].t += AN(r[m + "月_业绩"]); tmHQ[k].a += AN(r[m + "月_业绩__2"]); }
+    tmHQ[k].mt += AN(r[M + "月_业绩"]); tmHQ[k].ma += AN(r[M + "月_业绩__2"]);
+  });
+  Object.keys(tmHQ).forEach(function (k) { const x = tmHQ[k]; x.rate = pc(x.a, x.t); x.mrate = pc(x.ma, x.mt);
+    TM.t += x.t; TM.a += x.a; TM.mt += x.mt; TM.ma += x.ma; TM.crm += x.crm; });
+  TM.rate = pc(TM.a, TM.t); TM.mrate = pc(TM.ma, TM.mt);
+  const tmWorst = Object.keys(tmHQ).map(function (k) { return tmHQ[k]; })
+    .sort(function (a, b) { return (a.mrate === null ? 999 : a.mrate) - (b.mrate === null ? 999 : b.mrate); })[0];
+
+  // ───────── 신호등 ─────────
+  const yProg = pc(CA, ANN), cProg = pc(CA, CT), eoyPct = ANN ? EOY / ANN * 100 : null;
+  const SIG = [
+    { k: "매출 달성", v: ps(yProg), w: yProg, st: yProg === null ? "na" : (yProg >= 70 ? "ok" : yProg >= 60 ? "warn" : "crit"),
+      d: ["연간진도 \xB7 누계달성 " + ps(cProg), "현 추세 연말 " + ps(eoyPct)] },
+    { k: "수금 \xB7 채권", v: ps(arRate), w: arRate, st: (arRate === null) ? "na" : (arRate < 25 ? "ok" : arRate < 40 ? "warn" : "crit"),
+      d: ["채권 " + fW(arTotE) + " 중 연체 " + fW(arTotE2),
+        (AR.length ? AR.slice().sort(function (a, b) { return (a.cs === null ? 999 : a.cs) - (b.cs === null ? 999 : b.cs); })[0].hq + " 수금/매출 " + ps(AR.slice().sort(function (a, b) { return (a.cs === null ? 999 : a.cs) - (b.cs === null ? 999 : b.cs); })[0].cs, 0) : "")] },
+    { k: "신규 진입 BD\xB7ARi", v: ps(newRate), w: newRate, st: (newRate === null) ? "na" : (newRate >= 90 ? "ok" : newRate >= 60 ? "warn" : "crit"),
+      d: ["1~" + M + "월 목표 " + f0(newT) + " → 진입 " + f0(newA),
+        "BD " + ps(BD.T.rate, 0) + " \xB7 ARi " + ps(ARI.T.rate, 0)] },
+    { k: "하부고객 (终端)", v: ps(TM.rate), w: TM.rate, st: (TM.rate === null) ? "na" : (TM.rate >= 90 ? "ok" : TM.rate >= 70 ? "warn" : "crit"),
+      d: ["누계 " + f0(TM.a) + " / " + f0(TM.t) + " 개소",
+        "당월 " + ps(TM.mrate) + (tmWorst ? " \xB7 " + tmWorst.hq + "만 " + ps(tmWorst.mrate, 0) : "")] },
+    { k: "파이프라인 DSO", v: ps(dsoEnt, 0), w: dsoEnt, st: (dsoEnt === null) ? "na" : (dsoEnt >= 70 ? "ok" : dsoEnt >= 40 ? "warn" : "crit"),
+      d: [f0(dN) + "개 중 " + f0(dE) + "개 진입", "매출 달성 " + ps(dsoAch, 0)] },
+    { k: "대리상", v: ps(dlRate), w: dlRate, st: (dlRate === null) ? "na" : (dlRate >= 90 ? "ok" : dlRate >= 60 ? "warn" : "crit"),
+      d: ["계약 대비 실적 \xB7 " + f0(dlN) + "개사", f0(dlLow) + "개사가 50% 미만"] },
+    { k: "재고", v: (invMos === null ? "—" : invMos.toFixed(2)), unit: " 개월", w: invMos === null ? null : Math.min(100, invMos / 6 * 100),
+      st: (invMos === null) ? "na" : (invMos <= 4 ? "ok" : invMos <= 6 ? "warn" : "crit"),
+      d: ["기말 " + fW(invCls) + " \xB7 월평균출고 " + fW(invAvg), "경보선 6개월 기준"] }
+  ];
+  const nCrit = SIG.filter(function (x) { return x.st === "crit"; }).length;
+  const nWarn = SIG.filter(function (x) { return x.st === "warn"; }).length;
+  const nNa = SIG.filter(function (x) { return x.st === "na"; }).length;
+  const nOk = SIG.length - nCrit - nWarn - nNa;
+
+  // ───────── 차트 1 : 월별 목표/실적 ─────────
+  const ch1 = (function () {
+    const W = 700, H = 250, PL = 46, PR = 14, PT = 18, PB = 26;
+    let mx = 1; for (let i = 0; i < 12; i++) { mx = Math.max(mx, MT[i], MA[i]); }
+    mx *= 1.12;
+    const gw = (W - PL - PR) / 12, bw = gw * 0.3;
+    const Y = (v) => H - PB - (H - PT - PB) * v / mx;
+    let s = "";
+    const step = Math.pow(10, Math.floor(Math.log(mx) / Math.LN10));
+    for (let g = 0; g <= mx; g += step) {
+      s += '<line x1="' + PL + '" y1="' + Y(g).toFixed(1) + '" x2="' + (W - PR) + '" y2="' + Y(g).toFixed(1) + '" stroke="#e2e8f0"/>';
+      s += '<text x="' + (PL - 6) + '" y="' + (Y(g) + 3.5).toFixed(1) + '" text-anchor="end" font-size="10" fill="#94a3b8">' + Math.round(g / 1e4).toLocaleString() + '</text>';
+    }
+    for (let i = 0; i < 12; i++) {
+      const x = PL + gw * (i + 0.5), cur = (i === M - 1);
+      s += '<rect x="' + (x - bw - 1).toFixed(1) + '" y="' + Y(MT[i]).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + Math.max(0, H - PB - Y(MT[i])).toFixed(1) + '" fill="#bfdbfe" rx="2"/>';
+      if (i < M) s += '<rect x="' + (x + 1).toFixed(1) + '" y="' + Y(MA[i]).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + Math.max(0, H - PB - Y(MA[i])).toFixed(1) + '" fill="' + (cur ? "#dc2626" : "#2563eb") + '" rx="2"/>';
+      s += '<text x="' + x.toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="10.5" fill="' + (cur ? "#b91c1c" : "#64748b") + '" font-weight="' + (cur ? 700 : 400) + '">' + (i + 1) + '</text>';
+    }
+    const xc = PL + gw * (M - 0.5);
+    s += '<text x="' + (xc + bw + 4).toFixed(1) + '" y="' + (Y(MA[M - 1]) - 5).toFixed(1) + '" font-size="10.5" font-weight="700" fill="#b91c1c">' + M + '월 ' + fW(MA[M - 1]) + '</text>';
+    s += '<line x1="' + PL + '" y1="' + (H - PB) + '" x2="' + (W - PR) + '" y2="' + (H - PB) + '" stroke="#cbd5e1"/>';
+    s += '<text x="' + PL + '" y="' + (PT - 4) + '" font-size="10" fill="#94a3b8">만위안</text>';
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto">' + s + '</svg>';
+  })();
+
+  // ───────── 차트 2 : 누계 vs 필요 페이스 ─────────
+  const ch2 = (function () {
+    const W = 700, H = 250, PL = 48, PR = 62, PT = 18, PB = 26;
+    const cum = [], need = []; let s0 = 0, s1 = 0;
+    for (let i = 0; i < 12; i++) { if (i < M) { s0 += MA[i]; cum.push(s0); } s1 += MT[i]; need.push(s1); }
+    const mx = Math.max(ANN, need[11] || 1) * 1.08;
+    const gw = (W - PL - PR) / 12;
+    const X = (i) => PL + gw * (i + 0.5), Y = (v) => H - PB - (H - PT - PB) * v / mx;
+    let s = "";
+    const step = Math.pow(10, Math.floor(Math.log(mx) / Math.LN10));
+    for (let g = 0; g <= mx; g += step) {
+      s += '<line x1="' + PL + '" y1="' + Y(g).toFixed(1) + '" x2="' + (W - PR) + '" y2="' + Y(g).toFixed(1) + '" stroke="#e2e8f0"/>';
+      s += '<text x="' + (PL - 6) + '" y="' + (Y(g) + 3.5).toFixed(1) + '" text-anchor="end" font-size="10" fill="#94a3b8">' + (g / 1e8).toFixed(1) + '억</text>';
+    }
+    let gp = "";
+    for (let i = 0; i < M; i++) gp += (i ? " " : "") + X(i).toFixed(1) + "," + Y(need[i]).toFixed(1);
+    for (let i = M - 1; i >= 0; i--) gp += " " + X(i).toFixed(1) + "," + Y(cum[i]).toFixed(1);
+    s += '<polygon points="' + gp + '" fill="#fecaca" opacity=".45"/>';
+    let np = ""; for (let i = 0; i < 12; i++) np += (i ? " " : "") + X(i).toFixed(1) + "," + Y(need[i]).toFixed(1);
+    s += '<polyline points="' + np + '" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>';
+    let cp = ""; for (let i = 0; i < M; i++) cp += (i ? " " : "") + X(i).toFixed(1) + "," + Y(cum[i]).toFixed(1);
+    s += '<polyline points="' + cp + '" fill="none" stroke="#2563eb" stroke-width="2.4"/>';
+    for (let i = 0; i < M; i++) s += '<circle cx="' + X(i).toFixed(1) + '" cy="' + Y(cum[i]).toFixed(1) + '" r="3.6" fill="' + (i === M - 1 ? "#2563eb" : "#fff") + '" stroke="#2563eb" stroke-width="2"/>';
+    for (let i = 0; i < 12; i++) s += '<text x="' + X(i).toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="10.5" fill="#64748b">' + (i + 1) + '</text>';
+    s += '<text x="' + (X(M - 1) + 7).toFixed(1) + '" y="' + (Y(cum[M - 1]) + 4).toFixed(1) + '" font-size="11" font-weight="700" fill="#1d4ed8">누적 ' + fE(cum[M - 1]) + '</text>';
+    s += '<text x="' + (X(M - 1) + 7).toFixed(1) + '" y="' + (Y(need[M - 1]) + 4).toFixed(1) + '" font-size="11" font-weight="700" fill="#b91c1c">필요 ' + fE(need[M - 1]) + '</text>';
+    s += '<text x="' + (X(11) - 4).toFixed(1) + '" y="' + (Y(need[11]) - 7).toFixed(1) + '" text-anchor="end" font-size="11" font-weight="700" fill="#b91c1c">연간 ' + fE(ANN) + '</text>';
+    const my = (Y(cum[M - 1]) + Y(need[M - 1])) / 2;
+    s += '<text x="' + X(Math.max(2, Math.floor(M / 2) - 1)).toFixed(1) + '" y="' + my.toFixed(1) + '" text-anchor="middle" font-size="11.5" font-weight="800" fill="#b91c1c">미달 누적 ' + fW(need[M - 1] - cum[M - 1]) + '</text>';
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto">' + s + '</svg>';
+  })();
+
+  // ───────── 의사결정 후보 ─────────
+  const evBar = (nm, w, v, col) => h("div", { className: "an-evrow", key: nm },
+    h("span", { className: "an-nm" }, nm),
+    h("span", { className: "an-bw" }, h("i", { style: { width: Math.max(0, Math.min(100, w)) + "%", background: col } })),
+    h("span", { className: "an-vv" }, v));
+  const colOf = (v, good, warn) => v === null ? "#94a3b8" : v >= good ? "#2563eb" : v >= warn ? "#f59e0b" : "#dc2626";
+
+  const DEC = [];
+  // 1) 연간목표
+  if (MULT !== null && MULT >= 1.3) {
+    DEC.push({ crit: true, t: "연간 목표를 유지할 것인가, 재설정할 것인가",
+      imp: "영향 " + fE(GAP) + "위안 \xB7 전사",
+      big: MULT.toFixed(1) + "배", bigs: "남은 " + REM + "개월 월평균 필요 배수", bigc: "an-crit",
+      ev: ["연간목표 " + fE(ANN) + " \xB7 " + M + "월 누계 " + fE(CA),
+        "잔여 " + fE(GAP) + " \xF7 " + REM + "개월 = 월 " + fW(NEED),
+        "현재 월평균 " + fW(RUN) + " \xB7 최고월 " + fW(bestM)],
+      bars: [["필요", 100, fW(NEED), "#dc2626"], ["최고월", NEED ? bestM / NEED * 100 : 0, fW(bestM), "#94a3b8"], ["현재", NEED ? RUN / NEED * 100 : 0, fW(RUN), "#2563eb"]],
+      opt: [["목표 유지", "전 본부 동일 압박. 달성 확률 낮고 수금\xB7재고 왜곡(밀어내기) 위험"],
+        ["현실 목표로 재설정", "현 추세 " + fE(EOY) + "(" + ps(eoyPct, 0) + ")을 기준선으로, 상위 본부에 상향 배분"],
+        ["혼합", "전사 목표는 유지하되 평가 기준을 매출→회수로 전환"]],
+      rec: "③ 혼합안. 목표를 낮추면 영업 동력이 꺼지고, 그대로 두면 밀어내기가 나옵니다. " + (REM ? "4분기 " : "") + "평가 가중치를 매출 50 → 회수 50으로 바꾸면 두 문제를 동시에 누릅니다.",
+      due: M + "월 말 (" + (M + 1) + "월 배분 전)" });
+  }
+  // 2) 수금 정지 위험 본부
+  const csWorst = AR.slice().filter(function (x) { return x.s > 0; }).sort(function (a, b) { return (a.cs === null ? 999 : a.cs) - (b.cs === null ? 999 : b.cs); })[0];
+  if (csWorst && csWorst.cs !== null && csWorst.cs < 50) {
+    const hqx = HQ.filter(function (x) { return x.hq === csWorst.hq; })[0] || {};
+    const mg = MGR.filter(function (x) { return x.hq === csWorst.hq; })[0];
+    DEC.push({ crit: true, t: csWorst.hq + " — 매출은 좋은데 수금이 멈춤",
+      imp: "영향 " + fW(csWorst.e2) + "위안 \xB7 " + csWorst.hq + "본부",
+      big: ps(csWorst.cs, 0), bigs: M + "월 수금 \xF7 매출", bigc: "an-crit",
+      ev: [M + "월 매출 " + fW(csWorst.s) + " → 수금 " + fW(csWorst.c),
+        "연체 " + fW(csWorst.e2) + " (연체율 " + ps(csWorst.r2, 0) + ")",
+        mg ? "담당 " + mg.m + " 연체 " + fW(mg.e2) + " 집중" : "",
+        hqx.rate !== null && hqx.rate !== void 0 ? "누계달성은 " + ps(hqx.rate) : ""],
+      bars: AR.slice().sort(function (a, b) { return (b.cs === null ? -1 : b.cs) - (a.cs === null ? -1 : a.cs); })
+        .map(function (x) { return [x.hq, x.cs === null ? 0 : Math.min(100, x.cs), ps(x.cs, 0), colOf(x.cs, 80, 50)]; }),
+      barh: "본부별 수금 \xF7 매출",
+      opt: [["현상 유지", "달성율이 좋으니 지켜본다. 연체가 다음 분기에 더 쌓임"],
+        ["신규 출고 조건부 정지", "회수 계획 제출 전까지 여신 동결"],
+        ["본부장 직접 개입", "담당 1인 집중 구조를 깨고 본부 차원 회수 TF"]],
+      rec: "②+③ 동시. 파는 만큼 못 받고 있는 상황입니다. 한 명에게 채권이 못리는 구조 자체가 리스크입니다.",
+      due: (M + 1) + "월 1주" });
+  }
+  // 3) 연체 집중 본부
+  const e2Worst = AR[0];
+  if (e2Worst && e2Worst.r2 !== null && e2Worst.r2 >= 50) {
+    const mgs = MGR.filter(function (x) { return x.hq === e2Worst.hq; }).slice(0, 2);
+    DEC.push({ crit: true, t: e2Worst.hq + " — 연체가 굳어지는 중",
+      imp: "영향 " + fW(e2Worst.e2) + "위안 \xB7 " + e2Worst.hq + "본부",
+      big: ps(e2Worst.r2), bigs: e2Worst.hq + " 연체율 (전사 " + ps(arRate) + ")", bigc: "an-crit",
+      ev: ["연체 " + fW(e2Worst.e2) + " = 전체 연체의 " + ps(pc(e2Worst.e2, arTotE2), 0)]
+        .concat(mgs.map(function (x) { return x.m + " 연체율 " + ps(x.r2, 0) + " \xB7 " + fW(x.e2); })),
+      bars: AR.map(function (x) { return [x.hq, x.r2 === null ? 0 : x.r2, fW(x.e2), colOf(100 - (x.r2 || 0), 60, 40)]; }),
+      barh: "본부별 연체율 / 연체액",
+      opt: [["독려 지속", "지금까지 방식. 연체율이 이미 " + ps(e2Worst.r2, 0) + "까지 온 상태"],
+        ["거래처 단위 회수 협의", "상위 거래처 직접 방문\xB7분할 상환 합의"],
+        ["손상 인식 검토", "회수 불가분 분리해 장부에서 정리"]],
+      rec: "② 먼저, 안 되면 ③. 연체율 " + ps(e2Worst.r2, 0) + "는 「늦어지고 있다」가 아니라 「받기 어렵다」에 가깝습니다. 회수 합의가 안 나오는 건은 연말 결산 전에 분리해야 합니다.",
+      due: (M + 1) + "월 말" });
+  }
+  // 4) 신규 진입
+  if (newRate !== null && newRate < 70) {
+    const nbList = HQS.filter(function (k) { return BD.by[k] || ARI.by[k]; }).map(function (k) {
+      const b = BD.by[k] || { t: 0, a: 0 }, a = ARI.by[k] || { t: 0, a: 0 };
+      return { hq: k, t: b.t + a.t, a: b.a + a.a, r: pc(b.a + a.a, b.t + a.t) };
+    }).sort(function (x, y) { return (y.r === null ? -1 : y.r) - (x.r === null ? -1 : x.r); });
+    const best = nbList[0], conf = (ARID.st["已确认"] || 0), foll = (ARID.st["跟进中"] || 0);
+    DEC.push({ crit: true, t: "신규 진입(BD\xB7ARi)이 목표의 " + ps(newRate, 0) + " — 내년 매출 기반을 어떻게 할 것인가",
+      imp: "영향 내년 매출 \xB7 전사",
+      big: ps(ARI.T.rate), bigs: "ARi 신규 진입 달성율 (목표 " + f0(ARI.T.t) + " → " + f0(ARI.T.a) + "개소)", bigc: "an-crit",
+      ev: ["BD " + f0(BD.T.a) + "/" + f0(BD.T.t) + "개소 (" + ps(BD.T.rate) + ") \xB7 당월 " + f0(BD.T.ma) + "/" + f0(BD.T.mt),
+        "ARi " + f0(ARI.T.a) + "/" + f0(ARI.T.t) + "개소 (" + ps(ARI.T.rate) + ") \xB7 당월 " + f0(ARI.T.ma) + "/" + f0(ARI.T.mt),
+        "반면 하부고객은 " + ps(TM.rate) + " 유지 중",
+        "→ 기존 고객으로 버티는 구조, 신규 유입이 멈춤"],
+      bars: nbList.map(function (x) { return [x.hq, x.r === null ? 0 : Math.min(100, x.r), f0(x.a) + "/" + f0(x.t), colOf(x.r, 60, 35)]; }),
+      barh: "BD\xB7ARi 합산 진입률",
+      opt: [["남은 기간 매출 총력", "신규 진입은 내년으로 미룬다. 내년 1분기 공백이 확정됨"],
+        ["ARi 목표 현실화 + 전담 배치", f0(ARI.T.t) + "개소를 유효 파이프라인(已确认 " + conf + " + 跟进中 " + foll + ") 기준으로 재설정"],
+        ["BD 우선 \xB7 ARi 후순위", "진입률이 높은 BD에 자원을 몰고 ARi는 내년 재출발"],
+        [(best ? best.hq : "최상위 본부") + " 방식 수평 전개", "가장 높은 진입률(" + (best ? f0(best.a) + "/" + f0(best.t) : "") + ")의 프로세스를 표준화"]],
+      rec: "②+④. ARi 目标 " + f0(ARI.T.t) + "개소는 과대 설정일 가능성이 높습니다 — 已确认 " + conf + "개소가 실질 상한입니다. 목표를 유효 파이프라인으로 재설정하고, " + (best ? best.hq : "상위 본부") + "이 어떻게 달성했는지부터 확인하는 편이 자원 추가보다 먼저입니다.",
+      due: (M + 1) + "월 중순 (내년 목표 수립 전)" });
+  }
+  // 5) 투입 축소 검토
+  const wq = HQ.slice().sort(function (a, b) { return (b.mult === null ? -1 : b.mult) - (a.mult === null ? -1 : a.mult); })[0];
+  const gapSorted = HQ.map(function (x) { return x.gap; }).sort(function (a, b) { return a - b; });
+  const gapMed = gapSorted[Math.floor(gapSorted.length / 2)];
+  if (wq && wq.mult !== null && wq.gap <= gapMed) {
+    const d = dHQ[wq.hq] || { n: 0, ent: 0 };
+    const nb = (function () { const b = BD.by[wq.hq] || { t: 0, a: 0 }, a = ARI.by[wq.hq] || { t: 0, a: 0 }; return pc(b.a + a.a, b.t + a.t); })();
+    const tm = tmHQ[wq.hq] || {};
+    DEC.push({ crit: false, t: wq.hq + " — 투입을 줄일 것인가",
+      imp: "영향 " + fW(wq.gap) + "위안 \xB7 " + wq.hq + "본부",
+      big: wq.mult.toFixed(1) + "배", bigs: "필요 배수 (전 본부 최고)", bigc: "an-warn",
+      ev: ["누계달성 " + ps(wq.rate) + " \xB7 현 추세 연말 " + ps(wq.eoy, 0),
+        "잔여는 " + fW(wq.gap) + "으로 가장 작음",
+        "DSO " + f0(d.n) + "개 중 " + f0(d.ent) + "개만 진입 (" + ps(pc(d.ent, d.n), 0) + ")",
+        "BD\xB7ARi 진입 " + ps(nb, 0) + " \xB7 하부고객 " + ps(tm.mrate, 0)],
+      bars: [["매출", wq.rate === null ? 0 : Math.min(100, wq.rate), ps(wq.rate, 0), colOf(wq.rate, 80, 65)],
+        ["DSO", pc(d.ent, d.n) === null ? 0 : pc(d.ent, d.n), ps(pc(d.ent, d.n), 0), colOf(pc(d.ent, d.n), 70, 40)],
+        ["BD\xB7ARi", nb === null ? 0 : Math.min(100, nb), ps(nb, 0), colOf(nb, 60, 35)],
+        ["하부고객", tm.mrate === null || tm.mrate === void 0 ? 0 : Math.min(100, tm.mrate), ps(tm.mrate, 0), colOf(tm.mrate, 90, 70)]],
+      barh: wq.hq + " 위치 (전 본부 대비)", barn: "지표",
+      opt: [["집중 투입", "최저 달성 본부에 자원 추가"],
+        ["현상 유지 + 내년 준비", "남은 기간은 파이프라인 구축에 쓰고 매출은 포기"],
+        ["타 본부로 자원 재배치", ""]],
+      rec: "② 권고. 잔여 금액이 가장 작은데 난이도는 가장 높습니다 — 여기에 넣는 자원의 수익이 가장 낮습니다. 선행지표가 전부 최하위이므로 남은 기간은 내년 매출의 씨앗을 심는 데 쓰는 편이 낫습니다.",
+      due: (M + 1) + "월 말" });
+  }
+
+  // ───────── 매트릭스 ─────────
+  const mxRef = React.useRef(null);
+  const [mxW, setMxW] = React.useState(1000);
+  React.useEffect(function () {
+    const upd = function () { if (mxRef.current) setMxW(mxRef.current.clientWidth || 1000); };
+    upd(); window.addEventListener("resize", upd);
+    return function () { window.removeEventListener("resize", upd); };
+  }, []);
+  const mxPts = (function () {
+    const Wd = mxW, Hg = 330, PAD = 74;
+    const gs = HQ.map(function (x) { return x.gap; }), ms = HQ.map(function (x) { return x.mult === null ? 1 : x.mult; });
+    const gx0 = Math.min.apply(null, gs) * 0.8, gx1 = Math.max.apply(null, gs) * 1.06;
+    const gy0 = Math.min.apply(null, ms) - 0.3, gy1 = Math.max.apply(null, ms) + 0.3;
+    const maxE = Math.max.apply(null, AR.map(function (x) { return x.e2; }).concat([1]));
+    return HQ.map(function (x) {
+      const a = arHQ[x.hq];
+      const e2 = a ? a.e2 : null;
+      const px = PAD + (gx1 > gx0 ? (x.gap - gx0) / (gx1 - gx0) : 0.5) * (Wd - PAD * 2);
+      const py = PAD + (gy1 > gy0 ? (gy1 - (x.mult === null ? 1 : x.mult)) / (gy1 - gy0) : 0.5) * (Hg - PAD * 2);
+      const d = e2 === null ? 22 : 20 + Math.sqrt(e2 / maxE) * 30;
+      const col = e2 === null ? "#94a3b8" : (e2 >= maxE * 0.55 ? "#dc2626" : e2 >= maxE * 0.12 ? "#f59e0b" : "#2563eb");
+      return { hq: x.hq, x: px, y: py, d: d, col: col, gap: x.gap, mult: x.mult };
+    }).map(function (p, i, arr) {
+      for (let j = 0; j < i; j++) {
+        if (Math.abs(arr[j].x - p.x) < 95 && Math.abs(arr[j].y - p.y) < 46) { p.y += 46; }
+      }
+      return p;
+    });
+  })();
+
+  // ───────── 히트맵 ─────────
+  const HT = (function () {
+    const cols = HQS.filter(function (k) { return hqm[k]; });
+    const cell = (v) => v === null || v === void 0 ? { bg: "#f1f5f9", fg: "#94a3b8" }
+      : v >= 90 ? { bg: "#dcfce7", fg: "#15803d" } : v >= 50 ? { bg: "#fef3c7", fg: "#b45309" } : { bg: "#fee2e2", fg: "#b91c1c" };
+    const rows = [
+      ["BD", cols.map(function (k) { const x = BD.by[k]; return x ? x.rate : null; })],
+      ["ARi", cols.map(function (k) { const x = ARI.by[k]; return x ? x.rate : null; })],
+      ["DSO", cols.map(function (k) { const x = dHQ[k]; return x ? pc(x.ent, x.n) : null; })],
+      ["하부고객", cols.map(function (k) { const x = tmHQ[k]; return x ? x.mrate : null; })],
+      ["대리상", cols.map(function (k) { const x = dlHQ[k]; return x ? pc(x.a, x.c) : null; })]
+    ];
+    return { cols: cols, rows: rows, cell: cell };
+  })();
+
+  // ───────── 렌더 ─────────
+  const fnRow = (label, v, mxv, col, key) => h("div", { className: "an-fnr", key: key || label },
+    h("span", { className: "an-fl" }, label),
+    h("span", { className: "an-fb" }, h("i", { style: { width: (mxv ? Math.max(1, v / mxv * 100) : 0) + "%", background: col } })),
+    h("span", { className: "an-fv" }, f0(v)));
+
+  const bdMax = Math.max.apply(null, BDD.li.map(function (x) { return x[1]; }).concat([1]));
+  const ariMax = Math.max.apply(null, ARID.li.map(function (x) { return x[1]; }).concat([1]));
+  const FNC = ["#bfdbfe", "#93c5fd", "#60a5fa", "#3b82f6", "#2563eb"];
+
+  const eoyBest = (function () {
+    const top = HQ.slice().sort(function (a, b) { return b.gap - a.gap; }).slice(0, 4);
+    const add = top.reduce(function (s, x) { return s + x.run * 0.2 * REM; }, 0);
+    return EOY + add;
+  })();
+
+  return h("div", { className: "an-root" },
+    h("div", { className: "an-h1" }, "중국\xB7대만 통합 분석 \xB7 의사결정 보드"),
+    h("div", { className: "an-sub" }, "2026년 " + M + "월 기준 \xB7 중국 " + HQ.length + "개 본부 \xB7 데이터 출처 : KPI 시트 \xB7 채권 명세 \xB7 PSI \xB7 대리상 \xB7 DSO \xB7 BD/ARi \xB7 终端" + (fetchedAt ? " \xB7 갱신 " + fetchedAt : ""),
+      h("span", { className: "an-tag " + (srcMode === "sheet" ? "an-b-ok" : "an-b-na"), style: { marginLeft: "6px" } }, srcMode === "sheet" ? "시트 연동" : "내장 데이터")),
+
+    // 결론
+    h("div", { className: "an-verdict" },
+      h("div", { className: "an-vhead" }, "한 줄 결론"),
+      h("div", { className: "an-vmain" }, "현 추세로는 연간 매출 ", h("b", null, ps(eoyPct, 1)), "에서 끝납니다. 남은 " + REM + "개월에 월 " + fW(NEED) + "위안(", h("b", null, "현재의 " + (MULT === null ? "—" : MULT.toFixed(1) + "배")), ")이 필요합니다."),
+      h("div", { className: "an-vsub" }, "→ 실질 레버는 ", h("b", null, "① 현금 회수"), "(연체 " + fW(arTotE2) + "위안, 채권의 " + ps(arRate) + ")", h("b", null, "와 ② 잔여 상위 본부 집중"), "입니다. 동시에 ", h("b", null, "신규 진입(BD\xB7ARi)이 목표의 " + ps(newRate, 0)), "에 그쳐 내년 매출 기반도 비어가고 있습니다.")),
+
+    // 신호등
+    h("div", { className: "an-card" },
+      h("div", { className: "an-ttl" }, "영역별 진단",
+        h("span", { className: "an-tag an-b-crit" }, "위험 " + nCrit),
+        h("span", { className: "an-tag an-b-warn" }, "주의 " + nWarn),
+        h("span", { className: "an-tag an-b-ok" }, "정상 " + nOk),
+        nNa ? h("span", { className: "an-tag an-b-na" }, "데이터없음 " + nNa) : null),
+      h("div", { className: "an-hint" }, "각 영역을 독립 기준으로 판정합니다 \xB7 위험 = 즉시 결정 필요, 주의 = 이번 달 안에 조치, 정상 = 현행 유지"),
+      h("div", { className: "an-sig" }, SIG.map(function (x, i) {
+        return h("div", { className: "an-sg", key: i },
+          h("div", { className: "an-lb" }, h("span", null, x.k), h("span", { className: "an-dot an-bg-" + x.st })),
+          h("div", { className: "an-vl an-" + x.st }, x.v, x.unit ? h("span", { style: { fontSize: "12px" } }, x.unit) : null),
+          h("div", { className: "an-mini" }, h("i", { style: { width: Math.max(0, Math.min(100, x.w || 0)) + "%", background: x.st === "crit" ? "#b91c1c" : x.st === "warn" ? "#b45309" : x.st === "na" ? "#cbd5e1" : "#15803d" } })),
+          h("div", { className: "an-ds" }, x.d.filter(function (y) { return y; }).map(function (y, j) { return h("div", { key: j }, y); })));
+      }))),
+
+    // 페이스
+    h("div", { className: "an-card" },
+      h("div", { className: "an-ttl" }, "매출 페이스 — 왜 " + ps(eoyPct, 0) + "에서 끝나는가"),
+      h("div", { className: "an-hint" }, "왼쪽 : 월별 목표\xB7실적 \xB7 오른쪽 : 누계 실적이 필요 페이스에서 얼마나 벌어졌는지"),
+      h("div", { className: "an-lgd" },
+        h("span", null, h("i", { style: { background: "#bfdbfe" } }), "월 목표"),
+        h("span", null, h("i", { style: { background: "#2563eb" } }), "월 실적"),
+        h("span", null, h("i", { style: { background: "#dc2626" } }), M + "월 (진행중)"),
+        h("span", null, h("i", { className: "an-dsh" }), "필요 페이스(누계 목표)")),
+      h("div", { className: "an-two" },
+        h("div", { className: "an-panel" },
+          h("div", { className: "an-pt2" }, "월별 목표 대비 실적 (만위안)"),
+          h("div", { className: "an-ph" }, M + "월은 주차 기준으로 진행 중인 값입니다"),
+          h("div", { dangerouslySetInnerHTML: { __html: ch1 } })),
+        h("div", { className: "an-panel" },
+          h("div", { className: "an-pt2" }, "누계 실적 vs 필요 페이스 (억위안)"),
+          h("div", { className: "an-ph" }, "두 선의 간격이 미달 누적액입니다"),
+          h("div", { dangerouslySetInnerHTML: { __html: ch2 } })))),
+
+    // 의사결정
+    h("div", { className: "an-card" },
+      h("div", { className: "an-ttl" }, "지금 결정해야 할 것"),
+      h("div", { className: "an-hint" }, "금액 영향 \xD7 되돌릴 수 없는 정도로 정렬했습니다 \xB7 각 항목은 「근거 → 선택지 → 권고」 순으로 읽으세요"),
+      DEC.length ? DEC.map(function (d, i) {
+        return h("div", { className: "an-dec" + (d.crit ? "" : " an-w"), key: i },
+          h("div", { className: "an-dh" }, h("span", { className: "an-rank" }, i + 1), h("span", { className: "an-dt" }, d.t), h("span", { className: "an-imp" }, d.imp)),
+          h("div", { className: "an-dbody" },
+            h("div", null, h("div", { className: "an-k" }, "근거"),
+              h("div", { className: "an-big " + d.bigc }, d.big),
+              h("div", { className: "an-bigs" }, d.bigs),
+              h("div", { className: "an-ev", style: { marginTop: "9px" } }, d.ev.filter(function (x) { return x; }).map(function (x, j) { return h("div", { key: j }, x); })),
+              d.bars ? h("div", { style: { marginTop: "9px" } },
+                d.barh ? h("div", { className: "an-evrow an-evh" }, h("span", { className: "an-nm" }, d.barn || "본부"), h("span", { className: "an-bw", style: { background: "none" } }, d.barh), h("span", { className: "an-vv" })) : null,
+                d.bars.map(function (b) { return evBar(b[0], b[1], b[2], b[3]); })) : null),
+            h("div", null, h("div", { className: "an-k" }, "선택지"),
+              h("ol", { className: "an-opt" }, d.opt.map(function (o, j) {
+                return h("li", { key: j }, h("b", null, o[0]), o[1] ? " — " + o[1] : "");
+              }))),
+            h("div", null, h("div", { className: "an-k" }, "권고"),
+              h("div", { className: "an-rec" }, d.rec, h("br"), h("br"), "결정 기한 : ", h("b", null, d.due)))));
+      }) : h("div", { className: "an-ph" }, "현재 기준을 넘기는 항목이 없습니다")),
+
+    // 매트릭스
+    h("div", { className: "an-card" },
+      h("div", { className: "an-ttl" }, "본부 우선순위 — 어디에 자원을 넣을 것인가"),
+      h("div", { className: "an-hint" }, "가로 = 연간 잔여 금액(넣었을 때 얻는 크기) \xB7 세로 = 필요 배수(난이도) \xB7 원 크기 = 연체 채권 \xB7 오른쪽 아래일수록 투자 수익이 높습니다"),
+      h("div", { className: "an-lgd" },
+        h("span", null, h("i", { style: { background: "#2563eb" } }), "연체 적음"),
+        h("span", null, h("i", { style: { background: "#f59e0b" } }), "연체 중간"),
+        h("span", null, h("i", { style: { background: "#dc2626" } }), "연체 많음"),
+        h("span", null, h("i", { style: { background: "#94a3b8" } }), "채권 데이터 없음")),
+      h("div", { className: "an-mx", ref: mxRef },
+        h("div", { className: "an-mxl", style: { left: "50%", top: 0, width: "1px", height: "100%" } }),
+        h("div", { className: "an-mxl", style: { left: 0, top: "50%", width: "100%", height: "1px" } }),
+        h("div", { className: "an-mxq", style: { left: "12px", top: "9px" } }, "난이도 높음 \xB7 영향 작음"),
+        h("div", { className: "an-mxq", style: { right: "12px", top: "9px", textAlign: "right" } }, "난이도 높음 \xB7 영향 큼"),
+        h("div", { className: "an-mxq", style: { left: "12px", bottom: "9px" } }, "난이도 낮음 \xB7 영향 작음"),
+        h("div", { className: "an-mxq", style: { right: "12px", bottom: "9px", textAlign: "right" } }, "난이도 낮음 \xB7 영향 큼 — 최우선 집중"),
+        mxPts.map(function (p) {
+          return h("div", { className: "an-pt", key: p.hq, style: { left: p.x + "px", top: p.y + "px" } },
+            h("div", { className: "an-pc", style: { width: p.d.toFixed(0) + "px", height: p.d.toFixed(0) + "px", background: p.col } }),
+            h("div", { className: "an-pn" }, p.hq),
+            h("div", { className: "an-pv" }, fE(p.gap) + " \xB7 " + (p.mult === null ? "—" : p.mult.toFixed(1) + "x")));
+        })),
+      h("div", { className: "an-axrow" },
+        h("span", { className: "an-ax" }, "← 잔여 작음"),
+        h("span", { className: "an-ax" }, "잔여 금액 (연간 목표 − " + M + "월 누계)"),
+        h("span", { className: "an-ax" }, "잔여 큼 →"))),
+
+    // 파이프라인
+    h("div", { className: "an-card" },
+      h("div", { className: "an-ttl" }, "성장 파이프라인 — 내년 매출은 지금 만들어집니다"),
+      h("div", { className: "an-hint" }, "왼쪽 두 칸 : 신규 거래처가 어느 단계에서 멈춰 있는지 \xB7 오른쪽 : 본부별 선행지표 한눈 비교 (90%↑ 초록 \xB7 50~90% 주황 \xB7 50% 미만 빨강)"),
+      h("div", { className: "an-three" },
+        h("div", { className: "an-panel" },
+          h("div", { className: "an-pt2" }, "BD 파이프라인 \xB7 " + f0(BDD.n) + "개소"),
+          h("div", { className: "an-ph" }, "누계 목표 " + f0(BD.T.t) + " → 진입 " + f0(BD.T.a) + " (" + ps(BD.T.rate) + ")"),
+          h("div", { className: "an-fn" }, BDD.li.map(function (x, i) { return fnRow(x[0], x[1], bdMax, FNC[Math.min(i, 4)], "b" + i); }))),
+        h("div", { className: "an-panel" },
+          h("div", { className: "an-pt2" }, "ARi 파이프라인 \xB7 " + f0(ARID.n) + "개소"),
+          h("div", { className: "an-ph" }, "누계 목표 " + f0(ARI.T.t) + " → 진입 " + f0(ARI.T.a) + " (" + ps(ARI.T.rate) + ")"),
+          h("div", { className: "an-fn" }, ARID.li.map(function (x, i) { return fnRow(x[0], x[1], ariMax, FNC[Math.min(i, 4)], "a" + i); }))),
+        h("div", { className: "an-panel" },
+          h("div", { className: "an-pt2" }, "본부별 선행지표"),
+          h("div", { className: "an-ph" }, "매출\xB7회수는 결과, 아래 4개는 3~6개월 뒤 매출을 만드는 선행지표입니다"),
+          h("div", { className: "an-ht", style: { gridTemplateColumns: "56px repeat(" + HT.cols.length + ",1fr)" } },
+            [h("div", { className: "an-hh", key: "c0" })].concat(HT.cols.map(function (c) { return h("div", { className: "an-hh", key: "c" + c }, c); }))
+              .concat(HT.rows.reduce(function (acc, r) {
+                acc.push(h("div", { className: "an-hl", key: "r" + r[0] }, r[0]));
+                r[1].forEach(function (v, i) {
+                  const s = HT.cell(v);
+                  acc.push(h("div", { className: "an-hc", key: r[0] + i, style: { background: s.bg, color: s.fg } }, v === null || v === void 0 ? "—" : Math.round(v)));
+                });
+                return acc;
+              }, []))),
+          h("div", { className: "an-foot" }, "* BD\xB7ARi = 1~" + M + "월 누계 진입 \xF7 목표 \xB7 DSO = 진입 거래처 \xF7 전체 \xB7 하부고객 = 당월 실적 \xF7 목표 \xB7 대리상 = 계약 대비 실적")))),
+
+    // 시나리오 + 표
+    h("div", { className: "an-card" },
+      h("div", { className: "an-ttl" }, "연말 시나리오"),
+      h("div", { className: "an-hint" }, "현재 월평균(" + fW(RUN) + ")을 기준으로 한 산술 전망입니다 \xB7 남은 " + REM + "개월"),
+      h("div", { className: "an-sc" },
+        h("div", { className: "an-scb" }, h("div", { className: "an-sct" }, "현 추세 유지"),
+          h("div", { className: "an-scv an-crit" }, fE(EOY)),
+          h("div", { className: "an-scd" }, "연간 " + ps(eoyPct) + " \xB7 미달 " + fE(ANN - EOY)),
+          h("div", { className: "an-bar" }, h("i", { style: { width: Math.min(100, eoyPct || 0) + "%", background: "#b91c1c" } }))),
+        h("div", { className: "an-scb" }, h("div", { className: "an-sct" }, "잔여 상위 4개 본부 20% 개선"),
+          h("div", { className: "an-scv an-warn" }, fE(eoyBest)),
+          h("div", { className: "an-scd" }, "연간 " + ps(pc(eoyBest, ANN)) + " \xB7 미달 " + fE(ANN - eoyBest)),
+          h("div", { className: "an-bar" }, h("i", { style: { width: Math.min(100, pc(eoyBest, ANN) || 0) + "%", background: "#b45309" } }))),
+        h("div", { className: "an-scb" }, h("div", { className: "an-sct" }, "목표 100% 달성"),
+          h("div", { className: "an-scv", style: { color: "#64748b" } }, fE(ANN)),
+          h("div", { className: "an-scd" }, "월 " + fW(NEED) + " 필요 \xB7 현재의 " + (MULT === null ? "—" : MULT.toFixed(1) + "배")),
+          h("div", { className: "an-bar" }, h("i", { style: { width: "100%", background: "#94a3b8" } })))),
+      h("div", { className: "an-tw" },
+        h("table", { className: "an-tbl", "data-no-sort": "1" },
+          h("colgroup", null, [7, 9, 12, 9, 7, 9, 8, 8, 8, 23].map(function (w, i) { return h("col", { key: i, style: { width: w + "%" } }); })),
+          h("thead", null, h("tr", null, ["본부", "연간 목표", "누계 달성", "잔여", "필요 배수", "현 추세 연말", "연체", "연체율", "수금/매출", "판단"].map(function (t, i) { return h("th", { key: i }, t); }))),
+          h("tbody", null,
+            HQ.map(function (x) {
+              const a = arHQ[x.hq];
+              const judge = (function () {
+                if (a && a.cs !== null && a.cs < 30) return "매출은 좋으나 \xB7 수금 정지 위험";
+                if (a && a.r2 !== null && a.r2 >= 60) return "연체 집중 \xB7 회수 우선";
+                if (x.gap === Math.max.apply(null, HQ.map(function (y) { return y.gap; }))) return "잔여 최대 \xB7 집중 1순위";
+                if (x.mult !== null && x.mult === Math.max.apply(null, HQ.map(function (y) { return y.mult === null ? 0 : y.mult; }))) return "난이도 최고 \xB7 내년 준비";
+                const d = dHQ[x.hq];
+                if (d && pc(d.ent, d.n) !== null && pc(d.ent, d.n) < 50) return "DSO 진입 " + ps(pc(d.ent, d.n), 0) + " \xB7 파이프라인";
+                return "현행 유지";
+              })();
+              return h("tr", { key: x.hq },
+                h("td", { className: "an-l an-b" }, x.hq),
+                h("td", { className: "an-r" }, fW(x.ann)),
+                h("td", { className: "an-r " + cls3(x.rate, 80, 65) },
+                  ps(x.rate),
+                  h("span", { className: "an-bar" }, h("i", { style: { width: Math.min(100, x.rate || 0) + "%", background: x.rate >= 80 ? "#15803d" : x.rate >= 65 ? "#2563eb" : "#b91c1c" } }))),
+                h("td", { className: "an-r" }, fW(x.gap)),
+                h("td", { className: "an-r " + (x.mult !== null && x.mult >= 3 ? "an-crit" : x.mult !== null && x.mult < 2.5 ? "an-ok" : "") }, x.mult === null ? "—" : x.mult.toFixed(1) + "x"),
+                h("td", { className: "an-r " + cls3(x.eoy, 75, 62) }, ps(x.eoy, 0)),
+                h("td", { className: "an-r " + (a && a.e2 >= arTotE2 * 0.2 ? "an-crit" : "") }, a ? fW(a.e2) : "—"),
+                h("td", { className: "an-r " + (a && a.r2 !== null && a.r2 >= 60 ? "an-crit" : "") }, a ? ps(a.r2) : "—"),
+                h("td", { className: "an-r " + (a ? cls3(a.cs, 80, 40) : "") }, a ? ps(a.cs, 0) : "—"),
+                h("td", { className: "an-l an-j" }, judge));
+            }).concat([
+              h("tr", { className: "an-tot", key: "T" },
+                h("td", { className: "an-l" }, "전사"),
+                h("td", { className: "an-r" }, fW(ANN)),
+                h("td", { className: "an-r" }, ps(cProg)),
+                h("td", { className: "an-r" }, fW(GAP)),
+                h("td", { className: "an-r" }, MULT === null ? "—" : MULT.toFixed(1) + "x"),
+                h("td", { className: "an-r" }, ps(eoyPct)),
+                h("td", { className: "an-r" }, fW(arTotE2)),
+                h("td", { className: "an-r" }, ps(arRate)),
+                h("td", { className: "an-r" }, "—"),
+                h("td", { className: "an-l an-j" }, "—"))]))))),
+
+    // 채권 액션
+    h("div", { className: "an-card" },
+      h("div", { className: "an-ttl" }, "회수 액션 보드"),
+      h("div", { className: "an-hint" }, "왼쪽 : 본부별 채권이 어떤 상태인지 \xB7 오른쪽 : 연체 상위 " + MGR.length + "명이 전사 연체의 " + ps(mgrShare, 0) + "를 쥐고 있습니다 — 회수는 사람 단위로 붙어야 움직입니다"),
+      h("div", { className: "an-lgd" },
+        h("span", null, h("i", { style: { background: "#2563eb" } }), "정상 채권"),
+        h("span", null, h("i", { style: { background: "#dc2626" } }), "연체 채권"),
+        h("span", { style: { color: "#64748b" } }, "※ 막대 길이는 채권 절대액에 비례")),
+      h("div", { className: "an-two", style: { gridTemplateColumns: "36% 1fr" } },
+        h("div", { className: "an-panel" },
+          h("div", { className: "an-pt2" }, "본부별 채권 구성 (만위안)"),
+          h("div", { className: "an-ph" }, "금액과 비율을 함께 보고 우선순위를 정합니다"),
+          (function () {
+            const mx = Math.max.apply(null, AR.map(function (x) { return x.e; }).concat([1]));
+            return AR.map(function (x) {
+              return h("div", { key: x.hq, style: { marginBottom: "9px" } },
+                h("div", { className: "an-arh" },
+                  h("span", { className: "an-b" }, x.hq),
+                  h("span", null, "채권 " + fW(x.e) + " \xB7 연체 ", h("b", { style: { color: "#b91c1c" } }, fW(x.e2)), " (" + ps(x.r2, 0) + ")")),
+                h("div", { className: "an-arb", style: { width: (x.e / mx * 100).toFixed(1) + "%" } },
+                  h("i", { style: { width: (100 - (x.r2 || 0)).toFixed(1) + "%", background: "#2563eb" } }),
+                  h("i", { className: "an-gapw" }),
+                  h("i", { style: { width: (x.r2 || 0).toFixed(1) + "%", background: "#dc2626" } })));
+            });
+          })(),
+          h("div", { className: "an-foot" }, "* 채권 명세에 없는 본부는 표시되지 않습니다")),
+        h("div", { className: "an-panel" },
+          h("div", { className: "an-pt2" }, "담당자별 연체 \xB7 다음 조치"),
+          h("div", { className: "an-ph" }, "원본 「미수채권 명세일보」에서 자동 생성되며, 담당\xB7금액이 바뀌면 다음 주차 갱신에 자동 반영됩니다"),
+          h("div", { className: "an-tw" },
+            h("table", { className: "an-tbl", "data-no-sort": "1" },
+              h("colgroup", null, [13, 9, 12, 12, 9, 16, 29].map(function (w, i) { return h("col", { key: i, style: { width: w + "%" } }); })),
+              h("thead", null, h("tr", null, ["담당", "본부", "채권 합계", "연체", "연체율", "구성", "다음 조치"].map(function (t, i) { return h("th", { key: i }, t); }))),
+              h("tbody", null, MGR.map(function (x) {
+                const act = x.r2 >= 90 ? "거래처 직접 방문 \xB7 분할상환 합의 or 손상 검토"
+                  : x.r2 >= 60 ? "상위 거래처 집중 \xB7 본부장 동행"
+                  : x.r2 >= 40 ? "신규 출고 조건부 정지 \xB7 주간 회수 계획 제출"
+                  : "회수 합의 기한 설정";
+                return h("tr", { key: x.m },
+                  h("td", { className: "an-l an-b" }, x.m),
+                  h("td", { className: "an-c" }, x.hq),
+                  h("td", { className: "an-r" }, fW(x.e)),
+                  h("td", { className: "an-r an-crit" }, fW(x.e2)),
+                  h("td", { className: "an-r " + (x.r2 >= 60 ? "an-crit" : "") }, ps(x.r2, 0)),
+                  h("td", null, h("span", { className: "an-bar2" },
+                    h("i", { style: { width: (100 - (x.r2 || 0)).toFixed(1) + "%", background: "#2563eb" } }),
+                    h("i", { className: "an-gapw" }),
+                    h("i", { style: { width: (x.r2 || 0).toFixed(1) + "%", background: "#dc2626" } }))),
+                  h("td", { className: "an-l an-j" }, act));
+              })))),
+          h("div", { className: "an-foot" }, "* 금액 만위안 \xB7 연체 = 「이미 도래한 채권 중 미회수」 \xB7 구성 막대는 각 담당 채권 100% 기준")))),
+
+    h("div", { className: "an-rule" },
+      "판단 기준 — 필요 배수 3.0x 이상 : 사실상 달성 불가 \xB7 연체율 50% 이상 : 회수 개입 필요 \xB7 수금/매출 90% 미만 : 채권 누적 중 \xB7 재고월령 6개월 이상 : 과잉 \xB7 진입률 50% 미만 : 파이프라인 공백"));
+}
+
+function ExpView({ ui, setUI, kpi, live, fetchedAt, sheetsData }) {
   const set = (k, v) => setUI(Object.assign({}, ui, { [k]: v }));
   const nfmt = (v) => formatNumber(Math.round(v || 0));
   const tmode = ui.tmode || "w";
@@ -6831,6 +7597,109 @@ function ExpView({ ui, setUI, kpi, live, fetchedAt }) {
       "* └ 표시는 상위 거래처에 포함되므로 합계에서 제외 \xB7 주간은 잠정 \xB7 월간이 확정 \xB7 원본 구글시트 거래처실적"));
 
 
+
+  // ─────────── 현지 실적 (법인 자체 매출·수금) ───────────
+  const locTab = (function () {
+    const LSRC = (function () {
+      // 1) 시트 연동 우선
+      try {
+        const rs = (typeof sheetsData !== "undefined" && sheetsData && Array.isArray(sheetsData["현지실적"])) ? sheetsData["현지실적"] : null;
+        if (rs && rs.length) {
+          const pick = (r, ks) => { for (let i = 0; i < ks.length; i++) if (r[ks[i]] !== undefined && r[ks[i]] !== "") return r[ks[i]]; return null; };
+          const num = (v) => { if (v === null || v === undefined || v === "") return null; const n = Number(String(v).replace(/[^0-9.\-]/g, "")); return isNaN(n) ? null : n; };
+          const wset = [];
+          const rows = rs.map(function (r) {
+            const w = String(pick(r, ["주차"]) || "").trim();
+            if (/^W\d+$/.test(w)) wset.push(parseInt(w.slice(1), 10));
+            return { g: String(pick(r, ["구분"]) || "").trim(), c: String(pick(r, ["법인"]) || "").trim(),
+              i: String(pick(r, ["항목"]) || "").trim(), u: String(pick(r, ["단위"]) || "").trim(),
+              y25: num(pick(r, ["25년 실적"])), tgt: num(pick(r, ["26년 목표"])),
+              act: num(pick(r, ["실적"])), fc: num(pick(r, ["예상"])) };
+          }).filter(function (x) { return x.c && x.i; });
+          if (rows.length) return { wk: wset.length ? ("W" + Math.min.apply(null, wset)) : "", rows: rows, live: true };
+        }
+      } catch (e) {}
+      // 2) 내장
+      const E = (typeof CORP_LOCAL !== "undefined") ? CORP_LOCAL : { wk: "", rows: [] };
+      return { wk: E.wk, rows: E.rows || [], live: false };
+    })();
+
+    const GRP = (function () {
+      const mo = [];
+      LSRC.rows.forEach(function (x) { if (/^\d{1,2}월$/.test(x.g) && mo.indexOf(x.g) < 0) mo.push(x.g); });
+      mo.sort(function (a, b) { return parseInt(a, 10) - parseInt(b, 10); });
+      const out = mo.map(function (m) { return [m, m + " (당월)"]; });
+      if (LSRC.rows.some(function (x) { return x.g === "누적"; })) out.push(["누적", "누적"]);
+      if (LSRC.rows.some(function (x) { return x.g === "연간"; })) out.push(["연간", "연간"]);
+      return out.length ? out : [["누적", "누적"]];
+    })();
+    const gsel = (function () { const v = ui.lg; for (let i = 0; i < GRP.length; i++) if (GRP[i][0] === v) return v; return GRP[0][0]; })();
+    const CORDER = ["닝보", "북경", "대만"];
+    const IORDER = ["현지 매출", "현지 수금"];
+    const cur = LSRC.rows.filter(function (x) { return x.g === gsel; })
+      .sort(function (a, b) {
+        const ci = CORDER.indexOf(a.c) - CORDER.indexOf(b.c);
+        return ci !== 0 ? ci : (IORDER.indexOf(a.i) - IORDER.indexOf(b.i));
+      });
+
+    // 원본 단위 보정 : 금액 규모상 M RMB / K USD 는 실제로 K RMB
+    const uFix = (u, c) => {
+      const t = String(u || "").trim();
+      if (c === "대만") return t;
+      if (t === "M RMB" || t === "K USD") return "K RMB";
+      return t;
+    };
+    const n0 = (v) => (v === null || v === undefined) ? "—" : formatNumber(Math.round(v));
+    const pc2 = (a, t) => (a === null || a === undefined || !t) ? null : Math.round(a / t * 1000) / 10;
+    const pcs = (v) => (v === null) ? "—" : v.toFixed(1) + "%";
+    const pcc = (v) => (v === null) ? "text-slate-400" : (v >= 100 ? "text-blue-700 font-bold" : v >= 70 ? "text-slate-900" : "text-red-700 font-bold");
+    const grw = (a, y) => (a === null || a === undefined || !y) ? null : Math.round((a / y - 1) * 1000) / 10;
+    const grs = (v) => (v === null) ? "—" : ((v >= 0 ? "+" : "") + v.toFixed(1) + "%");
+
+    const badUnit = cur.some(function (x) { return x.c !== "대만" && (x.u === "M RMB" || x.u === "K USD"); });
+
+    return React.createElement("div", { className: "bg-white border border-slate-200 rounded-md p-3 mt-3" },
+      React.createElement("div", { className: "flex items-center gap-2 mb-2 flex-wrap" },
+        React.createElement("div", { className: "text-sm font-bold text-slate-900" },
+          "현지 실적 \xB7 법인 자체 매출\xB7수금", LSRC.wk ? React.createElement("span", { className: "ml-2 text-[11px] font-normal text-slate-500" }, LSRC.wk + " 기준") : null),
+        React.createElement("div", { className: "ml-auto flex gap-1 items-center" },
+          LSRC.live
+            ? React.createElement("span", { className: "px-2 py-0.5 text-[10.5px] font-bold rounded border bg-blue-50 text-blue-700 border-blue-300" }, "시트 연동")
+            : React.createElement("span", { className: "px-2 py-0.5 text-[10.5px] font-bold rounded border bg-amber-50 text-amber-800 border-amber-300" }, "내장"),
+          GRP.map(function (t) {
+            return React.createElement("button", { key: t[0], onClick: () => set("lg", t[0]),
+              className: "px-2.5 py-1 text-[11px] font-bold border rounded " + (gsel === t[0] ? "bg-slate-800 text-white border-slate-800" : "bg-white text-slate-600 border-slate-300 hover:bg-slate-50") }, t[1]); }))),
+
+      cur.length ? React.createElement("div", { className: "corpwrap" },
+        React.createElement("table", { className: "corptbl corploc", "data-no-sort": "1" },
+          React.createElement("thead", null, React.createElement("tr", null,
+            ["법인", "항목", "단위", "25년 실적", "26년 목표", "실적", "달성율", "예상", "예상 달성율", "전년비"]
+              .map(function (h, i) { return React.createElement("th", { key: i, className: "px-1.5 py-1.5" }, h); }))),
+          React.createElement("tbody", null, cur.map(function (x, i) {
+            const ra = pc2(x.act, x.tgt), rf = pc2(x.fc, x.tgt), gr = grw(x.act, x.y25);
+            return React.createElement("tr", { key: i },
+              React.createElement("td", { className: "px-1.5 py-1 corpk-n font-bold" }, x.c),
+              React.createElement("td", { className: "px-1.5 py-1 text-center font-semibold text-slate-700" }, x.i),
+              React.createElement("td", { className: "px-1.5 py-1 text-center text-slate-500" }, uFix(x.u, x.c)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-600" }, n0(x.y25)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-600" }, n0(x.tgt)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right font-bold" }, n0(x.act)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right " + pcc(ra) }, pcs(ra)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right text-slate-700" }, n0(x.fc)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right " + pcc(rf) }, pcs(rf)),
+              React.createElement("td", { className: "px-1.5 py-1 text-right font-semibold " + ((gr === null || gsel === "\uC5F0\uAC04") ? "text-slate-400" : gr >= 0 ? "text-blue-700" : "text-red-700") }, grs(gr)));
+          })))) : React.createElement("div", { className: "text-[11px] text-slate-400 py-6 text-center" }, "해당 구분의 데이터가 없습니다"),
+
+      badUnit ? React.createElement("div", { className: "px-3 py-2 mt-2 bg-amber-50 border border-amber-300 rounded text-[11px] text-amber-800" },
+        React.createElement("b", null, "단위 보정 "),
+        "원본에 닝보\xB7북경이 「M RMB」 「K USD」로 적혀 있으나 금액 규모상 실제는 천 위안이므로 화면에는 K RMB 로 표기합니다.") : null,
+
+      React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-1.5" },
+        "* 달성율 = 실적 ÷ 26년 목표 \xB7 예상 달성율 = 예상 ÷ 목표 \xB7 전년비 = 실적 ÷ 25년 실적 − 1 \xB7 원본 구글시트 「현지실적」",
+        gsel === "\uC5F0\uAC04" ? React.createElement("span", { className: "text-slate-400" },
+          " \xB7 \uC5F0\uAC04\uC740 \uC2E4\uC801\uC774 \uC9C4\uD589 \uC911\uC774\uB77C \uC804\uB144\uBE44\uB97C \uD68C\uC0C9\uC73C\uB85C \uD45C\uC2DC\uD569\uB2C8\uB2E4 (\uC5F0\uAC04 \uD655\uC815 \uC804 \uBE44\uAD50 \uBD88\uAC00)") : null));
+  })();
+
   const stamp = (function () {
     try { return fetchedAt ? new Date(fetchedAt).toLocaleString("ko-KR") : null; } catch (e) { return null; }
   })();
@@ -6848,7 +7717,8 @@ function ExpView({ ui, setUI, kpi, live, fetchedAt }) {
             "\uB0B4\uC7A5 \uB370\uC774\uD130 \u2014 \uC0C1\uB2E8 [\uC2DC\uD2B8 \uC5F0\uB3D9] \uC744 \uB204\uB974\uBA74 \uCD5C\uC2E0\uC73C\uB85C \uBC14\uB01D\uB2C8\uB2E4"),
       React.createElement("span", { className: "text-[11px] text-slate-500" },
         "\uC6D0\uBCF8 : \uAD6C\uAE00\uC2DC\uD2B8 \u300C\uAC70\uB798\uCC98\uC2E4\uC801_\uC8FC\uAC04 / \uC6D4\uAC04\u300D")),
-    expTab);
+    expTab,
+    locTab);
 }
 
 function CorpView({ month, ui, setUI, psi, kpi, wkd, psrc, edits, onEdit, localEdits, closedM, setClosedM, apiUrl, setApiUrl }) {
@@ -8294,7 +9164,7 @@ function App() {
     const t1 = setTimeout(tag, 250), t2 = setTimeout(tag, 900);
     return () => { clearTimeout(t1); clearTimeout(t2); };
   });
-  const EMBED_STAMP = "2026-09-12 (W37 \uC8FC\uAC04 \uAC31\uC2E0 \xB7 \uC6D4\uAC04\uC740 8\uC6D4 \uB9C8\uAC10)";
+  const EMBED_STAMP = "2026-09-20 (W38 \uC8FC\uAC04 \uAC31\uC2E0 \xB7 \uC6D4\uAC04\uC740 8\uC6D4 \uB9C8\uAC10)";
   const SRC_GATED = ["KPI_Monthly", "\uB300\uB9AC\uC0C1_PSI", "DSO_Master", "BD_Detail", "ARi_Detail", "\u7EC8\u7AEF_Region", "\uBC95\uC778_PSI", "\uBC95\uC778_\uC7AC\uACE0", "\uBC95\uC778_KPI", "\uAC70\uB798\uCC98\uC2E4\uC801_\uC8FC\uAC04", "\uAC70\uB798\uCC98\uC2E4\uC801_\uC6D4\uAC04", "\uBC95\uC778_KPI_\uC8FC\uAC04", "\uBC95\uC778_PSI_\uC8FC\uAC04", "\uBC95\uC778_PSI_\uC6D4\uBCC4", "\uB300\uB9CC_\uC218\uCD9C_\uC6D4\uBCC4", "\uB300\uB9CC_KPI_\uC6D4\uBCC4", "\uB300\uB9CC_\uC218\uAE08_\uC6D4\uBCC4", "\uB300\uB9CC\uBC95\uC778_\uD604\uC9C0", "\uB300\uB9CC_BL_\uBAA8\uB378"];
   const sheetsData = React.useMemo(() => {
     if (!sheetsDataRaw || srcMode === "sheet") return sheetsDataRaw;
@@ -9814,7 +10684,7 @@ Google Drive \uB610\uB294 \uC548\uC804\uD55C \uC704\uCE58\uC5D0 \uBCF4\uAD00\uD5
       title: "\uC0AC\uC774\uB4DC\uBC14 \uC811\uAE30"
     },
     /* @__PURE__ */ React.createElement("svg", { className: "w-5 h-5", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("polyline", { points: "15 18 9 12 15 6" }))
-  )), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setDashOpen(!dashOpen), className: "w-full px-2 py-1.5 text-xs text-slate-400 hover:text-slate-200 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("span", null, "\uB300\uC2DC\uBCF4\uB4DC"), /* @__PURE__ */ React.createElement("div", { className: `transition-transform ${dashOpen ? "" : "-rotate-90"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "chevronDown", className: "w-3 h-3" }))), dashOpen && /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement(
+  )), /* @__PURE__ */ React.createElement("div", { className: "px-3 pt-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("anal"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded font-bold ${selectedHQ === "anal" ? "bg-blue-600 text-white" : "text-slate-200 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\uD83E\uDDED"), /* @__PURE__ */ React.createElement("span", null, "\uBD84\uC11D"))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setDashOpen(!dashOpen), className: "w-full px-2 py-1.5 text-xs text-slate-400 hover:text-slate-200 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("span", null, "\uB300\uC2DC\uBCF4\uB4DC"), /* @__PURE__ */ React.createElement("div", { className: `transition-transform ${dashOpen ? "" : "-rotate-90"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "chevronDown", className: "w-3 h-3" }))), dashOpen && /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: () => {
@@ -15806,9 +16676,13 @@ const renderHQDashboard = (hqKey) => {
     const sK = kpiSingle(hqKey);
     const qMon = (d) => ((d[7] || [])[M2 - 1]) || 0;
     const qCum = (d) => { const a = d[7] || []; let x = 0; for (let i = 0; i < M2; i++) x += a[i] || 0; return x; };
-    const T = { kpi: 0, act: 0, fc: 0, cash: 0, ct: 0, qt: 0, qm: 0, qc: 0 };
+    // 예측 우선순위 : 2차 → 1차 → 실적
+    const fc1Of = (d, r) => (r.fc === void 0 || r.fc === "") ? (d[3][M2 - 1] || 0) : (Number(r.fc) || 0);
+    const fc2Of = (d, r) => (r.fc2 === void 0 || r.fc2 === "") ? null : (Number(r.fc2) || 0);
+    const fcvOf = (d, r) => { const v2 = fc2Of(d, r); return (v2 === null) ? fc1Of(d, r) : v2; };
+    const T = { kpi: 0, act: 0, fc: 0, fc1: 0, cash: 0, ct: 0, qt: 0, qm: 0, qc: 0 };
     rowsP.forEach((d) => { const kv = d[2][M2 - 1] || 0; T.kpi += kv; T.act += d[3][M2 - 1] || 0; T.cash += d[5][M2 - 1] || 0;
-      const r = rec(d); T.fc += (r.fc === void 0 || r.fc === "" ? (d[3][M2 - 1] || 0) : Number(r.fc) || 0);
+      const r = rec(d); T.fc1 += fc1Of(d, r); T.fc += fcvOf(d, r);
       T.ct += (r.ct === void 0 || r.ct === "" ? kv : Number(r.ct) || 0);
       T.qm += qMon(d); T.qc += qCum(d);
       T.qt += (r.qt === void 0 || r.qt === "" ? 0 : Number(r.qt) || 0); });
@@ -15852,18 +16726,27 @@ const renderHQDashboard = (hqKey) => {
         React.createElement("button", { onClick: () => setKqOn(!kqOn), className: "text-[11px] font-bold px-2 py-0.5 rounded border " + (kqOn ? "text-blue-700 border-blue-300 bg-blue-50" : "text-slate-500 border-slate-300 bg-slate-50") }, kqOn ? "\uC218\uB7C9 \uC228\uAE40" : "\uC218\uB7C9 \uBCF4\uAE30")),
       React.createElement("div", { className: "kplanwrap border border-slate-200 rounded-lg" },
         React.createElement("table", { className: KTB, "data-no-sort": "1" },
-          React.createElement("colgroup", null,
-            [40, 46, 0, 80, 80, 50, 80, 50, 76, 80, 80, 48].concat(kqOn ? [64, 58, 64, 52] : [])
-              .map((w, ci) => React.createElement("col", { key: ci, style: w ? { width: w + "px" } : { width: "auto" } }))),
+          (function () {
+            // 대리상명(index 2)만 넓게 · 나머지는 균등 분할 (table-layout:fixed)
+            const NC = kqOn ? 17 : 13;
+            const NAMEW = kqOn ? 15 : 22;            // 대리상명 실제 길이에 맞춘 폭
+            const OTHW = (100 - NAMEW) / (NC - 1);
+            return React.createElement("colgroup", null,
+              Array.from({ length: NC }, function (_, ci) {
+                return React.createElement("col", { key: ci, style: { width: (ci === 2 ? NAMEW : OTHW) + "%" } });
+              }));
+          })(),
           React.createElement("thead", { className: "bg-slate-100 border-b border-slate-200" },
             React.createElement("tr", null,
-              ["본부", "지역", "대리상명", "당월 KPI", "판매실적", "달성율", "판매예측", "달성율", "차이", "수금목표", "수금금액", "비중"]
+              ["본부", "지역", "대리상명", "당월 KPI", "판매실적", "달성율", "예측(1차)", "예측(2차)", "달성율", "차이", "수금목표", "수금금액", "비중"]
                 .concat(kqOn ? ["수량목표", "당월", "누계", "달성율"] : [])
-                .map((h, hi) => React.createElement("th", { key: hi, className: gh + (hi >= 12 ? " kqh" : ""), style: { whiteSpace: "pre" } }, h)))),
+                .map((h, hi) => React.createElement("th", { key: hi, className: gh + (hi >= 13 ? " kqh" : ""), style: { whiteSpace: "pre" } }, h)))),
           React.createElement("tbody", null, rowsP.map((d, i) => {
             const kpiv = d[2][M2 - 1] || 0, act = d[3][M2 - 1] || 0, cash = d[5][M2 - 1] || 0;
             const r = rec(d);
-            const fcv = (r.fc === void 0 || r.fc === "") ? act : Number(r.fc) || 0;
+            const fc1 = (r.fc === void 0 || r.fc === "") ? act : Number(r.fc) || 0;
+            const fc2 = (r.fc2 === void 0 || r.fc2 === "") ? null : (Number(r.fc2) || 0);
+            const fcv = (fc2 === null) ? fc1 : fc2;
             const ctv = (r.ct === void 0 || r.ct === "") ? kpiv : Number(r.ct) || 0;
             const qtgt = (r.qt === void 0 || r.qt === "") ? 0 : Number(r.qt) || 0;
             const diff = fcv - kpiv;
@@ -15872,7 +16755,7 @@ const renderHQDashboard = (hqKey) => {
               React.createElement("tr", { className: "border-b border-slate-100 hover:bg-slate-50 " + (open ? "bg-blue-50/40" : "") },
                 React.createElement("td", { className: "px-1 py-1 text-slate-600 text-center" }, hqKey === "전국" ? hqOf(d[0]) : hqKey.replace("본부", "")),
                 React.createElement("td", { className: "px-1 py-1 text-slate-600 text-center" }, d[0]),
-                React.createElement("td", { className: "px-1 py-1 font-semibold text-blue-700 cursor-pointer hover:underline kname", onClick: () => setPlanOpen(open ? null : key(d)) },
+                React.createElement("td", { className: "px-1 py-1 font-semibold text-blue-700 cursor-pointer hover:underline kname", title: String(d[1] || ""), onClick: () => setPlanOpen(open ? null : key(d)) },
                   open ? "\u25BE " : "\u25B8 ", __dlrName(d[1]),
                   d[11] ? React.createElement("span", { className: "ml-1 text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1 rounded" }, "\uC9C1\uC601") : null,
                   (function () { const np = memoOf(d, "plan").split("\n").filter((x) => x.trim()).length, nc = memoOf(d, "col").split("\n").filter((x) => x.trim()).length;
@@ -15882,8 +16765,12 @@ const renderHQDashboard = (hqKey) => {
                 React.createElement("td", { className: "px-1 py-1 text-right font-bold " + (rt(act, kpiv) >= 70 ? "text-blue-600" : "text-red-600") }, rt(act, kpiv), "%"),
                 React.createElement("td", { className: "px-1 py-1 text-right" },
                   React.createElement("input", { className: "kfc", type: "text", value: fmtIn(r.fc),
-                    placeholder: formatNumber(Math.round(act)),
+                    placeholder: formatNumber(Math.round(act)), title: "\uC608\uCE21(1\uCC28) \u2014 \uBBF8\uC785\uB825 \uC2DC \uC2E4\uC801",
                     onChange: (e) => setRec(d, { fc: cleanIn(e.target.value) }) })),
+                React.createElement("td", { className: "px-1 py-1 text-right" },
+                  React.createElement("input", { className: "kfc", type: "text", value: fmtIn(r.fc2),
+                    placeholder: formatNumber(Math.round(fc1)), title: "\uC608\uCE21(2\uCC28) \u2014 \uBBF8\uC785\uB825 \uC2DC 1\uCC28 \uC0AC\uC6A9",
+                    onChange: (e) => setRec(d, { fc2: cleanIn(e.target.value) }) })),
                 React.createElement("td", { className: "px-1 py-1 text-right font-bold " + (rt(fcv, kpiv) >= 70 ? "text-blue-600" : "text-red-600") }, rt(fcv, kpiv), "%"),
                 React.createElement("td", { className: "px-1 py-1 text-right font-bold " + (diff < 0 ? "text-red-600" : diff > 0 ? "text-blue-600" : "text-slate-900") }, (diff > 0 ? "+" : "") + formatNumber(Math.round(diff))),
                 React.createElement("td", { className: "px-1 py-1 text-right" },
@@ -15899,7 +16786,7 @@ const renderHQDashboard = (hqKey) => {
                   React.createElement("td", { className: "px-1 py-1 text-right font-semibold text-slate-900 kqc" }, formatNumber(Math.round(qCum(d)))),
                   React.createElement("td", { className: "px-1 py-1 text-right font-bold kqc " + (rt(qCum(d), qtgt) >= 70 ? "text-blue-600" : "text-red-600") }, qtgt > 0 ? rt(qCum(d), qtgt) + "%" : "\u2014")) : null),
               open ? React.createElement("tr", { className: "border-b border-slate-200 bg-slate-50/60" },
-                React.createElement("td", { colSpan: kqOn ? 16 : 12, className: "px-2 py-2" },
+                React.createElement("td", { colSpan: kqOn ? 17 : 13, className: "px-2 py-2" },
                   React.createElement("div", { className: "kgrid" }, logBox(d, "plan", "달성방안"), logBox(d, "col", "회수방안")))) : null);
           }),
           React.createElement("tr", { className: "bg-slate-50 border-t-2 border-slate-300 font-bold text-slate-800" },
@@ -15907,6 +16794,7 @@ const renderHQDashboard = (hqKey) => {
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.kpi))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.act))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, rt(T.act, T.kpi), "%"),
+            React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.fc1))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.fc))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, rt(T.fc, T.kpi), "%"),
             React.createElement("td", { className: "px-1 py-1 text-right " + (T.fc - T.kpi < 0 ? "text-red-600" : T.fc - T.kpi > 0 ? "text-blue-600" : "") }, (T.fc - T.kpi > 0 ? "+" : "") + formatNumber(Math.round(T.fc - T.kpi))),
@@ -15928,19 +16816,19 @@ const renderHQDashboard = (hqKey) => {
               React.createElement("tr", { className: "bg-white border-t border-slate-300 font-semibold text-slate-700" },
                 React.createElement("td", { className: "px-1 py-1", colSpan: 3 }, "KPI \uC2DC\uD2B8 \uBAA9\uD45C \xB7 ", M2, "\uC6D4 (\uC9C0\uC5ED \uD569\uACC4)"),
                 React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(sK.aT || 0))),
-                React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal text-slate-500", colSpan: 8 }, "\uAE08\uC561\uBAA9\uD45C_", M2, "\uC6D4 \xB7 \uC9C0\uC5ED \uB2E8\uC704 \uBAA9\uD45C\uC758 \uD569"),
+                React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal text-slate-500", colSpan: 9 }, "\uAE08\uC561\uBAA9\uD45C_", M2, "\uC6D4 \xB7 \uC9C0\uC5ED \uB2E8\uC704 \uBAA9\uD45C\uC758 \uD569"),
                 kqOn ? React.createElement(React.Fragment, null,
                   React.createElement("td", { className: "px-1 py-1 text-right kqc" }, formatNumber(Math.round(sK.qT || 0))),
                   React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal text-slate-500 kqc", colSpan: 3 }, "\uC218\uB7C9\uBAA9\uD45C_", M2, "\uC6D4")) : null),
               React.createElement("tr", { className: "bg-slate-50 border-b border-slate-300 font-bold" },
                 React.createElement("td", { className: "px-1 py-1 text-slate-800", colSpan: 3 }, "\uBBF8\uBC30\uC815 \uCC28\uC561 (\uBAA9\uD45C \u2212 \uACC4\uC57D)"),
                 React.createElement("td", { className: "px-1 py-1 text-right " + cA }, formatNumber(Math.round(gapA))),
-                React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal " + cA, colSpan: 8 }, note(gapA, "\uC704\uC548"), gapA !== 0 && sK.aT > 0 ? " (\uBAA9\uD45C\uC758 " + Math.abs(pctA) + "%)" : "", gapA > 0 ? " \xB7 \uB300\uB9AC\uC0C1\uC5D0 \uBC30\uBD84\uB418\uC9C0 \uC54A\uC740 \uBAA9\uD45C" : gapA < 0 ? " \xB7 \uACC4\uC57D\uC774 \uC9C0\uC5ED\uBAA9\uD45C\uB97C \uCD08\uACFC" : ""),
+                React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal " + cA, colSpan: 9 }, note(gapA, "\uC704\uC548"), gapA !== 0 && sK.aT > 0 ? " (\uBAA9\uD45C\uC758 " + Math.abs(pctA) + "%)" : "", gapA > 0 ? " \xB7 \uB300\uB9AC\uC0C1\uC5D0 \uBC30\uBD84\uB418\uC9C0 \uC54A\uC740 \uBAA9\uD45C" : gapA < 0 ? " \xB7 \uACC4\uC57D\uC774 \uC9C0\uC5ED\uBAA9\uD45C\uB97C \uCD08\uACFC" : ""),
                 kqOn ? React.createElement(React.Fragment, null,
                   React.createElement("td", { className: "px-1 py-1 text-right kqc " + (T.qt === 0 ? "text-slate-400" : cQ) }, T.qt === 0 ? "\u2014" : formatNumber(Math.round(gapQ))),
                   React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal kqc " + cQ, colSpan: 3 }, T.qt === 0 ? "\uC218\uB7C9\uBAA9\uD45C \uBBF8\uC785\uB825" : note(gapQ, "\uAC1C"))) : null));
           })()))),
-      React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-1.5" }, "* 금액 단위 위안 \xB7 수량 단위 개 \xB7 합계=대리상_PSI 계약 \xB7 KPI 시트 목표=KPI 시트 지역별 목표 합계 (별도 시트) \xB7 판매예측 미입력 시 실적을 그대로 사용 \xB7 차이 = 실적 − 예측 (음수 = 남은 필요액) \xB7 수량 달성율 = 누계 \u00F7 수량목표 \xB7 입력 내용은 자동 저장되며 월별로 관리됩니다"));
+      React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-1.5" }, "* 금액 단위 위안 \xB7 수량 단위 개 \xB7 합계=대리상_PSI 계약 \xB7 KPI 시트 목표=KPI 시트 지역별 목표 합계 (별도 시트) \xB7 예측(1차) 미입력 시 실적 \xB7 예측(2차) 미입력 시 1차 사용 \xB7 달성율\xB7차이는 2차 기준 \xB7 차이 = 실적 − 예측 (음수 = 남은 필요액) \xB7 수량 달성율 = 누계 \u00F7 수량목표 \xB7 입력 내용은 자동 저장되며 월별로 관리됩니다"));
   })()
 , tab === "dso" && (() => {
     const rr = DSO_RICH[hqKey] || [];
@@ -17332,10 +18220,11 @@ const renderPricePos = (p) => /* @__PURE__ */ React.createElement(PricePosView, 
 
   const renderContent = () => {
     if (selectedHQ && selectedHQ.indexOf("hq:") === 0) return renderHQDashboard(selectedHQ.slice(3));
-    if (!SHOW_LEGACY && selectedHQ && selectedHQ !== "overview" && selectedHQ !== "marketshare" && selectedHQ !== "national" && selectedHQ !== "pricepos" && selectedHQ !== "policy" && selectedHQ !== "corp" && selectedHQ !== "corptw" && selectedHQ !== "corpfin" && selectedHQ !== "exp") return renderHQDashboard(String(selectedHQ).replace("본부", ""));
+    if (!SHOW_LEGACY && selectedHQ && selectedHQ !== "overview" && selectedHQ !== "marketshare" && selectedHQ !== "national" && selectedHQ !== "pricepos" && selectedHQ !== "policy" && selectedHQ !== "corp" && selectedHQ !== "corptw" && selectedHQ !== "corpfin" && selectedHQ !== "exp" && selectedHQ !== "anal") return renderHQDashboard(String(selectedHQ).replace("본부", ""));
     if (selectedHQ === 'national') return renderHQDashboard('전국');
     if (selectedHQ === 'policy') return React.createElement(PolicyView, { ui: plUI, setUI: setPlUI, sheetsData });
-    if (selectedHQ === 'exp') return React.createElement(ExpView, { ui: corpUI, setUI: setCorpUI, kpi: CORP_KPI, live: CORP_TRD_LIVE, fetchedAt: sheetsFetchedAt });
+    if (selectedHQ === 'anal') return React.createElement(AnalView, { sheetsData: sheetsData, kpiSrc: KPI_SRC, fin: (typeof CORP_FIN !== 'undefined' ? CORP_FIN : null), psiSrc: CORP_PSI_SRC_LIVE, dealer: DEALER_PSI, fetchedAt: sheetsFetchedAt, srcMode: srcMode });
+    if (selectedHQ === 'exp') return React.createElement(ExpView, { ui: corpUI, setUI: setCorpUI, kpi: CORP_KPI, live: CORP_TRD_LIVE, fetchedAt: sheetsFetchedAt, sheetsData });
     if (selectedHQ === 'corpfin') return React.createElement(CorpFinView, { ui: corpUI, setUI: setCorpUI, month: filterMonth || 0, data: CORP_FIN });
     if (selectedHQ === 'corptw') return React.createElement(CorpTWView, { ui: corpUI, setUI: setCorpUI, data: CORP_TW_LIVE, month: filterMonth || 0 });
     if (selectedHQ === 'corp') return React.createElement(CorpView, { month: filterMonth || 0, ui: corpUI, setUI: setCorpUI, psi: CORP_PSI, kpi: CORP_KPI, wkd: CORP_WK, psrc: CORP_PSI_SRC_LIVE, edits: CORP_EDITS, onEdit: setCorpEdit, localEdits: corpEdits, closedM: corpClosedM, setClosedM: setCorpClosedM, apiUrl: corpEditUrl, setApiUrl: function (u) { setCorpEditUrl(u); try { localStorage.setItem("dashboard_corp_edit_url_v1", u || ""); } catch (e) {} } });
