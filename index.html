@@ -396,18 +396,28 @@
   table.corpvz4 th:first-child,table.corpvz4 td:first-child{width:7%;text-align:center}
   table.corpvz4 th:nth-child(4),table.corpvz4 td:nth-child(4){width:22%;text-align:left}
   .corpview .corptabs{row-gap:0}
-  .corpview .corpbar{row-gap:2px;gap:2px!important;flex-wrap:nowrap!important}
+  .corpview .corpbar{row-gap:2px;gap:4px!important;flex-wrap:nowrap!important}
   .corpview .corpdiv{display:inline-block;width:1px;height:14px;background:#cbd5e1;margin:0 3px;flex:0 0 auto}
-  .corpview .corpchip{font-size:12.1px!important;padding:3px 7px!important;margin-right:0!important}
-  .corpview .corptab{font-size:10.9px!important;padding:4px 9px 5px!important;font-weight:700;border:1px solid #cbd5e1;border-bottom:none;border-radius:5px 5px 0 0;margin:0 1px -1px 0;position:relative;line-height:1.5;letter-spacing:-.2px}
-  .corpview .corptab-off{background:#f1f5f9;color:#64748b}
-  .corpview .corptab-off:hover{background:#e2e8f0;color:#334155}
-  .corpview .corptab-on{background:#1e3a8a;color:#fff;border-color:#1e3a8a;z-index:2}
-  .corpview .corptab-on{padding-bottom:7px!important}
+  .corpview .corpchip{font-size:12.1px!important;padding:5px 11px!important;margin-right:0!important;border-radius:8px!important;border-color:#ced5e1!important}
+  .corpview .corptab{font-size:11.6px!important;padding:5px 11px!important;font-weight:700;border:1px solid #ced5e1;border-radius:8px;margin:0 2px 2px 0;position:relative;line-height:1.5;letter-spacing:-.2px;transition:background .12s,border-color .12s}
+  .corpview .corptab-off{background:#fff;color:#334155;border-color:#ced5e1}
+  .corpview .corptab-off:hover{background:#f2f5f9;color:#1e293b}
+  .corpview .corptab-on{background:#495ff2;color:#fff;border-color:#495ff2;z-index:2}
+  .corpview .corptab-on{padding-bottom:5px!important}
   .corpview .corpbar{padding-top:3px!important}
-  .corpview .corpchip{margin-bottom:3px!important}
-  .corpview .corpbar{border-bottom:2px solid #1e3a8a!important;padding-bottom:0!important;align-items:flex-end}
-  .corpview .corpsq{display:inline-block;width:8px;height:8px;background:#1e3a8a;border-radius:1px;margin-right:5px;vertical-align:middle}
+  .corpview .corpchip{margin-bottom:2px!important}
+.corpchip.bg-blue-600{background:#495ff2!important;border-color:#495ff2!important}
+.corpchip.bg-white{color:#334155!important}
+  .corpview .corpbar{border-bottom:none!important;padding-bottom:6px!important;align-items:center}
+  .corpview .corpsq{display:inline-block;width:8px;height:8px;background:#2f3b85;border-radius:1px;margin-right:6px;vertical-align:middle}
+.corpchip.bg-white .corpsq{background:#64748b}
+.corptab2{border-radius:8px!important;padding:5px 11px!important}
+.corptab2.bg-slate-800{background:#495ff2!important;border-color:#495ff2!important}
+.corpdiv{opacity:.5;margin:0 7px!important;height:16px}
+.psiaud{display:inline-flex;align-items:center;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;border:1px solid transparent;letter-spacing:-.2px;cursor:help}
+.psiaud-ok{background:#f0fdf4;border-color:#bbf7d0;color:#15803d}
+.psiaud-warn{background:#fffbeb;border-color:#fde68a;color:#b45309}
+.psiaud-err{background:#fef2f2;border-color:#fecaca;color:#b91c1c}
   .corpview .corpmon{font-size:10.5px!important;padding:2px 3px!important}
   .syncbadge{font-size:8.4px!important;line-height:1.3}
   .corpview .corpeditable{cursor:text;display:inline-block;min-width:24px;border-bottom:1px dashed transparent}
@@ -486,8 +496,8 @@
   .kpirow .kpic-s{font-size:9.5px!important}
   .kpirow .kpic-l,.kpirow .kpic-s{white-space:nowrap}
   /* 카드별 폭 배분: 2 목표금액 / 8 하부고객 축소, 3 판매예측 확대 */
-  .kpirow>.kpic:nth-child(2),.kpirow>.kpic:nth-child(8){flex-grow:0}
-  .kpirow>.kpic:nth-child(3){flex-grow:4}
+  .kpirow>.kpic:nth-child(2),.kpirow>.kpic:nth-child(8){flex-grow:1}
+  .kpirow>.kpic:nth-child(3){flex-grow:1.35}
   .kpic-l,.kpic-v,.kpic-s{white-space:nowrap}
   @media(max-width:760px){.kpirow>.kpic{flex:1 1 44%}}
   .an-root{--aink:#0f172a;--aink2:#334155;--amute:#64748b;--aline:#cbd5e1;--aline2:#e2e8f0;
@@ -530,6 +540,32 @@
   .an-dbody{display:grid;grid-template-columns:422px 1fr 300px;gap:0}
   .an-dbody>div{padding:11px 13px}
   .an-dbody>div+div{border-left:1px solid #e2e8f0}
+  /* 월 탭 */
+  .an-mtabs{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:8px}
+  .an-mtab{font-size:12px;font-weight:700;padding:4px 12px;border-radius:7px 7px 0 0;border:1px solid #cbd5e1;border-bottom:none;cursor:pointer;line-height:1.5;white-space:nowrap;position:relative}
+  .an-mtab i{font-style:normal;font-size:9.5px;font-weight:700;margin-left:4px;padding:0 4px;border-radius:6px;background:rgba(255,255,255,.22)}
+  .an-mtab-off{background:#f1f5f9;color:#64748b}
+  .an-mtab-off:hover{background:#e2e8f0;color:#334155}
+  .an-mtab-on{background:#1e3a8a;color:#fff;border-color:#1e3a8a}
+  .an-mnote{font-size:11px;color:#b45309;background:#fffbeb;border:1px solid #fde68a;border-radius:6px;padding:2px 8px;margin-left:6px}
+  .an-mok{color:#15803d;background:#f0fdf4;border-color:#bbf7d0}
+  .an-snapb{font-size:11px;font-weight:700;margin-left:auto;padding:3px 10px;border-radius:7px;border:1px solid #059669;background:#059669;color:#fff;cursor:pointer;white-space:nowrap}
+  .an-snapb:hover{background:#047857}
+  .an-snapb-done{background:#fff;color:#047857}
+  .an-snapb:disabled{background:#e2e8f0;color:#64748b;border-color:#cbd5e1;cursor:default}
+  /* 의사결정 카드 — 근거 2단 + 선택지 토글 */
+  .an-dbody2{display:grid;grid-template-columns:minmax(300px,38%) 1fr;gap:0}
+  .an-dbody2>div{padding:11px 14px;min-width:0}
+  .an-dbody2>div+div{border-left:1px solid #e2e8f0}
+  .an-dbar{display:flex;flex-direction:column;justify-content:center}
+  .an-due{font-size:10.5px;font-weight:700;color:#b91c1c;background:#fef2f2;border:1px solid #fecaca;border-radius:9px;padding:1px 8px;white-space:nowrap}
+  .an-w .an-due{color:#b45309;background:#fffbeb;border-color:#fde68a}
+  .an-dfoot{border-top:1px solid #e2e8f0;padding:7px 14px 9px;background:#fcfdfe}
+  .an-otog{font-size:11.5px;font-weight:700;color:#1d4ed8;background:none;border:none;padding:0;cursor:pointer}
+  .an-otog:hover{text-decoration:underline}
+  .an-otog-on{color:#0f172a}
+  .an-dfoot .an-opt{margin-top:7px}
+  .an-note .an-ph{margin:0}
   .an-k{font-size:10.5px;font-weight:800;color:#64748b;letter-spacing:.3px;margin-bottom:5px}
   .an-ev{font-size:12px;color:#334155;line-height:1.6}
   .an-ev b{color:#0f172a}
@@ -595,7 +631,50 @@
   .an-arb{height:15px;background:#f8fafc;border-radius:3px;overflow:hidden;display:flex}
   .an-arb>i{display:block;height:100%}
   .an-rule{font-size:11px;color:#64748b;text-align:center;padding:4px 0 2px}
-  @media(max-width:1400px){.an-sig{grid-template-columns:repeat(4,1fr)}.an-dbody{grid-template-columns:1fr}.an-dbody>div+div{border-left:none;border-top:1px solid #e2e8f0}.an-three{grid-template-columns:1fr}.an-two{grid-template-columns:1fr!important}}
+  /* 경영회의 자료 */
+  .mtg-root{font-family:"Malgun Gothic","맑은 고딕",Arial,sans-serif;font-size:13px;color:#0f172a}
+  .mtg-root *{box-sizing:border-box}
+  .mtg-tabs{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:8px}
+  .mtg-tab{font-size:12px;font-weight:700;padding:4px 12px;border-radius:7px 7px 0 0;border:1px solid #cbd5e1;border-bottom:none;cursor:pointer;line-height:1.5;white-space:nowrap}
+  .mtg-tab i{font-style:normal;font-size:9.5px;font-weight:700;margin-left:5px;padding:0 5px;border-radius:7px;background:rgba(255,255,255,.25)}
+  .mtg-tab-off{background:#f1f5f9;color:#64748b}
+  .mtg-tab-off:hover{background:#e2e8f0;color:#334155}
+  .mtg-tab-off i{background:#e2e8f0;color:#475569}
+  .mtg-tab-on{background:#1e3a8a;color:#fff;border-color:#1e3a8a}
+  .mtg-tab-add{background:#fff;color:#1d4ed8;border-style:dashed}
+  .mtg-at{font-size:10.5px;color:#94a3b8;margin-left:auto}
+  .mtg-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .mtg-title{flex:1 1 320px;min-width:200px;font-size:12px;padding:5px 9px;border:1px solid #cbd5e1;border-radius:6px;color:#0f172a}
+  .mtg-up{font-size:12px;font-weight:700;padding:5px 14px;border-radius:6px;border:1px solid #1e3a8a;background:#1e3a8a;color:#fff;cursor:pointer;white-space:nowrap}
+  .mtg-up:hover{background:#1e40af}
+  .mtg-up-off{background:#e2e8f0;color:#64748b;border-color:#cbd5e1;cursor:default}
+  .mtg-msg{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:9px;border:1px solid}
+  .mtg-msg-ok{color:#15803d;background:#f0fdf4;border-color:#bbf7d0}
+  .mtg-msg-err{color:#b91c1c;background:#fef2f2;border-color:#fecaca}
+  .mtg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:12px}
+  .mtg-card{border:1px solid #e2e8f0;border-radius:9px;overflow:hidden;background:#fff}
+  .mtg-hd{display:flex;align-items:center;gap:7px;padding:7px 10px;background:#f8fafc;border-bottom:1px solid #e2e8f0}
+  .mtg-no{width:19px;height:19px;border-radius:50%;background:#1e3a8a;color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .mtg-ttl{font-size:12px;font-weight:700;color:#0f172a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mtg-a{margin-left:auto;font-size:10.5px;font-weight:700;color:#1d4ed8;text-decoration:none;white-space:nowrap}
+  .mtg-a:hover{text-decoration:underline}
+  .mtg-del{font-size:15px;line-height:1;color:#94a3b8;background:none;border:none;cursor:pointer;padding:0 2px}
+  .mtg-del:hover{color:#b91c1c}
+  .mtg-wrap{position:relative;background:#f8fafc;min-height:60px}
+  .mtg-img{display:block;width:100%;height:auto;cursor:zoom-in}
+  .mtg-err{display:none;font-size:11.5px;color:#b45309;padding:14px 12px;text-align:center}
+  .mtg-bad .mtg-err{display:block}
+  .mtg-empty{border:1px dashed #cbd5e1;border-radius:9px;padding:34px 16px;text-align:center;background:#f8fafc}
+  .mtg-empty-t{font-size:13px;font-weight:700;color:#475569}
+  .mtg-empty-s{font-size:11.5px;color:#94a3b8;margin-top:5px}
+  .mtg-modal{position:fixed;inset:0;background:rgba(15,23,42,.72);z-index:60;display:flex;align-items:center;justify-content:center;padding:24px}
+  .mtg-modal-in{background:#fff;border-radius:10px;max-width:96vw;max-height:94vh;overflow:auto;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+  .mtg-modal-hd{display:flex;align-items:center;gap:12px;padding:9px 14px;border-bottom:1px solid #e2e8f0;font-size:12.5px;font-weight:700;position:sticky;top:0;background:#fff}
+  .mtg-modal-hd a{margin-left:auto;font-size:11px;font-weight:700;color:#1d4ed8;text-decoration:none}
+  .mtg-modal-hd button{font-size:11.5px;font-weight:700;color:#475569;background:#f1f5f9;border:1px solid #cbd5e1;border-radius:6px;padding:3px 10px;cursor:pointer}
+  .mtg-modal-in img{display:block;max-width:100%;height:auto}
+  @media(max-width:900px){.mtg-grid{grid-template-columns:1fr}}
+  @media(max-width:1400px){.an-sig{grid-template-columns:repeat(4,1fr)}.an-dbody,.an-dbody2{grid-template-columns:1fr}.an-dbody2>div+div{border-left:none;border-top:1px solid #e2e8f0}.an-dbody>div+div{border-left:none;border-top:1px solid #e2e8f0}.an-three{grid-template-columns:1fr}.an-two{grid-template-columns:1fr!important}}
   /* 지역 토글 (대리상 표) */
   .rgbar{display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding:2px 0 1px}
   .rgbar-l{font-size:10.5px;font-weight:700;color:#64748b;margin-right:3px}
@@ -605,9 +684,13 @@
   .rgchip-off{background:#fff;color:#475569;border-color:#cbd5e1}
   .rgchip-off:hover{background:#f1f5f9}
   .rgchip-on{background:#1e3a8a;color:#fff;border-color:#1e3a8a}
+  .rgsel{font-size:11px;font-weight:700;color:#334155;border:1px solid #cbd5e1;border-radius:12px;padding:2px 6px;background:#fff;cursor:pointer;max-width:170px}
   /* 요주의 대리상 ★ */
   .dlrstar{color:#dc2626;font-weight:700;margin-right:3px;cursor:help}
   .dlralias{color:#b45309;font-weight:700;margin-left:2px;font-size:11.5px;white-space:nowrap}
+  .dlrbg{font-size:9.5px;font-weight:700;padding:1px 5px;border-radius:7px;border:1px solid;margin-left:4px;white-space:nowrap;cursor:help;vertical-align:1px}
+  .dlrbg-na{color:#64748b;background:#f1f5f9;border-color:#cbd5e1}
+  .dlrbg-stop{color:#b91c1c;background:#fef2f2;border-color:#fecaca}
   .kpst{font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:9px;border:1px solid;white-space:nowrap;cursor:help}
   .kpst-ok{color:#15803d;background:#f0fdf4;border-color:#bbf7d0}
   .kpst-warn{color:#b45309;background:#fffbeb;border-color:#fde68a}
@@ -1382,6 +1465,17 @@ function kplanMerge(local, remote) {
   return out;
 }
 // 시트로 전송 (fetch → 차단되면 iframe 폼 전송으로 폴백)
+function __gsPost(payload) {
+  return fetch(GOOGLE_SCRIPT_URL, { method: "POST", body: JSON.stringify(payload),
+      headers: { "Content-Type": "text/plain;charset=utf-8" }, redirect: "follow" })
+    .then(function (r) { return r.text(); })
+    .then(function (t) {
+      let j = null; try { j = JSON.parse(t); } catch (e) {}
+      if (j && j.ok) return j;
+      if (j && j.error) throw new Error(j.error);
+      throw new Error("\uC751\uB2F5\uC744 \uD574\uC11D\uD558\uC9C0 \uBABB\uD588\uC2B5\uB2C8\uB2E4 \u2014 \uBC30\uD3EC \uBC84\uC804 \uD655\uC778 \uD544\uC694");
+    });
+}
 function kplanPost(rows) {
   const payload = JSON.stringify({ action: "kplan_save", rows: rows });
   return fetch(GOOGLE_SCRIPT_URL, { method: "POST", body: payload,
@@ -6979,8 +7073,198 @@ function CorpTWView({ ui, setUI, data, month }) {
 // ─────────── 본사 수출 · 수금 (독립 화면) ───────────
 
 // ═══════════════ 분석 · 의사결정 보드 ═══════════════
+
+// ═══════════════ 경영회의 자료 (중점 추진과제) ═══════════════
+const MTG_SHEET = "경영회의_자료";
+const MTG_IMG = (id, w) => "https://drive.google.com/thumbnail?id=" + encodeURIComponent(id) + "&sz=w" + (w || 1600);
+const MTG_IMG2 = (id, w) => "https://lh3.googleusercontent.com/d/" + encodeURIComponent(id) + "=w" + (w || 1600);
+const MTG_OPEN = (id) => "https://drive.google.com/file/d/" + encodeURIComponent(id) + "/view";
+
+function MtgView({ sheetsData, fetchedAt }) {
+  const h = React.createElement;
+  const S = sheetsData || {};
+  const [added, setAdded] = React.useState({});       // 업로드 직후 즉시 표시
+  const [gone, setGone] = React.useState({});         // 삭제 직후 즉시 감춤
+  const [extra, setExtra] = React.useState([]);       // 사용자가 새로 연 월
+  const [sel, setSel] = React.useState("");
+  const [busy, setBusy] = React.useState("");
+  const [msg, setMsg] = React.useState("");
+  const [zoom, setZoom] = React.useState(null);
+  const [title, setTitle] = React.useState("");
+
+  // ── 시트 → 월별 자료 ──
+  const byYm = (function () {
+    const o = {};
+    (Array.isArray(S[MTG_SHEET]) ? S[MTG_SHEET] : []).forEach(function (r) {
+      const ym = String(r["연월"] || "").trim();
+      if (!/^\d{4}-\d{2}$/.test(ym)) return;
+      const id = String(r["파일ID"] || "").trim();
+      if (!id || gone[id]) return;
+      (o[ym] = o[ym] || []).push({ id: id, title: String(r["제목"] || "").trim(),
+        name: String(r["파일명"] || "").trim(), at: String(r["업로드시각"] || "") });
+    });
+    Object.keys(added).forEach(function (ym) {
+      (added[ym] || []).forEach(function (it) {
+        if (gone[it.id]) return;
+        if (!(o[ym] || []).some(function (x) { return x.id === it.id; })) (o[ym] = o[ym] || []).push(it);
+      });
+    });
+    Object.keys(o).forEach(function (k) { o[k].sort(function (a, b) { return String(a.at).localeCompare(String(b.at)); }); });
+    return o;
+  })();
+
+  const nowYm = (function () { const d = new Date(); return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2); })();
+  const yms = (function () {
+    const set = {};
+    Object.keys(byYm).forEach(function (k) { set[k] = 1; });
+    set[nowYm] = 1;
+    extra.forEach(function (k) { set[k] = 1; });
+    return Object.keys(set).sort().reverse();
+  })();
+  const ym = yms.indexOf(sel) >= 0 ? sel : yms[0];
+  const items = byYm[ym] || [];
+  const ymLabel = (k) => k.slice(0, 4) + "년 " + parseInt(k.slice(5), 10) + "월";
+
+  // ── 파일 → 데이터 URL (긴 변 1800px 초과 시 축소) ──
+  const readImg = (f) => new Promise(function (res, rej) {
+    if (!/^image\//.test(f.type)) { rej(new Error("이미지 파일만 올릴 수 있습니다 (" + (f.type || "형식 불명") + ")")); return; }
+    const fr = new FileReader();
+    fr.onerror = function () { rej(new Error("파일을 읽지 못했습니다")); };
+    fr.onload = function () {
+      const src = String(fr.result || "");
+      const img = new Image();
+      img.onerror = function () { rej(new Error("이미지를 해석하지 못했습니다")); };
+      img.onload = function () {
+        const MAX = 1800;
+        const big = Math.max(img.width, img.height);
+        if (big <= MAX && src.length < 2.6e6) { res({ b64: src, w: img.width, h: img.height }); return; }
+        const k = MAX / big, w = Math.round(img.width * k), hh = Math.round(img.height * k);
+        try {
+          const c = document.createElement("canvas"); c.width = w; c.height = hh;
+          const cx = c.getContext("2d"); cx.fillStyle = "#fff"; cx.fillRect(0, 0, w, hh);
+          cx.drawImage(img, 0, 0, w, hh);
+          res({ b64: c.toDataURL("image/png"), w: w, h: hh });
+        } catch (e) { res({ b64: src, w: img.width, h: img.height }); }
+      };
+      img.src = src;
+    };
+    fr.readAsDataURL(f);
+  });
+
+  const upload = (files) => {
+    const list = Array.prototype.slice.call(files || []);
+    if (!list.length) return;
+    if (typeof GOOGLE_SCRIPT_URL === "undefined" || !GOOGLE_SCRIPT_URL) { setMsg("⚠ Apps Script URL이 설정되지 않았습니다"); return; }
+    setBusy("준비 중…"); setMsg("");
+    let done = 0;
+    const step = (i) => {
+      if (i >= list.length) {
+        setBusy("");
+        setMsg("✓ " + done + "장 업로드 완료 — [시트 연동]을 다시 누르면 목록이 새로 채워집니다");
+        setTimeout(function () { setMsg(""); }, 12000);
+        return;
+      }
+      const f = list[i];
+      setBusy("업로드 중… (" + (i + 1) + "/" + list.length + ") " + f.name);
+      readImg(f).then(function (im) {
+        return __gsPost({ action: "mtg_upload", ym: ym, title: title || "", name: f.name, b64: im.b64, w: im.w, h: im.h });
+      }).then(function (r) {
+        if (r && r.id) {
+          done++;
+          setAdded(function (o) {
+            const cur = (o[ym] || []).slice();
+            cur.push({ id: r.id, title: title || "", name: f.name, at: r.at || (new Date()).toISOString() });
+            return Object.assign({}, o, { [ym]: cur });
+          });
+        }
+        step(i + 1);
+      }).catch(function (e) {
+        setBusy("");
+        setMsg("⚠ " + f.name + " 실패 : " + String(e && e.message ? e.message : e).slice(0, 80));
+      });
+    };
+    step(0);
+  };
+
+  const removeIt = (it) => {
+    if (!confirm("「" + (it.title || it.name) + "」을(를) 삭제할까요?\n드라이브 파일도 휴지통으로 옮겨집니다.")) return;
+    setBusy("삭제 중…");
+    __gsPost({ action: "mtg_delete", id: it.id })
+      .then(function () { setGone(function (o) { return Object.assign({}, o, { [it.id]: 1 }); }); setBusy(""); setMsg("✓ 삭제했습니다"); setTimeout(function () { setMsg(""); }, 6000); })
+      .catch(function (e) { setBusy(""); setMsg("⚠ 삭제 실패 : " + String(e && e.message ? e.message : e).slice(0, 80)); });
+  };
+
+  const addMonth = () => {
+    const v = prompt("추가할 연월을 입력하세요 (예: 2026-11)", nowYm);
+    if (!v) return;
+    const t = String(v).trim();
+    if (!/^\d{4}-\d{2}$/.test(t)) { alert("형식이 맞지 않습니다. 2026-11 처럼 입력하세요."); return; }
+    setExtra(function (o) { return o.indexOf(t) >= 0 ? o : o.concat([t]); });
+    setSel(t);
+  };
+
+  const imgEl = (it) => h("img", { className: "mtg-img", src: MTG_IMG(it.id, 1600), alt: it.title || it.name,
+    onClick: function () { setZoom(it); },
+    onError: function (e) { const t = e.target; if (!t.__alt) { t.__alt = 1; t.src = MTG_IMG2(it.id, 1600); } else { t.__bad = 1; t.style.display = "none"; if (t.parentNode) t.parentNode.classList.add("mtg-bad"); } } });
+
+  return h("div", { className: "mtg-root" },
+    h("div", { className: "mtg-tabs" },
+      yms.map(function (k) {
+        const n = (byYm[k] || []).length;
+        return h("button", { key: k, onClick: function () { setSel(k); },
+          className: "mtg-tab " + (ym === k ? "mtg-tab-on" : "mtg-tab-off") },
+          ymLabel(k), n ? h("i", null, n) : null);
+      }),
+      h("button", { className: "mtg-tab mtg-tab-add", onClick: addMonth, title: "다른 연월 열기" }, "+ 월"),
+      fetchedAt ? h("span", { className: "mtg-at" }, "시트 갱신 " + fetchedAt) : null),
+
+    h("div", { className: "an-card" },
+      h("div", { className: "an-ttl" }, ymLabel(ym), " 중점 추진과제",
+        h("span", { className: "an-tag " + (items.length ? "an-b-ok" : "an-b-na") }, items.length ? items.length + "장" : "자료 없음")),
+      h("div", { className: "an-hint" }, "경영회의 자료를 월별로 보관합니다 · 이미지를 누르면 크게 보입니다 · 원본은 구글 드라이브「경영회의_자료」폴더에 저장됩니다"),
+
+      h("div", { className: "mtg-bar" },
+        h("input", { className: "mtg-title", type: "text", value: title, placeholder: "제목 (선택) — 예: 중화영업본부 4분기 실행과제",
+          onChange: function (e) { setTitle(e.target.value); } }),
+        h("label", { className: "mtg-up" + (busy ? " mtg-up-off" : ""), title: "PNG·JPG 이미지 · 여러 장 한 번에 선택할 수 있습니다" },
+          busy ? busy : "＋ 자료 추가",
+          h("input", { type: "file", accept: "image/*", multiple: true, style: { display: "none" }, disabled: !!busy,
+            onChange: function (e) { upload(e.target.files); e.target.value = ""; } })),
+        msg ? h("span", { className: "mtg-msg " + (msg.indexOf("⚠") === 0 ? "mtg-msg-err" : "mtg-msg-ok") }, msg) : null),
+
+      items.length
+        ? h("div", { className: "mtg-grid" }, items.map(function (it, i) {
+            return h("div", { className: "mtg-card", key: it.id },
+              h("div", { className: "mtg-hd" },
+                h("span", { className: "mtg-no" }, i + 1),
+                h("span", { className: "mtg-ttl" }, it.title || it.name || "무제"),
+                h("a", { className: "mtg-a", href: MTG_OPEN(it.id), target: "_blank", rel: "noopener", title: "드라이브에서 열기" }, "원본"),
+                h("button", { className: "mtg-del", onClick: function () { removeIt(it); }, title: "삭제" }, "×")),
+              h("div", { className: "mtg-wrap" }, imgEl(it),
+                h("div", { className: "mtg-err" }, "이미지를 불러오지 못했습니다 — 드라이브 파일 공유 설정을 확인하세요")));
+          }))
+        : h("div", { className: "mtg-empty" },
+            h("div", { className: "mtg-empty-t" }, ymLabel(ym) + " 자료가 아직 없습니다"),
+            h("div", { className: "mtg-empty-s" }, "위 「＋ 자료 추가」로 슬라이드 이미지를 올리세요. 여러 장을 한 번에 선택할 수 있습니다.")),
+
+      h("div", { className: "an-foot" }, "* 파일은 구글 드라이브에 저장되고 시트「", MTG_SHEET, "」에 기록됩니다 · 다른 기기에서도 같은 자료가 보입니다")),
+
+    zoom ? h("div", { className: "mtg-modal", onClick: function () { setZoom(null); } },
+      h("div", { className: "mtg-modal-in", onClick: function (e) { e.stopPropagation(); } },
+        h("div", { className: "mtg-modal-hd" },
+          h("span", null, zoom.title || zoom.name || "무제"),
+          h("a", { href: MTG_OPEN(zoom.id), target: "_blank", rel: "noopener" }, "원본 열기"),
+          h("button", { onClick: function () { setZoom(null); } }, "닫기 ×")),
+        h("img", { src: MTG_IMG(zoom.id, 2000), alt: zoom.title || zoom.name,
+          onError: function (e) { const t = e.target; if (!t.__alt) { t.__alt = 1; t.src = MTG_IMG2(zoom.id, 2000); } } }))) : null);
+}
+
 function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode }) {
   const h = React.createElement;
+  const [analM, setAnalM] = React.useState(0);      // 0 = 최신월 자동
+  const [optOpen, setOptOpen] = React.useState(null);
+  const [snapBusy, setSnapBusy] = React.useState(false);
+  const [snapMsg, setSnapMsg] = React.useState("");
   const S = sheetsData || {};
   const AN = (v) => { if (v === null || v === undefined || v === "") return 0; const n = Number(String(v).replace(/[^0-9.\-]/g, "")); return isNaN(n) ? 0 : n; };
   const KOHQ = { "浙江": "절강", "华东": "화동", "华中": "화중", "华西": "화서", "华南": "화남", "华北": "화북" };
@@ -7011,8 +7295,10 @@ function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode 
   Object.keys(hqm).forEach(function (k) { if (HQS.indexOf(k) < 0) delete hqm[k]; });
   MT.fill(0); MA.fill(0);
   Object.keys(hqm).forEach(function (k) { for (let m = 0; m < 12; m++) { MT[m] += hqm[k].t[m]; MA[m] += hqm[k].a[m]; } });
-  // 현재월 = 실적이 들어온 마지막 달
-  let M = 1; for (let m = 0; m < 12; m++) if (MA[m] > 0) M = m + 1;
+  // 실적이 들어온 마지막 달 = 최신월 · 월 탭으로 과거 월을 볼 수 있음
+  let M_LAST = 1; for (let m = 0; m < 12; m++) if (MA[m] > 0) M_LAST = m + 1;
+  const M = (analM >= 1 && analM <= M_LAST) ? analM : M_LAST;
+  const isCur = (M === M_LAST);          // 채권 명세는 현재 주차 스냅샷뿐 → 과거 월엔 쓰지 않음
   const ANN = MT.reduce(function (s, x) { return s + x; }, 0);
   let CT = 0, CA = 0; for (let m = 0; m < M; m++) { CT += MT[m]; CA += MA[m]; }
   const REM = Math.max(0, 12 - M);
@@ -7033,8 +7319,45 @@ function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode 
   }).sort(function (a, b) { return b.gap - a.gap; });
 
   // ───────── 2. 채권 ─────────
-  const ARR = ((fin && fin.ar) || []).filter(function (x) { return x.d !== "合计" && x.d !== "其他" && String(x.hq || "").trim() !== ""; });
-  const ARTOT = ((fin && fin.ar) || []).filter(function (x) { return x.d === "合计"; })[0] || {};
+  // 과거 월은 시트「채권_스냅샷」에서 복원 (현재월은 내장 명세 그대로)
+  const ARSNAP = (function () {
+    const out = {};
+    (Array.isArray(S["채권_스냅샷"]) ? S["채권_스냅샷"] : []).forEach(function (r) {
+      const ym = String(r["연월"] || "").trim();
+      if (!/^\d{4}-\d{2}$/.test(ym)) return;
+      let v = null;
+      try { v = JSON.parse(String(r["값JSON"] || "")); } catch (e) { v = null; }
+      if (!v || typeof v !== "object") {
+        v = { d: String(r["大区"] || ""), hq: String(r["본부"] || ""), mgr: String(r["담당"] || ""),
+              e: AN(r["기말채권"]), e2: AN(r["연체"]), s: AN(r["당월매출"]), c: AN(r["당월수금"]) };
+      }
+      (out[ym] = out[ym] || []).push(v);
+    });
+    return out;
+  })();
+  const arSnapFor = (m) => {
+    const mm = ("0" + m).slice(-2);
+    const ks = Object.keys(ARSNAP).filter(function (k) { return k.slice(5) === mm; }).sort();
+    return ks.length ? ARSNAP[ks[ks.length - 1]] : null;
+  };
+  const ymOf = (m) => { const n = new Date(); const y = (n.getMonth() + 1) >= m ? n.getFullYear() : n.getFullYear() - 1; return y + "-" + ("0" + m).slice(-2); };
+  const saveArSnap = () => {
+    const rows = ((fin && fin.ar) || []);
+    if (!rows.length) { setSnapMsg("\u26A0 \uCC44\uAD8C \uBA85\uC138\uAC00 \uBE44\uC5B4 \uC788\uC2B5\uB2C8\uB2E4"); return; }
+    if (typeof GOOGLE_SCRIPT_URL === "undefined" || !GOOGLE_SCRIPT_URL) { setSnapMsg("\u26A0 Apps Script URL \uC5C6\uC74C"); return; }
+    setSnapBusy(true); setSnapMsg("");
+    __gsPost({ action: "ar_snapshot", ym: ymOf(M), rows: rows })
+      .then(function (r) {
+        setSnapBusy(false);
+        setSnapMsg("\u2713 " + ymOf(M) + " \uC2A4\uB0C5\uC0F7 \uC800\uC7A5 \xB7 " + ((r.inserted || 0) + (r.updated || 0)) + "\uD589 \u2014 [\uC2DC\uD2B8 \uC5F0\uB3D9] \uD6C4 \uACFC\uAC70 \uC6D4 \uD0ED\uC5D0\uC11C \uBCF4\uC785\uB2C8\uB2E4");
+        setTimeout(function () { setSnapMsg(""); }, 12000);
+      })
+      .catch(function (e) { setSnapBusy(false); setSnapMsg("\u26A0 \uC800\uC7A5 \uC2E4\uD328 : " + String(e && e.message ? e.message : e).slice(0, 60)); });
+  };
+  const ARSRC = isCur ? ((fin && fin.ar) || []) : (arSnapFor(M) || []);
+  const arOK = ARSRC.length > 0;                 // 이 달의 채권을 쓸 수 있는가
+  const ARR = ARSRC.filter(function (x) { return x.d !== "合计" && x.d !== "其他" && String(x.hq || "").trim() !== ""; });
+  const ARTOT = ARSRC.filter(function (x) { return x.d === "合计"; })[0] || {};
   const arHQ = {}, arMgr = {};
   ARR.forEach(function (x) {
     const k = FINHQ[String(x.hq || "").trim()] || String(x.hq || "").trim() || "기타";
@@ -7321,8 +7644,8 @@ function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode 
       big: wq.mult.toFixed(1) + "배", bigs: "필요 배수 (전 본부 최고)", bigc: "an-warn",
       ev: ["누계달성 " + ps(wq.rate) + " \xB7 현 추세 연말 " + ps(wq.eoy, 0),
         "잔여는 " + fW(wq.gap) + "으로 가장 작음",
-        "DSO " + f0(d.n) + "개 중 " + f0(d.ent) + "개만 진입 (" + ps(pc(d.ent, d.n), 0) + ")",
-        "BD\xB7ARi 진입 " + ps(nb, 0) + " \xB7 하부고객 " + ps(tm.mrate, 0)],
+        d.n ? ("DSO " + f0(d.n) + "개 중 " + f0(d.ent) + "개만 진입 (" + ps(pc(d.ent, d.n), 0) + ")") : "",
+        (nb !== null || tm.mrate !== void 0) ? ("BD\xB7ARi 진입 " + ps(nb, 0) + " \xB7 하부고객 " + ps(tm.mrate, 0)) : ""],
       bars: [["매출", wq.rate === null ? 0 : Math.min(100, wq.rate), ps(wq.rate, 0), colOf(wq.rate, 80, 65)],
         ["DSO", pc(d.ent, d.n) === null ? 0 : pc(d.ent, d.n), ps(pc(d.ent, d.n), 0), colOf(pc(d.ent, d.n), 70, 40)],
         ["BD\xB7ARi", nb === null ? 0 : Math.min(100, nb), ps(nb, 0), colOf(nb, 60, 35)],
@@ -7334,36 +7657,6 @@ function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode 
       rec: "② 권고. 잔여 금액이 가장 작은데 난이도는 가장 높습니다 — 여기에 넣는 자원의 수익이 가장 낮습니다. 선행지표가 전부 최하위이므로 남은 기간은 내년 매출의 씨앗을 심는 데 쓰는 편이 낫습니다.",
       due: (M + 1) + "월 말" });
   }
-
-  // ───────── 매트릭스 ─────────
-  const mxRef = React.useRef(null);
-  const [mxW, setMxW] = React.useState(1000);
-  React.useEffect(function () {
-    const upd = function () { if (mxRef.current) setMxW(mxRef.current.clientWidth || 1000); };
-    upd(); window.addEventListener("resize", upd);
-    return function () { window.removeEventListener("resize", upd); };
-  }, []);
-  const mxPts = (function () {
-    const Wd = mxW, Hg = 330, PAD = 74;
-    const gs = HQ.map(function (x) { return x.gap; }), ms = HQ.map(function (x) { return x.mult === null ? 1 : x.mult; });
-    const gx0 = Math.min.apply(null, gs) * 0.8, gx1 = Math.max.apply(null, gs) * 1.06;
-    const gy0 = Math.min.apply(null, ms) - 0.3, gy1 = Math.max.apply(null, ms) + 0.3;
-    const maxE = Math.max.apply(null, AR.map(function (x) { return x.e2; }).concat([1]));
-    return HQ.map(function (x) {
-      const a = arHQ[x.hq];
-      const e2 = a ? a.e2 : null;
-      const px = PAD + (gx1 > gx0 ? (x.gap - gx0) / (gx1 - gx0) : 0.5) * (Wd - PAD * 2);
-      const py = PAD + (gy1 > gy0 ? (gy1 - (x.mult === null ? 1 : x.mult)) / (gy1 - gy0) : 0.5) * (Hg - PAD * 2);
-      const d = e2 === null ? 22 : 20 + Math.sqrt(e2 / maxE) * 30;
-      const col = e2 === null ? "#94a3b8" : (e2 >= maxE * 0.55 ? "#dc2626" : e2 >= maxE * 0.12 ? "#f59e0b" : "#2563eb");
-      return { hq: x.hq, x: px, y: py, d: d, col: col, gap: x.gap, mult: x.mult };
-    }).map(function (p, i, arr) {
-      for (let j = 0; j < i; j++) {
-        if (Math.abs(arr[j].x - p.x) < 95 && Math.abs(arr[j].y - p.y) < 46) { p.y += 46; }
-      }
-      return p;
-    });
-  })();
 
   // ───────── 히트맵 ─────────
   const HT = (function () {
@@ -7397,7 +7690,20 @@ function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode 
   })();
 
   return h("div", { className: "an-root" },
-    h("div", { className: "an-h1" }, "중국\xB7대만 통합 분석 \xB7 의사결정 보드"),
+    h("div", { className: "an-mtabs" },
+      Array.from({ length: M_LAST }, function (_, i) { return M_LAST - i; }).map(function (m) {
+        return h("button", { key: m, onClick: function () { setAnalM(m); setOptOpen(null); },
+          className: "an-mtab " + (M === m ? "an-mtab-on" : "an-mtab-off"),
+          title: m === M_LAST ? "최신월 — 채권\xB7회수 포함" : m + "월 기준 (채권 제외)" },
+          m + "월", m === M_LAST ? h("i", null, "최신") : null);
+      }),
+      (!isCur && !arOK) ? h("span", { className: "an-mnote" }, M + "월 채권 스냅샷 없음 — 매출\xB7DSO\xB7대리상만 표시됩니다") : null,
+      (!isCur && arOK) ? h("span", { className: "an-mnote an-mok" }, M + "월 채권 스냅샷 적용됨") : null,
+      isCur ? h("button", { className: "an-snapb" + (arSnapFor(M) ? " an-snapb-done" : ""), disabled: snapBusy,
+        title: "\uD604\uC7AC \uCC44\uAD8C \uBA85\uC138\uB97C " + M + "\uC6D4 \uAE30\uB85D\uC73C\uB85C \uC2DC\uD2B8\uC5D0 \uC800\uC7A5\uD569\uB2C8\uB2E4. \uB2E4\uC74C \uB2EC\uBD80\uD130 " + M + "\uC6D4 \uD0ED\uC5D0\uC11C \uADF8\uB300\uB85C \uBCF4\uC785\uB2C8\uB2E4",
+        onClick: function () { saveArSnap(); } },
+        snapBusy ? "\uC800\uC7A5 \uC911\u2026" : (arSnapFor(M) ? "\u2713 " + M + "\uC6D4 \uC2A4\uB0C5\uC0F7 \uC800\uC7A5\uB428 \xB7 \uB2E4\uC2DC \uC800\uC7A5" : M + "\uC6D4 \uCC44\uAD8C \uC2A4\uB0C5\uC0F7 \uC800\uC7A5")) : null,
+      snapMsg ? h("span", { className: "an-mnote " + (snapMsg.indexOf("\u26A0") === 0 ? "" : "an-mok") }, snapMsg) : null),
     h("div", { className: "an-sub" }, "2026년 " + M + "월 기준 \xB7 중국 " + HQ.length + "개 본부 \xB7 데이터 출처 : KPI 시트 \xB7 채권 명세 \xB7 PSI \xB7 대리상 \xB7 DSO \xB7 BD/ARi \xB7 终端" + (fetchedAt ? " \xB7 갱신 " + fetchedAt : ""),
       h("span", { className: "an-tag " + (srcMode === "sheet" ? "an-b-ok" : "an-b-na"), style: { marginLeft: "6px" } }, srcMode === "sheet" ? "시트 연동" : "내장 데이터")),
 
@@ -7405,7 +7711,10 @@ function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode 
     h("div", { className: "an-verdict" },
       h("div", { className: "an-vhead" }, "한 줄 결론"),
       h("div", { className: "an-vmain" }, "현 추세로는 연간 매출 ", h("b", null, ps(eoyPct, 1)), "에서 끝납니다. 남은 " + REM + "개월에 월 " + fW(NEED) + "위안(", h("b", null, "현재의 " + (MULT === null ? "—" : MULT.toFixed(1) + "배")), ")이 필요합니다."),
-      h("div", { className: "an-vsub" }, "→ 실질 레버는 ", h("b", null, "① 현금 회수"), "(연체 " + fW(arTotE2) + "위안, 채권의 " + ps(arRate) + ")", h("b", null, "와 ② 잔여 상위 본부 집중"), "입니다. 동시에 ", h("b", null, "신규 진입(BD\xB7ARi)이 목표의 " + ps(newRate, 0)), "에 그쳐 내년 매출 기반도 비어가고 있습니다.")),
+      h("div", { className: "an-vsub" }, "→ 실질 레버는 ",
+        (arOK && arTotE2 > 0) ? h(React.Fragment, null, h("b", null, "① 현금 회수"), "(연체 " + fW(arTotE2) + "위안, 채권의 " + ps(arRate) + ")", h("b", null, "와 ② 잔여 상위 본부 집중"), "입니다.")
+          : h("b", null, "잔여 상위 본부 집중입니다."),
+        (newRate !== null && newRate < 70) ? h(React.Fragment, null, " 동시에 ", h("b", null, "신규 진입(BD\xB7ARi)이 목표의 " + ps(newRate, 0)), "에 그쳐 내년 매출 기반도 비어가고 있습니다.") : null)),
 
     // 신호등
     h("div", { className: "an-card" },
@@ -7441,84 +7750,6 @@ function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode 
           h("div", { className: "an-pt2" }, "누계 실적 vs 필요 페이스 (억위안)"),
           h("div", { className: "an-ph" }, "두 선의 간격이 미달 누적액입니다"),
           h("div", { dangerouslySetInnerHTML: { __html: ch2 } })))),
-
-    // 의사결정
-    h("div", { className: "an-card" },
-      h("div", { className: "an-ttl" }, "지금 결정해야 할 것"),
-      h("div", { className: "an-hint" }, "금액 영향 \xD7 되돌릴 수 없는 정도로 정렬했습니다 \xB7 각 항목은 「근거 → 선택지 → 권고」 순으로 읽으세요"),
-      DEC.length ? DEC.map(function (d, i) {
-        return h("div", { className: "an-dec" + (d.crit ? "" : " an-w"), key: i },
-          h("div", { className: "an-dh" }, h("span", { className: "an-rank" }, i + 1), h("span", { className: "an-dt" }, d.t), h("span", { className: "an-imp" }, d.imp)),
-          h("div", { className: "an-dbody" },
-            h("div", null, h("div", { className: "an-k" }, "근거"),
-              h("div", { className: "an-big " + d.bigc }, d.big),
-              h("div", { className: "an-bigs" }, d.bigs),
-              h("div", { className: "an-ev", style: { marginTop: "9px" } }, d.ev.filter(function (x) { return x; }).map(function (x, j) { return h("div", { key: j }, x); })),
-              d.bars ? h("div", { style: { marginTop: "9px" } },
-                d.barh ? h("div", { className: "an-evrow an-evh" }, h("span", { className: "an-nm" }, d.barn || "본부"), h("span", { className: "an-bw", style: { background: "none" } }, d.barh), h("span", { className: "an-vv" })) : null,
-                d.bars.map(function (b) { return evBar(b[0], b[1], b[2], b[3]); })) : null),
-            h("div", null, h("div", { className: "an-k" }, "선택지"),
-              h("ol", { className: "an-opt" }, d.opt.map(function (o, j) {
-                return h("li", { key: j }, h("b", null, o[0]), o[1] ? " — " + o[1] : "");
-              }))),
-            h("div", null, h("div", { className: "an-k" }, "권고"),
-              h("div", { className: "an-rec" }, d.rec, h("br"), h("br"), "결정 기한 : ", h("b", null, d.due)))));
-      }) : h("div", { className: "an-ph" }, "현재 기준을 넘기는 항목이 없습니다")),
-
-    // 매트릭스
-    h("div", { className: "an-card" },
-      h("div", { className: "an-ttl" }, "본부 우선순위 — 어디에 자원을 넣을 것인가"),
-      h("div", { className: "an-hint" }, "가로 = 연간 잔여 금액(넣었을 때 얻는 크기) \xB7 세로 = 필요 배수(난이도) \xB7 원 크기 = 연체 채권 \xB7 오른쪽 아래일수록 투자 수익이 높습니다"),
-      h("div", { className: "an-lgd" },
-        h("span", null, h("i", { style: { background: "#2563eb" } }), "연체 적음"),
-        h("span", null, h("i", { style: { background: "#f59e0b" } }), "연체 중간"),
-        h("span", null, h("i", { style: { background: "#dc2626" } }), "연체 많음"),
-        h("span", null, h("i", { style: { background: "#94a3b8" } }), "채권 데이터 없음")),
-      h("div", { className: "an-mx", ref: mxRef },
-        h("div", { className: "an-mxl", style: { left: "50%", top: 0, width: "1px", height: "100%" } }),
-        h("div", { className: "an-mxl", style: { left: 0, top: "50%", width: "100%", height: "1px" } }),
-        h("div", { className: "an-mxq", style: { left: "12px", top: "9px" } }, "난이도 높음 \xB7 영향 작음"),
-        h("div", { className: "an-mxq", style: { right: "12px", top: "9px", textAlign: "right" } }, "난이도 높음 \xB7 영향 큼"),
-        h("div", { className: "an-mxq", style: { left: "12px", bottom: "9px" } }, "난이도 낮음 \xB7 영향 작음"),
-        h("div", { className: "an-mxq", style: { right: "12px", bottom: "9px", textAlign: "right" } }, "난이도 낮음 \xB7 영향 큼 — 최우선 집중"),
-        mxPts.map(function (p) {
-          return h("div", { className: "an-pt", key: p.hq, style: { left: p.x + "px", top: p.y + "px" } },
-            h("div", { className: "an-pc", style: { width: p.d.toFixed(0) + "px", height: p.d.toFixed(0) + "px", background: p.col } }),
-            h("div", { className: "an-pn" }, p.hq),
-            h("div", { className: "an-pv" }, fE(p.gap) + " \xB7 " + (p.mult === null ? "—" : p.mult.toFixed(1) + "x")));
-        })),
-      h("div", { className: "an-axrow" },
-        h("span", { className: "an-ax" }, "← 잔여 작음"),
-        h("span", { className: "an-ax" }, "잔여 금액 (연간 목표 − " + M + "월 누계)"),
-        h("span", { className: "an-ax" }, "잔여 큼 →"))),
-
-    // 파이프라인
-    h("div", { className: "an-card" },
-      h("div", { className: "an-ttl" }, "성장 파이프라인 — 내년 매출은 지금 만들어집니다"),
-      h("div", { className: "an-hint" }, "왼쪽 두 칸 : 신규 거래처가 어느 단계에서 멈춰 있는지 \xB7 오른쪽 : 본부별 선행지표 한눈 비교 (90%↑ 초록 \xB7 50~90% 주황 \xB7 50% 미만 빨강)"),
-      h("div", { className: "an-three" },
-        h("div", { className: "an-panel" },
-          h("div", { className: "an-pt2" }, "BD 파이프라인 \xB7 " + f0(BDD.n) + "개소"),
-          h("div", { className: "an-ph" }, "누계 목표 " + f0(BD.T.t) + " → 진입 " + f0(BD.T.a) + " (" + ps(BD.T.rate) + ")"),
-          h("div", { className: "an-fn" }, BDD.li.map(function (x, i) { return fnRow(x[0], x[1], bdMax, FNC[Math.min(i, 4)], "b" + i); }))),
-        h("div", { className: "an-panel" },
-          h("div", { className: "an-pt2" }, "ARi 파이프라인 \xB7 " + f0(ARID.n) + "개소"),
-          h("div", { className: "an-ph" }, "누계 목표 " + f0(ARI.T.t) + " → 진입 " + f0(ARI.T.a) + " (" + ps(ARI.T.rate) + ")"),
-          h("div", { className: "an-fn" }, ARID.li.map(function (x, i) { return fnRow(x[0], x[1], ariMax, FNC[Math.min(i, 4)], "a" + i); }))),
-        h("div", { className: "an-panel" },
-          h("div", { className: "an-pt2" }, "본부별 선행지표"),
-          h("div", { className: "an-ph" }, "매출\xB7회수는 결과, 아래 4개는 3~6개월 뒤 매출을 만드는 선행지표입니다"),
-          h("div", { className: "an-ht", style: { gridTemplateColumns: "56px repeat(" + HT.cols.length + ",1fr)" } },
-            [h("div", { className: "an-hh", key: "c0" })].concat(HT.cols.map(function (c) { return h("div", { className: "an-hh", key: "c" + c }, c); }))
-              .concat(HT.rows.reduce(function (acc, r) {
-                acc.push(h("div", { className: "an-hl", key: "r" + r[0] }, r[0]));
-                r[1].forEach(function (v, i) {
-                  const s = HT.cell(v);
-                  acc.push(h("div", { className: "an-hc", key: r[0] + i, style: { background: s.bg, color: s.fg } }, v === null || v === void 0 ? "—" : Math.round(v)));
-                });
-                return acc;
-              }, []))),
-          h("div", { className: "an-foot" }, "* BD\xB7ARi = 1~" + M + "월 누계 진입 \xF7 목표 \xB7 DSO = 진입 거래처 \xF7 전체 \xB7 하부고객 = 당월 실적 \xF7 목표 \xB7 대리상 = 계약 대비 실적")))),
 
     // 시나리오 + 표
     h("div", { className: "an-card" },
@@ -7579,7 +7810,37 @@ function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode 
                 h("td", { className: "an-r" }, "—"),
                 h("td", { className: "an-l an-j" }, "—"))]))))),
 
-    // 채권 액션
+    // 의사결정
+    h("div", { className: "an-card" },
+      h("div", { className: "an-ttl" }, "지금 결정해야 할 것"),
+      h("div", { className: "an-hint" }, "금액 영향 \xD7 되돌릴 수 없는 정도로 정렬했습니다 \xB7 선택지는 항목을 눌러 펼칩니다"),
+      DEC.length ? DEC.map(function (d, i) {
+        const dOpen = (optOpen === i);
+        return h("div", { className: "an-dec" + (d.crit ? "" : " an-w"), key: i },
+          h("div", { className: "an-dh" }, h("span", { className: "an-rank" }, i + 1), h("span", { className: "an-dt" }, d.t),
+            d.due ? h("span", { className: "an-due" }, "기한 " + d.due) : null,
+            h("span", { className: "an-imp" }, d.imp)),
+          h("div", { className: "an-dbody2" },
+            h("div", { className: "an-dnum" },
+              h("div", { className: "an-big " + d.bigc }, d.big),
+              h("div", { className: "an-bigs" }, d.bigs),
+              h("div", { className: "an-ev", style: { marginTop: "9px" } }, d.ev.filter(function (x) { return x; }).map(function (x, j) { return h("div", { key: j }, x); }))),
+            h("div", { className: "an-dbar" },
+              d.bars ? h(React.Fragment, null,
+                d.barh ? h("div", { className: "an-evrow an-evh" }, h("span", { className: "an-nm" }, d.barn || "본부"), h("span", { className: "an-bw", style: { background: "none" } }, d.barh), h("span", { className: "an-vv" })) : null,
+                d.bars.map(function (b) { return evBar(b[0], b[1], b[2], b[3]); })) : null)),
+          h("div", { className: "an-dfoot" },
+            h("button", { className: "an-otog" + (dOpen ? " an-otog-on" : ""), onClick: function () { setOptOpen(dOpen ? null : i); } },
+              (dOpen ? "\u25BE " : "\u25B8 ") + "선택지 " + d.opt.length + "개"),
+            dOpen ? h("ol", { className: "an-opt" }, d.opt.map(function (o, j) {
+              return h("li", { key: j }, h("b", null, o[0]), o[1] ? " — " + o[1] : "");
+            })) : null));
+      }) : h("div", { className: "an-ph" }, "현재 기준을 넘기는 항목이 없습니다")),
+
+    // 채권 액션 (현재월만 — 채권 명세는 주차 스냅샷 1장뿐)
+    !arOK ? h("div", { className: "an-card an-note" },
+      h("div", { className: "an-ttl" }, "회수 액션 보드"),
+      h("div", { className: "an-ph" }, M + "월 채권 스냅샷이 없습니다. 최신월 탭에서 [채권 스냅샷 저장]을 눌러 두면 다음 달부터 이 달의 채권을 그대로 볼 수 있습니다.")) :
     h("div", { className: "an-card" },
       h("div", { className: "an-ttl" }, "회수 액션 보드"),
       h("div", { className: "an-hint" }, "왼쪽 : 본부별 채권이 어떤 상태인지 \xB7 오른쪽 : 연체 상위 " + MGR.length + "명이 전사 연체의 " + ps(mgrShare, 0) + "를 쥐고 있습니다 — 회수는 사람 단위로 붙어야 움직입니다"),
@@ -8734,6 +8995,7 @@ function App() {
   const [hqListOpen, setHqListOpen] = useState(() => { try { return localStorage.getItem("dashboard_hqlist_open_v2") === "1"; } catch (e) { return false; } });
   const [corpSecOpen, setCorpSecOpen] = useState(() => { try { return localStorage.getItem("dashboard_corpsec_open_v1") !== "0"; } catch (e) { return true; } });
   const [psiRegion, setPsiRegion] = useState(() => { try { return localStorage.getItem("dashboard_psi_region_v1") || "\uC804\uCCB4"; } catch (e) { return "\uC804\uCCB4"; } });
+  const [psiHq, setPsiHq] = useState("\uC804\uCCB4");
   const [dashOpen, setDashOpen] = useState(() => { try { return localStorage.getItem("dashboard_dashsec_open_v2") === "1"; } catch (e) { return false; } });
   const [corpUI, setCorpUI] = useState(() => { try { return JSON.parse(localStorage.getItem("dashboard_corp_ui_v1") || "{}"); } catch (e) { return {}; } });
   React.useEffect(() => { try { localStorage.setItem("dashboard_corp_ui_v1", JSON.stringify(corpUI)); } catch (e) {} }, [corpUI]);
@@ -10827,18 +11089,8 @@ Google Drive \uB610\uB294 \uC548\uC804\uD55C \uC704\uCE58\uC5D0 \uBCF4\uAD00\uD5
       title: "\uC0AC\uC774\uB4DC\uBC14 \uC811\uAE30"
     },
     /* @__PURE__ */ React.createElement("svg", { className: "w-5 h-5", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("polyline", { points: "15 18 9 12 15 6" }))
-  )), /* @__PURE__ */ React.createElement("div", { className: "px-3 pt-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("anal"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded font-bold ${selectedHQ === "anal" ? "bg-blue-600 text-white" : "text-slate-200 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\uD83E\uDDED"), /* @__PURE__ */ React.createElement("span", null, "\uBD84\uC11D"))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setDashOpen(!dashOpen), className: "w-full px-2 py-1.5 text-xs text-slate-400 hover:text-slate-200 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("span", null, "\uB300\uC2DC\uBCF4\uB4DC"), /* @__PURE__ */ React.createElement("div", { className: `transition-transform ${dashOpen ? "" : "-rotate-90"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "chevronDown", className: "w-3 h-3" }))), dashOpen && /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      onClick: () => {
-        setSelectedHQ("overview");
-        setOverviewTab("all");
-      },
-      className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "overview" && overviewTab === "all" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}`
-    },
-    /* @__PURE__ */ React.createElement(Icon, { name: "dashboard", className: "w-4 h-4" }),
-    /* @__PURE__ */ React.createElement("span", null, "\uC911\uAD6D\uB300\uC2DC\uBCF4\uB4DC")
-  ), /* @__PURE__ */ React.createElement(
+  )), /* @__PURE__ */ React.createElement("div", { className: "px-3 pt-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("anal"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded font-bold ${selectedHQ === "anal" ? "bg-blue-600 text-white" : "text-slate-200 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\uD83E\uDDED"), /* @__PURE__ */ React.createElement("span", null, "\uBD84\uC11D")), /* @__PURE__ */ React.createElement( "button", { onClick: () => { setSelectedHQ("overview"); setOverviewTab("all"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "overview" && overviewTab === "all" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "dashboard", className: "w-4 h-4" }), /* @__PURE__ */ React.createElement("span", null, "\uC911\uAD6D\uB300\uC2DC\uBCF4\uB4DC") )), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-2 border-t border-slate-700/50" }, /* @__PURE__ */ React.createElement("div", { className: "px-2 py-1.5 text-xs text-slate-400" }, "\uACBD\uC601\uD68C\uC758"), /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("mtg"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "mtg" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\uD83D\uDCCC"), /* @__PURE__ */ React.createElement("span", null, "\uC911\uC810 \uCD94\uC9C4\uACFC\uC81C")))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setDashOpen(!dashOpen), className: "w-full px-2 py-1.5 text-xs text-slate-400 hover:text-slate-200 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("span", null, "3C\uBD84\uC11D"), /* @__PURE__ */ React.createElement("div", { className: `transition-transform ${dashOpen ? "" : "-rotate-90"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "chevronDown", className: "w-3 h-3" }))), dashOpen && /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, 
+  /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: () => {
@@ -10848,7 +11100,7 @@ Google Drive \uB610\uB294 \uC548\uC804\uD55C \uC704\uCE58\uC5D0 \uBCF4\uAD00\uD5
     },
     /* @__PURE__ */ React.createElement(Icon, { name: "pieChart", className: "w-4 h-4" }),
     /* @__PURE__ */ React.createElement("span", null, "\uC2DC\uC7A5\uD604\uD669 M/S")
-  ), /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("pricepos"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "pricepos" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "pieChart", className: "w-4 h-4" }), /* @__PURE__ */ React.createElement("span", null, "\uC81C\uD488 \uD3EC\uC9C0\uC154\uB2DD")), /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("policy"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "policy" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\uD83D\uDCCB"), /* @__PURE__ */ React.createElement("span", null, "\uBC95\uC778\uC815\uCC45\uAE30\uC548")))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-2 border-t border-slate-700/50" }, /* @__PURE__ */ React.createElement("div", { className: "px-2 py-1.5 text-xs text-slate-400" }, "\uC911\uAD6D\uC601\uC5C5\uD604\uD669"), /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement(
+  ), /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("pricepos"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "pricepos" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "pieChart", className: "w-4 h-4" }), /* @__PURE__ */ React.createElement("span", null, "\uC81C\uD488 \uD3EC\uC9C0\uC154\uB2DD")))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-2 border-t border-slate-700/50" }, /* @__PURE__ */ React.createElement("div", { className: "px-2 py-1.5 text-xs text-slate-400" }, "\uC911\uAD6D\uC601\uC5C5\uD604\uD669"), /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: () => {
@@ -10858,7 +11110,7 @@ Google Drive \uB610\uB294 \uC548\uC804\uD55C \uC704\uCE58\uC5D0 \uBCF4\uAD00\uD5
     },
     /* @__PURE__ */ React.createElement(Icon, { name: "building", className: "w-4 h-4" }),
     /* @__PURE__ */ React.createElement("span", null, "\uC911\uAD6D\uBC95\uC778\uD604\uD669")
-  ))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-2 border-t border-slate-700/50" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setHqListOpen(!hqListOpen), className: "w-full flex items-center justify-between px-2 py-1.5 text-xs text-slate-400 hover:text-slate-200" }, /* @__PURE__ */ React.createElement("span", null, "\uBCF8\uBD80\uBCC4 \uB300\uC2DC\uBCF4\uB4DC"), /* @__PURE__ */ React.createElement("div", { className: `transition-transform ${hqListOpen ? "" : "-rotate-90"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "chevronDown", className: "w-3 h-3" }))), hqListOpen && /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, ["\uC808\uAC15", "\uD654\uB3D9", "\uD654\uC911", "\uD654\uC11C", "\uD654\uB0A8", "\uD654\uBD81"].map((h) => /* @__PURE__ */ React.createElement(
+  ), /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("policy"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "policy" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\uD83D\uDCCB"), /* @__PURE__ */ React.createElement("span", null, "\uBC95\uC778\uC815\uCC45\uAE30\uC548")))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-2 border-t border-slate-700/50" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setHqListOpen(!hqListOpen), className: "w-full flex items-center justify-between px-2 py-1.5 text-xs text-slate-400 hover:text-slate-200" }, /* @__PURE__ */ React.createElement("span", null, "\uBCF8\uBD80\uBCC4 \uB300\uC2DC\uBCF4\uB4DC"), /* @__PURE__ */ React.createElement("div", { className: `transition-transform ${hqListOpen ? "" : "-rotate-90"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "chevronDown", className: "w-3 h-3" }))), hqListOpen && /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, ["\uC808\uAC15", "\uD654\uB3D9", "\uD654\uC911", "\uD654\uC11C", "\uD654\uB0A8", "\uD654\uBD81"].map((h) => /* @__PURE__ */ React.createElement(
     "button",
     {
       key: h,
@@ -10940,19 +11192,7 @@ Google Drive \uB610\uB294 \uC548\uC804\uD55C \uC704\uCE58\uC5D0 \uBCF4\uAD00\uD5
       /* @__PURE__ */ React.createElement("div", { className: "flex-shrink-0" }, /* @__PURE__ */ React.createElement(Icon, { name: m.icon, className: "w-4 h-4" })),
       /* @__PURE__ */ React.createElement("span", { className: "truncate" }, m.label)
     );
-  }))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-2 border-t border-slate-700/50 mt-auto" }, /* @__PURE__ */ React.createElement("div", { className: "px-2 py-1.5 text-xs text-slate-400 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("span", null, "\uC678\uBD80 \uC2DC\uC2A4\uD15C")), /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement(
-    "button",
-    {
-      onClick: () => {
-        window.open(PRICE_POLICY_URL, "_blank", "noopener,noreferrer");
-      },
-      className: "w-full flex items-center gap-2 px-3 py-2 text-sm rounded text-slate-300 hover:bg-slate-800 group",
-      title: "\uC0C8 \uCC3D\uC5D0\uC11C \uAC00\uACA9\uC815\uCC45\uAD00\uB9AC \uC2DC\uC2A4\uD15C \uC5F4\uAE30"
-    },
-    /* @__PURE__ */ React.createElement(Icon, { name: "dollar", className: "w-4 h-4" }),
-    /* @__PURE__ */ React.createElement("span", { className: "flex-1 text-left" }, "\uAC00\uACA9\uC815\uCC45\uAD00\uB9AC"),
-    /* @__PURE__ */ React.createElement("span", { className: "text-[10px] text-slate-500 group-hover:text-slate-300" }, "\u2197")
-  )))));
+  })))));
   const renderTopBar = () => {
     const handleWeekChange = (newWeek) => {
       setFilterWeek(newWeek);
@@ -15997,6 +16237,101 @@ const KPI_SRC = __ynKpi(kpiFromSheet() || KPI_M);
 const dealerFromSheet = () => {
   const rows = sheetsData && Array.isArray(sheetsData["\uB300\uB9AC\uC0C1_PSI"]) ? sheetsData["\uB300\uB9AC\uC0C1_PSI"] : null;
   if (!rows || !rows.length) return null;
+  // ── PSI 수량 정규화 ─────────────────────────────────────────────
+  //  원본 「대리상 PSI」시트는 월마다 열 수가 다르다.
+  //   1~7月 : 采购·销售·月底库存·销售平均基准·合同任务基准  (5열)
+  //   8月   : + 退货                                        (6열)
+  //   9月   : 采购[目标·业绩·达成率] 销售[目标·业绩·退货·达成率]
+  //           目标-库存比[3] 业绩-库存比[3]                  (13열)
+  //  Apps Script 구(舊) 내보내기는 "월당 5열" 고정이라 8月부터 밀린다.
+  //  → 정정 시트「대리상_PSI2」가 있으면 그것을 쓰고,
+  //    없으면 밀림을 역보정한다(임시).
+  const __v2rows = sheetsData && Array.isArray(sheetsData["\uB300\uB9AC\uC0C1_PSI2"]) ? sheetsData["\uB300\uB9AC\uC0C1_PSI2"] : null;
+  const __V2 = {};
+  if (__v2rows) for (let vi = 0; vi < __v2rows.length; vi++) {
+    const vk = String(__v2rows[vi]["\uB300\uB9AC\uC0C1\uBA85"] || "").trim();
+    if (vk) __V2[vk] = __v2rows[vi];
+  }
+  // 밀림 감지 : 기준_8月(재고월수)은 20 미만이어야 정상. 큰 정수면 月底库存이 밀려든 것.
+  let __sf = 0, __sn = 0;
+  for (let si = 0; si < rows.length; si++) {
+    const sv = Number(rows[si]["\uAE30\uC900_8\u6708"]);
+    if (isFinite(sv) && sv !== 0) { __sn++; if (Math.abs(sv) >= 20) __sf++; }
+  }
+  const __SHIFTED = (__sn > 0 && __sf / __sn >= 0.5);
+  const __nv = (v) => {
+    if (v === null || v === void 0 || v === "" || v === "-") return null;
+    const n = Number(String(v).replace(/,/g, ""));
+    return isFinite(n) ? n : null;
+  };
+  const __z = (v) => { const n = __nv(v); return n === null ? 0 : n; };
+  const __fl = (v) => { const n = __nv(v); return (n !== null && Math.abs(n - Math.round(n)) >= 1e-6) ? 1 : 0; };
+  const QTY = (r) => {
+    const nm2 = String(r["\uB300\uB9AC\uC0C1\uBA85"] || "").trim();
+    const w = __V2[nm2];
+    const buy = [], sell = [], stk = [], base = [], buyT = [], sellT = [], ret = [];
+    const fb = [], fs = [], fk = [];
+    const G = (o, p, m) => o[p + m + "月"];
+    if (w) {
+      for (let m = 1; m <= 12; m++) {
+        buy.push(Math.round(__z(G(w, "\uAD6C\uB9E4_", m))));
+        sell.push(Math.round(__z(G(w, "\uD310\uB9E4_", m))));
+        stk.push(Math.round(__z(G(w, "\uC7AC\uACE0_", m))));
+        base.push(__z(G(w, "\uAE30\uC900_", m)));
+        buyT.push(Math.round(__z(G(w, "\uAD6C\uB9E4\uBAA9\uD45C_", m))));
+        sellT.push(Math.round(__z(G(w, "\uD310\uB9E4\uBAA9\uD45C_", m))));
+        ret.push(Math.round(__z(G(w, "\uBC18\uD488_", m))));
+        fb.push(__fl(G(w, "\uAD6C\uB9E4_", m))); fs.push(__fl(G(w, "\uD310\uB9E4_", m))); fk.push(__fl(G(w, "\uC7AC\uACE0_", m)));
+      }
+      return { buy, sell, stk, base, buyT, sellT, ret, f: { b: fb, s: fs, k: fk } };
+    }
+    if (!__SHIFTED) {
+      for (let m = 1; m <= 12; m++) {
+        buy.push(Math.round(__z(G(r, "\uAD6C\uB9E4_", m))));
+        sell.push(Math.round(__z(G(r, "\uD310\uB9E4_", m))));
+        stk.push(Math.round(__z(G(r, "\uC7AC\uACE0_", m))));
+        base.push(__z(G(r, "\uAE30\uC900_", m)));
+        buyT.push(0); sellT.push(0); ret.push(0);
+        fb.push(__fl(G(r, "\uAD6C\uB9E4_", m))); fs.push(__fl(G(r, "\uD310\uB9E4_", m))); fk.push(__fl(G(r, "\uC7AC\uACE0_", m)));
+      }
+      return { buy, sell, stk, base, buyT, sellT, ret, f: { b: fb, s: fs, k: fk } };
+    }
+    // 1~7月 : 정상
+    for (let m = 1; m <= 7; m++) {
+      buy.push(Math.round(__z(G(r, "\uAD6C\uB9E4_", m))));
+      sell.push(Math.round(__z(G(r, "\uD310\uB9E4_", m))));
+      stk.push(Math.round(__z(G(r, "\uC7AC\uACE0_", m))));
+      base.push(__z(G(r, "\uAE30\uC900_", m)));
+      buyT.push(0); sellT.push(0); ret.push(0);
+      fb.push(__fl(G(r, "\uAD6C\uB9E4_", m))); fs.push(__fl(G(r, "\uD310\uB9E4_", m))); fk.push(__fl(G(r, "\uC7AC\uACE0_", m)));
+    }
+    // 8月 : 구매_8=采购, 판매_8=销售, 재고_8=退货, 기준_8=月底库存
+    buy.push(Math.round(__z(G(r, "\uAD6C\uB9E4_", 8))));
+    sell.push(Math.round(__z(G(r, "\uD310\uB9E4_", 8))));
+    stk.push(Math.round(__z(G(r, "\uAE30\uC900_", 8))));
+    base.push(0);
+    buyT.push(0); sellT.push(0); ret.push(Math.round(__z(G(r, "\uC7AC\uACE0_", 8))));
+    fb.push(__fl(G(r, "\uAD6C\uB9E4_", 8))); fs.push(__fl(G(r, "\uD310\uB9E4_", 8))); fk.push(__fl(G(r, "\uAE30\uC900_", 8)));
+    // 9月 : 采购[目标=판매_9, 业绩=재고_9] 销售[业绩=구매_10, 退货=판매_10] 业绩-库存比[月底库存=판매_11, 기준=재고_11]
+    buy.push(Math.round(__z(G(r, "\uC7AC\uACE0_", 9))));
+    sell.push(Math.round(__z(G(r, "\uAD6C\uB9E4_", 10))));
+    stk.push(Math.round(__z(G(r, "\uD310\uB9E4_", 11))));
+    base.push(__z(G(r, "\uC7AC\uACE0_", 11)));
+    buyT.push(Math.round(__z(G(r, "\uD310\uB9E4_", 9))));
+    sellT.push(0);
+    ret.push(Math.round(__z(G(r, "\uD310\uB9E4_", 10))));
+    fb.push(__fl(G(r, "\uC7AC\uACE0_", 9))); fs.push(__fl(G(r, "\uAD6C\uB9E4_", 10))); fk.push(__fl(G(r, "\uD310\uB9E4_", 11)));
+    // 10~12月 : 원본에 없음 (허수 제거)
+    for (let m = 10; m <= 12; m++) {
+      buy.push(0); sell.push(0); stk.push(0); base.push(0);
+      buyT.push(0); sellT.push(0); ret.push(0);
+      fb.push(0); fs.push(0); fk.push(0);
+    }
+    // 8月 재고월수는 구 시트에서 유실 → 월평균목표로 근사
+    const avg = __z(r["\uD310\uB9E4\uC218\uB7C9\uD3C9\uADE0"]);
+    if (avg > 0) base[7] = Math.round(stk[7] / avg * 100) / 100;
+    return { buy, sell, stk, base, buyT, sellT, ret, f: { b: fb, s: fs, k: fk } };
+  };
   const A = (r, p) => {
     const a = [];
     for (let m = 1; m <= 12; m++) a.push(Math.round(__num(r[p + m + "\u6708"])));
@@ -16037,8 +16372,38 @@ const dealerFromSheet = () => {
       continue;
     }
     if (!map[hq]) map[hq] = [];
-    map[hq].push([String(r["\uC9C0\uC5ED"] || ""), nm, A(r, "\uACC4\uC57D_"), act, Math.round(__num(r["26\uACC4\uC57D\uD569\uACC4"])), A(r, "\uC218\uAE08_"), A(r, "\uAD6C\uB9E4_"), A(r, "\uD310\uB9E4_"), A(r, "\uC7AC\uACE0_"), AB(r, "\uAE30\uC900_"), __num(r["\uD310\uB9E4\uC218\uB7C9\uD3C9\uADE0"]), isDir ? 1 : 0, { b: FL(r, "\uAD6C\uB9E4_"), s: FL(r, "\uD310\uB9E4_"), k: FL(r, "\uC7AC\uACE0_") }]);
+    const q = QTY(r);
+    let qlm = 0; for (let li = 0; li < 12; li++) if (q.buy[li] || q.sell[li] || q.stk[li] || q.buyT[li]) qlm = li + 1;
+    map[hq].push([String(r["\uC9C0\uC5ED"] || ""), nm, A(r, "\uACC4\uC57D_"), act, Math.round(__num(r["26\uACC4\uC57D\uD569\uACC4"])), A(r, "\uC218\uAE08_"), q.buy, q.sell, q.stk, q.base, __num(r["\uD310\uB9E4\uC218\uB7C9\uD3C9\uADE0"]), isDir ? 1 : 0, q.f, { buyT: q.buyT, sellT: q.sellT, ret: q.ret, lm: qlm }]);
   }
+  // ── 수량 정합성 자동 검사 ────────────────────────────────
+  //  불변식 : 월말재고[m] = 월말재고[m-1] + 구매[m] - 판매[m] - 반품[m]
+  //  열이 밀리면 이 식이 무너진다 → 밀림을 자동으로 잡아낸다.
+  (function () {
+    let ok = 0, bad = 0, dl = 0, badD = 0;
+    Object.keys(map).forEach(function (hq) {
+      (map[hq] || []).forEach(function (d) {
+        const b = d[6] || [], sv = d[7] || [], k = d[8] || [], rt = (d[13] || {}).ret || [];
+        let o = 0, x = 0;
+        for (let m = 1; m < 12; m++) {
+          const prev = k[m - 1] || 0, cur = k[m] || 0;
+          if (!prev && !cur && !(b[m] || 0) && !(sv[m] || 0)) continue;
+          const exp = prev + (b[m] || 0) - (sv[m] || 0) - (rt[m] || 0);
+          if (Math.abs(exp - cur) <= Math.max(2, Math.abs(cur) * 0.02)) o++; else x++;
+        }
+        if (o + x) { dl++; if (x > o) badD++; }
+        ok += o; bad += x;
+      });
+    });
+    const n = ok + bad;
+    try {
+      window.__PSI_AUDIT = {
+        src: __v2rows ? "v2" : (__SHIFTED ? "fix" : "raw"),
+        n: n, ok: ok, rate: n ? Math.round(ok / n * 1000) / 10 : null,
+        dealers: dl, badD: badD
+      };
+    } catch (e) {}
+  })();
   Object.keys(map).forEach(function(hq) {
     map[hq].sort(function(a, b) {
       return a[11] - b[11] || b[3].reduce(function(s, x) {
@@ -16474,6 +16839,34 @@ const __dlrAlias = (n) => {
   }
   return null;
 };
+// ── 대리상 거래 상태 : 미거래 / 거래중지 ──
+const __dSum = (a, n) => { let x = 0; const v = a || []; const k = n || 12; for (let i = 0; i < k; i++) x += Number(v[i]) || 0; return x; };
+// KPI(계약)가 아예 없는 대리상 = 미거래
+const __dlrNoKpi = (d) => !d || ((__dSum(d[2], 12) <= 0) && !(Number(d[4]) || 0));
+// KPI 는 있으나 최근 4개월 실적이 0 = 거래중지
+const DLR_STOP_M = 4;
+const __dlrStop = (d, Mp) => {
+  if (!d || __dlrNoKpi(d)) return false;
+  const m = Math.max(1, Math.min(12, Mp || 12));
+  if (m < DLR_STOP_M) return false;
+  const a = d[3] || [];
+  for (let i = m - DLR_STOP_M; i < m; i++) if ((Number(a[i]) || 0) > 0) return false;
+  return true;
+};
+const __dlrBadge = (d, Mp) => __dlrNoKpi(d)
+  ? React.createElement("span", { className: "dlrbg dlrbg-na", title: "26\uB144 KPI(\uACC4\uC57D)\uAC00 \uC5C6\uB294 \uB300\uB9AC\uC0C1 \u2014 \uD569\uACC4 \uB300\uB9AC\uC0C1 \uC218\uC5D0\uC11C \uC81C\uC678\uD569\uB2C8\uB2E4" }, "\uBBF8\uAC70\uB798")
+  : (__dlrStop(d, Mp) ? React.createElement("span", { className: "dlrbg dlrbg-stop", title: "KPI\uB294 \uC788\uC73C\uB098 \uCD5C\uADFC " + DLR_STOP_M + "\uAC1C\uC6D4 \uC2E4\uC801\uC774 \uC5C6\uC2B5\uB2C8\uB2E4" }, "\uAC70\uB798\uC911\uC9C0") : null);
+const __dlrCnt = (rows, Mp) => {
+  let act = 0, na = 0, stop = 0, dir = 0;
+  (rows || []).forEach(function (d) {
+    if (d[11]) { dir++; return; }
+    if (__dlrNoKpi(d)) { na++; return; }
+    act++; if (__dlrStop(d, Mp)) stop++;
+  });
+  return { act: act, na: na, stop: stop, dir: dir };
+};
+const __dlrCntLabel = (rows, Mp) => { const c = __dlrCnt(rows, Mp);
+  return [c.act, c.na ? " (\uBBF8\uAC70\uB798 " + c.na + ")" : "", c.stop ? " \xB7 \uAC70\uB798\uC911\uC9C0 " + c.stop : ""].join(""); };
 const __dlrStar = (n) => { const w = __dlrWatch(n); return w ? React.createElement("span", { className: "dlrstar", title: "\uC8FC\uC758 \uAC70\uB798\uCC98 (" + w + ") \u2014 \uCC44\uAD8C\xB7PSI \uD655\uC778 \uD544\uC694" }, "\u2605") : null; };
 // ── PSI 수량 무결성 : 원본에 소수(계산식)가 들어간 달은 수량으로 쓸 수 없음 ──
 const __qNum = (v) => (v === null || v === void 0 || v === "" || !isFinite(v)) ? null : Number(v);
@@ -16779,18 +17172,43 @@ const renderHQDashboard = (hqKey) => {
   const dsoRows0 = (hqKey === "\uC804\uAD6D" ? DSO_ROWS.slice() : DSO_ROWS.filter((d) => d[0] === hqKey)).sort((a, b) => b[5] - a[5]);
   const bdRows = BD_LIST[hqKey] || [], ariRows = ARI_LIST[hqKey] || [], dealRows = DEAL_LIST[hqKey] || [], endRows = END_LIST[hqKey] || [];
   const psiRows = DEALER_PSI[hqKey] || [];
-    const psiRgList = (function () { const o = [], c = {}; psiRows.forEach(function (d) { const r = d[0] || "-"; if (c[r] === void 0) { c[r] = 0; o.push(r); } c[r]++; }); return o.map(function (r) { return [r, c[r]]; }); })();
-    const psiRgSel = psiRgList.some(function (x) { return x[0] === psiRegion; }) ? psiRegion : "\uC804\uCCB4";
-    const psiRowsF = psiRgSel === "\uC804\uCCB4" ? psiRows : psiRows.filter(function (d) { return (d[0] || "-") === psiRgSel; });
+    // 지역 선택 — 전국 화면은 본부 버튼 + 지역 드롭다운, 본부 화면은 지역 칩
+    const psiHqOf = (d) => hqOf(d[0] || "") || "기타";
+    const psiIsAll = (hqKey === "전국");
+    const psiHqList = (function () { if (!psiIsAll) return []; const o = [], c = {};
+      psiRows.forEach(function (d) { const k = psiHqOf(d); if (c[k] === void 0) { c[k] = 0; o.push(k); } c[k]++; });
+      return o.map(function (k) { return [k, c[k]]; }); })();
+    const psiHqSel = psiHqList.some(function (x) { return x[0] === psiHq; }) ? psiHq : "전체";
+    const psiHqRows = (psiIsAll && psiHqSel !== "전체") ? psiRows.filter(function (d) { return psiHqOf(d) === psiHqSel; }) : psiRows;
+    const psiRgList = (function () { const o = [], c = {};
+      psiHqRows.forEach(function (d) { const r = d[0] || "-"; if (c[r] === void 0) { c[r] = 0; o.push(r); } c[r]++; });
+      return o.map(function (r) { return [r, c[r]]; }); })();
+    const psiRgSel = psiRgList.some(function (x) { return x[0] === psiRegion; }) ? psiRegion : "전체";
+    const psiRowsF = psiRgSel === "전체" ? psiHqRows : psiHqRows.filter(function (d) { return (d[0] || "-") === psiRgSel; });
     const dlrCntF = psiRowsF.filter(function (r) { return !r[11]; }).length;
     const dirCntF = psiRowsF.filter(function (r) { return !!r[11]; }).length;
-    const psiRgBar = psiRgList.length > 1 ? React.createElement("div", { className: "rgbar" },
-      React.createElement("span", { className: "rgbar-l" }, "\uC9C0\uC5ED"),
-      [["\uC804\uCCB4", psiRows.length]].concat(psiRgList).map(function (x) {
-        return React.createElement("button", { key: x[0], onClick: function () { setPsiRegion(x[0]); },
-          className: "rgchip " + (psiRgSel === x[0] ? "rgchip-on" : "rgchip-off") }, x[0], React.createElement("i", null, x[1]));
-      }),
-      psiRgSel !== "\uC804\uCCB4" ? React.createElement("span", { className: "rgbar-n" }, "\uD45C\xB7\uD569\uACC4\uAC00 " + psiRgSel + " \uAE30\uC900\uC73C\uB85C \uC804\uD658\uB418\uC5C8\uC2B5\uB2C8\uB2E4") : null) : null;
+    const psiNote = (psiHqSel !== "전체" || psiRgSel !== "전체")
+      ? React.createElement("span", { className: "rgbar-n" }, "표\xB7합계가 " + (psiRgSel !== "전체" ? psiRgSel : psiHqSel) + " 기준입니다") : null;
+    const psiRgBar = psiIsAll
+      ? React.createElement("div", { className: "rgbar" },
+          React.createElement("span", { className: "rgbar-l" }, "본부"),
+          [["전체", psiRows.length]].concat(psiHqList).map(function (x) {
+            return React.createElement("button", { key: x[0],
+              onClick: function () { setPsiHq(x[0]); setPsiRegion("전체"); },
+              className: "rgchip " + (psiHqSel === x[0] ? "rgchip-on" : "rgchip-off") }, x[0], React.createElement("i", null, x[1]));
+          }),
+          React.createElement("span", { className: "rgbar-l", style: { marginLeft: "8px" } }, "지역"),
+          React.createElement("select", { className: "rgsel", value: psiRgSel,
+              onChange: function (e) { setPsiRegion(e.target.value); } },
+            [React.createElement("option", { key: "__all", value: "전체" }, "전체 (" + psiHqRows.length + ")")]
+              .concat(psiRgList.map(function (x) { return React.createElement("option", { key: x[0], value: x[0] }, x[0] + " (" + x[1] + ")"); }))),
+          psiNote)
+      : (psiRgList.length > 1 ? React.createElement("div", { className: "rgbar" },
+          React.createElement("span", { className: "rgbar-l" }, "지역"),
+          [["전체", psiRows.length]].concat(psiRgList).map(function (x) {
+            return React.createElement("button", { key: x[0], onClick: function () { setPsiRegion(x[0]); },
+              className: "rgchip " + (psiRgSel === x[0] ? "rgchip-on" : "rgchip-off") }, x[0], React.createElement("i", null, x[1]));
+          }), psiNote) : null);
   const orgReps = (function() {
     const Mo = filterMonth || 7;
     const m = {};
@@ -17021,8 +17439,8 @@ const renderHQDashboard = (hqKey) => {
         React.createElement("table", { className: KTB, "data-no-sort": "1" },
           (function () {
             // 대리상명(index 2)만 넓게 · 나머지는 균등 분할 (table-layout:fixed)
-            const NC = kqOn ? 17 : 13;
-            const NAMEW = kqOn ? 15 : 22;            // 대리상명 실제 길이에 맞춘 폭
+            const NC = kqOn ? 16 : 12;
+            const NAMEW = kqOn ? 16 : 23;            // 대리상명 실제 길이에 맞춘 폭
             const OTHW = (100 - NAMEW) / (NC - 1);
             return React.createElement("colgroup", null,
               Array.from({ length: NC }, function (_, ci) {
@@ -17031,7 +17449,7 @@ const renderHQDashboard = (hqKey) => {
           })(),
           React.createElement("thead", { className: "bg-slate-100 border-b border-slate-200" },
             React.createElement("tr", null,
-              ["본부", "지역", "대리상명", "당월 KPI", "판매실적", "달성율", "예측(1차)", "예측(2차)", "달성율", "차이", "수금목표", "수금금액", "비중"]
+              ["본부", "지역", "대리상명", "당월 KPI", "판매실적", "달성율", "예측", "달성율", "차이", "수금목표", "수금금액", "비중"]
                 .concat(kqOn ? ["수량목표", "당월", "누계", "달성율"] : [])
                 .map((h, hi) => React.createElement("th", { key: hi, className: gh + (hi >= 13 ? " kqh" : ""), style: { whiteSpace: "pre" } }, h)))),
           React.createElement("tbody", null, rowsP.map((d, i) => {
@@ -17049,7 +17467,7 @@ const renderHQDashboard = (hqKey) => {
                 React.createElement("td", { className: "px-1 py-1 text-slate-600 text-center" }, hqKey === "전국" ? hqOf(d[0]) : hqKey.replace("본부", "")),
                 React.createElement("td", { className: "px-1 py-1 text-slate-600 text-center" }, d[0]),
                 React.createElement("td", { className: "px-1 py-1 font-semibold text-blue-700 cursor-pointer hover:underline kname", title: String(d[1] || ""), onClick: () => setPlanOpen(open ? null : key(d)) },
-                  open ? "\u25BE " : "\u25B8 ", __dlrStar(d[1]), __dlrName(d[1]), __dlrAlias(d[1]),
+                  open ? "\u25BE " : "\u25B8 ", __dlrStar(d[1]), __dlrName(d[1]), __dlrAlias(d[1]), __dlrBadge(d, M2),
                   d[11] ? React.createElement("span", { className: "ml-1 text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1 rounded" }, "\uC9C1\uC601") : null,
                   (function () { const np = memoOf(d, "plan").split("\n").filter((x) => x.trim()).length, nc = memoOf(d, "col").split("\n").filter((x) => x.trim()).length;
                     return (np + nc) ? React.createElement("span", { className: "kmemo-b", title: "달성방안 " + np + "줄 · 회수방안 " + nc + "줄" }, "\u270E " + (np + nc)) : null; })()),
@@ -17057,12 +17475,8 @@ const renderHQDashboard = (hqKey) => {
                 React.createElement("td", { className: "px-1 py-1 text-right font-semibold text-slate-900" }, formatNumber(Math.round(act))),
                 React.createElement("td", { className: "px-1 py-1 text-right font-bold " + (rt(act, kpiv) >= 70 ? "text-blue-600" : "text-red-600") }, rt(act, kpiv), "%"),
                 React.createElement("td", { className: "px-1 py-1 text-right" },
-                  React.createElement("input", { className: "kfc", type: "text", value: fmtIn(r.fc),
-                    placeholder: formatNumber(Math.round(act)), title: "\uC608\uCE21(1\uCC28) \u2014 \uBBF8\uC785\uB825 \uC2DC \uC2E4\uC801",
-                    onChange: (e) => setRec(d, { fc: cleanIn(e.target.value) }) })),
-                React.createElement("td", { className: "px-1 py-1 text-right" },
                   React.createElement("input", { className: "kfc", type: "text", value: fmtIn(r.fc2),
-                    placeholder: formatNumber(Math.round(fc1)), title: "\uC608\uCE21(2\uCC28) \u2014 \uBBF8\uC785\uB825 \uC2DC 1\uCC28 \uC0AC\uC6A9",
+                    placeholder: formatNumber(Math.round(fc1)), title: "\uC608\uCE21 \u2014 \uBBF8\uC785\uB825 \uC2DC \uC2E4\uC801",
                     onChange: (e) => setRec(d, { fc2: cleanIn(e.target.value) }) })),
                 React.createElement("td", { className: "px-1 py-1 text-right font-bold " + (rt(fcv, kpiv) >= 70 ? "text-blue-600" : "text-red-600") }, rt(fcv, kpiv), "%"),
                 React.createElement("td", { className: "px-1 py-1 text-right font-bold " + (diff < 0 ? "text-red-600" : diff > 0 ? "text-blue-600" : "text-slate-900") }, (diff > 0 ? "+" : "") + formatNumber(Math.round(diff))),
@@ -17079,15 +17493,14 @@ const renderHQDashboard = (hqKey) => {
                   React.createElement("td", { className: "px-1 py-1 text-right font-semibold text-slate-900 kqc" }, formatNumber(Math.round(qCum(d)))),
                   React.createElement("td", { className: "px-1 py-1 text-right font-bold kqc " + (rt(qCum(d), qtgt) >= 70 ? "text-blue-600" : "text-red-600") }, qtgt > 0 ? rt(qCum(d), qtgt) + "%" : "\u2014")) : null),
               open ? React.createElement("tr", { className: "border-b border-slate-200 bg-slate-50/60" },
-                React.createElement("td", { colSpan: kqOn ? 17 : 13, className: "px-2 py-2" },
+                React.createElement("td", { colSpan: kqOn ? 16 : 12, className: "px-2 py-2" },
                   React.createElement("div", { className: "kgrid" }, logBox(d, "plan", "달성방안"), logBox(d, "col", "회수방안")))) : null);
           }),
           React.createElement("tr", { className: "bg-slate-50 border-t-2 border-slate-300 font-bold text-slate-800" },
-            React.createElement("td", { className: "px-1 py-1", colSpan: 3 }, "합계 \xB7 대리상 ", rowsP.length),
+            React.createElement("td", { className: "px-1 py-1", colSpan: 3 }, "합계 \xB7 대리상 ", __dlrCntLabel(rowsP, M2)),
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.kpi))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.act))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, rt(T.act, T.kpi), "%"),
-            React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.fc1))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(T.fc))),
             React.createElement("td", { className: "px-1 py-1 text-right" }, rt(T.fc, T.kpi), "%"),
             React.createElement("td", { className: "px-1 py-1 text-right " + (T.fc - T.kpi < 0 ? "text-red-600" : T.fc - T.kpi > 0 ? "text-blue-600" : "") }, (T.fc - T.kpi > 0 ? "+" : "") + formatNumber(Math.round(T.fc - T.kpi))),
@@ -17109,19 +17522,19 @@ const renderHQDashboard = (hqKey) => {
               React.createElement("tr", { className: "bg-white border-t border-slate-300 font-semibold text-slate-700" },
                 React.createElement("td", { className: "px-1 py-1", colSpan: 3 }, "KPI \uC2DC\uD2B8 \uBAA9\uD45C \xB7 ", M2, "\uC6D4 (\uC9C0\uC5ED \uD569\uACC4)"),
                 React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(Math.round(sK.aT || 0))),
-                React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal text-slate-500", colSpan: 9 }, "\uAE08\uC561\uBAA9\uD45C_", M2, "\uC6D4 \xB7 \uC9C0\uC5ED \uB2E8\uC704 \uBAA9\uD45C\uC758 \uD569"),
+                React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal text-slate-500", colSpan: 8 }, "\uAE08\uC561\uBAA9\uD45C_", M2, "\uC6D4 \xB7 \uC9C0\uC5ED \uB2E8\uC704 \uBAA9\uD45C\uC758 \uD569"),
                 kqOn ? React.createElement(React.Fragment, null,
                   React.createElement("td", { className: "px-1 py-1 text-right kqc" }, formatNumber(Math.round(sK.qT || 0))),
                   React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal text-slate-500 kqc", colSpan: 3 }, "\uC218\uB7C9\uBAA9\uD45C_", M2, "\uC6D4")) : null),
               React.createElement("tr", { className: "bg-slate-50 border-b border-slate-300 font-bold" },
                 React.createElement("td", { className: "px-1 py-1 text-slate-800", colSpan: 3 }, "\uBBF8\uBC30\uC815 \uCC28\uC561 (\uBAA9\uD45C \u2212 \uACC4\uC57D)"),
                 React.createElement("td", { className: "px-1 py-1 text-right " + cA }, formatNumber(Math.round(gapA))),
-                React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal " + cA, colSpan: 9 }, note(gapA, "\uC704\uC548"), gapA !== 0 && sK.aT > 0 ? " (\uBAA9\uD45C\uC758 " + Math.abs(pctA) + "%)" : "", gapA > 0 ? " \xB7 \uB300\uB9AC\uC0C1\uC5D0 \uBC30\uBD84\uB418\uC9C0 \uC54A\uC740 \uBAA9\uD45C" : gapA < 0 ? " \xB7 \uACC4\uC57D\uC774 \uC9C0\uC5ED\uBAA9\uD45C\uB97C \uCD08\uACFC" : ""),
+                React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal " + cA, colSpan: 8 }, note(gapA, "\uC704\uC548"), gapA !== 0 && sK.aT > 0 ? " (\uBAA9\uD45C\uC758 " + Math.abs(pctA) + "%)" : "", gapA > 0 ? " \xB7 \uB300\uB9AC\uC0C1\uC5D0 \uBC30\uBD84\uB418\uC9C0 \uC54A\uC740 \uBAA9\uD45C" : gapA < 0 ? " \xB7 \uACC4\uC57D\uC774 \uC9C0\uC5ED\uBAA9\uD45C\uB97C \uCD08\uACFC" : ""),
                 kqOn ? React.createElement(React.Fragment, null,
                   React.createElement("td", { className: "px-1 py-1 text-right kqc " + (T.qt === 0 ? "text-slate-400" : cQ) }, T.qt === 0 ? "\u2014" : formatNumber(Math.round(gapQ))),
                   React.createElement("td", { className: "px-1 py-1 text-left text-[11px] font-normal kqc " + cQ, colSpan: 3 }, T.qt === 0 ? "\uC218\uB7C9\uBAA9\uD45C \uBBF8\uC785\uB825" : note(gapQ, "\uAC1C"))) : null));
           })()))),
-      React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-1.5" }, "* 금액 단위 위안 \xB7 수량 단위 개 \xB7 합계=대리상_PSI 계약 \xB7 KPI 시트 목표=KPI 시트 지역별 목표 합계 (별도 시트) \xB7 예측(1차) 미입력 시 실적 \xB7 예측(2차) 미입력 시 1차 사용 \xB7 달성율\xB7차이는 2차 기준 \xB7 차이 = 실적 − 예측 (음수 = 남은 필요액) \xB7 수량 달성율 = 누계 \u00F7 수량목표 \xB7 입력 내용은 자동 저장되며 월별로 관리됩니다"));
+      React.createElement("div", { className: "text-[10.5px] text-slate-400 mt-1.5" }, "* 금액 단위 위안 \xB7 수량 단위 개 \xB7 합계=대리상_PSI 계약 \xB7 KPI 시트 목표=KPI 시트 지역별 목표 합계 (별도 시트) \xB7 예측 미입력 시 당월 실적으로 계산 \xB7 달성율\xB7차이는 예측 기준 \xB7 차이 = 실적 − 예측 (음수 = 남은 필요액) \xB7 수량 달성율 = 누계 \u00F7 수량목표 \xB7 입력 내용은 자동 저장되며 월별로 관리됩니다"));
   })()
 , tab === "dso" && (() => {
     const rr = DSO_RICH[hqKey] || [];
@@ -17291,18 +17704,35 @@ const renderHQDashboard = (hqKey) => {
       a[ri] = Object.assign({}, a[ri], { [f]: v });
       return Object.assign({}, o, { [k]: a });
     });
+    // PSI 수량 데이터 상태 배지 (열 밀림 재발 방지 표시)
+    const __psiAudBadge = () => {
+      let A = null; try { A = window.__PSI_AUDIT; } catch (e) {}
+      if (!A || !A.n) return React.createElement("span", null);
+      const r = A.rate;
+      const hard = (r !== null && r < 70);   // 열 밀림이면 60% 아래로 떨어진다(실측 58%)
+      const cls = hard ? "psiaud psiaud-err" : (A.src === "v2" ? "psiaud psiaud-ok" : "psiaud psiaud-warn");
+      const mark = hard ? "⛔" : (A.src === "v2" ? "✓" : "⚠");
+      const what = (A.src === "v2") ? "정정 시트「대리상_PSI2」사용"
+        : (A.src === "fix") ? "구 시트 임시 보정 중 — Apps Script [PSI2_생성] 권장"
+        : "원본 그대로";
+      const tip = "재고 연속성 검사 : 월말재고[m] = 월말재고[m-1] + 구매 - 판매 - 반품\n"
+        + A.ok + " / " + A.n + " 건 일치 \xB7 대리상 " + A.dealers + "개 중 " + A.badD + "개 불일치";
+      return React.createElement("span", { className: cls, title: tip },
+        mark + " 수량 정합 " + (r === null ? "—" : r + "%") + " \xB7 " + what);
+    };
     const dlrChart = (d) => {
   const buy = d[6] || [], sell = d[7] || [], stk = d[8] || [];
+  const ex = d[13] || {}, bT = ex.buyT || [];
   let lastM = 0;
-  for (let li = 0; li < 12; li++) if ((buy[li] || 0) || (sell[li] || 0) || (stk[li] || 0)) lastM = li + 1;
-  const n = Math.max(1, Math.min(12, Math.max(lastM, Mp)));
+  for (let li = 0; li < 12; li++) if ((buy[li] || 0) || (sell[li] || 0) || (stk[li] || 0) || (bT[li] || 0)) lastM = li + 1;
+  const n = Math.max(1, Math.min(12, lastM));   // 원본에 값이 있는 월까지만 (10月 이후 허수 제외)
   const W = 1e3, H = 220, PL = 46, PR = 46, PT = 26, PB = 26;
   let mx = 1, sx = 1;
   for (let i = 0; i < n; i++) {
-    mx = Math.max(mx, buy[i] || 0, sell[i] || 0);
+    mx = Math.max(mx, buy[i] || 0, bT[i] || 0);
     sx = Math.max(sx, stk[i] || 0);
   }
-  mx *= 1.28;
+  mx *= 1.3;
   sx *= 1.15;
   const gw = (W - PL - PR) / n, bw = gw * 0.3;
   const by = (v) => H - PB - (H - PT - PB) * (v || 0) / mx;
@@ -17310,17 +17740,22 @@ const renderHQDashboard = (hqKey) => {
   const els = [];
   for (let i = 0; i < n; i++) {
     const x = PL + gw * (i + 0.5);
-    els.push(/* @__PURE__ */ React.createElement("rect", { key: "b" + i, x: x - bw - 1.5, y: by(buy[i]), width: bw, height: Math.max(0, H - PB - by(buy[i])), fill: "#c7d2fe", rx: "2" }, /* @__PURE__ */ React.createElement("title", null, i + 1 + "\u6708 \uAD6C\uB9E4 " + pgF(buy[i] || 0))));
-    els.push(/* @__PURE__ */ React.createElement("rect", { key: "s" + i, x: x + 1.5, y: by(sell[i]), width: bw, height: Math.max(0, H - PB - by(sell[i])), fill: "#4f46e5", rx: "2" }, /* @__PURE__ */ React.createElement("title", null, i + 1 + "\u6708 \uD310\uB9E4 " + pgF(sell[i] || 0))));
-    els.push(/* @__PURE__ */ React.createElement("text", { key: "m" + i, x, y: H - 8, textAnchor: "middle", fontSize: "11", fill: "#000" }, i + 1 + "\u6708"));
-    els.push(/* @__PURE__ */ React.createElement("text", { key: "v" + i, x: x + 1.5 + bw / 2, y: by(sell[i]) - 4, textAnchor: "middle", fontSize: "10", fontWeight: "700", fill: "#3730a3" }, pgF(sell[i] || 0)));
+    const hasT = (bT[i] || 0) > 0;
+    if (hasT) {
+      els.push(/* @__PURE__ */ React.createElement("rect", { key: "t" + i, x: x - bw - 1.5, y: by(bT[i]), width: bw, height: Math.max(0, H - PB - by(bT[i])), fill: "#c7d2fe", rx: "2" }, /* @__PURE__ */ React.createElement("title", null, i + 1 + "月 구매 목표 " + pgF(bT[i] || 0))));
+      els.push(/* @__PURE__ */ React.createElement("text", { key: "tv" + i, x: x - bw / 2 - 1.5, y: by(bT[i]) - 4, textAnchor: "middle", fontSize: "10", fontWeight: "700", fill: "#94a3b8" }, pgF(bT[i] || 0)));
+    }
+    const bx = hasT ? x + 1.5 : x - bw / 2;
+    els.push(/* @__PURE__ */ React.createElement("rect", { key: "b" + i, x: bx, y: by(buy[i]), width: bw, height: Math.max(0, H - PB - by(buy[i])), fill: "#4f46e5", rx: "2" }, /* @__PURE__ */ React.createElement("title", null, i + 1 + "月 구매 " + pgF(buy[i] || 0) + " \xB7 판매 " + pgF(sell[i] || 0) + " \xB7 월말재고 " + pgF(stk[i] || 0))));
+    els.push(/* @__PURE__ */ React.createElement("text", { key: "m" + i, x, y: H - 8, textAnchor: "middle", fontSize: "11", fill: "#000" }, i + 1 + "月"));
+    els.push(/* @__PURE__ */ React.createElement("text", { key: "v" + i, x: bx + bw / 2, y: by(buy[i]) - 4, textAnchor: "middle", fontSize: "10", fontWeight: "700", fill: "#3730a3" }, pgF(buy[i] || 0)));
   }
   const pts = [];
   for (let i = 0; i < n; i++) pts.push((PL + gw * (i + 0.5)).toFixed(1) + "," + sy(stk[i]).toFixed(1));
   els.push(/* @__PURE__ */ React.createElement("polyline", { key: "sl", points: pts.join(" "), fill: "none", stroke: "#f59e0b", strokeWidth: "2" }));
-  for (let i = 0; i < n; i++) els.push(/* @__PURE__ */ React.createElement("circle", { key: "c" + i, cx: PL + gw * (i + 0.5), cy: sy(stk[i]), r: "3.2", fill: "#ffffff", stroke: "#f59e0b", strokeWidth: "2" }, /* @__PURE__ */ React.createElement("title", null, i + 1 + "\u6708 \uC7AC\uACE0 " + pgF(stk[i] || 0))));
+  for (let i = 0; i < n; i++) els.push(/* @__PURE__ */ React.createElement("circle", { key: "c" + i, cx: PL + gw * (i + 0.5), cy: sy(stk[i]), r: "3.2", fill: "#ffffff", stroke: "#f59e0b", strokeWidth: "2" }, /* @__PURE__ */ React.createElement("title", null, i + 1 + "月 월말재고 " + pgF(stk[i] || 0))));
   els.push(/* @__PURE__ */ React.createElement("line", { key: "ax", x1: PL, y1: H - PB, x2: W - PR, y2: H - PB, stroke: "#cbd5e1" }));
-  return /* @__PURE__ */ React.createElement("div", { className: "mt-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-baseline justify-between mb-1" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900" }, /* @__PURE__ */ React.createElement("span", null, "\uC6D4\uBCC4 \uD310\uB9E4\uC218\uB7C9")), /* @__PURE__ */ React.createElement("div", { className: "text-[11px] text-slate-500" }, /* @__PURE__ */ React.createElement("span", null, "\uC5F0\uD55C \uB9C9\uB300 = \uAD6C\uB9E4, \uC9C4\uD55C \uB9C9\uB300 = \uD310\uB9E4, \uC8FC\uD669\uC120 = \uC7AC\uACE0"))), /* @__PURE__ */ React.createElement("svg", { viewBox: "0 0 " + W + " " + H, style: { width: "100%", height: "auto" } }, els));
+  return /* @__PURE__ */ React.createElement("div", { className: "mt-1" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-baseline justify-between mb-1" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900" }, /* @__PURE__ */ React.createElement("span", null, "월별 구매(Sell-in)")), /* @__PURE__ */ React.createElement("div", { className: "text-[11px] text-slate-500" }, /* @__PURE__ */ React.createElement("span", null, "연한 막대 = 구매 목표, 진한 막대 = 구매 실적, 주황선 = 월말 재고"))), /* @__PURE__ */ React.createElement("svg", { viewBox: "0 0 " + W + " " + H, style: { width: "100%", height: "auto" } }, els), /* @__PURE__ */ React.createElement("div", { className: "text-[11px] text-slate-500 mt-0.5" }, "※ " + n + "月까지 원본 집계 \xB7 마지막 달은 월중 값일 수 있음"))
 };
     const tot = { mc: 0, ma: 0, cc: 0, ca: 0, ann: 0, sg: 0, buy: 0, sell: 0, stk: 0, qavg: 0, pbase: 0, n: 0 };
     psiRowsF.forEach((d) => {
@@ -17337,11 +17772,11 @@ const renderHQDashboard = (hqKey) => {
       tot.pbase += lz(d[9]) || 0;
       tot.n++;
     });
-    return /* @__PURE__ */ React.createElement("div", { className: "space-y-2" }, psiRgBar, /* @__PURE__ */ React.createElement("div", { className: "flex justify-end" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setPsiShow((v) => !v), className: "px-2.5 py-1 text-xs border border-slate-300 rounded-md hover:bg-slate-50 font-semibold text-slate-600" }, psiShow ? "\uC218\uAE08 \uC774\uD6C4 \uC5F4 \uC228\uAE30\uAE30 \u25C0" : "\uC218\uAE08 \uC774\uD6C4 \uC5F4 \uD3BC\uCE58\uAE30 \u25B6")), /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto border border-slate-200 rounded-lg" }, /* @__PURE__ */ React.createElement("table", { className: TB, "data-no-sort": "1" }, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-200" }, /* @__PURE__ */ HQTH(g() + " text-left align-middle"), React.createElement("th", { rowSpan: 2, className: g() + " text-left align-middle" }, "\uC9C0\uC5ED"), /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " text-left align-middle", style: { width: 230, maxWidth: 230 } }, "\uB300\uB9AC\uC0C1\uBA85"), /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " align-middle" }, "26\uB144\uB3C4", /* @__PURE__ */ React.createElement("br", null), "\uACC4\uC57D\uAE08\uC561"), React.createElement("th", { colSpan: 3, className: g() }, "\uD574\uB2F9\uC6D4 \uD310\uB9E4\uAE08\uC561(\uC704\uC548)"), /* @__PURE__ */ React.createElement("th", { colSpan: 3, className: g() }, "\uB204\uC801 \uD310\uB9E4\uAE08\uC561(\uC704\uC548)"), /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " align-middle" }, "\uC218\uAE08(\uC704\uC548)"), /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " align-middle" }, "\uC2E4\uC801-\uC218\uAE08", /* @__PURE__ */ React.createElement("br", null), "\uCC28\uC774(\uC704\uC548)"), psiShow && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " align-middle" }, "\uD310\uB9E4\uC218\uB7C9", /* @__PURE__ */ React.createElement("br", null), "\uD3C9\uADE0"), /* @__PURE__ */ React.createElement("th", { colSpan: 3, className: g() }, "\uD310\uB9E4\uC218\uB7C9(\uAC1C)"), /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " align-middle" }, "\uD310\uB9E4\uD3C9\uADE0", /* @__PURE__ */ React.createElement("br", null), "\uAE30\uC900"))), /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-200" }, /* @__PURE__ */ React.createElement("th", { className: sub }, "KPI\uAE08\uC561"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uC2E4\uC801"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uC2E4\uC801\uB2EC\uC131\uC728"), /* @__PURE__ */ React.createElement("th", { className: sub }, "KPI\uAE08\uC561"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uC2E4\uC801"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uC2E4\uC801\uB2EC\uC131\uC728"), psiShow && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("th", { className: sub }, "\uAD6C\uB9E4"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uD310\uB9E4"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uC7AC\uACE0")))), /* @__PURE__ */ React.createElement("tbody", null, psiRowsF.map((d, i) => {
+    return /* @__PURE__ */ React.createElement("div", { className: "space-y-2" }, psiRgBar, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between gap-2" }, __psiAudBadge(), /* @__PURE__ */ React.createElement("button", { onClick: () => setPsiShow((v) => !v), className: "px-2.5 py-1 text-xs border border-slate-300 rounded-md hover:bg-slate-50 font-semibold text-slate-600" }, psiShow ? "\uC218\uAE08 \uC774\uD6C4 \uC5F4 \uC228\uAE30\uAE30 \u25C0" : "\uC218\uAE08 \uC774\uD6C4 \uC5F4 \uD3BC\uCE58\uAE30 \u25B6")), /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto border border-slate-200 rounded-lg" }, /* @__PURE__ */ React.createElement("table", { className: TB, "data-no-sort": "1" }, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-200" }, /* @__PURE__ */ HQTH(g() + " text-left align-middle"), React.createElement("th", { rowSpan: 2, className: g() + " text-left align-middle" }, "\uC9C0\uC5ED"), /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " text-left align-middle", style: { width: 230, maxWidth: 230 } }, "\uB300\uB9AC\uC0C1\uBA85"), /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " align-middle" }, "26\uB144\uB3C4", /* @__PURE__ */ React.createElement("br", null), "\uACC4\uC57D\uAE08\uC561"), React.createElement("th", { colSpan: 3, className: g() }, "\uD574\uB2F9\uC6D4 \uD310\uB9E4\uAE08\uC561(\uC704\uC548)"), /* @__PURE__ */ React.createElement("th", { colSpan: 3, className: g() }, "\uB204\uC801 \uD310\uB9E4\uAE08\uC561(\uC704\uC548)"), /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " align-middle" }, "\uC218\uAE08(\uC704\uC548)"), /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " align-middle" }, "\uC2E4\uC801-\uC218\uAE08", /* @__PURE__ */ React.createElement("br", null), "\uCC28\uC774(\uC704\uC548)"), psiShow && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " align-middle" }, "\uD310\uB9E4\uC218\uB7C9", /* @__PURE__ */ React.createElement("br", null), "\uD3C9\uADE0"), /* @__PURE__ */ React.createElement("th", { colSpan: 3, className: g() }, "\uD310\uB9E4\uC218\uB7C9(\uAC1C)"), /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: g() + " align-middle" }, "\uD310\uB9E4\uD3C9\uADE0", /* @__PURE__ */ React.createElement("br", null), "\uAE30\uC900"))), /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-200" }, /* @__PURE__ */ React.createElement("th", { className: sub }, "KPI\uAE08\uC561"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uC2E4\uC801"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uC2E4\uC801\uB2EC\uC131\uC728"), /* @__PURE__ */ React.createElement("th", { className: sub }, "KPI\uAE08\uC561"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uC2E4\uC801"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uC2E4\uC801\uB2EC\uC131\uC728"), psiShow && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("th", { className: sub }, "\uAD6C\uB9E4"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uD310\uB9E4"), /* @__PURE__ */ React.createElement("th", { className: sub }, "\uC7AC\uACE0")))), /* @__PURE__ */ React.createElement("tbody", null, psiRowsF.map((d, i) => {
       const dk = "DLR|" + hqKey + "|" + d[1];
       const op = dsoOpen === dk;
-      return /* @__PURE__ */ React.createElement(React.Fragment, { key: i }, /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-100 hover:bg-slate-50 " + (op ? "bg-blue-50/40" : "") }, /* @__PURE__ */ HQTD(d[0]), React.createElement("td", { className: "px-2 py-1.5 text-slate-700" }, d[0]), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 font-semibold text-blue-700 cursor-pointer hover:underline whitespace-normal break-all", style: { maxWidth: 230 }, onClick: () => setDsoOpen(op ? null : dk) }, op ? "\u25BE " : "\u25B8 ", __dlrStar(d[1]), __dlrName(d[1]), __dlrAlias(d[1]), d[11] ? /* @__PURE__ */ React.createElement("span", { className: "ml-1 text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1 rounded" }, "\uC9C1\uC601") : null), ndc(d[4] || 0), ndc(d[2][Mp - 1] || 0), ndc(d[3][Mp - 1] || 0), pc(rt(d[3][Mp - 1] || 0, d[2][Mp - 1] || 0)), ndc(cs(d[2])), ndc(cs(d[3])), pc(rt(cs(d[3]), cs(d[2]))), ndc(cs(d[5])), dc(cs(d[3]) - cs(d[5])), psiShow && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-900" }, formatNumber(Math.round(d[10] || 0))), ndc(cs(d[6])), ndc(cs(d[7])), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right " + (__stkWarn(d) ? "text-red-600 font-bold" : "text-slate-900 font-semibold") }, formatNumber(lz(d[8])), __warnBadge(__stkWarn(d))), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-900" }, (lz(d[9]) || 0).toFixed(1)))), op && /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-200 bg-slate-50/60" }, /* @__PURE__ */ React.createElement("td", { colSpan: psiShow ? 17 : 12, className: "px-3 py-3" }, /* @__PURE__ */ React.createElement("div", { className: "border border-slate-200 rounded-lg bg-white p-3 space-y-3" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-bold text-slate-900" }, "\uB300\uB9AC\uC0C1 \uC0C1\uC138 \xB7 ", d[1]), /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ React.createElement("table", { className: TB }, /* @__PURE__ */ React.createElement("thead", { className: "bg-slate-100" }, /* @__PURE__ */ React.createElement("tr", null, ["\uC9C0\uC5ED", "\uB300\uB9AC\uC0C1\uBA85", "26\uACC4\uC57D\uAE08\uC561", "\uC218\uAE08(\uB204\uACC4)", "\uD310\uB9E4\uC218\uB7C9\uD3C9\uADE0", "\uAD6C\uB9E4", "\uD310\uB9E4", "\uC7AC\uACE0"].map((x, j) => /* @__PURE__ */ React.createElement("th", { key: j, className: "px-2 py-1.5 font-semibold text-slate-600 text-center" }, x)))), /* @__PURE__ */ React.createElement("tbody", null, /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-100" }, /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-center text-slate-700" }, d[0]), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-center font-semibold text-blue-700" }, d[1]), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, formatNumber(d[4] || 0)), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, formatNumber(cs(d[5]))), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, (d[10] || 0).toFixed(1)), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, formatNumber(cs(d[6]))), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, formatNumber(cs(d[7]))), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, formatNumber(lz(d[8]))))))), dlrChart(d), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-1" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900" }, "\uC8FC\uC694 \uC2DC\uC2A4\uD15C"), /* @__PURE__ */ React.createElement("button", { onClick: () => addRow(dk + "|sys", { gubun: "", co: "", country: "", sys: "", qty: "", price: "", note: "" }), className: "text-[11px] font-bold text-blue-600 hover:underline" }, "+ \uCD94\uAC00")), /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto border border-slate-200 rounded" }, /* @__PURE__ */ React.createElement("table", { className: TB }, /* @__PURE__ */ React.createElement("thead", { className: "bg-slate-100" }, /* @__PURE__ */ React.createElement("tr", null, ["\uAD6C\uBD84", "\uC5C5\uCCB4\uBA85", "\uAD6D\uAC00", "\uC2DC\uC2A4\uD15C", "\uACC4\uC57D\uC218\uB7C9", "\uACF5\uAE09\uAC00\uACA9", "\uBE44\uACE0"].map((x, j) => /* @__PURE__ */ React.createElement("th", { key: j, className: "px-2 py-1.5 font-semibold text-slate-600 text-center" }, x)))), /* @__PURE__ */ React.createElement("tbody", null, rowsOf(dk + "|sys").map((r, ri) => /* @__PURE__ */ React.createElement("tr", { key: ri, className: "border-b border-slate-100" }, ["gubun", "co", "country", "sys", "qty", "price", "note"].map((f, fi) => /* @__PURE__ */ React.createElement("td", { key: fi, className: "px-1 py-1" }, /* @__PURE__ */ React.createElement("input", { value: r[f] || "", onChange: (e) => setCell(dk + "|sys", ri, f, e.target.value), className: "w-full px-1 py-0.5 text-[13px] text-slate-900 bg-transparent outline-none" }))))), rowsOf(dk + "|sys").length === 0 && /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("td", { colSpan: 7, className: "px-2 py-3 text-center text-slate-400 text-xs" }, "\uB370\uC774\uD130 \uC5C6\uC74C. + \uCD94\uAC00 \uBC84\uD2BC\uC744 \uB204\uB974\uC138\uC694.")))))), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-3" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900 mb-1" }, "\uC5C5\uCCB4\uD604\uD669"), /* @__PURE__ */ React.createElement("textarea", { value: df(dk + "|biz", ""), onChange: (e) => setDf(dk + "|biz", e.target.value), placeholder: "\uB0B4\uC6A9\uC744 \uC785\uB825\uD558\uC138\uC694.", className: "w-full h-24 px-2 py-1.5 text-[12px] border border-slate-200 rounded focus:border-blue-400 outline-none resize-y" })), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900 mb-1" }, "\uBA54\uBAA8"), /* @__PURE__ */ React.createElement("textarea", { value: df(dk + "|memo", ""), onChange: (e) => setDf(dk + "|memo", e.target.value), placeholder: "\uB0B4\uC6A9\uC744 \uC785\uB825\uD558\uC138\uC694.", className: "w-full h-24 px-2 py-1.5 text-[12px] border border-slate-200 rounded focus:border-blue-400 outline-none resize-y" }))), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-1" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900" }, "\uD65C\uB3D9 \uD604\uD669"), /* @__PURE__ */ React.createElement("button", { onClick: () => addRow(dk + "|act", { nm: "", mon: "", sch: "", main: "", res: "", cost: "", amt: "", note: "" }), className: "text-[11px] font-bold text-blue-600 hover:underline" }, "+ \uD65C\uB3D9 \uCD94\uAC00")), /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto border border-slate-200 rounded" }, /* @__PURE__ */ React.createElement("table", { className: TB }, /* @__PURE__ */ React.createElement("thead", { className: "bg-slate-100" }, /* @__PURE__ */ React.createElement("tr", null, ["\uD65C\uB3D9\uBA85", "\uD65C\uB3D9\uC6D4", "\uD65C\uB3D9\uC77C\uC815", "\uC8FC\uC694\uB0B4\uC6A9", "\uC131\uACFC\uD604\uD669", "\uBE44\uC6A9", "\uD310\uB9E4\uAE08\uC561", "\uBE44\uACE0"].map((x, j) => /* @__PURE__ */ React.createElement("th", { key: j, className: "px-2 py-1.5 font-semibold text-slate-600 text-center" }, x)))), /* @__PURE__ */ React.createElement("tbody", null, rowsOf(dk + "|act").map((r, ri) => /* @__PURE__ */ React.createElement("tr", { key: ri, className: "border-b border-slate-100" }, ["nm", "mon", "sch", "main", "res", "cost", "amt", "note"].map((f, fi) => /* @__PURE__ */ React.createElement("td", { key: fi, className: "px-1 py-1" }, /* @__PURE__ */ React.createElement("input", { value: r[f] || "", onChange: (e) => setCell(dk + "|act", ri, f, e.target.value), className: "w-full px-1 py-0.5 text-[13px] text-slate-900 bg-transparent outline-none" }))))), rowsOf(dk + "|act").length === 0 && /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("td", { colSpan: 8, className: "px-2 py-3 text-center text-slate-400 text-xs" }, "\uD65C\uB3D9 \uC5C6\uC74C. + \uD65C\uB3D9 \uCD94\uAC00 \uBC84\uD2BC\uC744 \uB204\uB974\uC138\uC694."))))))))));
-    }), /* @__PURE__ */ React.createElement("tr", { className: "bg-slate-50 border-t-2 border-slate-300 font-bold text-slate-800" }, /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5", colSpan: 3 }, "\uD569\uACC4 \xB7 \uB300\uB9AC\uC0C1 ", dlrCntF, " \xB7 \uC9C1\uC601 ", dirCntF, " (", Mp, "\uC6D4 \uB204\uC801)"), ndc(tot.ann), ndc(tot.mc), ndc(tot.ma), pc(rt(tot.ma, tot.mc)), ndc(tot.cc), ndc(tot.ca), pc(rt(tot.ca, tot.cc)), ndc(tot.sg), dc(tot.ca - tot.sg), psiShow && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-700" }, tot.n ? (tot.qavg / tot.n).toFixed(1) : "\u2014"), ndc(tot.buy), ndc(tot.sell), ndc(tot.stk), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-700" }, tot.n ? (tot.pbase / tot.n).toFixed(1) : "\u2014")))))));
+      return /* @__PURE__ */ React.createElement(React.Fragment, { key: i }, /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-100 hover:bg-slate-50 " + (op ? "bg-blue-50/40" : "") }, /* @__PURE__ */ HQTD(d[0]), React.createElement("td", { className: "px-2 py-1.5 text-slate-700" }, d[0]), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 font-semibold text-blue-700 cursor-pointer hover:underline whitespace-normal break-all", style: { maxWidth: 230 }, onClick: () => setDsoOpen(op ? null : dk) }, op ? "\u25BE " : "\u25B8 ", __dlrStar(d[1]), __dlrName(d[1]), __dlrAlias(d[1]), __dlrBadge(d, Mp), d[11] ? /* @__PURE__ */ React.createElement("span", { className: "ml-1 text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1 rounded" }, "\uC9C1\uC601") : null), ndc(d[4] || 0), ndc(d[2][Mp - 1] || 0), ndc(d[3][Mp - 1] || 0), pc(rt(d[3][Mp - 1] || 0, d[2][Mp - 1] || 0)), ndc(cs(d[2])), ndc(cs(d[3])), pc(rt(cs(d[3]), cs(d[2]))), ndc(cs(d[5])), dc(cs(d[3]) - cs(d[5])), psiShow && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-900" }, formatNumber(Math.round(d[10] || 0))), ndc(cs(d[6])), ndc(cs(d[7])), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right " + (__stkWarn(d) ? "text-red-600 font-bold" : "text-slate-900 font-semibold") }, formatNumber(lz(d[8])), __warnBadge(__stkWarn(d))), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-900" }, (lz(d[9]) || 0).toFixed(1)))), op && /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-200 bg-slate-50/60" }, /* @__PURE__ */ React.createElement("td", { colSpan: psiShow ? 17 : 12, className: "px-3 py-3" }, /* @__PURE__ */ React.createElement("div", { className: "border border-slate-200 rounded-lg bg-white p-3 space-y-3" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-bold text-slate-900" }, "\uB300\uB9AC\uC0C1 \uC0C1\uC138 \xB7 ", d[1]), /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto" }, /* @__PURE__ */ React.createElement("table", { className: TB, style: { tableLayout: "fixed", width: "100%" } }, /* @__PURE__ */ React.createElement("colgroup", null, ["7%", "25%", "14%", "14%", "10%", "10%", "10%", "10%"].map((w, j) => /* @__PURE__ */ React.createElement("col", { key: j, style: { width: w } }))), /* @__PURE__ */ React.createElement("thead", { className: "bg-slate-100" }, /* @__PURE__ */ React.createElement("tr", null, ["\uC9C0\uC5ED", "\uB300\uB9AC\uC0C1\uBA85", "26\uACC4\uC57D\uAE08\uC561", "\uC218\uAE08(\uB204\uACC4)", "\uD310\uB9E4\uC218\uB7C9\uD3C9\uADE0", Mp + "\u6708 \uAD6C\uB9E4", Mp + "\u6708 \uD310\uB9E4", Mp + "\u6708 \uC6D4\uB9D0\uC7AC\uACE0"].map((x, j) => /* @__PURE__ */ React.createElement("th", { key: j, className: "px-2 py-1.5 font-semibold text-slate-600 text-center" }, x)))), /* @__PURE__ */ React.createElement("tbody", null, /* @__PURE__ */ React.createElement("tr", { className: "border-b border-slate-100" }, /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-center text-slate-700" }, d[0]), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-center font-semibold text-blue-700", style: { whiteSpace: "normal", wordBreak: "break-all", lineHeight: 1.25 } }, d[1]), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, formatNumber(d[4] || 0)), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, formatNumber(cs(d[5]))), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, (d[10] || 0).toFixed(1)), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, formatNumber((d[6] || [])[Mp - 1] || 0)), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, formatNumber((d[7] || [])[Mp - 1] || 0)), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right" }, formatNumber((d[8] || [])[Mp - 1] || 0)))))), dlrChart(d), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-1" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900" }, "\uC8FC\uC694 \uC2DC\uC2A4\uD15C"), /* @__PURE__ */ React.createElement("button", { onClick: () => addRow(dk + "|sys", { gubun: "", co: "", country: "", sys: "", qty: "", price: "", note: "" }), className: "text-[11px] font-bold text-blue-600 hover:underline" }, "+ \uCD94\uAC00")), /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto border border-slate-200 rounded" }, /* @__PURE__ */ React.createElement("table", { className: TB }, /* @__PURE__ */ React.createElement("thead", { className: "bg-slate-100" }, /* @__PURE__ */ React.createElement("tr", null, ["\uAD6C\uBD84", "\uC5C5\uCCB4\uBA85", "\uAD6D\uAC00", "\uC2DC\uC2A4\uD15C", "\uACC4\uC57D\uC218\uB7C9", "\uACF5\uAE09\uAC00\uACA9", "\uBE44\uACE0"].map((x, j) => /* @__PURE__ */ React.createElement("th", { key: j, className: "px-2 py-1.5 font-semibold text-slate-600 text-center" }, x)))), /* @__PURE__ */ React.createElement("tbody", null, rowsOf(dk + "|sys").map((r, ri) => /* @__PURE__ */ React.createElement("tr", { key: ri, className: "border-b border-slate-100" }, ["gubun", "co", "country", "sys", "qty", "price", "note"].map((f, fi) => /* @__PURE__ */ React.createElement("td", { key: fi, className: "px-1 py-1" }, /* @__PURE__ */ React.createElement("input", { value: r[f] || "", onChange: (e) => setCell(dk + "|sys", ri, f, e.target.value), className: "w-full px-1 py-0.5 text-[13px] text-slate-900 bg-transparent outline-none" }))))), rowsOf(dk + "|sys").length === 0 && /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("td", { colSpan: 7, className: "px-2 py-3 text-center text-slate-400 text-xs" }, "\uB370\uC774\uD130 \uC5C6\uC74C. + \uCD94\uAC00 \uBC84\uD2BC\uC744 \uB204\uB974\uC138\uC694.")))))), /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-3" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900 mb-1" }, "\uC5C5\uCCB4\uD604\uD669"), /* @__PURE__ */ React.createElement("textarea", { value: df(dk + "|biz", ""), onChange: (e) => setDf(dk + "|biz", e.target.value), placeholder: "\uB0B4\uC6A9\uC744 \uC785\uB825\uD558\uC138\uC694.", className: "w-full h-24 px-2 py-1.5 text-[12px] border border-slate-200 rounded focus:border-blue-400 outline-none resize-y" })), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900 mb-1" }, "\uBA54\uBAA8"), /* @__PURE__ */ React.createElement("textarea", { value: df(dk + "|memo", ""), onChange: (e) => setDf(dk + "|memo", e.target.value), placeholder: "\uB0B4\uC6A9\uC744 \uC785\uB825\uD558\uC138\uC694.", className: "w-full h-24 px-2 py-1.5 text-[12px] border border-slate-200 rounded focus:border-blue-400 outline-none resize-y" }))), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-1" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-slate-900" }, "\uD65C\uB3D9 \uD604\uD669"), /* @__PURE__ */ React.createElement("button", { onClick: () => addRow(dk + "|act", { nm: "", mon: "", sch: "", main: "", res: "", cost: "", amt: "", note: "" }), className: "text-[11px] font-bold text-blue-600 hover:underline" }, "+ \uD65C\uB3D9 \uCD94\uAC00")), /* @__PURE__ */ React.createElement("div", { className: "overflow-x-auto border border-slate-200 rounded" }, /* @__PURE__ */ React.createElement("table", { className: TB }, /* @__PURE__ */ React.createElement("thead", { className: "bg-slate-100" }, /* @__PURE__ */ React.createElement("tr", null, ["\uD65C\uB3D9\uBA85", "\uD65C\uB3D9\uC6D4", "\uD65C\uB3D9\uC77C\uC815", "\uC8FC\uC694\uB0B4\uC6A9", "\uC131\uACFC\uD604\uD669", "\uBE44\uC6A9", "\uD310\uB9E4\uAE08\uC561", "\uBE44\uACE0"].map((x, j) => /* @__PURE__ */ React.createElement("th", { key: j, className: "px-2 py-1.5 font-semibold text-slate-600 text-center" }, x)))), /* @__PURE__ */ React.createElement("tbody", null, rowsOf(dk + "|act").map((r, ri) => /* @__PURE__ */ React.createElement("tr", { key: ri, className: "border-b border-slate-100" }, ["nm", "mon", "sch", "main", "res", "cost", "amt", "note"].map((f, fi) => /* @__PURE__ */ React.createElement("td", { key: fi, className: "px-1 py-1" }, /* @__PURE__ */ React.createElement("input", { value: r[f] || "", onChange: (e) => setCell(dk + "|act", ri, f, e.target.value), className: "w-full px-1 py-0.5 text-[13px] text-slate-900 bg-transparent outline-none" }))))), rowsOf(dk + "|act").length === 0 && /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("td", { colSpan: 8, className: "px-2 py-3 text-center text-slate-400 text-xs" }, "\uD65C\uB3D9 \uC5C6\uC74C. + \uD65C\uB3D9 \uCD94\uAC00 \uBC84\uD2BC\uC744 \uB204\uB974\uC138\uC694."))))))))));
+    }), /* @__PURE__ */ React.createElement("tr", { className: "bg-slate-50 border-t-2 border-slate-300 font-bold text-slate-800" }, /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5", colSpan: 3 }, "\uD569\uACC4 \xB7 \uB300\uB9AC\uC0C1 ", __dlrCntLabel(psiRowsF, Mp), " \xB7 \uC9C1\uC601 ", dirCntF, " (", Mp, "\uC6D4 \uB204\uC801)"), ndc(tot.ann), ndc(tot.mc), ndc(tot.ma), pc(rt(tot.ma, tot.mc)), ndc(tot.cc), ndc(tot.ca), pc(rt(tot.ca, tot.cc)), ndc(tot.sg), dc(tot.ca - tot.sg), psiShow && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-700" }, tot.n ? (tot.qavg / tot.n).toFixed(1) : "\u2014"), ndc(tot.buy), ndc(tot.sell), ndc(tot.stk), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-700" }, tot.n ? (tot.pbase / tot.n).toFixed(1) : "\u2014")))))));
   })(), tab === "psiq" && (() => {
   const Mp = filterMonth || 7;
   const rt = (a, b) => b > 0 ? Math.round(a / b * 100) : 0;
@@ -17383,8 +17818,8 @@ const renderHQDashboard = (hqKey) => {
     const fb = __qFl(d, "b"), fs2 = __qFl(d, "s"), fk = __qFl(d, "k");
     const mbBad = !!(fb && fb[Mp - 1]), msBad = !!(fs2 && fs2[Mp - 1]);
     const cbV = __qSumF(b6, fb, Mp), csV = __qSumF(s7, fs2, Mp);
-    return /* @__PURE__ */ React.createElement("tr", { key: i, className: "border-b border-slate-100 hover:bg-slate-50" }, /* @__PURE__ */ HQTD(d[0]), React.createElement("td", { className: "px-2 py-1.5 text-slate-700" }, d[0]), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 font-semibold text-slate-900" }, __dlrStar(d[1]), __dlrName(d[1]), __dlrAlias(d[1]), d[11] ? /* @__PURE__ */ React.createElement("span", { className: "ml-1 text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1 rounded" }, "\uC9C1\uC601") : null), __qCellF(mb, mbBad), __qCellF(ms, msBad), (!mbBad && !msBad && mb > 0) ? pc(rt(ms, mb)) : dashTd(), ndcB(cbV, __qHasBadF(fb, Mp)), ndcB(csV, __qHasBadF(fs2, Mp)), (cbV > 0 ? pc(rt(csV, cbV)) : dashTd()), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right " + (__stkWarn(d) ? "text-red-600 font-bold" : "text-slate-900 font-semibold") }, formatNumber(__qLastF(k8, fk, Mp)), __warnBadge(__stkWarn(d))), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-900" }, formatNumber(Math.round(d[10] || 0))), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-900" }, (lz(d[9] || []) || 0).toFixed(1)));
-  }), /* @__PURE__ */ React.createElement("tr", { className: "bg-slate-50 border-t-2 border-slate-300 font-bold text-slate-800" }, /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5", colSpan: 3 }, "\uD569\uACC4 \xB7 \uB300\uB9AC\uC0C1 ", dlrCntF, " \xB7 \uC9C1\uC601 ", dirCntF, " (", Mp, /* @__PURE__ */ React.createElement("span", null, "\uC6D4 \uB204\uC801"), ")"), (qBadM.indexOf(Mp) >= 0 ? dashTd() : ndc(tot.mb)), (qBadM.indexOf(Mp) >= 0 ? dashTd() : ndc(tot.ms)), (qBadM.indexOf(Mp) >= 0 ? dashTd() : pc(rt(tot.ms, tot.mb))), ndcB(tot.cb, qBadM.length > 0), ndcB(tot.cs, qBadM.length > 0), pc(rt(tot.cs, tot.cb)), ndc(tot.stk), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-700" }, tot.n ? (tot.qavg / tot.n).toFixed(1) : "\u2014"), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-700" }, tot.n ? (tot.pbase / tot.n).toFixed(1) : "\u2014"))))));
+    return /* @__PURE__ */ React.createElement("tr", { key: i, className: "border-b border-slate-100 hover:bg-slate-50" }, /* @__PURE__ */ HQTD(d[0]), React.createElement("td", { className: "px-2 py-1.5 text-slate-700" }, d[0]), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 font-semibold text-slate-900" }, __dlrStar(d[1]), __dlrName(d[1]), __dlrAlias(d[1]), __dlrBadge(d, Mp), d[11] ? /* @__PURE__ */ React.createElement("span", { className: "ml-1 text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1 rounded" }, "\uC9C1\uC601") : null), __qCellF(mb, mbBad), __qCellF(ms, msBad), (!mbBad && !msBad && mb > 0) ? pc(rt(ms, mb)) : dashTd(), ndcB(cbV, __qHasBadF(fb, Mp)), ndcB(csV, __qHasBadF(fs2, Mp)), (cbV > 0 ? pc(rt(csV, cbV)) : dashTd()), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right " + (__stkWarn(d) ? "text-red-600 font-bold" : "text-slate-900 font-semibold") }, formatNumber(__qLastF(k8, fk, Mp)), __warnBadge(__stkWarn(d))), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-900" }, formatNumber(Math.round(d[10] || 0))), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-900" }, (lz(d[9] || []) || 0).toFixed(1)));
+  }), /* @__PURE__ */ React.createElement("tr", { className: "bg-slate-50 border-t-2 border-slate-300 font-bold text-slate-800" }, /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5", colSpan: 3 }, "\uD569\uACC4 \xB7 \uB300\uB9AC\uC0C1 ", __dlrCntLabel(psiRowsF, Mp), " \xB7 \uC9C1\uC601 ", dirCntF, " (", Mp, /* @__PURE__ */ React.createElement("span", null, "\uC6D4 \uB204\uC801"), ")"), (qBadM.indexOf(Mp) >= 0 ? dashTd() : ndc(tot.mb)), (qBadM.indexOf(Mp) >= 0 ? dashTd() : ndc(tot.ms)), (qBadM.indexOf(Mp) >= 0 ? dashTd() : pc(rt(tot.ms, tot.mb))), ndcB(tot.cb, qBadM.length > 0), ndcB(tot.cs, qBadM.length > 0), pc(rt(tot.cs, tot.cb)), ndc(tot.stk), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-700" }, tot.n ? (tot.qavg / tot.n).toFixed(1) : "\u2014"), /* @__PURE__ */ React.createElement("td", { className: "px-2 py-1.5 text-right text-slate-700" }, tot.n ? (tot.pbase / tot.n).toFixed(1) : "\u2014"))))));
 })(), tab === "col" && (() => {
   const Mp = filterMonth || 7;
   const rt = (a, b) => b > 0 ? Math.round(a / b * 100) : 0;
@@ -18523,9 +18958,10 @@ const renderPricePos = (p) => /* @__PURE__ */ React.createElement(PricePosView, 
 
   const renderContent = () => {
     if (selectedHQ && selectedHQ.indexOf("hq:") === 0) return renderHQDashboard(selectedHQ.slice(3));
-    if (!SHOW_LEGACY && selectedHQ && selectedHQ !== "overview" && selectedHQ !== "marketshare" && selectedHQ !== "national" && selectedHQ !== "pricepos" && selectedHQ !== "policy" && selectedHQ !== "corp" && selectedHQ !== "corptw" && selectedHQ !== "corpfin" && selectedHQ !== "exp" && selectedHQ !== "anal") return renderHQDashboard(String(selectedHQ).replace("본부", ""));
+    if (!SHOW_LEGACY && selectedHQ && selectedHQ !== "overview" && selectedHQ !== "marketshare" && selectedHQ !== "national" && selectedHQ !== "pricepos" && selectedHQ !== "policy" && selectedHQ !== "corp" && selectedHQ !== "corptw" && selectedHQ !== "corpfin" && selectedHQ !== "exp" && selectedHQ !== "anal" && selectedHQ !== "mtg") return renderHQDashboard(String(selectedHQ).replace("본부", ""));
     if (selectedHQ === 'national') return renderHQDashboard('전국');
     if (selectedHQ === 'policy') return React.createElement(PolicyView, { ui: plUI, setUI: setPlUI, sheetsData });
+    if (selectedHQ === 'mtg') return React.createElement(MtgView, { sheetsData: sheetsDataRaw, fetchedAt: sheetsFetchedAt });
     if (selectedHQ === 'anal') return React.createElement(AnalView, { sheetsData: sheetsData, kpiSrc: KPI_SRC, fin: (typeof CORP_FIN !== 'undefined' ? CORP_FIN : null), psiSrc: CORP_PSI_SRC_LIVE, dealer: DEALER_PSI, fetchedAt: sheetsFetchedAt, srcMode: srcMode });
     if (selectedHQ === 'exp') return React.createElement(ExpView, { ui: corpUI, setUI: setCorpUI, kpi: CORP_KPI, live: CORP_TRD_LIVE, fetchedAt: sheetsFetchedAt, sheetsData });
     if (selectedHQ === 'corpfin') return React.createElement(CorpFinView, { ui: corpUI, setUI: setCorpUI, month: filterMonth || 0, data: CORP_FIN });
