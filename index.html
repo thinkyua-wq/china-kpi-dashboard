@@ -478,7 +478,7 @@
 .qwarn{background:#fff!important;border-color:#e2e8f0!important;color:#64748b!important}
 .q4{--ac:#4f46e5;--acs:#eef0ff;margin:6px 0 14px;font-family:"Malgun Gothic","\B9D1\C740 \uACE0\uB515",Arial,sans-serif}
 .q4head{margin-bottom:14px}
-.q4h1{font-size:16px;font-weight:800;color:#0f172a;letter-spacing:-.4px;line-height:1.3}
+.q4h1{font-size:16px;font-weight:800;color:#000;letter-spacing:-.4px;line-height:1.3}
 .q4h2{font-size:10.5px;font-weight:700;color:#94a3b8;letter-spacing:1.2px;margin-top:2px}
 .q4cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
 .q4sec{margin-bottom:0;min-width:0}
@@ -486,23 +486,23 @@
 .q4-tw{--ac:#0d9488;--acs:#ecfdf8}
 .q4band{display:flex;align-items:center;gap:8px;padding:0 0 8px;margin-bottom:10px;border-bottom:1px solid #e8ecf3}
 .q4bdot{width:9px;height:9px;border-radius:3px;background:var(--ac);flex:0 0 auto}
-.q4bname{font-size:13.5px;font-weight:800;color:#0f172a;letter-spacing:-.2px}
+.q4bname{font-size:13.5px;font-weight:800;color:#000;letter-spacing:-.2px}
 .q4bcnt{font-size:10.5px;font-weight:700;color:#94a3b8;margin-left:auto}
 .q4grid{display:flex;flex-direction:column;gap:10px}
 .q4card{background:#fff;border:1px solid #e8ecf3;border-radius:12px;padding:13px 15px 14px;transition:box-shadow .15s,border-color .15s}
 .q4card:hover{border-color:#d4dbe6;box-shadow:0 2px 10px rgba(15,23,42,.06)}
 .q4ch{display:flex;align-items:center;gap:9px;margin-bottom:9px;padding-bottom:9px;border-bottom:1px dashed #eef1f6}
 .q4no{flex:0 0 auto;width:21px;height:21px;border-radius:7px;background:var(--acs);color:var(--ac);font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
-.q4ch h4{margin:0;font-size:13px;font-weight:800;color:#0f172a;letter-spacing:-.3px;line-height:1.35;word-break:keep-all}
+.q4ch h4{margin:0;font-size:13px;font-weight:800;color:#000;letter-spacing:-.3px;line-height:1.35;word-break:keep-all}
 .q4body{display:flex;flex-direction:column;gap:6px}
 .q4li{display:flex;gap:7px;align-items:flex-start}
 .q4dot{flex:0 0 auto;font-size:11px;font-weight:700;color:var(--ac);line-height:1.72;opacity:.85}
-.q4tx{font-size:12.3px;color:#1e293b;line-height:1.72;word-break:keep-all}
-.q4sub{margin:-1px 0 1px 19px;font-size:11.6px;color:#64748b;line-height:1.6;word-break:keep-all;padding-left:9px;border-left:2px solid #eef1f6}
+.q4tx{font-size:12.3px;color:#000;font-weight:700;line-height:1.72;word-break:keep-all;font-family:"Malgun Gothic","\B9D1\C740 \uACE0\uB515",Arial,sans-serif}
+.q4sub{margin:-1px 0 1px 19px;font-size:11.6px;color:#000;font-weight:700;line-height:1.6;word-break:keep-all;padding-left:9px;border-left:2px solid #cbd5e1;font-family:"Malgun Gothic","\B9D1\C740 \uACE0\uB515",Arial,sans-serif}
 .q4n{display:inline-block;background:var(--acs);color:var(--ac);font-weight:800;font-size:11.4px;padding:0 6px;border-radius:5px;margin:0 1px;letter-spacing:-.2px}
-.q4foot{font-size:11px;color:#a8b3c2;margin-top:2px}
+.q4foot{font-size:11px;color:#475569;font-weight:700;margin-top:2px}
 @media(max-width:1100px){.q4cols{grid-template-columns:1fr}}
-@media(max-width:760px){.q4card{padding:11px 12px}.q4tx{font-size:11.9px}.q4sub{margin-left:12px}}
+@media(max-width:760px){.q4card{padding:11px 12px}.q4tx{font-size:11.9px;font-weight:700}.q4sub{margin-left:12px}}
 .hdrline{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
 .hdrline h1{flex:0 0 auto}
 .corpsq-hq{background:#0f766e!important}
@@ -546,6 +546,195 @@
   .kmt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .kcnt{margin-left:4px;font-size:10px;font-weight:800;color:#4f46e5;background:#eef2ff;padding:0 4px;border-radius:2px}
   input.kfc{width:100%;text-align:right;border:0;padding:1px 2px;font-size:12px;font-weight:600;background:transparent;color:#000}
+  /* ═══ TODAY Intelligence ═══ */
+  .td-wrap{font-family:"Malgun Gothic","맑은 고딕",Arial,sans-serif;color:#0f172a;padding-bottom:18px}
+  .td-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #e2e8f0}
+  .td-h1{font-size:20px;font-weight:800;letter-spacing:-.3px}
+  .td-h1 span{font-size:13px;font-weight:700;color:#64748b;margin-left:8px}
+  .td-h2{font-size:11.5px;color:#64748b;margin-top:2px}
+  .td-hr{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:11.5px;color:#475569}
+  .td-date{font-weight:800;color:#0f172a;font-size:13px}
+  .td-biz,.td-snap{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;padding:2px 9px}
+  .td-biz b,.td-snap b{color:#1d4ed8;font-weight:800}
+  .td-ptabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 2px;border-bottom:2px solid #e2e8f0;padding-bottom:0}
+  .td-ptab{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:800;color:#64748b;background:transparent;border:0;border-bottom:3px solid transparent;padding:7px 16px;margin-bottom:-2px;cursor:pointer;font-family:inherit}
+  .td-pti{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border-radius:6px;background:#f1f5f9;border:1px solid #e2e8f0;font-size:12px;line-height:1;color:#64748b}
+  .td-ptab-on .td-pti{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+  .td-ptab:hover{color:#334155}
+  .td-ptab-on{color:#1d4ed8;border-bottom-color:#1d4ed8}
+  .td-sec{display:flex;align-items:baseline;gap:8px;margin:18px 0 8px;flex-wrap:wrap}
+  @media(max-width:760px){.td-desc{display:none}.td-right{margin-left:0}}
+  .td-no{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;background:#1d4ed8;color:#fff;font-size:11px;font-weight:800;flex:none;transform:translateY(2px)}
+  .td-ttl{font-size:15px;font-weight:800;color:#0f172a}
+  .td-desc{font-size:11.5px;color:#64748b}
+  .td-right{margin-left:auto;font-size:11.5px;color:#64748b}
+  /* ⓪ 영역별 진단 */
+  .td-dgwrap{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:12px 14px;margin:14px 0 6px}
+  .td-dghd{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .td-dgt{font-size:16px;font-weight:800;color:#0f172a;margin-right:2px}
+  .td-tag{font-size:11px;font-weight:800;border-radius:999px;padding:1.5px 9px;border:1px solid}
+  .td-b-crit{color:#991b1b;background:#fee2e2;border-color:#fca5a5}
+  .td-b-warn{color:#92400e;background:#fef3c7;border-color:#fcd34d}
+  .td-b-ok{color:#166534;background:#dcfce7;border-color:#86efac}
+  .td-b-na{color:#475569;background:#f1f5f9;border-color:#cbd5e1}
+  .td-dgsp{flex:1}
+  .td-dglb{font-size:11px;font-weight:700;color:#94a3b8}
+  .td-dgsel{font-size:12px;font-weight:700;color:#0f172a;border:1px solid #cbd5e1;border-radius:6px;padding:2px 6px;background:#fff;cursor:pointer;font-family:inherit}
+  .td-dgdt{font-size:11.5px;font-weight:800;color:#64748b;font-variant-numeric:tabular-nums}
+  .td-dgnow{font-size:11px;font-weight:800;color:#1d4ed8;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:2px 8px;cursor:pointer}
+  .td-dghint{font-size:11.5px;color:#64748b;margin:4px 0 10px}
+  .td-dgacc{color:#1d4ed8;font-weight:700}
+  .td-sig{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:1280px){.td-sig{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:680px){.td-sig{grid-template-columns:repeat(2,1fr)}}
+  .td-sg{border:1px solid #e2e8f0;border-radius:10px;padding:10px 11px;background:#fff;display:flex;flex-direction:column;gap:5px}
+  .td-lb{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:12.5px;font-weight:800;color:#334155}
+  .td-dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .td-bg-crit{background:#b91c1c}.td-bg-warn{background:#b45309}.td-bg-ok{background:#15803d}.td-bg-na{background:#cbd5e1}
+  .td-vl{font-size:25px;font-weight:800;letter-spacing:-.8px;line-height:1.1}
+  .td-vl.td-crit{color:#b91c1c}.td-vl.td-warn{color:#b45309}.td-vl.td-ok{color:#15803d}.td-vl.td-na{color:#94a3b8}
+  .td-dgd{font-size:11px;font-weight:800;color:#64748b;margin-left:6px;letter-spacing:0}
+  .td-mini{height:5px;border-radius:3px;background:#eef2f7;overflow:hidden}
+  .td-mini i{display:block;height:100%;border-radius:3px}
+  .td-ds{font-size:11.5px;color:#64748b;line-height:1.5}
+  /* 법인 매출 상세 표 토글 */
+  .corp-tgl{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:#475569;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:5px 12px;cursor:pointer}
+  .corp-tgl:hover{background:#e2e8f0}
+  .corp-tgl-on{color:#1d4ed8;background:#eff6ff;border-color:#bfdbfe}
+  .corp-tgi{font-size:13px;line-height:1}
+  /* ① 카드 */
+  .td-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media(max-width:1180px){.td-cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:680px){.td-cards{grid-template-columns:1fr}}
+  .td-card{border:1px solid #e2e8f0;border-radius:10px;padding:10px 11px;background:#fff;display:flex;flex-direction:column;gap:7px}
+  .td-card.td-crit{border-color:#fecaca;background:#fef2f2}
+  .td-card.td-warn{border-color:#fed7aa;background:#fffbeb}
+  .td-card.td-ok{border-color:#bbf7d0;background:#f0fdf4}
+  .td-card.td-na{border-color:#e2e8f0;background:#f8fafc}
+  .td-ch{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .td-cdot{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;font-size:12px;font-weight:900;color:#fff;flex:none}
+  .td-crit .td-cdot{background:#dc2626}.td-warn .td-cdot{background:#f59e0b}.td-ok .td-cdot{background:#16a34a}.td-na .td-cdot{background:#94a3b8}
+  .td-cnm{font-size:14px;font-weight:800}
+  .td-cbg{font-size:10px;font-weight:800;padding:1.5px 7px;border-radius:999px;border:1px solid}
+  .td-crit .td-cbg{color:#991b1b;border-color:#fca5a5;background:#fee2e2}
+  .td-warn .td-cbg{color:#92400e;border-color:#fcd34d;background:#fef3c7}
+  .td-ok .td-cbg{color:#166534;border-color:#86efac;background:#dcfce7}
+  .td-na .td-cbg{color:#475569;border-color:#cbd5e1;background:#f1f5f9}
+  .td-cspd{margin-left:auto;font-size:11px;font-weight:800;color:#64748b;white-space:nowrap}
+  .td-cspd.td-up{color:#1d4ed8}.td-cspd.td-dn{color:#991b1b}
+  .td-cb{display:flex;flex-direction:column;gap:3px}
+  .td-cl{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:12.7px;color:#000;font-family:"Malgun Gothic","맑은 고딕",Arial,sans-serif}
+  .td-cl b{font-size:13.8px;font-weight:800;color:#000;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .td-rpt{border-top:1px dashed #cbd5e1;padding-top:6px;display:flex;flex-direction:column;gap:2px}
+  .td-rpth{font-size:10px;font-weight:800;color:#1d4ed8;letter-spacing:-.2px}
+  .td-rl{display:flex;align-items:baseline;gap:8px;font-size:12.1px;color:#000;font-family:"Malgun Gothic","맑은 고딕",Arial,sans-serif}
+  .td-rlb{font-weight:800;color:#334155;min-width:34px}
+  .td-rl b{color:#0f172a;font-weight:800;font-variant-numeric:tabular-nums}
+  .td-rr{margin-left:auto;font-weight:800}
+  .td-rgs{font-size:11.6px;color:#475569;line-height:1.5}
+  .td-rnote{font-size:11.6px;color:#991b1b;font-weight:700;line-height:1.5}
+  .td-ccause{border-top:1px dashed #cbd5e1;padding-top:6px;display:flex;flex-direction:column;gap:1px}
+  .td-clbl{font-size:10px;font-weight:700;color:#94a3b8}
+  .td-cauto{font-size:12.7px;font-weight:700;color:#000;line-height:1.4;font-family:"Malgun Gothic","맑은 고딕",Arial,sans-serif}
+  .td-cause{display:flex;align-items:baseline;gap:5px;font-size:12.1px;line-height:1.45;color:#000;font-family:"Malgun Gothic","맑은 고딕",Arial,sans-serif}
+  .td-cause b{font-weight:800;color:#000;white-space:nowrap}
+  .td-cause span:last-child{color:#334155}
+  .td-cno{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;background:#334155;color:#fff;font-size:9px;font-weight:800;flex:none;transform:translateY(1px)}
+  .td-cin{width:100%;border:1px solid #e2e8f0;border-radius:6px;padding:4px 6px;font-size:11.5px;background:#fff;color:#0f172a;outline:none}
+  .td-cin:focus{border-color:#60a5fa}
+  .td-cards2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:680px){.td-cards2{grid-template-columns:1fr}}
+  /* 수동 목표 입력 · 중점업무 */
+  .td-tin{width:100%;border:0;background:transparent;padding:2px 3px;font-size:11.25px;color:#1d4ed8;font-weight:700;text-align:right;outline:none;font-family:inherit;font-variant-numeric:tabular-nums}
+  .td-tin:focus{background:#eff6ff;border-radius:4px}
+  .td-tin::placeholder{color:#cbd5e1;font-weight:400}
+  .td-na2{color:#cbd5e1}
+  .td-kpi18{table-layout:fixed;min-width:1180px}
+  .td-kpi18 th{font-size:11.9px;padding:5px 5px}
+  .td-kpi18 td{padding:4px 5px}
+  .td-wk td{vertical-align:top;padding:4px 6px}
+  .td-wkhq{font-size:14.3px;font-weight:800;color:#0f172a;text-align:center !important;vertical-align:middle !important}
+  .td-wkc{text-align:left !important}
+  .td-wkta{width:100%;border:1px solid #cbd5e1;border-radius:0;padding:6px 8px;font-size:13.2px;line-height:1.55;color:#000;outline:none;resize:vertical;overflow:hidden;font-family:"Malgun Gothic","맑은 고딕",Arial,sans-serif;background:#fff}
+  .td-wkta:focus{border-color:#60a5fa}
+  /* ② 표 */
+  .td-tblwrap{border:1px solid #cbd5e1;border-radius:0;overflow-x:auto;background:#fff}
+  .td-tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:12.4px;font-variant-numeric:tabular-nums}
+  .td-tbl th{background:#e2e8f0;color:#334155;font-weight:700;padding:6px 8px;text-align:center;white-space:nowrap;border-right:1px solid #cbd5e1;border-bottom:1px solid #cbd5e1}
+  .td-tbl th.td-sub{background:#eef2f7;font-size:11.4px;font-weight:700}
+  .td-tbl td{padding:5px 8px;text-align:right;color:#000;border-right:1px solid #cbd5e1;border-bottom:1px solid #e2e8f0;white-space:nowrap}
+  .td-tbl tr>*:last-child{border-right:0}
+  .td-tbl td.td-rg,.td-tbl th.td-rg{text-align:left;font-weight:700}
+  .td-pill{display:inline-block;font-size:8.6px;font-weight:800;color:#475569;background:#f1f5f9;border:1px solid #cbd5e1;border-radius:4px;padding:0 4px;margin-right:5px}
+  .td-pill-bj{color:#5b21b6;background:#f5f3ff;border-color:#ddd6fe}
+  .td-b{font-weight:800}
+  .td-g{color:#15803d}.td-a{color:#1d4ed8}.td-o{color:#c2410c}.td-r{color:#991b1b}
+  .td-dt{text-align:center !important;font-weight:700;color:#475569;font-size:11.4px}
+  .td-th2{font-size:10.2px;font-weight:600;color:#64748b}
+  .td-dd{margin-left:5px;font-size:10.4px;font-weight:800}
+  .td-dd-u{color:#1d4ed8}.td-dd-d{color:#991b1b}
+  .td-qty{margin-left:3px;font-size:11px;font-weight:700;color:#64748b}
+  .td-trToday td{background:#eff6ff}
+  .td-trT{background:#f8fafc}
+  .td-trT td{font-weight:800;border-top:2px solid #cbd5e1}
+  .td-foot{font-size:11px;color:#94a3b8;margin-top:6px;line-height:1.5}
+  /* ③ 타일 맵 */
+  .td-map{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  @media(max-width:1180px){.td-map{grid-template-columns:repeat(4,1fr)}}
+  @media(max-width:680px){.td-map{grid-template-columns:repeat(2,1fr)}}
+  .td-tile{border:1px solid #e2e8f0;border-radius:10px;padding:10px;background:#fff;display:flex;flex-direction:column;justify-content:center;gap:1px;min-height:62px}
+  .td-tile.td-crit{border-color:#fecaca;background:#fef2f2}
+  .td-tile.td-warn{border-color:#fed7aa;background:#fffbeb}
+  .td-tile.td-ok{border-color:#bbf7d0;background:#f0fdf4}
+  .td-tile.td-na{border-color:#e2e8f0;background:#f8fafc}
+  .td-tnm{font-size:12px;font-weight:800;color:#334155}
+  .td-tv{font-size:19px;font-weight:800;letter-spacing:-.5px}
+  .td-crit .td-tv{color:#991b1b}.td-warn .td-tv{color:#b45309}.td-ok .td-tv{color:#15803d}.td-na .td-tv{color:#334155}
+  .td-ts{font-size:10.5px;color:#94a3b8}
+  /* ④ 추세 */
+  .td-card2{border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px;background:#fff}
+  .td-trtabs{display:flex;gap:6px;flex-wrap:wrap}
+  .td-trtab{font-size:12px;font-weight:700;color:#475569;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;padding:3px 12px;cursor:pointer}
+  .td-trtab:hover{background:#e2e8f0}
+  .td-trtab-on{background:#1d4ed8;border-color:#1d4ed8;color:#fff}
+  .td-trlg{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:7px 0 -4px 2px}
+  .td-trunit{font-size:10.5px;color:#94a3b8}
+  .td-lg{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:700;color:#475569}
+  .td-lg i{width:9px;height:9px;border-radius:2px;display:inline-block}
+  /* ⑤ 질문 */
+  .td-qs{display:flex;flex-direction:column;gap:7px}
+  .td-q{display:flex;align-items:flex-start;gap:9px;border:1px solid #e2e8f0;border-left-width:3px;border-radius:9px;padding:9px 11px;background:#fff}
+  .td-q-crit{border-left-color:#dc2626}.td-q-warn{border-left-color:#f59e0b}.td-q-ok{border-left-color:#1d4ed8}
+  .td-qn{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;font-size:11px;font-weight:800;color:#fff;background:#64748b;flex:none;margin-top:1px}
+  .td-q-crit .td-qn{background:#dc2626}.td-q-warn .td-qn{background:#f59e0b}.td-q-ok .td-qn{background:#1d4ed8}
+  .td-qb{flex:1;min-width:0}
+  .td-qt{font-size:14.3px;font-weight:700;color:#000;line-height:1.45}
+  .td-qw{font-size:12.7px;color:#475569;margin-top:2px}
+  .td-qadd{flex:none;font-size:11px;font-weight:800;color:#1d4ed8;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:3px 9px;cursor:pointer;white-space:nowrap}
+  .td-qadd:hover{background:#dbeafe}
+  .td-qadd-on{color:#64748b;background:#f1f5f9;border-color:#e2e8f0;cursor:default}
+  /* ⑥ Action */
+  .td-addbtn{font-size:11px;font-weight:800;color:#1d4ed8;background:#fff;border:1px solid #bfdbfe;border-radius:6px;padding:2px 9px;cursor:pointer}
+  .td-addbtn:hover{background:#eff6ff}
+  .td-act td{padding:2px 4px;text-align:center}
+  .td-in{width:100%;border:0;background:transparent;padding:3px 4px;font-size:11.9px;color:#000;text-align:center;outline:none;font-family:inherit}
+  .td-in.td-l{text-align:left}
+  .td-in:focus{background:#eff6ff;border-radius:4px}
+  .td-sel{width:100%;border:0;background:transparent;font-size:10.9px;font-weight:800;text-align:center;outline:none;cursor:pointer;font-family:inherit;padding:2px}
+  .td-pr-h{color:#991b1b}.td-pr-m{color:#b45309}.td-pr-l{color:#475569}
+  .td-st-n{color:#991b1b}.td-st-d{color:#1d4ed8}.td-st-c{color:#15803d}.td-st-h{color:#64748b}
+  .td-done{background:#f8fafc;opacity:.62}
+  .td-del{border:0;background:transparent;color:#cbd5e1;font-size:15px;font-weight:800;cursor:pointer;line-height:1;padding:0 2px}
+  .td-del:hover{color:#dc2626}
+  .td-empty{text-align:center !important;color:#94a3b8;font-size:12px;padding:16px !important}
+  .td-wkok{font-size:11px;font-weight:800;color:#15803d}
+  .td-wkerr{font-size:11px;font-weight:800;color:#991b1b}
+  .td-card2{border-radius:0}
+  table.cmptbl td.cmp-nar{width:1%;max-width:62px;padding-left:2px!important;padding-right:2px!important;font-size:11.4px!important;letter-spacing:-.3px}
+  table.cmptbl td.cmp-wide{min-width:74px;padding-left:10px!important;padding-right:10px!important}
+  .mtg-lb{font-size:11.5px;font-weight:700;color:#94a3b8;margin-left:4px}
+  .mtg-sel{font-size:12.5px;font-weight:800;color:#0f172a;border:1px solid #cbd5e1;border-radius:0;padding:3px 8px;background:#fff;cursor:pointer;font-family:inherit}
+  .mtg-cnt{font-size:11.5px;font-weight:700;color:#1d4ed8;background:#eff6ff;border:1px solid #bfdbfe;padding:2px 9px;margin-left:6px}
   .kyoy{margin-left:4px;font-size:9.5px;font-weight:800;letter-spacing:-.2px}
   .kyoy-u{color:#1d4ed8}
   .kyoy-d{color:#991b1b}
@@ -5112,6 +5301,7 @@ function CorpSalesBlock({ weeklyEntries, setWeeklyEntries, logChange, viewKey, v
   const blockTitle = "\uBC95\uC778 \uB9E4\uCD9C \uAD00\uB9AC";
   const [tab, setTab] = React.useState("amount");
   const [corpTableTab, setCorpTableTab] = React.useState("current");
+  const [tabsOpen, setTabsOpen] = React.useState(false);
   const [modelMetric, setModelMetric] = React.useState("q");
   const [collapsed, setCollapsed] = React.useState(false);
   const [visibleMonths, setVisibleMonths] = React.useState(() => {
@@ -5232,7 +5422,7 @@ function CorpSalesBlock({ weeklyEntries, setWeeklyEntries, logChange, viewKey, v
     }));
     const unit2 = tab === "amount" ? "\uB9CCRMB" : "\uAC1C";
     return /* @__PURE__ */ React.createElement("div", { className: "border border-slate-200 rounded-lg p-3 bg-white" }, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-2 flex-wrap gap-1" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold text-slate-700" }, "\u{1F4C8} \uC6D4\uBCC4 KPI \xB7 \uC2E4\uC801 \xB7 \uB2EC\uC131\uC728 \uCD94\uC138 ", /* @__PURE__ */ React.createElement("span", { className: "text-[11px] font-normal text-slate-400" }, "(1~\uC120\uD0DD\uC6D4 \xB7 ", tab === "amount" ? "\uAE08\uC561" : "\uC218\uB7C9", ")"))), /* @__PURE__ */ React.createElement("div", { style: { width: "100%", height: 300 } }, /* @__PURE__ */ React.createElement(ResponsiveContainer, null, /* @__PURE__ */ React.createElement(ComposedChart, { data: chartData, margin: { top: 10, right: 10, left: 0, bottom: 0 } }, /* @__PURE__ */ React.createElement(CartesianGrid, { strokeDasharray: "3 3", stroke: "#eef2f7" }), /* @__PURE__ */ React.createElement(XAxis, { dataKey: "month", tick: { fontSize: 12 } }), /* @__PURE__ */ React.createElement(YAxis, { yAxisId: "left", tick: { fontSize: 11 } }), /* @__PURE__ */ React.createElement(YAxis, { yAxisId: "right", orientation: "right", tick: { fontSize: 11 }, unit: "%", domain: [0, (dataMax) => Math.max(120, Math.ceil(dataMax / 20) * 20)] }), /* @__PURE__ */ React.createElement(Tooltip, { formatter: (v, n) => n === "\uB2EC\uC131\uC728" ? v + "%" : Math.round(v).toLocaleString() + " " + unit2 }), /* @__PURE__ */ React.createElement(Legend, { wrapperStyle: { fontSize: "12px" } }), /* @__PURE__ */ React.createElement(Bar, { yAxisId: "left", dataKey: "KPI", fill: "#bfdbfe", radius: [3, 3, 0, 0], maxBarSize: 26 }), /* @__PURE__ */ React.createElement(Bar, { yAxisId: "left", dataKey: "\uC2E4\uC801", fill: "#2563eb", radius: [3, 3, 0, 0], maxBarSize: 26 }), /* @__PURE__ */ React.createElement(Line, { yAxisId: "right", type: "monotone", dataKey: "\uB2EC\uC131\uC728", stroke: "#0F6E56", strokeWidth: 2.5, dot: { r: 3 } })))), /* @__PURE__ */ React.createElement("div", { className: "text-[11px] text-slate-400 mt-1" }, "* \uB9C9\uB300 = \uC6D4\uBCC4 KPI\xB7\uC2E4\uC801(\uC88C\uCE21 \uCD95), \uC120 = \uB2EC\uC131\uC728 %(\uC6B0\uCE21 \uCD95). \uC6D4 \uD45C\uC2DC\uC5D0\uC11C \uC120\uD0DD\uD55C \uC6D4\uB9CC \uB098\uD0C0\uB0A9\uB2C8\uB2E4."));
-  })(), corpTableTab === "model" && (() => {
+  })(), tabsOpen && corpTableTab === "model" && (() => {
     const grand = MODEL_SALES.find((r) => r.type === "grand");
     const inputRows = MODEL_SALES.filter((r) => r.type === "row");
     const _rawQ = (row, mi) => {
@@ -5251,7 +5441,10 @@ function CorpSalesBlock({ weeklyEntries, setWeeklyEntries, logChange, viewKey, v
       return { month: lb, \uC218\uB7C9: q, \uB9E4\uCD9C\uC561: Math.round(rev / 1e4), \uB2E8\uAC00: q > 0 ? Math.round(rev / q) : 0, plan: mi >= 6 };
     });
     return /* @__PURE__ */ React.createElement("div", { className: "border border-slate-200 rounded-lg p-3 bg-white" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold text-slate-700 mb-2" }, "\u{1F4C8} \uBAA8\uB378\uBCC4 \uC6D4 \uCD94\uC138 ", /* @__PURE__ */ React.createElement("span", { className: "text-[11px] font-normal text-slate-400" }, "(\uC218\uB7C9\xB7\uB2E8\uAC00\xB7\uB9E4\uCD9C\uC561 \xB7 1~6\uC6D4 \uC2E4\uC81C / 7~12\uC6D4 \uACC4\uD68D)")), /* @__PURE__ */ React.createElement("div", { style: { width: "100%", height: 300 } }, /* @__PURE__ */ React.createElement(ResponsiveContainer, null, /* @__PURE__ */ React.createElement(ComposedChart, { data: md, margin: { top: 10, right: 10, left: 0, bottom: 0 } }, /* @__PURE__ */ React.createElement(CartesianGrid, { strokeDasharray: "3 3", stroke: "#eef2f7" }), /* @__PURE__ */ React.createElement(XAxis, { dataKey: "month", tick: { fontSize: 12 } }), /* @__PURE__ */ React.createElement(YAxis, { yAxisId: "left", tick: { fontSize: 11 } }), /* @__PURE__ */ React.createElement(YAxis, { yAxisId: "right", orientation: "right", tick: { fontSize: 11 } }), /* @__PURE__ */ React.createElement(Tooltip, { formatter: (v, n) => n === "\uB9E4\uCD9C\uC561" ? Math.round(v).toLocaleString() + " \uB9CC" : n === "\uB2E8\uAC00" ? Math.round(v).toLocaleString() + " \uC6D0" : Math.round(v).toLocaleString() + " \uAC1C" }), /* @__PURE__ */ React.createElement(Legend, { wrapperStyle: { fontSize: "12px" } }), /* @__PURE__ */ React.createElement(Bar, { yAxisId: "left", dataKey: "\uC218\uB7C9", fill: "#2563eb", radius: [3, 3, 0, 0], maxBarSize: 26 }), /* @__PURE__ */ React.createElement(Bar, { yAxisId: "right", dataKey: "\uB9E4\uCD9C\uC561", name: "\uB9E4\uCD9C\uC561(\uB9CC)", fill: "#bfdbfe", radius: [3, 3, 0, 0], maxBarSize: 26 }), /* @__PURE__ */ React.createElement(Line, { yAxisId: "right", type: "monotone", dataKey: "\uB2E8\uAC00", stroke: "#0F6E56", strokeWidth: 2.5, dot: { r: 3 } })))), /* @__PURE__ */ React.createElement("div", { className: "text-[11px] text-slate-400 mt-1" }, "* \uB9C9\uB300 = \uC218\uB7C9(\uC88C\uCD95)\xB7\uB9E4\uCD9C\uC561 \uB9CC\uC6D0(\uC6B0\uCD95), \uC120 = \uD3C9\uADE0\uB2E8\uAC00(\uC6B0\uCD95). 7~12\uC6D4\uC740 \uACC4\uD68D\uAC12."));
-  })(), /* @__PURE__ */ React.createElement("div", { className: "corpbar corpbar2 flex items-center gap-1 " }, /* @__PURE__ */ React.createElement(
+  })(), /* @__PURE__ */ React.createElement("button", { className: "corp-tgl" + (tabsOpen ? " corp-tgl-on" : ""), onClick: () => setTabsOpen(!tabsOpen),
+    title: "KPI\u00B7\uC2E4\uC801\u00B7\uB2EC\uC131\uC728 / \uC804\uB144\uB3C4 \uC2E4\uC801\u00B7\uC131\uC7A5\uC728 / \uBAA8\uB378\uBCC4 \uD45C" },
+    React.createElement("span", { className: "corp-tgi" }, "\u25A6"), tabsOpen ? "\uC0C1\uC138 \uD45C \uC228\uAE30\uAE30" : "\uC0C1\uC138 \uD45C \uBCF4\uAE30 (3)"),
+    tabsOpen && /* @__PURE__ */ React.createElement("div", { className: "corpbar corpbar2 flex items-center gap-1 " }, /* @__PURE__ */ React.createElement(
     "button",
     {
       onClick: () => setCorpTableTab("current"),
@@ -5272,7 +5465,7 @@ function CorpSalesBlock({ weeklyEntries, setWeeklyEntries, logChange, viewKey, v
       className: "px-4 py-2 text-sm font-semibold -mb-px border-b-2 " + (corpTableTab === "model" ? "border-blue-600 text-blue-600" : "border-transparent text-slate-500 hover:text-slate-700")
     },
     "\uBAA8\uB378\uBCC4 \uC218\uB7C9\xB7\uB2E8\uAC00\xB7\uB9E4\uCD9C\uC561"
-  )), corpTableTab === "current" && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-1 flex-wrap gap-2" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold text-slate-700" }, "\u25B6 KPI \xB7 \uC2E4\uC801 \xB7 \uB2EC\uC131\uC728"), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2 relative" }, /* @__PURE__ */ React.createElement("div", { className: "flex rounded overflow-hidden border border-slate-300 text-xs" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setTab("amount"), className: "px-3 py-1 " + (tab === "amount" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uAE08\uC561(\uB9CCRMB)"), /* @__PURE__ */ React.createElement("button", { onClick: () => setTab("qty"), className: "px-3 py-1 " + (tab === "qty" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uC218\uB7C9")), /* @__PURE__ */ React.createElement("button", { onClick: () => setVisibleMonths(Array(12).fill(true)), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50" }, "\uC804\uCCB4 \uC6D4"), /* @__PURE__ */ React.createElement("button", { onClick: () => setPickerOpen(!pickerOpen), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50 flex items-center gap-1" }, "\uC6D4 \uD45C\uC2DC (", visCount, "/12) \u25BC"), pickerOpen && /* @__PURE__ */ React.createElement("div", { className: "absolute right-0 top-8 z-50 bg-white border border-slate-300 rounded-md shadow-xl p-2 grid grid-cols-3 gap-1 w-48" }, MONTH_LABELS.map((m, i) => /* @__PURE__ */ React.createElement("label", { key: i, className: "flex items-center gap-1 text-xs cursor-pointer hover:bg-slate-50 px-1 py-0.5 rounded" }, /* @__PURE__ */ React.createElement("input", { type: "checkbox", checked: visibleMonths[i], onChange: () => setVisibleMonths((prev) => prev.map((v, idx) => idx === i ? !v : v)) }), m))))), /* @__PURE__ */ React.createElement(
+  )), tabsOpen && corpTableTab === "current" && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-1 flex-wrap gap-2" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold text-slate-700" }, "\u25B6 KPI \xB7 \uC2E4\uC801 \xB7 \uB2EC\uC131\uC728"), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2 relative" }, /* @__PURE__ */ React.createElement("div", { className: "flex rounded overflow-hidden border border-slate-300 text-xs" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setTab("amount"), className: "px-3 py-1 " + (tab === "amount" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uAE08\uC561(\uB9CCRMB)"), /* @__PURE__ */ React.createElement("button", { onClick: () => setTab("qty"), className: "px-3 py-1 " + (tab === "qty" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uC218\uB7C9")), /* @__PURE__ */ React.createElement("button", { onClick: () => setVisibleMonths(Array(12).fill(true)), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50" }, "\uC804\uCCB4 \uC6D4"), /* @__PURE__ */ React.createElement("button", { onClick: () => setPickerOpen(!pickerOpen), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50 flex items-center gap-1" }, "\uC6D4 \uD45C\uC2DC (", visCount, "/12) \u25BC"), pickerOpen && /* @__PURE__ */ React.createElement("div", { className: "absolute right-0 top-8 z-50 bg-white border border-slate-300 rounded-md shadow-xl p-2 grid grid-cols-3 gap-1 w-48" }, MONTH_LABELS.map((m, i) => /* @__PURE__ */ React.createElement("label", { key: i, className: "flex items-center gap-1 text-xs cursor-pointer hover:bg-slate-50 px-1 py-0.5 rounded" }, /* @__PURE__ */ React.createElement("input", { type: "checkbox", checked: visibleMonths[i], onChange: () => setVisibleMonths((prev) => prev.map((v, idx) => idx === i ? !v : v)) }), m))))), /* @__PURE__ */ React.createElement(
     CorpSalesTable,
     {
       tab,
@@ -5285,7 +5478,7 @@ function CorpSalesBlock({ weeklyEntries, setWeeklyEntries, logChange, viewKey, v
       onSort,
       storeKey: sk
     }
-  ), /* @__PURE__ */ React.createElement("div", { className: "mt-1 text-[11px] text-slate-500" }, "* \uB2EC\uC131\uC728 = \uC2E4\uC801 \xF7 KPI \xD7 100 (\uC790\uB3D9) \xB7 \uD569\uACC4 = 1~12\uC6D4 \uD569\uC0B0 (\uC790\uB3D9) \xB7 KPI/\uC2E4\uC801 \uD074\uB9AD\uD558\uC5EC \uC218\uC815")), corpTableTab === "prev" && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-1 flex-wrap gap-2" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold text-slate-700" }, "\u25B6 \uC804\uB144\uB3C4(25\uB144) \uC2E4\uC801 \xB7 \uC131\uC7A5\uC728"), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2 relative" }, /* @__PURE__ */ React.createElement("div", { className: "flex rounded overflow-hidden border border-slate-300 text-xs" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setPrevTab("amount"), className: "px-3 py-1 " + (prevTab === "amount" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uAE08\uC561(\uB9CCRMB)"), /* @__PURE__ */ React.createElement("button", { onClick: () => setPrevTab("qty"), className: "px-3 py-1 " + (prevTab === "qty" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uC218\uB7C9")), /* @__PURE__ */ React.createElement("button", { onClick: () => setPrevVisibleMonths(Array(12).fill(true)), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50" }, "\uC804\uCCB4 \uC6D4"), /* @__PURE__ */ React.createElement("button", { onClick: () => setPrevPickerOpen(!prevPickerOpen), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50 flex items-center gap-1" }, "\uC6D4 \uD45C\uC2DC (", prevVisCount, "/12) \u25BC"), prevPickerOpen && /* @__PURE__ */ React.createElement("div", { className: "absolute right-0 top-8 z-50 bg-white border border-slate-300 rounded-md shadow-xl p-2 grid grid-cols-3 gap-1 w-48" }, MONTH_LABELS.map((m, i) => /* @__PURE__ */ React.createElement("label", { key: i, className: "flex items-center gap-1 text-xs cursor-pointer hover:bg-slate-50 px-1 py-0.5 rounded" }, /* @__PURE__ */ React.createElement("input", { type: "checkbox", checked: prevVisibleMonths[i], onChange: () => setPrevVisibleMonths((prev) => prev.map((v, idx) => idx === i ? !v : v)) }), m))))), /* @__PURE__ */ React.createElement(
+  ), /* @__PURE__ */ React.createElement("div", { className: "mt-1 text-[11px] text-slate-500" }, "* \uB2EC\uC131\uC728 = \uC2E4\uC801 \xF7 KPI \xD7 100 (\uC790\uB3D9) \xB7 \uD569\uACC4 = 1~12\uC6D4 \uD569\uC0B0 (\uC790\uB3D9) \xB7 KPI/\uC2E4\uC801 \uD074\uB9AD\uD558\uC5EC \uC218\uC815")), tabsOpen && corpTableTab === "prev" && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-1 flex-wrap gap-2" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold text-slate-700" }, "\u25B6 \uC804\uB144\uB3C4(25\uB144) \uC2E4\uC801 \xB7 \uC131\uC7A5\uC728"), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2 relative" }, /* @__PURE__ */ React.createElement("div", { className: "flex rounded overflow-hidden border border-slate-300 text-xs" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setPrevTab("amount"), className: "px-3 py-1 " + (prevTab === "amount" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uAE08\uC561(\uB9CCRMB)"), /* @__PURE__ */ React.createElement("button", { onClick: () => setPrevTab("qty"), className: "px-3 py-1 " + (prevTab === "qty" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uC218\uB7C9")), /* @__PURE__ */ React.createElement("button", { onClick: () => setPrevVisibleMonths(Array(12).fill(true)), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50" }, "\uC804\uCCB4 \uC6D4"), /* @__PURE__ */ React.createElement("button", { onClick: () => setPrevPickerOpen(!prevPickerOpen), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50 flex items-center gap-1" }, "\uC6D4 \uD45C\uC2DC (", prevVisCount, "/12) \u25BC"), prevPickerOpen && /* @__PURE__ */ React.createElement("div", { className: "absolute right-0 top-8 z-50 bg-white border border-slate-300 rounded-md shadow-xl p-2 grid grid-cols-3 gap-1 w-48" }, MONTH_LABELS.map((m, i) => /* @__PURE__ */ React.createElement("label", { key: i, className: "flex items-center gap-1 text-xs cursor-pointer hover:bg-slate-50 px-1 py-0.5 rounded" }, /* @__PURE__ */ React.createElement("input", { type: "checkbox", checked: prevVisibleMonths[i], onChange: () => setPrevVisibleMonths((prev) => prev.map((v, idx) => idx === i ? !v : v)) }), m))))), /* @__PURE__ */ React.createElement(
     CorpSalesTable,
     {
       tab: prevTab,
@@ -5298,7 +5491,7 @@ function CorpSalesBlock({ weeklyEntries, setWeeklyEntries, logChange, viewKey, v
       onSort: onPrevSort,
       storeKey: sk
     }
-  ), /* @__PURE__ */ React.createElement("div", { className: "mt-1 text-[11px] text-slate-500" }, "* \uC131\uC7A5\uC728 = (\uC2E4\uC801 \u2212 \uC804\uB144\uB3C4\uC2E4\uC801) \xF7 \uC804\uB144\uB3C4\uC2E4\uC801 \xD7 100 (\uC790\uB3D9) \xB7 \uD569\uACC4 = 1~12\uC6D4 \uD569\uC0B0 (\uC790\uB3D9) \xB7 \uC804\uB144\uB3C4\uC2E4\uC801 \uD074\uB9AD\uD558\uC5EC \uC218\uC815 \xB7 \uC704\uD45C\uC640 \uB3C5\uB9BD\uB41C \uD0ED/\uC6D4 \uC124\uC815")), corpTableTab === "model" && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-1 flex-wrap gap-2" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold text-slate-700" }, "\u25B6 \uBAA8\uB378\uBCC4 ", modelMetric === "q" ? "\uC218\uB7C9" : modelMetric === "p" ? "\uB2E8\uAC00" : "\uB9E4\uCD9C\uC561", " ", /* @__PURE__ */ React.createElement("span", { className: "text-[11px] font-normal text-slate-400" }, "(1~6\uC6D4 \uC2E4\uC801 / 7~12\uC6D4 \uACC4\uD68D)")), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2 relative" }, /* @__PURE__ */ React.createElement("div", { className: "flex rounded overflow-hidden border border-slate-300 text-xs" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setModelMetric("q"), className: "px-3 py-1 " + (modelMetric === "q" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uC218\uB7C9"), /* @__PURE__ */ React.createElement("button", { onClick: () => setModelMetric("p"), className: "px-3 py-1 " + (modelMetric === "p" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uB2E8\uAC00"), /* @__PURE__ */ React.createElement("button", { onClick: () => setModelMetric("rev"), className: "px-3 py-1 " + (modelMetric === "rev" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uB9E4\uCD9C\uC561")), /* @__PURE__ */ React.createElement("button", { onClick: () => setVisibleMonths(Array(12).fill(true)), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50" }, "\uC804\uCCB4 \uC6D4"), /* @__PURE__ */ React.createElement("button", { onClick: () => setPickerOpen(!pickerOpen), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50 flex items-center gap-1" }, "\uC6D4 \uD45C\uC2DC (", visCount, "/12) \u25BC"), pickerOpen && /* @__PURE__ */ React.createElement("div", { className: "absolute right-0 top-8 z-50 bg-white border border-slate-300 rounded-md shadow-xl p-2 grid grid-cols-3 gap-1 w-48" }, MONTH_LABELS.map((m, i) => /* @__PURE__ */ React.createElement("label", { key: i, className: "flex items-center gap-1 text-xs cursor-pointer hover:bg-slate-50 px-1 py-0.5 rounded" }, /* @__PURE__ */ React.createElement("input", { type: "checkbox", checked: visibleMonths[i], onChange: () => setVisibleMonths((prev) => prev.map((v, idx) => idx === i ? !v : v)) }), m))))), /* @__PURE__ */ React.createElement(
+  ), /* @__PURE__ */ React.createElement("div", { className: "mt-1 text-[11px] text-slate-500" }, "* \uC131\uC7A5\uC728 = (\uC2E4\uC801 \u2212 \uC804\uB144\uB3C4\uC2E4\uC801) \xF7 \uC804\uB144\uB3C4\uC2E4\uC801 \xD7 100 (\uC790\uB3D9) \xB7 \uD569\uACC4 = 1~12\uC6D4 \uD569\uC0B0 (\uC790\uB3D9) \xB7 \uC804\uB144\uB3C4\uC2E4\uC801 \uD074\uB9AD\uD558\uC5EC \uC218\uC815 \xB7 \uC704\uD45C\uC640 \uB3C5\uB9BD\uB41C \uD0ED/\uC6D4 \uC124\uC815")), tabsOpen && corpTableTab === "model" && /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "flex items-center justify-between mb-1 flex-wrap gap-2" }, /* @__PURE__ */ React.createElement("div", { className: "text-sm font-semibold text-slate-700" }, "\u25B6 \uBAA8\uB378\uBCC4 ", modelMetric === "q" ? "\uC218\uB7C9" : modelMetric === "p" ? "\uB2E8\uAC00" : "\uB9E4\uCD9C\uC561", " ", /* @__PURE__ */ React.createElement("span", { className: "text-[11px] font-normal text-slate-400" }, "(1~6\uC6D4 \uC2E4\uC801 / 7~12\uC6D4 \uACC4\uD68D)")), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2 relative" }, /* @__PURE__ */ React.createElement("div", { className: "flex rounded overflow-hidden border border-slate-300 text-xs" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setModelMetric("q"), className: "px-3 py-1 " + (modelMetric === "q" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uC218\uB7C9"), /* @__PURE__ */ React.createElement("button", { onClick: () => setModelMetric("p"), className: "px-3 py-1 " + (modelMetric === "p" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uB2E8\uAC00"), /* @__PURE__ */ React.createElement("button", { onClick: () => setModelMetric("rev"), className: "px-3 py-1 " + (modelMetric === "rev" ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-50") }, "\uB9E4\uCD9C\uC561")), /* @__PURE__ */ React.createElement("button", { onClick: () => setVisibleMonths(Array(12).fill(true)), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50" }, "\uC804\uCCB4 \uC6D4"), /* @__PURE__ */ React.createElement("button", { onClick: () => setPickerOpen(!pickerOpen), className: "px-2 py-1 text-xs border border-slate-300 rounded hover:bg-slate-50 flex items-center gap-1" }, "\uC6D4 \uD45C\uC2DC (", visCount, "/12) \u25BC"), pickerOpen && /* @__PURE__ */ React.createElement("div", { className: "absolute right-0 top-8 z-50 bg-white border border-slate-300 rounded-md shadow-xl p-2 grid grid-cols-3 gap-1 w-48" }, MONTH_LABELS.map((m, i) => /* @__PURE__ */ React.createElement("label", { key: i, className: "flex items-center gap-1 text-xs cursor-pointer hover:bg-slate-50 px-1 py-0.5 rounded" }, /* @__PURE__ */ React.createElement("input", { type: "checkbox", checked: visibleMonths[i], onChange: () => setVisibleMonths((prev) => prev.map((v, idx) => idx === i ? !v : v)) }), m))))), /* @__PURE__ */ React.createElement(
     ModelSalesTable,
     {
       weeklyEntries,
@@ -7350,13 +7543,24 @@ function MtgView({ sheetsData, fetchedAt }) {
 
   return h("div", { className: "mtg-root" },
     h("div", { className: "mtg-tabs" },
-      yms.map(function (k) {
-        const n = (byYm[k] || []).length;
-        return h("button", { key: k, onClick: function () { setSel(k); },
-          className: "mtg-tab " + (ym === k ? "mtg-tab-on" : "mtg-tab-off") },
-          ymLabel(k), n ? h("i", null, n) : null);
-      }),
-      h("button", { className: "mtg-tab mtg-tab-add", onClick: addMonth, title: "다른 연월 열기" }, "+ 월"),
+      (function () {
+        const yrs = {}; yms.forEach(function (k) { yrs[k.slice(0, 4)] = 1; });
+        yrs[String((new Date()).getFullYear())] = 1;
+        const yrList = Object.keys(yrs).sort().reverse();
+        const curY = ym.slice(0, 4), curM = parseInt(ym.slice(5), 10);
+        const go = (y, m) => { const t = y + "-" + ("0" + m).slice(-2);
+          setExtra(function (o) { return o.indexOf(t) >= 0 ? o : o.concat([t]); }); setSel(t); };
+        return h(React.Fragment, null,
+          h("span", { className: "mtg-lb" }, "연도"),
+          h("select", { className: "mtg-sel", value: curY, onChange: function (e) { go(e.target.value, curM); } },
+            yrList.map(function (y) { return h("option", { key: y, value: y }, y + "년"); })),
+          h("span", { className: "mtg-lb" }, "월"),
+          h("select", { className: "mtg-sel", value: String(curM), onChange: function (e) { go(curY, parseInt(e.target.value, 10)); } },
+            Array.from({ length: 12 }, function (_, i) { return i + 1; }).map(function (m) {
+              const n = (byYm[curY + "-" + ("0" + m).slice(-2)] || []).length;
+              return h("option", { key: m, value: String(m) }, m + "월" + (n ? " (" + n + ")" : "")); })),
+          h("span", { className: "mtg-cnt" }, items.length ? items.length + "장" : (isQ4 ? "기본 과제표" : "자료 없음")));
+      })(),
       fetchedAt ? h("span", { className: "mtg-at" }, "시트 갱신 " + fetchedAt) : null),
 
     h("div", { className: "an-card" },
@@ -7399,6 +7603,767 @@ function MtgView({ sheetsData, fetchedAt }) {
           h("button", { onClick: function () { setZoom(null); } }, "닫기 ×")),
         h("img", { src: MTG_IMG(zoom.id, 2000), alt: zoom.title || zoom.name,
           onError: function (e) { const t = e.target; if (!t.__alt) { t.__alt = 1; t.src = MTG_IMG2(zoom.id, 2000); } } }))) : null);
+}
+
+// ════════════════════════════════════════════════════════════════
+//  TODAY Intelligence  —  오늘 어디에 개입해야 하는가
+//  Fact → Change → Cause → Action
+// ════════════════════════════════════════════════════════════════
+const TD_SNAP_KEY = "china_today_snap_v1";
+const TD_ACT_KEY  = "china_today_act_v1";
+const TD_MEMO_KEY = "china_today_memo_v1";
+const TD_DIAG_KEY = "china_today_diag_v1";
+const TD_TGT_KEY  = "china_today_tgt_v1";
+const TD_WORK_KEY = "china_today_work_v1";
+const TD_KPIS_KEY = "china_today_kpis_v1";
+const TD_LS = {
+  get: function (k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+// 영업일(월~금) 계산
+const TD_bizTotal = (y, m) => { let n = 0; const d = new Date(y, m - 1, 1); while (d.getMonth() === m - 1) { const w = d.getDay(); if (w >= 1 && w <= 5) n++; d.setDate(d.getDate() + 1); } return n; };
+const TD_bizTo = (y, m, day) => { let n = 0; const last = new Date(y, m, 0).getDate(); const dd = Math.min(day, last); for (let i = 1; i <= dd; i++) { const w = new Date(y, m - 1, i).getDay(); if (w >= 1 && w <= 5) n++; } return n; };
+const TD_ymd = (dt) => dt.getFullYear() + "-" + ("0" + (dt.getMonth() + 1)).slice(-2) + "-" + ("0" + dt.getDate()).slice(-2);
+const TD_DOW = ["일", "월", "화", "수", "목", "금", "토"];
+
+// ─── 2026-09-30(수) 중국법인 일일보고 시드 (Notion 원문) ───
+const TD_SEED_YM = "2026-09";
+const TD_SEED_DATE = "2026-09-30";
+const TD_SEED_RPT = {
+  "화동": { sale: { t: 7580000, d: 1720000, c: 3980000 }, cash: { t: 6720000, d: 960000, c: 3160000 },
+    fix: { t: 25800, d: 5181, c: 16359 },
+    bd: "목표 18家 (상해6/강소6/산동6) · 당월신규 4家 (누적 140家) · 하부 당월 251개(누적 2,870) · 대리상 당월 549개(누적 4,566)",
+    ari: "목표 12家 (상해3/강소4/산동5) · 당월신규 5家 (누적 13家) · 하부 당월 25개(누적 66) · 대리상 당월 85개(누적 315)",
+    rg: "상해 200만/66만 33% · 강소 323만/130만 40% · 산동 235만/202만 86%",
+    note: "보고서 수금 달성율 61% — 누계 316만 ÷ KPI 672만 = 47% 로 계산되어 불일치 (확인 필요)",
+    cause: [["상해 33% · 강소 40%", " 두 지역 미달분 합계 327만 = 화동 미달의 91%"],
+      ["허중 발주 미성사", " 격려정책 확대·단가차액 서면보증에도 설득 실패"]] },
+  "화남": { sale: { t: 2570000, d: 1120000, c: 1670000 }, cash: { t: 2320000, d: 690000, c: 1640000 },
+    fix: { t: 8730, d: 3610, c: 9913 },
+    bd: "당월 진입 2家 · 당월 출하 185개 · 대리상 당월 360개 · 누적 고객 49점 · 누적 출하 1,416개(대리상 1,563)",
+    ari: "",
+    rg: "하부고객 목표 16점 / 실적 7점 · 누적 627개",
+    note: "픽스쳐 9,913개는 이루 증정 5,000개 포함 — 순수 판매는 4,913개(목표 8,730 대비 56%)",
+    cause: [["펑성 27%", " 15만 / 목표 55만 — 미달 40만이 화남 미달의 44%"],
+      ["픽스쳐 114%는 증정 포함", " 증정 5,000개 제외 시 56% — 금액(65%)과 수량의 괴리"]] }
+};
+const TD_SEED_TGT = {
+  "화동|2026-09|cashT": "6720000",
+  "화남|2026-09|cashT": "2320000",
+  "화서|2026-09|cashT": "4330000",
+  "화중|2026-09|cashT": "5370000"
+};
+const TD_SEED_WORK = {
+  "화동|2026-09|main": "1) 허중 발주 독려 — 격려정책 확대, 지차이 가격변동 후 구매단가 차액 서면보증 / 마지막까지 발주 설득 실패\n2) 9월 영업마감 회의 참가 — 상해 33% / 강소 40% / 산동 86% 로 마감\n3) 취엔조우 야박사 방문 — 수조우 야박사DSO 분점",
+  "화동|2026-09|etc": "취엔조우 3개 분점 · 메가젠 8월 신규진입 · 사용량 5,000개 계약\nKOL 천중지엔 / 슈캉 리종 저녁식사 참여, 명일 08:15 기념행사 참여",
+  "화남|2026-09|main": "9월 매출마감 — 매출 167만위안 (달성율 65%)\n· 이루 106만위안 (목표 125만 대비 85%)\n· 펑성 15만위안 (목표 55만 대비 27%)\n· 광서 安榭里 13만위안 (목표달성), 涅昱 TASK 1개 발주\n· 9월 매출수량 9,913개 (목표 8,730 대비 114%) — 이루 증정 5,000개 포함",
+  "화남|2026-09|etc": "물대입금 — 이루 117만위안 (8월 물대) 전액 입금 완료\n참고: 이루는 9월 보증금 100만위안도 별도 입금"
+};
+
+function TodayView({ sheetsData, kpiSrc, dealer, fetchedAt, fin, psiSrc, weeklyEntries, setWeeklyEntries, logChange, year }) {
+  const h = React.createElement;
+  const S = sheetsData || {};
+  const AN = (v) => { if (v === null || v === void 0 || v === "") return 0; const n = Number(String(v).replace(/[^0-9.\-]/g, "")); return isNaN(n) ? 0 : n; };
+  const KOHQ = { "浙江": "절강", "华东": "화동", "华中": "화중", "华西": "화서", "华南": "화남", "华北": "화북" };
+  const NB = ["절강", "화동", "화중", "화서", "화남", "화북"];        // 닝보법인 6본부
+  const f0 = (v) => Math.round(v || 0).toLocaleString();
+  const fW = (v) => Math.round((v || 0) / 1e4).toLocaleString() + "만";
+  const pct = (a, b) => (b > 0 ? a / b * 100 : null);
+  const ps = (v, d) => (v === null || v === void 0 || !isFinite(v)) ? "—" : v.toFixed(d === void 0 ? 0 : d) + "%";
+  const sgn = (v, d) => (v === null || v === void 0 || !isFinite(v)) ? "—" : (v > 0 ? "+" : "") + v.toFixed(d === void 0 ? 0 : d) + "%";
+
+  const [actRows, setActRows] = React.useState(() => TD_LS.get(TD_ACT_KEY, []));
+  const [memo, setMemo] = React.useState(() => TD_LS.get(TD_MEMO_KEY, {}));
+  const [trTab, setTrTab] = React.useState("sale");
+  const [trOpen, setTrOpen] = React.useState(false);
+  const [pgTab, setPgTab] = React.useState("all");
+  const [dgPick, setDgPick] = React.useState("");
+  const [wkSync, setWkSync] = React.useState({ busy: false, msg: "", err: "" });
+  const [tgts, setTgts] = React.useState(function () { const o = TD_LS.get(TD_TGT_KEY, {});
+    Object.keys(TD_SEED_TGT).forEach(function (k) { if (o[k] === void 0) o[k] = TD_SEED_TGT[k]; }); return o; });
+  const [work, setWork] = React.useState(function () { const o = TD_LS.get(TD_WORK_KEY, {});
+    Object.keys(TD_SEED_WORK).forEach(function (k) { if (o[k] === void 0) o[k] = TD_SEED_WORK[k]; }); return o; });
+  React.useEffect(() => { TD_LS.set(TD_TGT_KEY, tgts); }, [tgts]);
+  React.useEffect(() => { TD_LS.set(TD_WORK_KEY, work); }, [work]);
+  React.useEffect(() => { TD_LS.set(TD_ACT_KEY, actRows); }, [actRows]);
+  React.useEffect(() => { TD_LS.set(TD_MEMO_KEY, memo); }, [memo]);
+
+  // ───────── 기준월 : KPI 실적이 들어온 마지막 달 ─────────
+  const MT = Array(12).fill(0), MA = Array(12).fill(0);
+  const hqM = {};
+  Object.keys(kpiSrc || {}).forEach(function (hk) {
+    if (NB.indexOf(hk) < 0) return;
+    const o = kpiSrc[hk] || {};
+    hqM[hk] = { t: Array(12).fill(0), a: Array(12).fill(0), qt: Array(12).fill(0), qa: Array(12).fill(0) };
+    Object.keys(o).forEach(function (rg) {
+      const x = o[rg]; if (!x) return;
+      for (let m = 0; m < 12; m++) {
+        hqM[hk].t[m] += (x.aT || [])[m] || 0; hqM[hk].a[m] += (x.aA || [])[m] || 0;
+        hqM[hk].qt[m] += (x.qT || [])[m] || 0; hqM[hk].qa[m] += (x.qA || [])[m] || 0;
+      }
+    });
+  });
+  NB.forEach(function (k) { if (!hqM[k]) hqM[k] = { t: Array(12).fill(0), a: Array(12).fill(0), qt: Array(12).fill(0), qa: Array(12).fill(0) }; });
+  for (let m = 0; m < 12; m++) NB.forEach(function (k) { MT[m] += hqM[k].t[m]; MA[m] += hqM[k].a[m]; });
+  let M = 1; for (let m = 0; m < 12; m++) if (MA[m] > 0) M = m + 1;
+
+  // ───────── 오늘 · 영업일 진척 ─────────
+  const now = new Date();
+  const Y = now.getFullYear();
+  const isCurM = (now.getMonth() + 1 === M);
+  const bizT = TD_bizTotal(Y, M);
+  const bizE = isCurM ? Math.max(1, TD_bizTo(Y, M, now.getDate())) : bizT;
+  const prog = bizT > 0 ? bizE / bizT : 1;              // 시간진척률
+  const bizTP = TD_bizTotal(Y, M > 1 ? M - 1 : 12);     // 전월 총 영업일
+  // 데이터 기준일 — 마감월이면 그 달의 마지막 영업일, 현재월이면 오늘
+  const DATA_DT = (function () { if (isCurM) return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const d = new Date(Y, M, 0); while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() - 1); return d; })();
+  const DATA_KEY = TD_ymd(DATA_DT);
+
+  // ───────── 대리상 수금 (본부별) ─────────
+  const cashOf = (hq) => { const rows = (dealer || {})[hq] || []; let c = 0, cc = 0; rows.forEach(function (d) { c += (d[5] || [])[M - 1] || 0; for (let i = 0; i < M; i++) cc += (d[5] || [])[i] || 0; }); return { m: c, cum: cc }; };
+  const cashPrev = (hq) => { if (M < 2) return 0; const rows = (dealer || {})[hq] || []; let c = 0; rows.forEach(function (d) { c += (d[5] || [])[M - 2] || 0; }); return c; };
+
+  // ───────── BD / ARi 신규 (본부별) ─────────
+  const newAgg = (key) => {
+    const rows = Array.isArray(S[key]) ? S[key] : [];
+    const by = {};
+    rows.forEach(function (r) {
+      const rc = String(r["地区"] || "").trim();
+      if (!rc || /合计|小计|总计/.test(rc)) return;
+      const k = KOHQ[String(r["本部"] || "").trim()] || String(r["本部"] || "").trim();
+      if (!k) return;
+      if (!by[k]) by[k] = { t: 0, a: 0, ct: 0, ca: 0, mo: Array(12).fill(0) };
+      by[k].t += AN(r[M + "月_客户_目标"]); by[k].a += AN(r[M + "月_客户_进入"]);
+      for (let m = 1; m <= M; m++) { by[k].ct += AN(r[m + "月_客户_目标"]); by[k].ca += AN(r[m + "月_客户_进入"]); }
+      for (let m = 1; m <= 12; m++) by[k].mo[m - 1] += AN(r[m + "月_客户_进入"]);
+    });
+    return by;
+  };
+  const BDn = newAgg("BD_Region"), ARn = newAgg("ARi_Region");
+  // BD·ARi 판매수량 (원본은 26년 연 누계만 있음)
+  const qtyAgg = (key) => { const by = {};
+    (Array.isArray(S[key]) ? S[key] : []).forEach(function (r) {
+      const k = KOHQ[String(r["본부"] || "").trim()] || String(r["본부"] || "").trim(); if (!k) return;
+      by[k] = (by[k] || 0) + AN(r["26\u5E74 \u9500\u552E\u91CF_\u5408\u8BA1"]); });
+    return by; };
+  const BDq = qtyAgg("BD_Detail"), ARq = qtyAgg("ARi_Detail");
+  // 하부고객 (终端) 당월 목표/실적
+  const tmAgg = (function () { const by = {};
+    (Array.isArray(S["\u7EC8\u7AEF_Region"]) ? S["\u7EC8\u7AEF_Region"] : []).forEach(function (r) {
+      if (r["1\u6708_\u4E1A\u7EE9__2"] === void 0 && r["7\u6708_\u4E1A\u7EE9__2"] === void 0) return;
+      const rc = String(r["\u5730\u533A"] || "").trim(); if (!rc || /合计|小计|总计/.test(rc)) return;
+      const k = KOHQ[String(r["\u672C\u90E8"] || "").trim()] || String(r["\u672C\u90E8"] || "").trim(); if (!k) return;
+      by[k] = by[k] || { t: 0, a: 0 };
+      by[k].t += AN(r[M + "\u6708_\u4E1A\u7EE9"]); by[k].a += AN(r[M + "\u6708_\u4E1A\u7EE9__2"]); });
+    return by; })();
+  // 수동 목표 (원본에 없는 값) — 본부|YYYY-MM|필드
+  const YM2 = Y + "-" + ("0" + M).slice(-2);
+  const tgOf = (hq, f) => { const v = tgts[hq + "|" + YM2 + "|" + f]; return (v === void 0 || v === "") ? null : (Number(v) || 0); };
+  const tgSet = (hq, f, v) => setTgts(function (o) { const n = Object.assign({}, o); n[hq + "|" + YM2 + "|" + f] = v; return n; });
+
+  // ───────── 북경법인 (법인_PSI_월별 · 출고 기준) ─────────
+  const corpRow = (bu, unit, gu, ind) => {
+    const rows = Array.isArray(S["법인_PSI_월별"]) ? S["법인_PSI_월별"] : [];
+    for (let i = 0; i < rows.length; i++) { const r = rows[i];
+      if (String(r["본부"]).trim() === bu && String(r["단위"]).trim() === unit && String(r["구분"]).trim() === gu && String(r["지표"]).trim() === ind) return r; }
+    return null;
+  };
+  const corpMo = (bu, unit, gu, ind) => { const r = corpRow(bu, unit, gu, ind); const a = Array(12).fill(0); if (!r) return a; for (let m = 1; m <= 12; m++) a[m - 1] = AN(r[m + "월"]); return a; };
+  const BJ_amt = corpMo("북경", "금액", "전체", "출고");
+  const BJ_fix = corpMo("북경", "수량", "Fixture", "출고");
+  const BJ_stk = corpMo("북경", "금액", "전체", "기말");
+  const bjHas = BJ_amt.some(function (v) { return v > 0; });
+
+  // ───────── 스냅샷 자동 누적 (영업일 1회) ─────────
+  const snaps = React.useMemo(function () {
+    const st = TD_LS.get(TD_SNAP_KEY, {});
+    const w = DATA_DT.getDay();
+    if (w >= 1 && w <= 5 && MA[M - 1] > 0) {
+      const key = DATA_KEY;
+      if (!st[key]) {
+        const row = { m: M };
+        NB.forEach(function (k) { let s = 0; for (let i = 0; i < M; i++) s += hqM[k].a[i]; row[k] = Math.round(s); });
+        let bj = 0; for (let i = 0; i < M; i++) bj += BJ_amt[i]; row["북경"] = Math.round(bj);
+        st[key] = row;
+        const ks = Object.keys(st).sort(); while (ks.length > 400) { delete st[ks.shift()]; }
+        TD_LS.set(TD_SNAP_KEY, st);
+      }
+    }
+    return st;
+  }, [M, MA[M - 1]]);
+  const snapKeys = Object.keys(snaps).sort();
+  // 7일 속도 : 최근 7일 일평균 vs 그 이전 7일 일평균 (스냅샷 8개 이상일 때)
+  const spd7 = (hq) => {
+    if (snapKeys.length < 8) return null;
+    const cur = snaps[snapKeys[snapKeys.length - 1]], d7 = snaps[snapKeys[Math.max(0, snapKeys.length - 6)]], d14 = snaps[snapKeys[Math.max(0, snapKeys.length - 11)]];
+    if (!cur || !d7 || !d14 || cur.m !== d14.m) return null;
+    const a = (cur[hq] || 0) - (d7[hq] || 0), b = (d7[hq] || 0) - (d14[hq] || 0);
+    if (!b) return null;
+    return (a / b - 1) * 100;
+  };
+  // 전월 동기 대비 속도 (스냅샷이 쌓이기 전의 기본값)
+  const spdPrev = (curM, prevM) => { if (!prevM || !bizE || !bizTP) return null; const a = curM / bizE, b = prevM / bizTP; return b > 0 ? (a / b - 1) * 100 : null; };
+
+  // ───────── 본부/법인 단위 지표 ─────────
+  const mk = (name, kind) => {
+    if (kind === "bj") {
+      const cur = BJ_amt[M - 1] || 0, prev = M > 1 ? BJ_amt[M - 2] || 0 : 0;
+      let cum = 0; for (let i = 0; i < M; i++) cum += BJ_amt[i];
+      return { name: name, corp: true, tgt: null, cur: cur, rate: null, eom: prog > 0 ? cur / prog : cur, eomRate: null,
+        cashM: null, cashRate: null, fix: BJ_fix[M - 1] || 0, fixT: null, bd: null, bdT: null, ari: null, ariT: null,
+        cum: cum, spd: spd7("북경") !== null ? spd7("북경") : spdPrev(cur, prev), spdSrc: spd7("북경") !== null ? "7d" : "pm", stk: BJ_stk[M - 1] || 0 };
+    }
+    const hqs = kind === "nb" ? NB : [name];
+    let tgt = 0, cur = 0, qt = 0, qa = 0, prev = 0, cum = 0, cashM = 0, prevCash = 0, bd = 0, bdT = 0, ari = 0, ariT = 0;
+    hqs.forEach(function (k) {
+      tgt += hqM[k].t[M - 1] || 0; cur += hqM[k].a[M - 1] || 0;
+      qt += hqM[k].qt[M - 1] || 0; qa += hqM[k].qa[M - 1] || 0;
+      if (M > 1) prev += hqM[k].a[M - 2] || 0;
+      for (let i = 0; i < M; i++) cum += hqM[k].a[i] || 0;
+      const c = cashOf(k); cashM += c.m; prevCash += cashPrev(k);
+      bd += (BDn[k] || {}).a || 0; bdT += (BDn[k] || {}).t || 0;
+      ari += (ARn[k] || {}).a || 0; ariT += (ARn[k] || {}).t || 0;
+    });
+    const eom = prog > 0 ? cur / prog : cur;
+    const s7 = kind === "nb" ? null : spd7(name);
+    return { name: name, corp: false, tgt: tgt, cur: cur, rate: pct(cur, tgt), eom: eom, eomRate: pct(eom, tgt),
+      cashM: cashM, cashRate: pct(cashM, cur), fix: qa, fixT: qt, bd: bd, bdT: bdT, ari: ari, ariT: ariT,
+      cum: cum, spd: s7 !== null ? s7 : spdPrev(cur, prev), spdSrc: s7 !== null ? "7d" : "pm", stk: null };
+  };
+  const HQX0 = {}; NB.forEach(function (k) { HQX0[k] = { t: hqM[k].t[M - 1] || 0, a: hqM[k].a[M - 1] || 0 }; });
+  const NBX = mk("닝보법인", "nb");
+  const BJX = mk("북경법인", "bj");
+  const HQX = {}; NB.forEach(function (k) { HQX[k] = mk(k, "hq"); });
+
+  // ───────── 상태 판정 ─────────
+  const judge = (x) => {
+    if (x.eomRate === null) return { lv: "na", lb: "실적만", cls: "td-na" };
+    if (x.cashRate !== null && x.cashRate < 75 && x.eomRate >= 95) return { lv: "warn", lb: "수금 확인 필요", cls: "td-warn" };
+    if (x.eomRate >= 100) return { lv: "ok", lb: "양호", cls: "td-ok" };
+    if (x.eomRate >= 90) return { lv: "warn", lb: "확인 필요", cls: "td-warn" };
+    return { lv: "crit", lb: "개입 필요", cls: "td-crit" };
+  };
+  // 원인 후보 : 하위 지역 중 달성율이 가장 낮은 곳
+  const worstHQ = () => { let w = null; NB.forEach(function (k) { const x = HQX0[k]; if (!x || !(x.t > 0)) return; const r = x.a / x.t * 100; if (!w || r < w.r) w = { rg: k, r: r, t: x.t, a: x.a }; }); return w; };
+  const worstRegion = (hq) => {
+    const o = (kpiSrc || {})[hq] || {}; let w = null;
+    Object.keys(o).forEach(function (rg) {
+      const x = o[rg]; const t = (x.aT || [])[M - 1] || 0, a = (x.aA || [])[M - 1] || 0;
+      if (t <= 0) return; const r = a / t * 100;
+      if (!w || r < w.r) w = { rg: rg, r: r, t: t, a: a };
+    });
+    return w;
+  };
+  const CN2KO = { "浙江": "절강", "福建": "복건", "江西": "강서", "上海": "상해", "江苏": "강소", "山东": "산동",
+    "河南": "하남", "安徽": "안휘", "重庆": "중경", "贵州": "귀주", "湖北": "호북", "湖南": "호남",
+    "四川": "사천", "甘肃": "감숙", "青海": "청해", "新疆": "신강", "云南": "운남", "山西": "산서", "陕西": "섬서", "宁夏": "영하",
+    "广东": "광동", "广西": "광서", "海南": "해남", "北京": "북경", "内蒙古": "내몽고", "河北": "하북", "天津": "천진",
+    "辽宁": "요녕", "吉林": "길림", "黑龙江": "흑룡강" };
+  const koRg = (v) => CN2KO[v] || v;
+
+  // 원인 후보 — 근거(숫자)가 있는 것만, 영향 큰 순서
+  const causeOf = (x, w) => {
+    if (x.corp) return [["데이터 없음", " 원본 시트에 KPI 목표·수금이 없어 판정 불가"]];
+    const L = [];
+    const R = (YM2 === TD_SEED_YM && TD_SEED_RPT[x.name]) ? TD_SEED_RPT[x.name] : null;
+    // 1) 매출 미달 — 가장 부진한 하위 지역의 기여
+    if (x.rate !== null && x.rate < 100 && w) {
+      const miss = Math.max(0, (w.t || 0) - (w.a || 0));
+      const share = (x.tgt - x.cur) > 0 ? miss / (x.tgt - x.cur) * 100 : null;
+      L.push(["지역 편차 · " + koRg(w.rg) + " " + ps(w.r),
+        " 부족분 " + fW(miss) + (share === null ? "" : " = 본부 미달의 " + Math.round(share) + "%")]);
+    }
+    // 2) 수금
+    if (x.cashRate !== null) {
+      if (x.cashRate < 80) L.push(["수금 지연 · 매출 대비 " + ps(x.cashRate), " 미회수 " + fW(Math.max(0, x.cur - x.cashM))]);
+      else if (x.cashRate >= 110) L.push(["수금 선행 · 매출 대비 " + ps(x.cashRate), " 선수금·과거채권 회수 가능성 — 구성 확인"]);
+    }
+    // 3) 속도
+    if (x.spd !== null && x.spd <= -10) L.push(["속도 둔화 · " + sgn(x.spd), " " + (x.spdSrc === "7d" ? "최근 7일" : "전월 동기") + " 대비 일평균 감소"]);
+    // 4) 일일보고에서 확인된 구체 원인
+    if (R && R.cause) R.cause.forEach(function (c) { L.push(c); });
+    return L.slice(0, 3);
+  };
+
+  // ───────── ① 금일 담당지역 주요사항 ─────────
+  const cards = [HQX["화동"], HQX["화남"]];
+  const card = (x, i) => {
+    const j = judge(x);
+    const w = x.corp ? null : (x.name === "닝보법인" ? worstHQ() : worstRegion(x.name));
+    const mk2 = "card|" + x.name;
+    const lines = [];
+    if (x.tgt > 0) {
+      lines.push(["월 목표 대비 현재", ps(x.rate)]);
+      lines.push(["현재 속도 유지 시 월말", ps(x.eomRate) + " 예상"]);
+    } else {
+      lines.push([M + "월 출고(판매)", fW(x.cur) + " 위안"]);
+      lines.push(["현재 속도 기준 월말", fW(x.eom) + " 위안 예상"]);
+    }
+    if (x.cashRate !== null) lines.push(["수금 / 매출 대비", fW(x.cashM) + " · " + ps(x.cashRate)]);
+    else if (x.stk !== null) lines.push(["월말 재고", fW(x.stk) + " 위안"]);
+    lines.push([(x.spdSrc === "7d" ? "최근 7일 매출 속도" : "최근 속도(전월 동기 대비)"), sgn(x.spd)]);
+    return h("div", { key: i, className: "td-card " + j.cls },
+      h("div", { className: "td-ch" },
+        h("span", { className: "td-cdot" }, j.lv === "ok" ? "✓" : j.lv === "na" ? "·" : "!"),
+        h("span", { className: "td-cnm" }, x.name),
+        h("span", { className: "td-cbg" }, j.lb),
+        h("span", { className: "td-cspd " + (x.spd === null ? "" : x.spd >= 0 ? "td-up" : "td-dn") },
+          x.spd === null ? "수집 중" : (x.spd >= 0 ? "▲ " : "▼ ") + Math.abs(Math.round(x.spd)) + "%")),
+      h("div", { className: "td-cb" }, lines.map(function (ln, k) {
+        return h("div", { key: k, className: "td-cl" }, h("span", null, ln[0]), h("b", null, ln[1]));
+      })),
+      (YM2 === TD_SEED_YM && TD_SEED_RPT[x.name]) ? (function () { const R = TD_SEED_RPT[x.name];
+        const ln = (lb, o, u) => h("div", { className: "td-rl", key: lb },
+          h("span", { className: "td-rlb" }, lb),
+          h("span", null, "당일 ", h("b", null, (u ? f0(o.d) : fW(o.d)))),
+          h("span", null, "누계 ", h("b", null, (u ? f0(o.c) : fW(o.c)))),
+          h("span", { className: "td-rr " + ((o.c / o.t * 100) >= 90 ? "td-g" : (o.c / o.t * 100) >= 70 ? "td-o" : "td-r") },
+            ps(pct(o.c, o.t))));
+        return h("div", { className: "td-rpt" },
+          h("div", { className: "td-rpth" }, TD_SEED_DATE + " 일일보고"),
+          ln("매출", R.sale), ln("수금", R.cash), ln("픽스쳐", R.fix, 1),
+          R.rg ? h("div", { className: "td-rgs" }, R.rg) : null,
+          R.bd ? h("div", { className: "td-rgs" }, "BD · ", R.bd) : null,
+          R.ari ? h("div", { className: "td-rgs" }, "ARi · ", R.ari) : null,
+          R.note ? h("div", { className: "td-rnote" }, "⚠ ", R.note) : null); })() : null,
+      h("div", { className: "td-ccause" },
+        h("span", { className: "td-clbl" }, "주요 원인 후보"),
+        (function () { const L = causeOf(x, w);
+          return L.length ? L.map(function (c, ci) { return h("div", { key: ci, className: "td-cause" },
+            h("span", { className: "td-cno" }, (ci + 1)), h("b", null, c[0]), h("span", null, c[1])); })
+            : h("span", { className: "td-cauto" }, "목표 대비 이탈 없음"); })()),
+      h("input", { className: "td-cin", value: memo[mk2] || "", placeholder: "확인한 원인을 적어두세요 (자동 저장)",
+        onChange: function (e) { const v = e.target.value; setMemo(function (o) { const n = Object.assign({}, o); n[mk2] = v; return n; }); } }));
+  };
+
+  // ───────── ② KPI 주요 지표 요약 ─────────
+  const kmRow = (k) => {
+    const bj = (k === "북경");
+    const x = bj ? BJX : HQX[k];
+    const bd = BDn[k] || {}, ar = ARn[k] || {}, tm = tmAgg[k] || {};
+    return { k: k, bj: bj, nm: bj ? "북경법인" : k,
+      saleT: bj ? null : x.tgt, saleA: x.cur, fc: x.eom, fcR: bj ? null : pct(x.eom, x.tgt),
+      cashT: bj ? null : tgOf(k, "cashT"), cashA: bj ? null : x.cashM,
+      fixT: bj ? null : x.fixT, fixA: bj ? BJ_fix[M - 1] || 0 : x.fix,
+      bdCT: bj ? null : (bd.t || 0), bdCA: bj ? null : (bd.a || 0),
+      bdQT: bj ? null : tgOf(k, "bdQT"), bdQA: bj ? null : (BDq[k] || 0),
+      arCT: bj ? null : (ar.t || 0), arCA: bj ? null : (ar.a || 0),
+      arQT: bj ? null : tgOf(k, "arQT"), arQA: bj ? null : (ARq[k] || 0),
+      tmT: bj ? null : (tm.t || 0), tmA: bj ? null : (tm.a || 0) };
+  };
+  const rowsK = NB.map(kmRow).concat([kmRow("북경")]);
+  const TOT = (function () {
+    const t = { k: "T", nm: "합계 (전체)", tot: true };
+    ["saleT", "saleA", "fc", "cashT", "cashA", "fixT", "fixA", "bdCT", "bdCA", "bdQT", "bdQA", "arCT", "arCA", "arQT", "arQA", "tmT", "tmA"]
+      .forEach(function (f) { t[f] = rowsK.reduce(function (s2, r) { return s2 + (Number(r[f]) || 0); }, 0); });
+    t.fcR = pct(t.fc, t.saleT);
+    return t;
+  })();
+  const rcls = (v) => v === null ? "" : v >= 100 ? "td-g" : v >= 90 ? "td-a" : v >= 70 ? "td-o" : "td-r";
+  const nz = (v, fm) => (v === null || v === void 0) ? "\u2014" : (fm ? fm(v) : f0(v));
+  const tin = (r, f) => r.bj || r.tot ? h("span", { className: "td-na2" }, r.tot ? nz(r[f]) : "\u2014")
+    : h("input", { className: "td-tin", value: (tgts[r.k + "|" + YM2 + "|" + f] === void 0 ? "" : tgts[r.k + "|" + YM2 + "|" + f]),
+        placeholder: "\u2014", title: "\uC9C1\uC811 \uC785\uB825 (\uC790\uB3D9 \uC800\uC7A5)",
+        onChange: function (e) { tgSet(r.k, f, e.target.value.replace(/[^0-9.\-]/g, "")); } });
+  const totOf = (rs, nm) => { const t = { k: "T", nm: nm, tot: true };
+    ["saleT", "saleA", "fc", "cashT", "cashA", "fixT", "fixA", "bdCT", "bdCA", "bdQT", "bdQA", "arCT", "arCA", "arQT", "arQA", "tmT", "tmA"]
+      .forEach(function (f) { t[f] = rs.reduce(function (s2, r) { return s2 + (Number(r[f]) || 0); }, 0); });
+    t.fcR = pct(t.fc, t.saleT); return t; };
+  const rowsHN = ["화동", "화남"].map(kmRow);
+  const dlt = (v) => v === null ? null : h("span", { className: "td-dd " + (v >= 0 ? "td-dd-u" : "td-dd-d") }, (v >= 0 ? "+" : "\u2212") + f0(Math.abs(v)));
+  const kRow = (r) => h("tr", { key: r.nm, className: (r.tot ? "td-trT" : (kSel === DATA_KEY ? "td-trToday" : "")) },
+    h("td", { className: "td-dt" }, r.tot ? "" : kSel),
+    h("td", { className: "td-rg" }, r.tot ? r.nm : h(React.Fragment, null, h("span", { className: "td-pill " + (r.bj ? "td-pill-bj" : "") }, r.bj ? "법인" : "본부"), r.nm)),
+    h("td", null, nz(r.saleT, fW)), h("td", null, fW(r.saleA)),
+    h("td", { className: "td-b " + rcls(r.fcR) }, fW(r.fc), r.fcR === null ? "" : " (" + ps(r.fcR) + ")"),
+    h("td", null, r.cashA === null ? "\u2014" : h(React.Fragment, null, fW(r.cashA), r.tot ? null : dlt(dDay(r.k, "c")))),
+    h("td", null, r.fixA === null ? "\u2014" : h(React.Fragment, null, f0(r.fixA), r.tot ? null : dlt(dDay(r.k, "f")))),
+    h("td", null, r.bdCA === null ? "\u2014" : h(React.Fragment, null, f0(r.bdCA), h("span", { className: "td-qty" }, "(" + f0(r.bdQA) + ")"))),
+    h("td", null, r.arCA === null ? "\u2014" : h(React.Fragment, null, f0(r.arCA), h("span", { className: "td-qty" }, "(" + f0(r.arQA) + ")"))),
+    h("td", null, nz(r.tmA)));
+  const kpiTable = (rs, tt) => h("div", { className: "td-tblwrap" },
+    h("table", { className: "td-tbl td-kpi18", "data-no-sort": "1" },
+      h("colgroup", null, [10, 11, 10, 10, 11, 12, 10, 9, 9, 8].map(function (w, ci) {
+        return h("col", { key: ci, style: { width: w + "%" } }); })),
+      h("thead", null,
+        h("tr", null,
+          h("th", { rowSpan: 2, className: "td-dt" }, "날짜"),
+          h("th", { rowSpan: 2, className: "td-rg" }, "지역"),
+          h("th", { colSpan: 2 }, "매출 (위안)"),
+          h("th", { rowSpan: 2 }, "당월 예측", h("br", null), "(목표 대비)"),
+          h("th", { rowSpan: 2 }, "수금 (위안)", h("br", null), h("span", { className: "td-th2" }, "현재 · 전일대비")),
+          h("th", { rowSpan: 2 }, "픽스쳐 (EA)", h("br", null), h("span", { className: "td-th2" }, "현재 · 전일대비")),
+          h("th", { rowSpan: 2 }, "BD 고객", h("br", null), h("span", { className: "td-th2" }, "개사 (수량)")),
+          h("th", { rowSpan: 2 }, "ARi 고객", h("br", null), h("span", { className: "td-th2" }, "개사 (수량)")),
+          h("th", { rowSpan: 2 }, "하부고객", h("br", null), h("span", { className: "td-th2" }, "개소"))),
+        h("tr", null, h("th", { className: "td-sub" }, "목표"), h("th", { className: "td-sub" }, "현재"))),
+      h("tbody", null, rs.map(kRow), kRow(tt))));
+  const kpiFoot = h("div", { className: "td-foot" }, "* 날짜 = 데이터 기준일 · 일자별로 기록되어 월 단위로 누적됩니다 (상단 「일자」에서 과거일 조회) · 당월 예측 = 당월 실적 ÷ 영업일 시간진척률(월~금) · 수금·픽스쳐의 ",
+    h("b", null, "+/− 는 직전 기록일 대비"), " 증감 · BD/ARi 는 개사(수량) 표기이며 수량은 원본이 26년 연 누계만 제공 · 북경법인은 KPI 목표·수금 데이터 없음");
+
+  // ── 일자별 KPI 스냅샷 (월 단위 누적) ──
+  const kpiSnaps = React.useMemo(function () {
+    const st = TD_LS.get(TD_KPIS_KEY, {});
+    if (rowsK.length && (rowsK[0].saleA || 0) + (rowsK[0].cashA || 0) > 0) {
+      const row = {}; rowsK.forEach(function (r) { row[r.k] = { s: Math.round(r.saleA || 0), c: Math.round(r.cashA || 0), f: Math.round(r.fixA || 0) }; });
+      const old = st[DATA_KEY];
+      if (!old || JSON.stringify(old) !== JSON.stringify(row)) { st[DATA_KEY] = row; TD_LS.set(TD_KPIS_KEY, st); }
+    }
+    return st;
+  }, [DATA_KEY, rowsK.length, rowsK.reduce(function (a, r) { return a + (r.saleA || 0) + (r.cashA || 0); }, 0)]);
+  const kpiDates = Object.keys(kpiSnaps).filter(function (d) { return d.slice(0, 7) === YM2; }).sort();
+  const kSel = (dgPick && kpiSnaps[dgPick]) ? dgPick : DATA_KEY;
+  const kIdx = kpiDates.indexOf(kSel);
+  const kPrev = kIdx > 0 ? kpiSnaps[kpiDates[kIdx - 1]] : null;
+  const dDay = (hq, f) => { if (!kPrev || !kPrev[hq]) return null; const cur = (kpiSnaps[kSel] || {})[hq];
+    if (!cur) return null; const d = (cur[f] || 0) - (kPrev[hq][f] || 0); return d === 0 ? null : d; };
+
+  // ───────── 화동·화남 중점업무 / 기타사항 ─────────
+  const WK = ["화동", "화남"];
+  const wkOf = (hq, f) => { const v = work[hq + "|" + YM2 + "|" + f]; return v === void 0 ? "" : v; };
+  const wkSet = (hq, f, v) => setWork(function (o) { const n = Object.assign({}, o); n[hq + "|" + YM2 + "|" + f] = v; return n; });
+  const wkSave = () => {
+    if (typeof kplanPost !== "function" || typeof GOOGLE_SCRIPT_URL === "undefined" || !GOOGLE_SCRIPT_URL) {
+      setWkSync({ busy: false, msg: "", err: "Apps Script URL이 설정되지 않았습니다" }); return; }
+    const rows = [];
+    WK.forEach(function (hq) { ["main", "etc"].forEach(function (f) {
+      const v = wkOf(hq, f); if (!String(v).trim()) return;
+      rows.push({ key: "TODAY|" + hq + "|" + YM2 + "|" + f, value: { txt: String(v), _at: (new Date()).toISOString() } }); }); });
+    if (!rows.length) { setWkSync({ busy: false, msg: "", err: "저장할 내용이 없습니다" }); return; }
+    setWkSync({ busy: true, msg: "전송 중…", err: "" });
+    kplanPost(rows).then(function (r) {
+      setWkSync({ busy: false, err: "", msg: r && r.blind ? ("전송함 · " + rows.length + "건 — 반영 여부 미확인")
+        : ("시트 저장 완료 · 신규 " + (r.inserted || 0) + " · 갱신 " + (r.updated || 0)) });
+      setTimeout(function () { setWkSync(function (o) { return Object.assign({}, o, { msg: "" }); }); }, 8000);
+    }).catch(function (e) { setWkSync({ busy: false, msg: "", err: String(e && e.message ? e.message : e).slice(0, 80) }); });
+  };
+  const wkRows = (v) => Math.max(3, String(v || "").split("\n").length + 1);
+
+  // ───────── ③ 지역 현황 (본부 타일) ─────────
+  const tile = (k) => { const x = k === "북경" ? BJX : HQX[k]; const j = judge(x);
+    return h("div", { key: k, className: "td-tile " + j.cls },
+      h("div", { className: "td-tnm" }, k === "북경" ? "북경법인" : k),
+      h("div", { className: "td-tv" }, x.eomRate === null ? fW(x.eom) : ps(x.eomRate)),
+      h("div", { className: "td-ts" }, x.eomRate === null ? "월말 예상" : "월말 예상 · 현재 " + ps(x.rate))); };
+
+  // ───────── ④ 주요 지표 추세 (월별) ─────────
+  const TRS = [["sale", "매출 추이"], ["cash", "수금 추이"], ["fix", "Fixture 출고"], ["bd", "신규 BD"], ["ari", "신규 ARi"]];
+  const serOf = (k) => {
+    const a = Array(12).fill(0);
+    if (trTab === "sale") for (let m = 0; m < 12; m++) a[m] = hqM[k].a[m];
+    else if (trTab === "fix") for (let m = 0; m < 12; m++) a[m] = hqM[k].qa[m];
+    else if (trTab === "bd") { const o = BDn[k] || {}; for (let m = 0; m < 12; m++) a[m] = (o.mo || [])[m] || 0; }
+    else if (trTab === "ari") { const o = ARn[k] || {}; for (let m = 0; m < 12; m++) a[m] = (o.mo || [])[m] || 0; }
+    else { const rows = (dealer || {})[k] || []; rows.forEach(function (d) { for (let m = 0; m < 12; m++) a[m] += (d[5] || [])[m] || 0; }); }
+    return a;
+  };
+  const HQCOL = { "절강": "#1d4ed8", "화동": "#dc2626", "화중": "#ea580c", "화남": "#15803d", "화북": "#7c3aed", "화서": "#0891b2" };
+  const trend = (function () {
+    const W = 1000, H = 230, PL = 56, PR = 52, PT = 16, PB = 26;
+    const n = M, ser = NB.map(function (k) { return { k: k, a: serOf(k) }; });
+    let raw = 1; ser.forEach(function (s) { for (let i = 0; i < n; i++) raw = Math.max(raw, s.a[i] || 0); });
+    const unit = (trTab === "sale" || trTab === "cash") ? 1e4 : 1;
+    const nice = (v) => { const e = Math.pow(10, Math.floor(Math.log10(Math.max(1, v)))); const k = v / e;
+      return (k <= 1 ? 1 : k <= 2 ? 2 : k <= 2.5 ? 2.5 : k <= 5 ? 5 : 10) * e; };
+    const mx = nice(raw * 1.08 / unit) * unit;
+    const X = (i) => PL + (W - PL - PR) * (n <= 1 ? 0.5 : i / (n - 1));
+    const Yv = (v) => H - PB - (H - PT - PB) * (v || 0) / mx;
+    const els = [];
+    for (let g = 0; g <= 4; g++) { const yy = PT + (H - PT - PB) * g / 4;
+      els.push(h("line", { key: "g" + g, x1: PL, y1: yy, x2: W - PR, y2: yy, stroke: "#eef2f7", strokeWidth: 1 }));
+      els.push(h("text", { key: "gl" + g, x: PL - 6, y: yy + 3.5, textAnchor: "end", fontSize: "10", fill: "#94a3b8" }, Math.round(mx * (4 - g) / 4 / unit).toLocaleString())); }
+    ser.forEach(function (s) {
+      const pts = []; for (let i = 0; i < n; i++) pts.push(X(i).toFixed(1) + "," + Yv(s.a[i]).toFixed(1));
+      els.push(h("polyline", { key: "p" + s.k, points: pts.join(" "), fill: "none", stroke: HQCOL[s.k], strokeWidth: 2, strokeLinejoin: "round" }));
+      for (let i = 0; i < n; i++) els.push(h("circle", { key: "c" + s.k + i, cx: X(i), cy: Yv(s.a[i]), r: 3, fill: "#fff", stroke: HQCOL[s.k], strokeWidth: 1.6 },
+        h("title", null, s.k + " " + (i + 1) + "월 " + f0(s.a[i]))));
+    });
+    // 끝점 라벨 — 세로 충돌 회피
+    const lab = ser.map(function (s) { return { k: s.k, y: Yv(s.a[n - 1]) }; }).sort(function (a, b) { return a.y - b.y; });
+    for (let i = 1; i < lab.length; i++) if (lab[i].y - lab[i - 1].y < 11) lab[i].y = lab[i - 1].y + 11;
+    lab.forEach(function (L) { els.push(h("text", { key: "lb" + L.k, x: X(n - 1) + 7, y: L.y + 3.5, fontSize: "10.5", fontWeight: "800", fill: HQCOL[L.k] }, L.k)); });
+    for (let i = 0; i < n; i++) els.push(h("text", { key: "x" + i, x: X(i), y: H - 8, textAnchor: "middle", fontSize: "10.5", fill: "#475569" }, (i + 1) + "월"));
+    els.push(h("line", { key: "ax", x1: PL, y1: H - PB, x2: W - PR, y2: H - PB, stroke: "#cbd5e1" }));
+    return h("svg", { viewBox: "0 0 " + W + " " + H, style: { width: "100%", height: "auto" } }, els);
+  })();
+
+  // ───────── ⑤ 오늘 확인해야 할 것 (화동 · 화남 · BD/ARi) ─────────
+  const HD = HQX["화동"], HN = HQX["화남"];
+  const hdW = worstRegion("화동"), hnW = worstRegion("화남");
+  const sumN = (by, f) => Object.keys(by).reduce(function (s2, k) { return s2 + ((by[k] || {})[f] || 0); }, 0);
+  const bdT = sumN(BDn, "t"), bdA = sumN(BDn, "a"), arT = sumN(ARn, "t"), arA = sumN(ARn, "a");
+  const QS = [
+    { id: "q-화동", rg: "화동", tone: HD.eomRate !== null && HD.eomRate < 90 ? "crit" : "warn",
+      q: "화동 월말 예상 " + ps(HD.eomRate) + " · 최근 속도 " + sgn(HD.spd) + " — "
+        + ((HD.spd !== null && HD.spd < 0) ? "감소는 어느 지역·대리상 때문인가?"
+           : (HD.eomRate !== null && HD.eomRate < 100) ? "속도는 오르는데 목표에 못 미치는 이유는 어디인가?" : "이 속도를 유지시킬 요인은 무엇인가?"),
+      why: hdW ? "가장 부진: " + koRg(hdW.rg) + " 달성율 " + ps(hdW.r) + " (목표 " + fW(hdW.t) + " / 실적 " + fW(hdW.a) + ")" : "지역별 목표 데이터 없음",
+      act: hdW ? koRg(hdW.rg) + " 대리상 주문 현황 확인 · 재방문" : "화동 대리상 주문 현황 확인" },
+    { id: "q-화남", rg: "화남", tone: (HN.cashRate !== null && HN.cashRate < 80) ? "warn" : "ok",
+      q: (HN.cashRate !== null && HN.cashRate >= 100)
+        ? "화남 매출 달성율 " + ps(HN.rate) + " · 수금률 " + ps(HN.cashRate) + " — 수금이 매출을 넘었다. 선수금인가, 과거 채권 회수인가?"
+        : "화남 매출 달성율 " + ps(HN.rate) + " / 수금률 " + ps(HN.cashRate) + " — 매출-수금 Gap이 왜 벌어졌나?",
+      why: M + "월 수금 " + fW(HN.cashM) + " · 판매 " + fW(HN.cur) + " · Gap " + ((HN.rate !== null && HN.cashRate !== null) ? (HN.rate - HN.cashRate > 0 ? "+" : "") + Math.round(HN.rate - HN.cashRate) + "%p" : "—"),
+      act: (HN.cashRate !== null && HN.cashRate >= 100) ? "화남 수금 구성 확인 (선수금·과거채권) · 당월 매출 회복 방안" : "화남 수금 지연 대리상 확인 · 회수 일정 합의" },
+    { id: "q-bdari", rg: "BD/ARi", tone: (bdT > 0 && bdA / bdT < 0.8) || (arT > 0 && arA / arT < 0.8) ? "warn" : "ok",
+      q: (bdT + bdA + arT + arA === 0)
+        ? "BD / ARi 신규 진입 — " + M + "월 원본 데이터가 비어 있다. 집계는 올라왔나?"
+        : "BD 신규 " + f0(bdA) + (bdT ? "/" + f0(bdT) + " (" + ps(pct(bdA, bdT)) + ")" : "") + " · ARi 신규 " + f0(arA) + (arT ? "/" + f0(arT) + " (" + ps(pct(arA, arT)) + ")" : "") + " — 진입이 재구매로 이어지고 있나?",
+      why: (bdT + bdA + arT + arA === 0) ? "원본 「BD_Region · ARi_Region」 " + M + "월 열이 비어 있음"
+        : M + "월 신규 진입 기준 · 목표 대비 미달분 " + f0(Math.max(0, bdT - bdA) + Math.max(0, arT - arA)) + "개사",
+      act: "BD/ARi 신규 진입 고객 재구매 현황 점검 · 미전환 고객 재방문" }
+  ];
+  const addAct = (q) => {
+    const due = (function () { const d = new Date(); let n = 0; while (n < 5) { d.setDate(d.getDate() + 1); const w = d.getDay(); if (w >= 1 && w <= 5) n++; } return TD_ymd(d); })();
+    setActRows(function (o) {
+      if (o.some(function (r) { return r.src === q.id && r.st !== "완료"; })) return o;
+      return o.concat([{ id: "a" + Date.now() + Math.random().toString(36).slice(2, 6), src: q.id,
+        pr: q.tone === "crit" ? "HIGH" : "MED", rg: q.rg, iss: q.q.split("—")[0].trim(), cause: q.why, who: "", act: q.act, due: due, st: "미시작", at: TD_ymd(new Date()) }]);
+    });
+  };
+  const setA = (i, f, v) => setActRows(function (o) { const a = o.slice(); a[i] = Object.assign({}, a[i], { [f]: v }); return a; });
+  const delA = (i) => setActRows(function (o) { return o.filter(function (_, k) { return k !== i; }); });
+  const PRC = { HIGH: "td-pr-h", MED: "td-pr-m", LOW: "td-pr-l" };
+  const STC = { "미시작": "td-st-n", "진행중": "td-st-d", "완료": "td-st-c", "보류": "td-st-h" };
+
+  // ═══ 영역별 진단 (중국법인 = 닝보 + 북경) ═══
+  const CM = (typeof computeCorpTotals === "function") ? computeCorpTotals("amount", weeklyEntries || {}, "corp") : { kpi: [], act: [], y25: [] };
+  const sumTo = (a, n) => { let s = 0; for (let i = 0; i < n; i++) s += Number((a || [])[i]) || 0; return s; };
+  const sum12 = (a) => sumTo(a, 12);
+  let Mc = 0; for (let i = 0; i < 12; i++) if ((Number((CM.act || [])[i]) || 0) > 0) Mc = i + 1;
+  const MD = Mc || M;                                     // 진단 기준월 (법인 실적 기준)
+  const C_ANN = sum12(CM.kpi), C_CT = sumTo(CM.kpi, MD), C_CA = sumTo(CM.act, MD);
+  const C_Y25c = sumTo(CM.y25, MD), C_Y25T = sum12(CM.y25);
+  const C_RUN = MD ? C_CA / MD : 0, C_EOY = C_CA + C_RUN * Math.max(0, 12 - MD);
+  const yProg = pct(C_CA, C_ANN), cProg = pct(C_CA, C_CT), eoyPct = pct(C_EOY, C_ANN);
+  const grow = C_Y25c > 0 ? (C_CA - C_Y25c) / C_Y25c * 100 : null;
+  const growY = C_Y25T > 0 ? (C_ANN - C_Y25T) / C_Y25T * 100 : null;
+  const fM = (v) => Math.round(v || 0).toLocaleString() + "만";
+
+  // 채권 (법인 재무)
+  const FINHQ = { "浙江本部": "절강", "华东本部": "화동", "华中本部": "화중", "华西本部": "화서", "华南本部": "화남", "华北本部": "화북" };
+  const ARSRC = (fin && fin.ar) || [];
+  const ARR = ARSRC.filter(function (x) { return x.d !== "合计" && x.d !== "其他" && String(x.hq || "").trim() !== ""; });
+  const ARTOT = ARSRC.filter(function (x) { return x.d === "合计"; })[0] || {};
+  const arHQ = {};
+  ARR.forEach(function (x) { const k = FINHQ[String(x.hq || "").trim()] || String(x.hq || "").trim() || "기타";
+    if (!arHQ[k]) arHQ[k] = { hq: k, e: 0, e2: 0, s: 0, c: 0 };
+    arHQ[k].e += x.e || 0; arHQ[k].e2 += x.e2 || 0; arHQ[k].s += x.s || 0; arHQ[k].c += x.c || 0; });
+  const ARL = Object.keys(arHQ).map(function (k) { const x = arHQ[k]; x.cs = pct(x.c, x.s); return x; });
+  const arTotE = ARTOT.e || ARL.reduce(function (s, x) { return s + x.e; }, 0);
+  const arTotE2 = ARTOT.e2 || ARL.reduce(function (s, x) { return s + x.e2; }, 0);
+  const arRate = pct(arTotE2, arTotE);
+  const arWorst = ARL.slice().sort(function (a, b) { return (a.cs === null ? 999 : a.cs) - (b.cs === null ? 999 : b.cs); })[0];
+  const fW2 = (v) => Math.round((v || 0) / 1e4).toLocaleString() + "만";
+
+  // 신규 진입 BD·ARi (1~MD 누계)
+  const cumNew = (by) => { let t = 0, a = 0; Object.keys(by).forEach(function (k) { t += by[k].ct || 0; a += by[k].ca || 0; }); return { t: t, a: a }; };
+  const bdC = cumNew(BDn), arC = cumNew(ARn);
+  const newT = bdC.t + arC.t, newA = bdC.a + arC.a, newRate = pct(newA, newT);
+
+  // 하부고객 (终端)
+  const tmHQ = {}; const TM = { t: 0, a: 0, mt: 0, ma: 0 };
+  (Array.isArray(S["终端_Region"]) ? S["终端_Region"] : []).forEach(function (r) {
+    if (r["1月_业绩__2"] === void 0 && r["7月_业绩__2"] === void 0) return;
+    const rc = String(r["地区"] || "").trim(); if (!rc || /合计|小计|总计/.test(rc)) return;
+    const k = KOHQ[String(r["本部"] || "").trim()] || String(r["本部"] || "").trim(); if (!k) return;
+    if (!tmHQ[k]) tmHQ[k] = { hq: k, t: 0, a: 0, mt: 0, ma: 0 };
+    for (let m = 1; m <= M; m++) { tmHQ[k].t += AN(r[m + "月_业绩"]); tmHQ[k].a += AN(r[m + "月_业绩__2"]); }
+    tmHQ[k].mt += AN(r[M + "月_业绩"]); tmHQ[k].ma += AN(r[M + "月_业绩__2"]);
+  });
+  Object.keys(tmHQ).forEach(function (k) { const x = tmHQ[k]; x.mrate = pct(x.ma, x.mt); TM.t += x.t; TM.a += x.a; TM.mt += x.mt; TM.ma += x.ma; });
+  TM.rate = pct(TM.a, TM.t); TM.mrate = pct(TM.ma, TM.mt);
+  const tmWorst = Object.keys(tmHQ).map(function (k) { return tmHQ[k]; })
+    .sort(function (a, b) { return (a.mrate === null ? 999 : a.mrate) - (b.mrate === null ? 999 : b.mrate); })[0];
+
+  // 재고 (법인 PSI · 중국 = 닝보 + 북경)
+  const PA = (psiSrc && psiSrc["중국"] && psiSrc["중국"].a && psiSrc["중국"].a.all) || {};
+  const gi = (k, i) => { const a = PA[k] || []; const v = a[i]; return typeof v === "number" ? v : 0; };
+  const invCls = gi("cls", M - 1) || gi("cls", M - 2);
+  let outS = 0; for (let m = 0; m < 12; m++) outS += gi("out", m) + gi("fail", m);
+  const invAvg = outS / 12;
+  const invMos = (PA.mos && typeof PA.mos[M - 1] === "number" && PA.mos[M - 1]) || (invAvg ? invCls / invAvg : null);
+
+  const SIG = [
+    { id: "sale", k: "매출 달성", v: ps(yProg, 1), n: yProg, w: yProg, st: yProg === null ? "na" : (yProg >= 70 ? "ok" : yProg >= 60 ? "warn" : "crit"),
+      d: ["연간진도 · 누계달성 " + ps(cProg, 1), "현 추세 연말 " + ps(eoyPct, 1)] },
+    { id: "grow", k: "25년 대비 성장", v: grow === null ? "—" : (grow >= 0 ? "+" : "") + grow.toFixed(1) + "%", n: grow,
+      w: grow === null ? null : Math.max(0, Math.min(100, 50 + grow)), st: grow === null ? "na" : (grow >= 10 ? "ok" : grow >= 0 ? "warn" : "crit"),
+      d: ["25년 1~" + MD + "월 " + fM(C_Y25c) + " → 26년 " + fM(C_CA), "25년 연간 " + fM(C_Y25T) + " · 26 목표 " + fM(C_ANN) + (growY === null ? "" : " (" + (growY >= 0 ? "+" : "") + growY.toFixed(0) + "%)")] },
+    { id: "cash", k: "수금 · 채권", v: ps(arRate, 1), n: arRate, w: arRate, st: (arRate === null) ? "na" : (arRate < 25 ? "ok" : arRate < 40 ? "warn" : "crit"),
+      d: ["채권 " + fW2(arTotE) + " 중 연체 " + fW2(arTotE2), arWorst ? arWorst.hq + " 수금/매출 " + ps(arWorst.cs, 0) : ""] },
+    { id: "new", k: "신규 진입 BD·ARi", v: ps(newRate, 1), n: newRate, w: newRate, st: (newRate === null) ? "na" : (newRate >= 90 ? "ok" : newRate >= 60 ? "warn" : "crit"),
+      d: ["1~" + M + "월 목표 " + f0(newT) + " → 진입 " + f0(newA), "BD " + ps(pct(bdC.a, bdC.t), 0) + " · ARi " + ps(pct(arC.a, arC.t), 0)] },
+    { id: "term", k: "하부고객 (终端)", v: ps(TM.rate, 1), n: TM.rate, w: TM.rate, st: (TM.rate === null) ? "na" : (TM.rate >= 90 ? "ok" : TM.rate >= 70 ? "warn" : "crit"),
+      d: ["누계 " + f0(TM.a) + " / " + f0(TM.t) + " 개소", "당월 " + ps(TM.mrate, 1) + (tmWorst ? " · " + tmWorst.hq + "만 " + ps(tmWorst.mrate, 0) : "")] },
+    { id: "inv", k: "재고", v: (invMos === null ? "—" : invMos.toFixed(2)), n: invMos, unit: " 개월",
+      w: invMos === null ? null : Math.min(100, invMos / 6 * 100), st: (invMos === null) ? "na" : (invMos <= 4 ? "ok" : invMos <= 6 ? "warn" : "crit"),
+      d: ["기말 " + fW2(invCls) + " · 월평균출고 " + fW2(invAvg), "경보선 6개월 기준"] }
+  ];
+  const nCrit = SIG.filter(function (x) { return x.st === "crit"; }).length;
+  const nWarn = SIG.filter(function (x) { return x.st === "warn"; }).length;
+  const nNa = SIG.filter(function (x) { return x.st === "na"; }).length;
+  const nOk = SIG.length - nCrit - nWarn - nNa;
+
+  // ─── 일자별 진단 스냅샷 (분리 기입 · 누적) ───
+  const dgStore = React.useMemo(function () {
+    const st = TD_LS.get(TD_DIAG_KEY, {});
+    const key = DATA_KEY;
+    if (C_CA > 0) {
+      const row = { m: MD }; SIG.forEach(function (x) { row[x.id] = (x.n === null || x.n === void 0 || !isFinite(x.n)) ? null : Number(x.n.toFixed(2)); });
+      const old = st[key];
+      if (!old || JSON.stringify(old) !== JSON.stringify(row)) { st[key] = row; TD_LS.set(TD_DIAG_KEY, st); }
+    }
+    return st;
+  }, [C_CA, MD, arRate, newRate, TM.rate, invMos, grow]);
+  const dgDates = Object.keys(dgStore).sort();
+  const dgSel = (dgPick && dgStore[dgPick]) ? dgPick : (dgDates.length ? dgDates[dgDates.length - 1] : "");
+  const dgIdx = dgDates.indexOf(dgSel);
+  const dgPrev = dgIdx > 0 ? dgStore[dgDates[dgIdx - 1]] : null;
+  const dgCur = dgStore[dgSel] || null;
+  const isLatest = dgIdx === dgDates.length - 1;
+  const dgDelta = (x) => {
+    if (!dgPrev || !dgCur) return null;
+    const a = dgCur[x.id], b = dgPrev[x.id];
+    if (a === null || b === null || a === void 0 || b === void 0) return null;
+    const d = a - b; if (Math.abs(d) < 0.05) return null;
+    return (d > 0 ? "+" : "") + d.toFixed(x.id === "inv" ? 2 : 1) + (x.unit ? "" : "%p");
+  };
+
+  // ───────── 렌더 ─────────
+  const sec = (no, title, desc, right) => h("div", { className: "td-sec" },
+    h("span", { className: "td-no" }, no), h("span", { className: "td-ttl" }, title),
+    desc ? h("span", { className: "td-desc" }, desc) : null,
+    right ? h("span", { className: "td-right" }, right) : null);
+
+  return h("div", { className: "td-wrap" },
+    // 헤더
+    h("div", { className: "td-hd" },
+      h("div", null,
+        h("div", { className: "td-h1" }, "TODAY ", h("span", null, "오늘의 인사이트")),
+        h("div", { className: "td-h2" }, "오늘 어디에 개입해야 하는지만 보여줍니다 · 월~금 매일 갱신")),
+      h("div", { className: "td-hr" },
+        h("span", { className: "td-date" }, DATA_DT.getFullYear() + ". " + (DATA_DT.getMonth() + 1) + ". " + DATA_DT.getDate() + " (" + TD_DOW[DATA_DT.getDay()] + ")"),
+        h("span", { className: "td-biz" }, "기준 ", h("b", null, M + "월"), isCurM ? "" : " (마감)", " · 영업일 ", h("b", null, bizE + "/" + bizT), " · 진척 ", h("b", null, ps(prog * 100))),
+        h("span", { className: "td-snap" }, "스냅샷 ", h("b", null, snapKeys.length + "일"), snapKeys.length < 8 ? " · 7일 속도 수집 중" : ""),
+        h("span", { className: "td-dglb" }, "일자"),
+        h("select", { className: "td-dgsel", value: dgSel, onChange: function (e) { setDgPick(e.target.value); } },
+          dgDates.length === 0 ? h("option", { value: "" }, "—") :
+          dgDates.slice().reverse().map(function (d, i) { return h("option", { key: d, value: d }, d + (i === 0 ? " (최신)" : "")); })),
+        isLatest ? null : h("button", { className: "td-dgnow", onClick: function () { setDgPick(""); } }, "최신으로"))),
+
+    // 화면 탭
+    h("div", { className: "td-ptabs" },
+      [["all", "전체", "\u25A6"], ["hq", "화동 · 화남", "\u25C9"], ["tr", "주요 지표 추세", "\u25E2"]].map(function (t) {
+        return h("button", { key: t[0], className: "td-ptab" + (pgTab === t[0] ? " td-ptab-on" : ""),
+          onClick: function () { setPgTab(t[0]); } }, h("span", { className: "td-pti" }, t[2]), t[1]); })),
+
+    pgTab === "all" ? h(React.Fragment, null,
+      // ⓪ 영역별 진단
+      h("div", { className: "td-dgwrap" },
+        h("div", { className: "td-dghd" },
+          h("span", { className: "td-no" }, "1"), h("span", { className: "td-dgt" }, "영역별 진단"),
+          h("span", { className: "td-tag td-b-crit" }, "위험 " + nCrit),
+          h("span", { className: "td-tag td-b-warn" }, "주의 " + nWarn),
+          h("span", { className: "td-tag td-b-ok" }, "정상 " + nOk),
+          nNa ? h("span", { className: "td-tag td-b-na" }, "데이터없음 " + nNa) : null,
+          h("span", { className: "td-dgsp" }),
+          h("span", { className: "td-dgdt" }, dgSel || DATA_KEY, isLatest ? "" : " (과거)")),
+        h("div", { className: "td-dghint" }, "중국법인 기준 (닝보 + 북경) · 각 영역을 독립 기준으로 판정합니다 · 위험 = 즉시 결정 필요, 주의 = 이번 달 안에 조치, 정상 = 현행 유지",
+          dgDates.length > 1 ? h("span", { className: "td-dgacc" }, " · 일자별로 따로 기록되어 " + dgDates.length + "일 누적 · 값 옆 숫자는 직전 기록일 대비" ) : null),
+        h("div", { className: "td-sig" }, SIG.map(function (x, i) {
+          const dl = dgDelta(x);
+          return h("div", { className: "td-sg", key: i },
+            h("div", { className: "td-lb" }, h("span", null, x.k), h("span", { className: "td-dot td-bg-" + x.st })),
+            h("div", { className: "td-vl td-" + x.st }, x.v, x.unit ? h("span", { style: { fontSize: "12px" } }, x.unit) : null,
+              dl ? h("span", { className: "td-dgd" }, dl) : null),
+            h("div", { className: "td-mini" }, h("i", { style: { width: Math.max(0, Math.min(100, x.w || 0)) + "%",
+              background: x.st === "crit" ? "#b91c1c" : x.st === "warn" ? "#b45309" : x.st === "na" ? "#cbd5e1" : "#15803d" } })),
+            h("div", { className: "td-ds" }, x.d.filter(function (y) { return y; }).map(function (y, j) { return h("div", { key: j }, y); })));
+        }))),
+      // ② KPI 주요 지표 요약
+      sec("2", "KPI 주요 지표 요약", "닝보 6본부 + 북경법인 · 합계는 전체 합", M + "월 기준"),
+      kpiTable(rowsK, TOT),
+      kpiFoot,
+      // ③ 법인 매출 관리
+      sec("3", "법인 매출 관리", "월별 KPI · 실적 · 달성율 추세 · 상세 표는 ▦ 로 펼칩니다"),
+      (typeof CorpSalesBlock === "function") ? h(CorpSalesBlock, { weeklyEntries: weeklyEntries, setWeeklyEntries: setWeeklyEntries,
+        logChange: logChange, viewKey: "all", viewLabel: "중국 전체", selMonthLimit: null, year: year }) : null) : null,
+
+    pgTab === "hq" ? h(React.Fragment, null,
+      // ① KPI 주요 지표 요약 · 화동 · 화남
+      sec("1", "KPI 주요 지표 요약", "화동 · 화남", M + "월 기준"),
+      kpiTable(rowsHN, totOf(rowsHN, "합계 (화동+화남)")),
+      kpiFoot,
+      // ② 금일 담당지역 주요사항
+      sec("2", "금일 담당지역 주요사항", "화동 · 화남 — 지금 손을 대야 하는 곳", M + "월 기준"),
+      h("div", { className: "td-cards td-cards2" }, cards.map(card)),
+      // ③ 중점업무 · 기타사항
+      sec("3", "중점업무 · 기타사항", "화동 · 화남 — 직접 기입 · 월별 관리",
+        h(React.Fragment, null,
+          wkSync.msg ? h("span", { className: "td-wkok" }, wkSync.msg) : null,
+          wkSync.err ? h("span", { className: "td-wkerr" }, "⚠ " + wkSync.err) : null,
+          h("button", { className: "td-addbtn", disabled: wkSync.busy, onClick: wkSave },
+            wkSync.busy ? "저장 중…" : "구글시트에 저장"))),
+      h("div", { className: "td-tblwrap" },
+        h("table", { className: "td-tbl td-wk", "data-no-sort": "1" },
+          h("colgroup", null, ["9%", "46%", "45%"].map(function (w, i2) { return h("col", { key: i2, style: { width: w } }); })),
+          h("thead", null, h("tr", null, h("th", { className: "td-rg" }, "본부"), h("th", null, "중점업무"), h("th", null, "기타사항"))),
+          h("tbody", null, WK.map(function (hq) {
+            return h("tr", { key: hq },
+              h("td", { className: "td-rg td-wkhq" }, hq),
+              h("td", { className: "td-wkc" }, h("textarea", { className: "td-wkta", rows: wkRows(wkOf(hq, "main")), value: wkOf(hq, "main"),
+                placeholder: hq + " 중점업무 — 이번 달 반드시 끝내야 할 일", onChange: function (e) { wkSet(hq, "main", e.target.value); } })),
+              h("td", { className: "td-wkc" }, h("textarea", { className: "td-wkta", rows: wkRows(wkOf(hq, "etc")), value: wkOf(hq, "etc"),
+                placeholder: "기타사항 — 공유·확인이 필요한 내용", onChange: function (e) { wkSet(hq, "etc", e.target.value); } })));
+          })))),
+      // 오늘 확인해야 할 것
+      sec("4", "오늘 확인해야 할 것", "화동 · 화남 · BD/ARi — 숫자가 아니라 질문으로"),
+      h("div", { className: "td-qs" }, QS.map(function (q, i) {
+        const has = actRows.some(function (r) { return r.src === q.id && r.st !== "완료"; });
+        return h("div", { key: q.id, className: "td-q td-q-" + q.tone },
+          h("span", { className: "td-qn" }, i + 1),
+          h("div", { className: "td-qb" },
+            h("div", { className: "td-qt" }, q.q),
+            h("div", { className: "td-qw" }, q.why)),
+          h("button", { className: "td-qadd" + (has ? " td-qadd-on" : ""), onClick: function () { addAct(q); } }, has ? "등록됨" : "+ Action")); })),
+
+      // ⑥ Action Required
+      sec("5", "Action Required", "문제 → 원인 → 담당 → 실행 → 마감 → 결과", h("button", { className: "td-addbtn", onClick: function () {
+        setActRows(function (o) { return o.concat([{ id: "a" + Date.now(), src: "", pr: "MED", rg: "", iss: "", cause: "", who: "", act: "", due: "", st: "미시작", at: TD_ymd(new Date()) }]); }); } }, "+ 직접 추가")),
+      h("div", { className: "td-tblwrap" },
+        h("table", { className: "td-tbl td-act", "data-no-sort": "1" },
+          h("colgroup", null, ["7%", "7%", "17%", "19%", "8%", "22%", "10%", "8%", "2%"].map(function (w, i) { return h("col", { key: i, style: { width: w } }); })),
+          h("thead", null, h("tr", null, ["우선순위", "지역", "문제/이슈", "원인", "담당", "Action", "마감일", "상태", ""].map(function (t, i) { return h("th", { key: i }, t); }))),
+          h("tbody", null,
+            actRows.length === 0 ? h("tr", null, h("td", { colSpan: 9, className: "td-empty" }, "위 「오늘 확인해야 할 것」에서 + Action 을 누르거나 직접 추가하세요.")) :
+            actRows.map(function (r, i) {
+              return h("tr", { key: r.id || i, className: r.st === "완료" ? "td-done" : "" },
+                h("td", null, h("select", { className: "td-sel " + (PRC[r.pr] || ""), value: r.pr, onChange: function (e) { setA(i, "pr", e.target.value); } },
+                  ["HIGH", "MED", "LOW"].map(function (v) { return h("option", { key: v, value: v }, v); }))),
+                h("td", null, h("input", { className: "td-in", value: r.rg || "", onChange: function (e) { setA(i, "rg", e.target.value); } })),
+                h("td", null, h("input", { className: "td-in td-l", value: r.iss || "", onChange: function (e) { setA(i, "iss", e.target.value); } })),
+                h("td", null, h("input", { className: "td-in td-l", value: r.cause || "", onChange: function (e) { setA(i, "cause", e.target.value); } })),
+                h("td", null, h("input", { className: "td-in", value: r.who || "", onChange: function (e) { setA(i, "who", e.target.value); } })),
+                h("td", null, h("input", { className: "td-in td-l", value: r.act || "", onChange: function (e) { setA(i, "act", e.target.value); } })),
+                h("td", null, h("input", { className: "td-in", type: "date", value: r.due || "", onChange: function (e) { setA(i, "due", e.target.value); } })),
+                h("td", null, h("select", { className: "td-sel " + (STC[r.st] || ""), value: r.st, onChange: function (e) { setA(i, "st", e.target.value); } },
+                  ["미시작", "진행중", "완료", "보류"].map(function (v) { return h("option", { key: v, value: v }, v); }))),
+                h("td", null, h("button", { className: "td-del", title: "삭제", onClick: function () { delA(i); } }, "×"))); }))))) : null,
+
+    pgTab === "tr" ? h(React.Fragment, null,
+      sec("1", "주요 지표 추세", "1월~" + M + "월 · 본부별"),
+      h("div", { className: "td-card2" },
+        h("div", { className: "td-trtabs" }, TRS.map(function (t) {
+          return h("button", { key: t[0], className: "td-trtab" + (trTab === t[0] ? " td-trtab-on" : ""), onClick: function () { setTrTab(t[0]); } }, t[1]); })),
+        h("div", { className: "td-trlg" },
+          h("span", { className: "td-trunit" }, (trTab === "sale" || trTab === "cash") ? "(만 위안)" : trTab === "fix" ? "(개)" : "(개사)"),
+          NB.map(function (k) { return h("span", { key: k, className: "td-lg" }, h("i", { style: { background: HQCOL[k] } }), k); })),
+        trend)) : null,
+
+    h("div", { className: "td-foot" }, "* Action 은 이 브라우저에 자동 저장됩니다 · 매일(월~금) 남은 항목만 이어서 관리하세요",
+      fetchedAt ? " · 데이터 " + String(fetchedAt).slice(0, 16).replace("T", " ") : ""));
 }
 
 function AnalView({ sheetsData, kpiSrc, fin, psiSrc, dealer, fetchedAt, srcMode }) {
@@ -11217,7 +12182,7 @@ Google Drive \uB610\uB294 \uC548\uC804\uD55C \uC704\uCE58\uC5D0 \uBCF4\uAD00\uD5
       title: "\uC0AC\uC774\uB4DC\uBC14 \uC811\uAE30"
     },
     /* @__PURE__ */ React.createElement("svg", { className: "w-5 h-5", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("polyline", { points: "15 18 9 12 15 6" }))
-  )), /* @__PURE__ */ React.createElement("div", { className: "px-3 pt-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("anal"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded font-bold ${selectedHQ === "anal" ? "bg-blue-600 text-white" : "text-slate-200 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\uD83E\uDDED"), /* @__PURE__ */ React.createElement("span", null, "\uBD84\uC11D")), /* @__PURE__ */ React.createElement( "button", { onClick: () => { setSelectedHQ("overview"); setOverviewTab("all"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "overview" && overviewTab === "all" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "dashboard", className: "w-4 h-4" }), /* @__PURE__ */ React.createElement("span", null, "\uC911\uAD6D\uB300\uC2DC\uBCF4\uB4DC") )), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-2 border-t border-slate-700/50" }, /* @__PURE__ */ React.createElement("div", { className: "px-2 py-1.5 text-xs text-slate-400" }, "\uACBD\uC601\uD68C\uC758"), /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("mtg"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "mtg" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\uD83D\uDCCC"), /* @__PURE__ */ React.createElement("span", null, "\uC911\uC810 \uCD94\uC9C4\uACFC\uC81C")))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setDashOpen(!dashOpen), className: "w-full px-2 py-1.5 text-xs text-slate-400 hover:text-slate-200 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("span", null, "3C\uBD84\uC11D"), /* @__PURE__ */ React.createElement("div", { className: `transition-transform ${dashOpen ? "" : "-rotate-90"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "chevronDown", className: "w-3 h-3" }))), dashOpen && /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, 
+  )), /* @__PURE__ */ React.createElement("div", { className: "px-3 pt-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("anal"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded font-bold ${selectedHQ === "anal" ? "bg-blue-600 text-white" : "text-slate-200 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\u2600"), /* @__PURE__ */ React.createElement("span", null, "TODAY")), null), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-2 border-t border-slate-700/50" }, /* @__PURE__ */ React.createElement("div", { className: "px-2 py-1.5 text-xs text-slate-400" }, "\uACBD\uC601\uD68C\uC758"), /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, /* @__PURE__ */ React.createElement("button", { onClick: () => { setSelectedHQ("mtg"); }, className: `w-full flex items-center gap-2 px-3 py-2 text-sm rounded ${selectedHQ === "mtg" ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"}` }, /* @__PURE__ */ React.createElement("span", { style: { fontSize: "14px", lineHeight: 1, width: "16px", textAlign: "center" } }, "\uD83D\uDCCC"), /* @__PURE__ */ React.createElement("span", null, "\uC911\uC810 \uCD94\uC9C4\uACFC\uC81C")))), /* @__PURE__ */ React.createElement("div", { className: "px-3 py-3" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setDashOpen(!dashOpen), className: "w-full px-2 py-1.5 text-xs text-slate-400 hover:text-slate-200 flex items-center justify-between" }, /* @__PURE__ */ React.createElement("span", null, "3C\uBD84\uC11D"), /* @__PURE__ */ React.createElement("div", { className: `transition-transform ${dashOpen ? "" : "-rotate-90"}` }, /* @__PURE__ */ React.createElement(Icon, { name: "chevronDown", className: "w-3 h-3" }))), dashOpen && /* @__PURE__ */ React.createElement("div", { className: "mt-1 space-y-0.5" }, 
   /* @__PURE__ */ React.createElement(
     "button",
     {
@@ -17256,7 +18221,7 @@ const CORP_KPI = CORP_KPI_SHEET || CORP_KPI_EMB;
 const CORP_TRD_LIVE = !!(sheetsData && (Array.isArray(sheetsData["\uAC70\uB798\uCC98\uC2E4\uC801_\uC8FC\uAC04"]) || Array.isArray(sheetsData["\uAC70\uB798\uCC98\uC2E4\uC801_\uC6D4\uAC04"])));
 const cmpTable = (opts) => {
   const rate = (a, b) => b > 0 ? Math.round(a / b * 100) : 0;
-  const nd = (v, bold) => /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right text-slate-900" + (bold !== false ? " font-semibold" : "") }, formatNumber(v));
+  const nd = (v, bold, cls) => /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right text-slate-900" + (bold !== false ? " font-semibold" : "") + (cls ? " " + cls : "") }, formatNumber(v));
   const pct = (v) => /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right font-bold " + (v >= 70 ? "text-blue-600" : "text-red-600") }, v, "%");
   const TB = "w-full text-[12.35px] whitespace-nowrap [&_td]:border-r [&_th]:border-r [&_td]:border-slate-200 [&_th]:border-slate-200 [&_tr>*:last-child]:border-r-0";
   const g = (bg) => "px-1 py-1 font-bold text-slate-900 text-center " + bg;
@@ -17282,8 +18247,8 @@ const cmpTable = (opts) => {
     }
     return /* @__PURE__ */ React.createElement("th", { rowSpan: rs, onClick: () => setHqSort((s) => ({ tid: opts.tid, col, dir: s && s.tid === opts.tid && s.col === col && s.dir === 1 ? -1 : 1 })), className: "px-2 " + (rs ? "py-1.5 font-bold text-slate-900" : "py-1 font-semibold text-slate-600") + " cursor-pointer select-none hover:bg-slate-200 align-middle " + (extra || "text-right") }, label, act ? hqSort.dir === 1 ? " \u25B2" : " \u25BC" : "");
   };
-  const totRow = (name, d, cls) => /* @__PURE__ */ React.createElement("tr", { className: cls }, /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1", colSpan: opts.showHQ ? 2 : 1 }, name), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.aT)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.aA)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, rate(d.aA, d.aT), "%"), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.qT)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.qA)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, rate(d.qA, d.qT), "%"), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.dsoE)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, rate(d.dsoE, d.dsoN), "%"), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.dsoA)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, rate(d.dsoA, d.dsoT), "%"), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.bd)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.ari)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.sub)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.dealer)));
-  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-[11.5px] text-slate-500 mb-1.5" }, "\u203B ", /* @__PURE__ */ React.createElement("b", null, "\uD310\uB9E4\uAE08\uC561\xB7\uD310\uB9E4\uC218\uB7C9\uC740 \uC120\uD0DD\uC6D4(\uB2F9\uC6D4) \uAE30\uC900"), " \xB7 ", /* @__PURE__ */ React.createElement("span", null, "DSO\xB7\uD558\uBD80\uACE0\uAC1D\xB7\uB300\uB9AC\uC0C1\uC740 \uB204\uACC4 \xB7 \uC544\uB798 \u300C\uB204\uC801\uD569\uACC4\u300D \uD589\uB9CC 1\uC6D4~\uD604\uC7AC \uB204\uC801")), /* @__PURE__ */ React.createElement("div", { className: "cmpwrap border border-slate-200 rounded-lg" }, /* @__PURE__ */ React.createElement("table", { className: TB + " cmptbl" }, /* @__PURE__ */ React.createElement("thead", { className: "bg-slate-100 border-b border-slate-200" }, /* @__PURE__ */ React.createElement("tr", null, opts.showHQ ? /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: "px-1 py-1 font-bold text-slate-900 align-middle text-left" }, "\uBCF8\uBD80") : null, HT(opts.firstLabel, 0, "text-left", 2, 0, ""), HT("\uD310\uB9E4\uAE08\uC561(\uC704\uC548)", 0, "", 0, 3, "bg-slate-100"), HT("\uD310\uB9E4\uC218\uB7C9(\uAC1C)", 0, "", 0, 3, "bg-slate-100"), HT("DSO", 0, "", 0, 4, "bg-slate-100"), HT("\uD558\uBD80\uACE0\uAC1D", 0, "", 0, 3, "bg-slate-100"), HT("\uB300\uB9AC\uC0C1", 16, "", 2, 0, "")), /* @__PURE__ */ React.createElement("tr", null, HT("\uBAA9\uD45C", 1), HT("\uD310\uB9E4", 2), HT("\uB2EC\uC131\uC728", 3), HT("\uBAA9\uD45C", 4), HT("\uD310\uB9E4", 5), HT("\uB2EC\uC131\uC728", 6), HT("\uC9C4\uC785", 8), HT("\uB2EC\uC131\uC728", 9), HT("\uD310\uB9E4", 11), HT("\uB2EC\uC131\uC728", 12), HT("BD", 13), HT("ARi", 14), HT("\uD558\uBD80\uACE0\uAC1D", 15))), /* @__PURE__ */ React.createElement("tbody", null, disp.map((r, i) => /* @__PURE__ */ React.createElement("tr", { key: i, className: "border-b border-slate-100 hover:bg-slate-50" }, opts.showHQ ? /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-slate-600 font-semibold" }, hqOf(r.label)) : null, /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 font-bold text-slate-900 whitespace-nowrap" }, opts.showHQ ? __rgLbl(r.label) : r.label), nd(r.aT), nd(r.aA), pct(rate(r.aA, r.aT)), nd(r.qT), nd(r.qA), pct(rate(r.qA, r.qT)), nd(r.dsoE), pct(rate(r.dsoE, r.dsoN)), nd(r.dsoA), pct(rate(r.dsoA, r.dsoT)), nd(r.bd, false), nd(r.ari, false), nd(r.sub, false), nd(r.dealer, false))), totRow("\uC6D4\uD569\uACC4 (\uC120\uD0DD\uC6D4)", opts.monthSum, "bg-slate-50 border-t-2 border-slate-300 font-bold text-slate-800"), totRow("\uB204\uC801\uD569\uACC4 (1\uC6D4~\uD604\uC7AC)", opts.cumSum, "bg-blue-50 border-t border-blue-200 font-bold text-blue-700")))));
+  const totRow = (name, d, cls) => /* @__PURE__ */ React.createElement("tr", { className: cls }, /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1", colSpan: opts.showHQ ? 2 : 1 }, name), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.aT)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right cmp-nar" }, formatNumber(d.aA)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, rate(d.aA, d.aT), "%"), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.qT)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.qA)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, rate(d.qA, d.qT), "%"), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.dsoE)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, rate(d.dsoE, d.dsoN), "%"), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.dsoA)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, rate(d.dsoA, d.dsoT), "%"), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.bd)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.ari)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.sub)), /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-right" }, formatNumber(d.dealer)));
+  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "text-[11.5px] text-slate-500 mb-1.5" }, "\u203B ", /* @__PURE__ */ React.createElement("b", null, "\uD310\uB9E4\uAE08\uC561\xB7\uD310\uB9E4\uC218\uB7C9\uC740 \uC120\uD0DD\uC6D4(\uB2F9\uC6D4) \uAE30\uC900"), " \xB7 ", /* @__PURE__ */ React.createElement("span", null, "DSO\xB7\uD558\uBD80\uACE0\uAC1D\xB7\uB300\uB9AC\uC0C1\uC740 \uB204\uACC4 \xB7 \uC544\uB798 \u300C\uB204\uC801\uD569\uACC4\u300D \uD589\uB9CC 1\uC6D4~\uD604\uC7AC \uB204\uC801")), /* @__PURE__ */ React.createElement("div", { className: "cmpwrap border border-slate-200 rounded-lg" }, /* @__PURE__ */ React.createElement("table", { className: TB + " cmptbl" }, /* @__PURE__ */ React.createElement("thead", { className: "bg-slate-100 border-b border-slate-200" }, /* @__PURE__ */ React.createElement("tr", null, opts.showHQ ? /* @__PURE__ */ React.createElement("th", { rowSpan: 2, className: "px-1 py-1 font-bold text-slate-900 align-middle text-left" }, "\uBCF8\uBD80") : null, HT(opts.firstLabel, 0, "text-left", 2, 0, ""), HT("\uD310\uB9E4\uAE08\uC561(\uC704\uC548)", 0, "", 0, 3, "bg-slate-100"), HT("\uD310\uB9E4\uC218\uB7C9(\uAC1C)", 0, "", 0, 3, "bg-slate-100"), HT("DSO", 0, "", 0, 4, "bg-slate-100"), HT("\uD558\uBD80\uACE0\uAC1D", 0, "", 0, 3, "bg-slate-100"), HT("\uB300\uB9AC\uC0C1", 16, "", 2, 0, "")), /* @__PURE__ */ React.createElement("tr", null, HT("\uBAA9\uD45C", 1), HT("\uD310\uB9E4", 2), HT("\uB2EC\uC131\uC728", 3), HT("\uBAA9\uD45C", 4), HT("\uD310\uB9E4", 5), HT("\uB2EC\uC131\uC728", 6), HT("\uC9C4\uC785", 8), HT("\uB2EC\uC131\uC728", 9), HT("\uD310\uB9E4", 11), HT("\uB2EC\uC131\uC728", 12), HT("BD", 13), HT("ARi", 14), HT("\uD558\uBD80\uACE0\uAC1D", 15))), /* @__PURE__ */ React.createElement("tbody", null, disp.map((r, i) => /* @__PURE__ */ React.createElement("tr", { key: i, className: "border-b border-slate-100 hover:bg-slate-50" }, opts.showHQ ? /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 text-slate-600 font-semibold" }, hqOf(r.label)) : null, /* @__PURE__ */ React.createElement("td", { className: "px-1 py-1 font-bold text-slate-900 whitespace-nowrap" }, opts.showHQ ? __rgLbl(r.label) : r.label), nd(r.aT), nd(r.aA, true, "cmp-nar"), pct(rate(r.aA, r.aT)), nd(r.qT), nd(r.qA), pct(rate(r.qA, r.qT)), nd(r.dsoE), pct(rate(r.dsoE, r.dsoN)), nd(r.dsoA), pct(rate(r.dsoA, r.dsoT)), nd(r.bd, false, "cmp-wide"), nd(r.ari, false, "cmp-wide"), nd(r.sub, false), nd(r.dealer, false))), totRow("\uC6D4\uD569\uACC4 (\uC120\uD0DD\uC6D4)", opts.monthSum, "bg-slate-50 border-t-2 border-slate-300 font-bold text-slate-800"), totRow("\uB204\uC801\uD569\uACC4 (1\uC6D4~\uD604\uC7AC)", opts.cumSum, "bg-blue-50 border-t border-blue-200 font-bold text-blue-700")))));
 };
 const renderNationalOverview = () => {
   const D = NAT;
@@ -19193,7 +20158,7 @@ const renderPricePos = (p) => /* @__PURE__ */ React.createElement(PricePosView, 
     if (selectedHQ === 'national') return renderHQDashboard('전국');
     if (selectedHQ === 'policy') return React.createElement(PolicyView, { ui: plUI, setUI: setPlUI, sheetsData });
     if (selectedHQ === 'mtg') return React.createElement(MtgView, { sheetsData: sheetsDataRaw, fetchedAt: sheetsFetchedAt });
-    if (selectedHQ === 'anal') return React.createElement(AnalView, { sheetsData: sheetsData, kpiSrc: KPI_SRC, fin: (typeof CORP_FIN !== 'undefined' ? CORP_FIN : null), psiSrc: CORP_PSI_SRC_LIVE, dealer: DEALER_PSI, fetchedAt: sheetsFetchedAt, srcMode: srcMode });
+    if (selectedHQ === 'anal') return React.createElement(TodayView, { sheetsData: sheetsData, kpiSrc: KPI_SRC, dealer: DEALER_PSI, fetchedAt: sheetsFetchedAt, fin: (typeof CORP_FIN !== 'undefined' ? CORP_FIN : null), psiSrc: CORP_PSI_SRC_LIVE, weeklyEntries: weeklyEntries, setWeeklyEntries: setWeeklyEntries, logChange: logChange, year: (typeof curYear !== 'undefined' ? curYear : 2026) });
     if (selectedHQ === 'corpfin') return React.createElement(CorpFinView, { ui: corpUI, setUI: setCorpUI, month: filterMonth || 0, data: CORP_FIN });
     if (selectedHQ === 'corptw') return React.createElement(CorpTWView, { ui: corpUI, setUI: setCorpUI, data: CORP_TW_LIVE, month: filterMonth || 0 });
     if (selectedHQ === 'corp' || selectedHQ === 'exp') return React.createElement(CorpView, { month: filterMonth || 0, ui: corpUI, setUI: setCorpUI, psi: CORP_PSI, kpi: CORP_KPI, live: CORP_TRD_LIVE, fetchedAt: sheetsFetchedAt, sheetsData: sheetsData, wkd: CORP_WK, psrc: CORP_PSI_SRC_LIVE, edits: CORP_EDITS, onEdit: setCorpEdit, localEdits: corpEdits, closedM: corpClosedM, setClosedM: setCorpClosedM, apiUrl: corpEditUrl, setApiUrl: function (u) { setCorpEditUrl(u); try { localStorage.setItem("dashboard_corp_edit_url_v1", u || ""); } catch (e) {} } });
